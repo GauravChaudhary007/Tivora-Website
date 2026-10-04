@@ -1,0 +1,77 @@
+# Deploy the website to the server (same mechanism as alanza's deploy-uat.yml):
+# package the tracked source, copy it over SSH, and run deploy.sh there, which
+# rebuilds the Docker image and restarts the container.
+#
+# Manual for now (Actions → Deploy website → Run workflow). Once the target
+# server and port are confirmed, add `push: branches: [main]` to deploy
+# automatically on every merge.
+#
+# Needs repository (or organisation) secrets: SSH_KEY, SSH_HOST, SSH_USER.
+name: Deploy website
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-tivora-website
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: Package, transfer, and deploy
+    runs-on: self-hosted
+    defaults:
+      run:
+        shell: powershell
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Package tracked source as a tarball
+        run: |
+          $ErrorActionPreference = "Stop"
+          $tarPath = Join-Path $env:RUNNER_TEMP "tivora-website.tar"
+          git archive --format=tar --output=$tarPath HEAD
+          if ($LASTEXITCODE -ne 0) { throw "git archive failed" }
+          $entryCount = (tar -tf $tarPath | Measure-Object -Line).Lines
+          Write-Host "Tarball: $tarPath ($((Get-Item $tarPath).Length) bytes, $entryCount entries)"
+          if ($entryCount -lt 1) { throw "Tarball is empty - refusing to transfer" }
+
+      - name: Transfer and run deploy.sh
+        env:
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+        run: |
+          $ErrorActionPreference = "Stop"
+          if (-not $env:SSH_KEY -or -not $env:SSH_HOST -or -not $env:SSH_USER) { throw "SSH_KEY / SSH_HOST / SSH_USER secrets are not set for this repository" }
+
+          $keyDir = Join-Path $env:RUNNER_TEMP "web-ssh"
+          New-Item -ItemType Directory -Force -Path $keyDir | Out-Null
+          $keyPath = Join-Path $keyDir "deploy_key"
+          Set-Content -Path $keyPath -Value $env:SSH_KEY -NoNewline -Encoding ascii
+          icacls $keyPath /inheritance:r | Out-Null
+          $currentIdentity = [System.Security.Principal.WindowsIdentity]::GetCurrent().Name
+          icacls $keyPath /grant:r "${currentIdentity}:(R)" | Out-Null
+
+          $knownHosts = Join-Path $keyDir "known_hosts"
+          New-Item -ItemType File -Force -Path $knownHosts | Out-Null
+          $kexOpt = "KexAlgorithms=curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,diffie-hellman-group14-sha256"
+          $hostKeyOpt = "StrictHostKeyChecking=accept-new"
+          $target = "$($env:SSH_USER)@$($env:SSH_HOST)"
+
+          $tarPath = Join-Path $env:RUNNER_TEMP "tivora-website.tar"
+          scp -i $keyPath -o UserKnownHostsFile=$knownHosts -o $kexOpt -o $hostKeyOpt $tarPath "${target}:/tmp/tivora-website.tar"
+          if ($LASTEXITCODE -ne 0) { throw "scp (tarball) failed (exit $LASTEXITCODE)" }
+          scp -i $keyPath -o UserKnownHostsFile=$knownHosts -o $kexOpt -o $hostKeyOpt .gitea/scripts/deploy.sh "${target}:/tmp/tivora-website-deploy.sh"
+          if ($LASTEXITCODE -ne 0) { throw "scp (deploy script) failed (exit $LASTEXITCODE)" }
+
+          $imageTag = '${{ github.sha }}'.Substring(0, 7)
+          $remoteCmd = "IMAGE_TAG='$imageTag' bash /tmp/tivora-website-deploy.sh; ec=`$?; rm -f /tmp/tivora-website-deploy.sh; exit `$ec"
+          ssh -i $keyPath -o UserKnownHostsFile=$knownHosts -o $kexOpt -o $hostKeyOpt $target $remoteCmd
+          if ($LASTEXITCODE -ne 0) { throw "deploy failed (exit $LASTEXITCODE) - see log above" }
+          Write-Host "Website deployed."

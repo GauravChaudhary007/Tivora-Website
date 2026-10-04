@@ -1,0 +1,11 @@
+node_modules
+.next
+.git
+.gitea
+.tools
+.claude
+*.md
+!README.md
+.env*
+Dockerfile
+docker-compose*.yml

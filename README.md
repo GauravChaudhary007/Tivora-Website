@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tivora ERP — marketing website
 
-## Getting Started
-
-First, run the development server:
+Next.js 16 · React 19 · TypeScript · Tailwind CSS 4 · GSAP + ScrollTrigger · Motion · Lucide
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build && npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Things to finish before launch
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| What | Where |
+| --- | --- |
+| Product tour video | Done — `public/videos/product-demo.mp4` (1080p, 19.8 MB) + `product-demo-720.mp4` (phones, 9.6 MB) + poster. Opens from "Watch the full tour". |
+| Hero loop | Done — `public/videos/hero-loop.mp4` (9.5 s, silent, 0.74 MB): quotation → invoice → WhatsApp. Autoplays; skipped on Data Saver / 2G / reduced motion. Set `heroLoopVideo` to "" in `src/lib/site.ts` to show the interactive dashboard mockup instead. |
+| Demo form delivery | Set `DEMO_WEBHOOK_URL` (see `.env.example`). Handler: `src/app/api/demo/route.ts`. |
+| Industry copy | Generic by design — refine per industry in `src/components/sections/IndustrySelector.tsx`. |
+| Contact details | `src/lib/site.ts` |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Structure
 
-## Learn More
+- `src/app/page.tsx` — section order (the scroll narrative)
+- `src/components/sections/*` — one component per section
+- `src/components/ui/*` — `SectionHeading`, `Button`, `Reveal`, `AnimatedNumber`, `VideoFrame`, …
+- `src/lib/gsap.ts` — GSAP/ScrollTrigger registration + shared `MOTION_QUERIES` (desktop / mobile / reduced motion)
+- `src/components/product/*` — product UI mockups drawn in the application's own palette and fonts (IBM Plex Sans, Fraunces, gold #8a6420)
+- `public/brand/*` — Tivora logos (from the brand identity)
 
-To learn more about Next.js, take a look at the following resources:
+## Motion rules
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- GSAP + ScrollTrigger for scroll storytelling (hero tilt, automation pin, module ecosystem, manufacturing track, video reveal, CTA reveal).
+- Motion for UI state (tabs, menus, hover/tap, list transitions).
+- Every GSAP effect is registered through `gsap.matchMedia()`; with `prefers-reduced-motion: reduce` the page renders in its final, fully readable state.
+- All dashboard numbers in mockups are illustrative and labelled as such.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Re-encoding the video
 
-## Deploy on Vercel
+Source: the original export (1080p30, H.264). Commands used (ffmpeg):
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+# full tour, streaming-friendly
+ffmpeg -i tivora_video.mp4 -c:v libx264 -preset slow -crf 24 -pix_fmt yuv420p -movflags +faststart -c:a aac -b:a 128k public/videos/product-demo.mp4
+ffmpeg -i tivora_video.mp4 -vf scale=1280:-2 -c:v libx264 -preset slow -crf 25 -pix_fmt yuv420p -movflags +faststart -c:a aac -b:a 96k public/videos/product-demo-720.mp4
+# hero loop (0:37–0:46.5), silent
+ffmpeg -ss 37 -t 9.5 -i tivora_video.mp4 -an -vf scale=1280:-2 -c:v libx264 -preset slow -crf 26 -pix_fmt yuv420p -movflags +faststart public/videos/hero-loop.mp4
+```

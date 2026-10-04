@@ -1,0 +1,7 @@
+# Scripts and container files run on Linux: keep LF regardless of the checkout platform.
+*.sh text eol=lf
+Dockerfile text eol=lf
+*.yml text eol=lf
+# Media
+*.mp4 binary
+*.jpg binary

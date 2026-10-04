@@ -1,0 +1,39 @@
+# Lint, type-check and build on every push and pull request.
+# Runner conventions follow alanza: the only runner is `self-hosted` (Windows),
+# so steps run in PowerShell and use the Node already on PATH
+# (actions/setup-node does not work on this runner).
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: self-hosted
+    defaults:
+      run:
+        shell: powershell
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Node version
+        run: |
+          node --version
+          $major = [int]((node --version).TrimStart('v').Split('.')[0])
+          if ($major -lt 20) { throw "Node 20+ required, runner has $(node --version)" }
+
+      - name: Install
+        run: npm ci --no-audit --no-fund
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Type-check
+        run: npx tsc --noEmit
+
+      - name: Build
+        run: npm run build

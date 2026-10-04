@@ -1,0 +1,16 @@
+# Run on the server from /opt/tivora-website:
+#   docker compose --env-file .env.production up -d --build
+#
+# .env.production lives only on the server (never committed). It may set:
+#   WEB_PORT=3100            host port the site is published on
+#   DEMO_WEBHOOK_URL=...     where "Book a Demo" requests are forwarded
+services:
+  web:
+    build: .
+    image: tivora-website:latest
+    container_name: tivora-website
+    restart: unless-stopped
+    ports:
+      - "${WEB_PORT:-3100}:3000"
+    environment:
+      DEMO_WEBHOOK_URL: ${DEMO_WEBHOOK_URL:-}

@@ -39,3 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local video tooling
+/.tools/
+
+!.env.example
+
+# local tooling
+/.claude/
