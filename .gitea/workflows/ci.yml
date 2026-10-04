@@ -32,6 +32,11 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      # Route types (LayoutProps, PageProps…) are generated into .next/ and
+      # next-env.d.ts, both gitignored, so a fresh checkout must create them first.
+      - name: Generate route types
+        run: npx next typegen
+
       - name: Type-check
         run: npx tsc --noEmit
 
