@@ -92,7 +92,7 @@ export const modules: Module[] = [
     slug: "tax", name: "Tax & IRD", icon: "FileText", pack: "core",
     appLine: "VAT, Annex 9 and 13, TDS, IRD",
     more: "VAT, Annex 9 and 13, TDS, income tax and the IRD connection.",
-    bullets: ["13% VAT on each line, gathered into the VAT books", "Monthly VAT return, Annex 9 and Annex 13", "TDS where it applies", "E-invoicing in the CBMS format IRD publishes"],
+    bullets: ["13% VAT on each line, gathered into the VAT books", "Monthly VAT return, Annex 9 and Annex 13", "TDS where it applies", "Connected to IRD; issued bills locked forever"],
   },
   {
     slug: "reports", name: "Reports Centre", icon: "ChartColumn", pack: "core",

@@ -3,136 +3,834 @@
  "title": "Buy. Store. Make. Deliver.",
  "duration": 68.0,
  "poster": 38.0,
- "chrome": "Tivora ERP",
+ "chrome": "TiVora ERP",
  "tagline": "One platform. Every business.",
- "demo": "Demo company \"Kathmandu Paints\", sample figures. The Paint edition is coming.",
- "bug": "Demo company · sample figures",
- "budget": { "m1080": 12, "m720": 5, "poster": 0.15 },
+ "demo": "",
+ "bug": "",
+ "budget": {
+  "m1080": 12,
+  "m720": 5,
+  "poster": 0.15
+ },
  "end": {
   "cta": "Request a demo",
   "url": "www.hitechnepal.com.np",
   "phones": "01-5389641 · 01-5389642 · 01-5389643",
-  "product": "Tivora ERP is a product of HiTech Solutions and Services Pvt. Ltd., Kathmandu.",
-  "demo": "Demo company \"Kathmandu Paints\", sample figures. The Paint edition is coming."
+  "product": "TiVora ERP is a product of HiTech Solutions and Services Pvt. Ltd., Kathmandu.",
+  "demo": ""
  },
  "scenes": [
-  { "id": "S0", "in": 0, "out": 4, "type": "logo", "tone": "night",
+  {
+   "id": "S0",
+   "in": 0,
+   "out": 4,
+   "type": "logo",
+   "tone": "night",
    "captions": [
-    { "t": 1.0, "dur": 2.3, "style": "eyebrow", "text": "TIVORA ERP · STOCK & PRODUCTION", "pos": "c", "y": 380 },
-    { "t": 1.0, "dur": 2.3, "style": "display", "pos": "c", "size": 110, "y": 700, "text": "Buy. Store. Make. Deliver." }
-   ] },
-  { "id": "S1", "in": 4, "out": 7, "type": "world", "tone": "night", "enter": "fade",
-   "world": { "ox": 1250, "oy": 520, "k": 1.0, "chipAt": "inventory" },
+    {
+     "t": 1.0,
+     "dur": 2.3,
+     "style": "eyebrow",
+     "text": "TIVORA ERP · STOCK & PRODUCTION",
+     "pos": "c",
+     "y": 380
+    },
+    {
+     "t": 1.0,
+     "dur": 2.3,
+     "style": "display",
+     "pos": "c",
+     "size": 110,
+     "y": 700,
+     "text": "Buy. Store. Make. Deliver."
+    }
+   ]
+  },
+  {
+   "id": "S1",
+   "in": 4,
+   "out": 7,
+   "type": "world",
+   "tone": "night",
+   "enter": "fade",
+   "world": {
+    "ox": 1250,
+    "oy": 520,
+    "k": 1.0,
+    "chipAt": "inventory"
+   },
    "steps": [
-    { "t": 0, "dur": 0.8, "cam": { "d": "inventory", "s": 1.12 } },
-    { "t": 0, "dur": 0.8, "link": 1 },
-    { "t": 0.8, "dur": 2.2, "card": { "d": "inventory", "tag": "Godown", "text": "Store & Inventory" } }
+    {
+     "t": 0,
+     "dur": 0.8,
+     "cam": {
+      "d": "inventory",
+      "s": 1.12
+     }
+    },
+    {
+     "t": 0,
+     "dur": 0.8,
+     "link": 1
+    },
+    {
+     "t": 0.8,
+     "dur": 2.2,
+     "card": {
+      "d": "inventory",
+      "tag": "Godown",
+      "text": "Store & Inventory"
+     }
+    }
    ],
-   "captions": [ { "t": 0.1, "dur": 2.8, "text": "The stock moves with it." } ] },
-  { "id": "S2", "in": 7, "out": 20, "type": "screen", "tone": "ground", "enter": "T1", "demo": true, "demoAt": 0.9,
+   "captions": [
+    {
+     "t": 0.1,
+     "dur": 2.8,
+     "text": "The stock moves with it."
+    }
+   ]
+  },
+  {
+   "id": "S2",
+   "in": 7,
+   "out": 20,
+   "type": "screen",
+   "tone": "ground",
+   "enter": "T1",
+   "demo": true,
+   "demoAt": 0.9,
    "plate": "hub-purchase",
-   "camera": [[0,25,9,1.8],[3.0,25,9,1.8],[3.6,37,38,1.6,"inOut"],[6.0,37,38,1.6],[6.8,55,48,1.6,"inOut"],[9.0,55,48,1.6],[9.6,87,40,1.8,"inOut"],[13,87,40,1.8]],
+   "camera": [
+    [
+     0,
+     25,
+     9,
+     1.8
+    ],
+    [
+     3.0,
+     25,
+     9,
+     1.8
+    ],
+    [
+     3.6,
+     37,
+     38,
+     1.6,
+     "inOut"
+    ],
+    [
+     6.0,
+     37,
+     38,
+     1.6
+    ],
+    [
+     6.8,
+     55,
+     48,
+     1.6,
+     "inOut"
+    ],
+    [
+     9.0,
+     55,
+     48,
+     1.6
+    ],
+    [
+     9.6,
+     87,
+     40,
+     1.8,
+     "inOut"
+    ],
+    [
+     13,
+     87,
+     40,
+     1.8
+    ]
+   ],
    "callouts": [
-    [0.5,2.3,1.25,14.2,18.4,4.0],
-    [3.7,2.2,27.3,35.6,12.4,5.4],
-    [6.2,1.3,27.3,51.3,11.8,2.2],
-    [7.2,1.7,76.9,44.8,10.0,2.2],
-    [9.7,1.3,76.9,38.4,14.2,2.4],
-    [10.8,1.2,76.9,63.7,8.9,2.2],
-    [11.8,1.0,76.9,29.5,11.4,2.0]
+    [
+     0.5,
+     2.3,
+     1.25,
+     14.2,
+     18.4,
+     4.0
+    ],
+    [
+     3.7,
+     2.2,
+     27.3,
+     35.6,
+     12.4,
+     5.4
+    ],
+    [
+     6.2,
+     1.3,
+     27.3,
+     51.3,
+     11.8,
+     2.2
+    ],
+    [
+     7.2,
+     1.7,
+     76.9,
+     44.8,
+     10.0,
+     2.2
+    ],
+    [
+     9.7,
+     1.3,
+     76.9,
+     38.4,
+     14.2,
+     2.4
+    ],
+    [
+     10.8,
+     1.2,
+     76.9,
+     63.7,
+     8.9,
+     2.2
+    ],
+    [
+     11.8,
+     1.0,
+     76.9,
+     29.5,
+     11.4,
+     2.0
+    ]
    ],
    "captions": [
-    { "t": 0.3, "dur": 3.0, "text": "From requisition and RFQ to the order." },
-    { "t": 3.4, "dur": 2.6, "text": "Supplier quotations, compared." },
-    { "t": 6.1, "dur": 2.9, "text": "Import costs, pooled into the goods." },
-    { "t": 9.2, "dur": 3.6, "text": "Received but not billed. Payables ageing." }
-   ] },
-  { "id": "S4", "in": 20, "out": 28, "type": "screen", "tone": "ground", "enter": "T3", "plate": "hub-inventory",
-   "camera": [[0,37,40,1.8],[3.6,37,40,1.8],[4.2,62,42,1.8,"inOut"],[6.1,62,42,1.8],[6.7,87,42,1.8,"inOut"],[8,87,42,1.8]],
+    {
+     "t": 0.3,
+     "dur": 3.0,
+     "text": "From requisition and RFQ to the order."
+    },
+    {
+     "t": 3.4,
+     "dur": 2.6,
+     "text": "Supplier quotations, compared."
+    },
+    {
+     "t": 6.1,
+     "dur": 2.9,
+     "text": "Import costs, pooled into the goods."
+    },
+    {
+     "t": 9.2,
+     "dur": 3.6,
+     "text": "Received but not billed. Payables ageing."
+    }
+   ]
+  },
+  {
+   "id": "S4",
+   "in": 20,
+   "out": 28,
+   "type": "screen",
+   "tone": "ground",
+   "enter": "T3",
+   "plate": "hub-inventory",
+   "camera": [
+    [
+     0,
+     37,
+     40,
+     1.8
+    ],
+    [
+     3.6,
+     37,
+     40,
+     1.8
+    ],
+    [
+     4.2,
+     62,
+     42,
+     1.8,
+     "inOut"
+    ],
+    [
+     6.1,
+     62,
+     42,
+     1.8
+    ],
+    [
+     6.7,
+     87,
+     42,
+     1.8,
+     "inOut"
+    ],
+    [
+     8,
+     87,
+     42,
+     1.8
+    ]
+   ],
    "callouts": [
-    [0.5,1.7,27.3,34.1,9.4,7.5],
-    [1.9,1.7,27.3,54.9,6.8,2.0],
-    [4.3,0.9,52.2,36.4,4.6,2.0],
-    [5.0,0.9,52.2,45.4,5.8,2.0],
-    [5.6,0.8,52.2,63.7,11.5,2.0],
-    [6.9,1.1,76.9,33.7,12.0,2.0]
+    [
+     0.5,
+     1.7,
+     27.3,
+     34.1,
+     9.4,
+     7.5
+    ],
+    [
+     1.9,
+     1.7,
+     27.3,
+     54.9,
+     6.8,
+     2.0
+    ],
+    [
+     4.3,
+     0.9,
+     52.2,
+     36.4,
+     4.6,
+     2.0
+    ],
+    [
+     5.0,
+     0.9,
+     52.2,
+     45.4,
+     5.8,
+     2.0
+    ],
+    [
+     5.6,
+     0.8,
+     52.2,
+     63.7,
+     11.5,
+     2.0
+    ],
+    [
+     6.9,
+     1.1,
+     76.9,
+     33.7,
+     12.0,
+     2.0
+    ]
    ],
    "captions": [
-    { "t": 0.2, "dur": 3.6, "text": "Indents, approvals, godown transfers, stock audit." },
-    { "t": 3.9, "dur": 2.4, "text": "Batches, HSN and every godown." },
-    { "t": 6.4, "dur": 1.6, "text": "Stock valued, with NRV." }
-   ] },
-  { "id": "S5", "in": 28, "out": 34, "type": "screen", "tone": "ground", "enter": "T3", "plate": "stock-report",
-   "camera": [[0,75,14,1.6],[2.8,75,14,1.6],[3.6,80,55,1.6,"inOut"],[6,80,55,1.6]],
+    {
+     "t": 0.2,
+     "dur": 3.6,
+     "text": "Indents, approvals, godown transfers, stock audit."
+    },
+    {
+     "t": 3.9,
+     "dur": 2.4,
+     "text": "Batches, HSN and every godown."
+    },
+    {
+     "t": 6.4,
+     "dur": 1.6,
+     "text": "Stock valued, with NRV."
+    }
+   ]
+  },
+  {
+   "id": "S5",
+   "in": 28,
+   "out": 34,
+   "type": "screen",
+   "tone": "ground",
+   "enter": "T3",
+   "plate": "stock-report",
+   "camera": [
+    [
+     0,
+     75,
+     14,
+     1.6
+    ],
+    [
+     2.8,
+     75,
+     14,
+     1.6
+    ],
+    [
+     3.6,
+     80,
+     55,
+     1.6,
+     "inOut"
+    ],
+    [
+     6,
+     80,
+     55,
+     1.6
+    ]
+   ],
    "callouts": [
-    [0.5,1.8,59.0,39.0,38.5,2.6],
-    [2.5,2.0,85.5,10.6,4.6,2.5],
-    [3.9,2.0,86.7,39.0,10.6,60.0]
+    [
+     0.5,
+     1.8,
+     59.0,
+     39.0,
+     38.5,
+     2.6
+    ],
+    [
+     2.5,
+     2.0,
+     85.5,
+     10.6,
+     4.6,
+     2.5
+    ],
+    [
+     3.9,
+     2.0,
+     86.7,
+     39.0,
+     10.6,
+     60.0
+    ]
    ],
    "captions": [
-    { "t": 0.2, "dur": 5.6, "text": "Opening, inward, outward, closing." },
-    { "t": 2.2, "dur": 3.6, "style": "kicker", "text": "Product by product, in a second unit if you need it." }
-   ] },
-  { "id": "S6", "in": 34, "out": 44, "type": "screen", "tone": "ground", "enter": "T3", "plate": "hub-production",
-   "camera": [[0,30,12,1.8],[2.8,30,12,1.8],[3.4,62,40,1.8,"inOut"],[6.0,62,40,1.8],[6.6,87,50,1.8,"inOut"],[10,87,50,1.8]],
+    {
+     "t": 0.2,
+     "dur": 5.6,
+     "text": "Opening, inward, outward, closing."
+    },
+    {
+     "t": 2.2,
+     "dur": 3.6,
+     "style": "kicker",
+     "text": "Product by product, in a second unit if you need it."
+    }
+   ]
+  },
+  {
+   "id": "S6",
+   "in": 34,
+   "out": 44,
+   "type": "screen",
+   "tone": "ground",
+   "enter": "T3",
+   "plate": "hub-production",
+   "camera": [
+    [
+     0,
+     30,
+     12,
+     1.8
+    ],
+    [
+     2.8,
+     30,
+     12,
+     1.8
+    ],
+    [
+     3.4,
+     62,
+     40,
+     1.8,
+     "inOut"
+    ],
+    [
+     6.0,
+     62,
+     40,
+     1.8
+    ],
+    [
+     6.6,
+     87,
+     50,
+     1.8,
+     "inOut"
+    ],
+    [
+     10,
+     87,
+     50,
+     1.8
+    ]
+   ],
    "callouts": [
-    [0.4,2.4,1.25,15.8,50.8,4.6],
-    [3.5,1.2,52.2,32.7,8.9,2.4],
-    [4.5,1.5,52.2,40.0,10.4,8.9],
-    [6.8,1.2,76.9,56.7,7.6,1.9],
-    [7.8,1.2,76.9,67.0,6.3,1.9],
-    [8.7,1.2,76.9,63.4,17.1,2.1]
+    [
+     0.4,
+     2.4,
+     1.25,
+     15.8,
+     50.8,
+     4.6
+    ],
+    [
+     3.5,
+     1.2,
+     52.2,
+     32.7,
+     8.9,
+     2.4
+    ],
+    [
+     4.5,
+     1.5,
+     52.2,
+     40.0,
+     10.4,
+     8.9
+    ],
+    [
+     6.8,
+     1.2,
+     76.9,
+     56.7,
+     7.6,
+     1.9
+    ],
+    [
+     7.8,
+     1.2,
+     76.9,
+     67.0,
+     6.3,
+     1.9
+    ],
+    [
+     8.7,
+     1.2,
+     76.9,
+     63.4,
+     17.1,
+     2.1
+    ]
    ],
    "captions": [
-    { "t": 0.2, "dur": 2.8, "text": "Plan, order, issue, receive." },
-    { "t": 3.1, "dur": 3.0, "text": "Bills of materials, plants and machines." },
-    { "t": 6.3, "dur": 3.5, "text": "Yield and loss. Batch trace. Machine efficiency." }
-   ] },
-  { "id": "S7", "in": 44, "out": 48.5, "type": "screen", "tone": "ground", "enter": "T3", "plate": "desk-main",
-   "camera": [[0,38,28,2.0],[4.5,38,28,2.0]],
-   "callouts": [
-    [0.5,3.5,25.9,20.9,0,0,null,{"kind":"marker","n":1}],
-    [1.6,2.5,44.6,33.2,4.2,2.8]
+    {
+     "t": 0.2,
+     "dur": 2.8,
+     "text": "Plan, order, issue, receive."
+    },
+    {
+     "t": 3.1,
+     "dur": 3.0,
+     "text": "Bills of materials, plants and machines."
+    },
+    {
+     "t": 6.3,
+     "dur": 3.5,
+     "text": "Yield and loss. Batch trace. Machine efficiency."
+    }
+   ]
+  },
+  {
+   "id": "S7",
+   "in": 44,
+   "out": 48.5,
+   "type": "screen",
+   "tone": "ground",
+   "enter": "T3",
+   "plate": "desk-main",
+   "camera": [
+    [
+     0,
+     38,
+     28,
+     2.0
+    ],
+    [
+     4.5,
+     38,
+     28,
+     2.0
+    ]
    ],
-   "captions": [ { "t": 0.3, "dur": 3.5, "text": "A late order reaches the owner's desk." } ] },
-  { "id": "S8", "in": 48.5, "out": 55.5, "type": "screen", "tone": "ground", "enter": "T3", "plate": "hub-transport",
-   "camera": [[0,15,22,1.8],[3.1,15,22,1.8],[3.8,85,50,1.8,"inOut"],[7,85,50,1.8]],
    "callouts": [
-    [0.4,2.6,1.25,18.2,17.6,5.1],
-    [4.0,1.5,76.9,57.6,18.0,2.6],
-    [5.2,1.2,76.9,73.7,14.0,2.6]
+    [
+     0.5,
+     3.5,
+     25.9,
+     20.9,
+     0,
+     0,
+     null,
+     {
+      "kind": "marker",
+      "n": 1
+     }
+    ],
+    [
+     1.6,
+     2.5,
+     44.6,
+     33.2,
+     4.2,
+     2.8
+    ]
    ],
-   "t4": { "text": "Deliver.", "t": 6.0, "dur": 1.0, "top": 150 },
    "captions": [
-    { "t": 0.0, "dur": 3.25, "text": "Own vehicles, hired transporters, freight bills." },
-    { "t": 3.3, "dur": 2.8, "text": "Document expiry for vehicles and drivers." }
-   ] },
-  { "id": "S9", "in": 55.5, "out": 61.5, "type": "world", "tone": "night",
-   "world": { "ox": 1250, "oy": 520, "k": 1.0, "s": 1.0, "chipAt": "inventory" },
+    {
+     "t": 0.3,
+     "dur": 3.5,
+     "text": "A late order reaches the owner's desk."
+    }
+   ]
+  },
+  {
+   "id": "S8",
+   "in": 48.5,
+   "out": 55.5,
+   "type": "screen",
+   "tone": "ground",
+   "enter": "T3",
+   "plate": "hub-transport",
+   "camera": [
+    [
+     0,
+     15,
+     22,
+     1.8
+    ],
+    [
+     3.1,
+     15,
+     22,
+     1.8
+    ],
+    [
+     3.8,
+     85,
+     50,
+     1.8,
+     "inOut"
+    ],
+    [
+     7,
+     85,
+     50,
+     1.8
+    ]
+   ],
+   "callouts": [
+    [
+     0.4,
+     2.6,
+     1.25,
+     18.2,
+     17.6,
+     5.1
+    ],
+    [
+     4.0,
+     1.5,
+     76.9,
+     57.6,
+     18.0,
+     2.6
+    ],
+    [
+     5.2,
+     1.2,
+     76.9,
+     73.7,
+     14.0,
+     2.6
+    ]
+   ],
+   "t4": {
+    "text": "Deliver.",
+    "t": 6.0,
+    "dur": 1.0,
+    "top": 150
+   },
+   "captions": [
+    {
+     "t": 0.0,
+     "dur": 3.25,
+     "text": "Own vehicles, hired transporters, freight bills."
+    },
+    {
+     "t": 3.3,
+     "dur": 2.8,
+     "text": "Document expiry for vehicles and drivers."
+    }
+   ]
+  },
+  {
+   "id": "S9",
+   "in": 55.5,
+   "out": 61.5,
+   "type": "world",
+   "tone": "night",
+   "world": {
+    "ox": 1250,
+    "oy": 520,
+    "k": 1.0,
+    "s": 1.0,
+    "chipAt": "inventory"
+   },
    "steps": [
-    { "t": 0, "dur": 0.8, "cam": { "d": "inventory", "s": 1.12 } },
-    { "t": 0, "dim": "inventory", "dur": 0.3 },
-    { "t": 0, "dur": 2.0, "card": { "d": "inventory", "tag": "Godown", "text": "Store & Inventory" } },
-    { "t": 2.0, "dur": 0.7, "chip": "production" },
-    { "t": 2.0, "dur": 0.7, "link": 1 },
-    { "t": 2.0, "dur": 0.9, "cam": { "d": "production", "s": 1.12 } },
-    { "t": 2.0, "dim": "production", "dur": 0.3 },
-    { "t": 2.0, "dur": 2.0, "card": { "d": "production", "tag": "Floor", "text": "Production" } },
-    { "t": 4.0, "dur": 0.7, "chip": "finance" },
-    { "t": 4.0, "dur": 0.7, "link": 2 },
-    { "t": 4.0, "dur": 0.9, "cam": { "d": ["finance", "tax"], "s": 1.12 } },
-    { "t": 4.0, "dim": ["finance", "tax"], "dur": 0.3 },
-    { "t": 4.0, "dur": 1.5, "card": { "d": "finance", "tag": "Ledger", "text": "Finance & Accounts · Tax & IRD" } },
-    { "t": 5.0, "dur": 0.5, "link": 3 },
-    { "t": 5.0, "dur": 0.5, "link": 0 },
-    { "t": 5.0, "dur": 0.6, "cam": { "x": 0, "y": 0, "s": 1.0 } },
-    { "t": 5.0, "dim": null, "dur": 0.3 },
-    { "t": 5.45, "dur": 0.55, "op": 0 }
+    {
+     "t": 0,
+     "dur": 0.8,
+     "cam": {
+      "d": "inventory",
+      "s": 1.12
+     }
+    },
+    {
+     "t": 0,
+     "dim": "inventory",
+     "dur": 0.3
+    },
+    {
+     "t": 0,
+     "dur": 2.0,
+     "card": {
+      "d": "inventory",
+      "tag": "Godown",
+      "text": "Store & Inventory"
+     }
+    },
+    {
+     "t": 2.0,
+     "dur": 0.7,
+     "chip": "production"
+    },
+    {
+     "t": 2.0,
+     "dur": 0.7,
+     "link": 1
+    },
+    {
+     "t": 2.0,
+     "dur": 0.9,
+     "cam": {
+      "d": "production",
+      "s": 1.12
+     }
+    },
+    {
+     "t": 2.0,
+     "dim": "production",
+     "dur": 0.3
+    },
+    {
+     "t": 2.0,
+     "dur": 2.0,
+     "card": {
+      "d": "production",
+      "tag": "Floor",
+      "text": "Production"
+     }
+    },
+    {
+     "t": 4.0,
+     "dur": 0.7,
+     "chip": "finance"
+    },
+    {
+     "t": 4.0,
+     "dur": 0.7,
+     "link": 2
+    },
+    {
+     "t": 4.0,
+     "dur": 0.9,
+     "cam": {
+      "d": [
+       "finance",
+       "tax"
+      ],
+      "s": 1.12
+     }
+    },
+    {
+     "t": 4.0,
+     "dim": [
+      "finance",
+      "tax"
+     ],
+     "dur": 0.3
+    },
+    {
+     "t": 4.0,
+     "dur": 1.5,
+     "card": {
+      "d": "finance",
+      "tag": "Ledger",
+      "text": "Finance & Accounts · Tax & IRD"
+     }
+    },
+    {
+     "t": 5.0,
+     "dur": 0.5,
+     "link": 3
+    },
+    {
+     "t": 5.0,
+     "dur": 0.5,
+     "link": 0
+    },
+    {
+     "t": 5.0,
+     "dur": 0.6,
+     "cam": {
+      "x": 0,
+      "y": 0,
+      "s": 1.0
+     }
+    },
+    {
+     "t": 5.0,
+     "dim": null,
+     "dur": 0.3
+    },
+    {
+     "t": 5.45,
+     "dur": 0.55,
+     "op": 0
+    }
    ],
    "captions": [
-    { "t": 2.0, "dur": 2.0, "text": "The floor knows what to make." },
-    { "t": 4.0, "dur": 2.0, "text": "And the ledger already has it." }
-   ] },
-  { "id": "S10", "in": 61.5, "out": 68, "type": "endcard", "tone": "night", "hold": 2.5 }
+    {
+     "t": 2.0,
+     "dur": 2.0,
+     "text": "The floor knows what to make."
+    },
+    {
+     "t": 4.0,
+     "dur": 2.0,
+     "text": "And the ledger already has it."
+    }
+   ]
+  },
+  {
+   "id": "S10",
+   "in": 61.5,
+   "out": 68,
+   "type": "endcard",
+   "tone": "night",
+   "hold": 2.5
+  }
  ]
 }

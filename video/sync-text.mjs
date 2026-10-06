@@ -5,7 +5,7 @@ import { vtt } from "./captions.mjs";
 
 // Transcript = the spoken narration (video/narration.json) in reading form: "V A T" back to "VAT".
 const narration = JSON.parse(readFileSync("video/narration.json", "utf8"));
-const written = (t) => t.replace(/(?:[A-Z] )+[A-Z]/g, (m) => m.replace(/ /g, ""));
+const written = (t) => t.replace(/\bTivora\b/g, "TiVora").replace(/(?:[A-Z] )+[A-Z]/g, (m) => m.replace(/ /g, ""));
 
 const ids = ["master", "owner", "money", "stock", "sales"];
 let ts = readFileSync("src/content/videos.ts", "utf8");

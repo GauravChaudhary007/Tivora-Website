@@ -489,7 +489,7 @@
     // demo caption / bug on paint plates
     const plates = sc.type === "screen" ? [sc.plate] : sc.type === "split" ? sc.panes.map((p) => p.plate) : sc.type === "wall" ? sc.tiles.map((t) => t.plate) : [];
     const paint = plates.some((p) => PL[p].edition === "paint");
-    if (sc.demo || (paint && sc.bug !== false)) {
+    if ((sc.demo ? film.demo : film.bug) && (sc.demo || (paint && sc.bug !== false))) {
       const full = sc.demo === true, b = el("div", "bug" + (full ? " full" : ""), S.el, full ? film.demo : film.bug);
       const bt = full ? Math.min(3, sc.out - sc.in - (sc.demoAt || 0)) : sc.out - sc.in;
       tl.set(b, { visibility: "visible" }, sc.in + (sc.demoAt || 0)); tl.set(b, { visibility: "hidden" }, sc.in + (sc.demoAt || 0) + bt);

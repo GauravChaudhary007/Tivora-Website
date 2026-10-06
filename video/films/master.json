@@ -3,16 +3,16 @@
  "title": "One platform. Every business.",
  "duration": 100.0,
  "poster": 33.0,
- "chrome": "Tivora ERP",
+ "chrome": "TiVora ERP",
  "tagline": "One platform. Every business.",
- "demo": "Demo company \"Kathmandu Paints\", sample figures. The Paint edition is coming.",
- "bug": "Demo company · sample figures",
+ "demo": "",
+ "bug": "",
  "end": {
   "cta": "Request a demo",
   "url": "www.hitechnepal.com.np",
   "phones": "01-5389641 · 01-5389642 · 01-5389643",
-  "product": "Tivora ERP is a product of HiTech Solutions and Services Pvt. Ltd., Kathmandu.",
-  "demo": "Demo company \"Kathmandu Paints\", sample figures. The Paint edition is coming."
+  "product": "TiVora ERP is a product of HiTech Solutions and Services Pvt. Ltd., Kathmandu.",
+  "demo": ""
  },
  "scenes": [
   {
@@ -185,13 +185,19 @@
      "t": 6.0,
      "dur": 0.9,
      "cam": {
-      "d": ["finance", "tax"],
+      "d": [
+       "finance",
+       "tax"
+      ],
       "s": 1.12
      }
     },
     {
      "t": 6.0,
-     "dim": ["finance", "tax"],
+     "dim": [
+      "finance",
+      "tax"
+     ],
      "dur": 0.3
     },
     {
@@ -1545,7 +1551,7 @@
      "style": "line",
      "pos": "c",
      "y": 860,
-     "text": "CBMS-ready, built to IRD's current formats."
+     "text": "Connected to IRD. Issued bills locked forever."
     }
    ]
   },
@@ -1623,7 +1629,7 @@
      "x": 96,
      "y": 250,
      "w": 580,
-     "text": "Built one trade at a time."
+     "text": "Customised for your industry."
     },
     {
      "t": 0.8,
@@ -1632,11 +1638,7 @@
      "x": 96,
      "y": 560,
      "w": 640,
-     "pill": {
-      "kind": "ok",
-      "text": "Available now"
-     },
-     "text": "Tivora ERP – Jewelry"
+     "text": "Jewellery, Paint & Coatings, FMCG, Pharmacy"
     },
     {
      "t": 1.2,
@@ -1645,20 +1647,7 @@
      "x": 96,
      "y": 640,
      "w": 640,
-     "pill": {
-      "kind": "soon",
-      "text": "Coming"
-     },
-     "text": "General trading and Paint"
-    },
-    {
-     "t": 0.4,
-     "dur": 3.6,
-     "style": "eyebrow",
-     "x": 96,
-     "y": 960,
-     "w": 800,
-     "text": "Tivora ERP – Jewelry, demo data."
+     "text": "Automobile, Trading, Manufacturing"
     }
    ]
   },

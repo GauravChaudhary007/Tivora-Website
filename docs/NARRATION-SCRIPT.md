@@ -21,11 +21,11 @@ Format: `t` = start second, `fit` = seconds the line must fit in, then the line.
 | 31.2 | 5.6 | Work Desk | The Work Desk shows the owner what needs attention each morning: a credit limit, a late order, a journal not posted. |
 | 37.2 | 3.6 | Due and on time | And what is due, and who is keeping up. |
 | 41.2 | 4.6 | Dashboards | Each module has its own dashboard, and one page shows the whole business. |
-| 46.2 | 14.6 | The module wall | Twelve modules work from the same books: sales and purchase, stock and production, transport and delivery, customer services, finance, fixed assets, trade finance, tax, reports, and the control panel. |
+| 46.2 | 14.6 | The module wall | Every module works from the same books: sales and purchase, stock and production, transport and delivery, customer services, finance, fixed assets, trade finance, tax, reports, and the control panel. |
 | 61.2 | 9.6 | Quotation, bills, letters of credit | A quotation becomes a sales order at the quoted prices. Every bill carries its V A T, paid or not. And letters of credit are followed from application to retirement. |
 | 71.2 | 8.6 | Reports | Reports live in one searchable place: the day book, stock movement, and receivables ageing as a list, a pivot or a graph. The trial balance balances. |
 | 80.2 | 5.6 | Made for Nepal | It is made for Nepal: Bikram Sambat dates, V A T registers, T D S, and Annex nine and thirteen. |
-| 86.2 | 3.6 | Editions | Jewelry is available now. General trading and Paint are next. |
+| 86.2 | 3.6 | Industries | Customised for your industry, from jewellery to manufacturing. |
 | 90.2 | 4.6 | World, tagline | Tivora ERP. One platform. Every business. |
 | 95.8 | 3.5 | End card | Request a demo, and see it on your own numbers. |
 
@@ -55,7 +55,7 @@ Format: `t` = start second, `fit` = seconds the line must fit in, then the line.
 | 41.3 | 6.7 | Fixed assets | Fixed assets have their own register, with depreciation and the asset schedule built in. |
 | 48.5 | 11.5 | Trade finance | Trade finance is covered too: letters of credit, import loans and bank guarantees, from application to retirement, with foreign currency revalued at month end. |
 | 60.5 | 4.8 | Tax | For tax: V A T registers, Annex nine and thirteen, and T D S certificates by party. |
-| 65.8 | 5.7 | Formats | It is C B M S ready, and built to I R D's current formats. |
+| 65.8 | 5.7 | Formats | It is connected to I R D, and issued bills are locked forever. |
 
 ## Buy. Store. Make. Deliver. (68 s)
 
