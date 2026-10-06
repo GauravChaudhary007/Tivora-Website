@@ -113,7 +113,21 @@
     font-size: var(--text-body);
     line-height: var(--text-body--line-height);
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-variant-numeric: lining-nums;
     overflow-x: clip;
+    caret-color: var(--color-accent);
+  }
+  html {
+    scrollbar-color: var(--color-accent) var(--color-ground);
+  }
+  a:not([class]) {
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 1px;
+  }
+  table,
+  [data-numeric] {
+    font-variant-numeric: tabular-nums;
   }
   h1,
   h2 {
@@ -186,12 +200,13 @@
   background-image: radial-gradient(60% 50% at 50% 40%, rgb(192 138 46 / 0.18), transparent 70%);
 }
 
+/* Reduced motion keeps state feedback (colour, opacity, focus) and removes movement: no looping, no travel, no scroll animation. */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
   }
 }

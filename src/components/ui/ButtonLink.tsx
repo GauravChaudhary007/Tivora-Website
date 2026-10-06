@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 
 // Colours follow the nearest [data-tone] ancestor (set by Section / header / footer).
 const BASE =
-  "inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-md px-5 py-3 text-center font-bold transition-colors duration-(--duration-fast) sm:w-auto";
+  "inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-md px-5 py-3 text-center font-bold transition-[color,background-color,border-color,transform] duration-(--duration-fast) ease-(--ease-out-expo) motion-safe:hover:-translate-y-px motion-safe:active:translate-y-0 sm:w-auto sm:whitespace-nowrap";
 const VARIANT = {
   primary:
     "bg-accent text-paper hover:bg-bronze in-data-[tone=night]:bg-gold in-data-[tone=night]:text-ink in-data-[tone=night]:hover:bg-gold-light",

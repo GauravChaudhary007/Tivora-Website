@@ -91,15 +91,15 @@ export function HeroCore({ children, film }: { children: ReactNode; film: ReactN
           className="relative flex min-h-svh items-center overflow-hidden pt-header pb-section-sm"
         >
           <div className="bg-ember pointer-events-none absolute inset-0" aria-hidden="true" />
-          <div className="container-x relative grid items-center gap-stack-lg lg:grid-cols-12">
+          <div className="container-x relative grid items-center gap-stack-lg py-stack lg:grid-cols-12">
             <div className="lg:col-span-5">
               <p className="font-mono text-eyebrow font-medium text-gold uppercase">Tivora ERP · from HiTech, Kathmandu</p>
-              <h1 className="mt-5 text-display">One platform. Every business.</h1>
+              <h1 className="mt-5 text-h1">One platform. Every business.</h1>
               <p className="mt-6 max-w-prose text-lead text-muted-dark">
                 Sales, buying, stock, the production floor and the books, in one system. Bikram Sambat dates, VAT and IRD formats are built in, because it is
                 made in Nepal for Nepal.
               </p>
-              <div className="mt-stack flex flex-col gap-3 sm:flex-row">
+              <div className="mt-stack flex flex-col gap-3 sm:flex-row lg:flex-col lg:items-start 2xl:flex-row">
                 <ButtonLink href="/contact/">See it on your own numbers</ButtonLink>
                 <ButtonLink href="/platform/" variant="secondary">
                   Explore the platform
