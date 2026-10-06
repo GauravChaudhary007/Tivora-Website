@@ -113,12 +113,19 @@ export const FILMS: Record<FilmId, Film> = {
   },
 };
 
-/** Exact file names the renderer must write into public/videos/ (docs/VIDEO-SPEC.md 4.3). */
+/** Audio-enhanced versions (owner decision) replace the plain renders wherever the file exists. The master's enhanced 720 has no audio track, so the master keeps its plain files. */
+const NO_ENHANCED: FilmId[] = ["master"];
+const pick = (id: FilmId, base: string, res: "1080" | "720") => {
+  const enhanced = `${base}-${res}-enhanced.mp4`;
+  return !NO_ENHANCED.includes(id) && existsSync(join(process.cwd(), "public", "videos", enhanced)) ? enhanced : `${base}-${res}.mp4`;
+};
+
+/** Exact file names the renderer must write into public/videos/ (docs/VIDEO-SPEC.md 4.3), with enhanced versions preferred. */
 export function videoFiles(id: FilmId) {
   const base = `tivora-${id}-${VERSION}`;
   return {
-    src1080: `${base}-1080.mp4`,
-    src720: `${base}-720.mp4`,
+    src1080: pick(id, base, "1080"),
+    src720: pick(id, base, "720"),
     poster: `${base}-poster.jpg`,
     vtt: `${base}.en.vtt`,
   };
