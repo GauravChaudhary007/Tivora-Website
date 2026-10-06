@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import { pageMeta } from "@/lib/seo";
-import { modules, tradeFinanceExtra, type Module } from "@/content/modules";
+import { modules, launchingSoon, engines, tradeFinanceExtra, type Module } from "@/content/modules";
 import type { ScreenSlug } from "@/content/screens";
 import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
 import { CtaBand } from "@/components/layout/CtaBand";
 import { Screen } from "@/components/ui/Screen";
-import { Pill } from "@/components/ui/Pill";
 import { ModuleIcon } from "@/components/ui/ModuleIcon";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { VideoBlock } from "@/components/video/VideoBlock";
@@ -15,7 +14,7 @@ import { filmReady, type FilmId } from "@/content/videos";
 export const metadata: Metadata = pageMeta({
   title: "Modules",
   description:
-    "Twelve modules on one ledger: reports, purchase, inventory, production, sales, transport, customer services, finance, fixed assets, trade finance, tax and the control panel.",
+    "Complete modules, one database. Sixteen working areas today, with CRM, Exports, Quality Control and HRM launching soon on the same platform.",
   path: "/modules/",
 });
 
@@ -58,6 +57,7 @@ function ModuleBlock({ m }: { m: Module }) {
         <h3 className="text-h3">{m.name}</h3>
       </div>
       <p className="mt-4 max-w-prose text-lead text-muted">{m.appLine}</p>
+      {m.more && <p className="mt-3 max-w-prose text-muted">{m.more}</p>}
       {m.bullets.length > 0 && <Bullets items={m.bullets} />}
       {film && (
         <div className="mt-8 max-w-2xl">
@@ -76,8 +76,8 @@ export default function Page() {
     <>
       <PageHero
         eyebrow="Modules"
-        title="Twelve modules. One ledger underneath."
-        lead="Sales, buying, stock, the production floor and the books share one set of entries, so a figure changed in one module is the same figure in every other."
+        title="Complete modules. One database."
+        lead="Every module talks to every other. Sixteen working areas today, with CRM, Exports, Quality Control and HRM launching soon on the same platform."
       />
 
       <Section tone="ground">
@@ -95,7 +95,7 @@ export default function Page() {
                 ))}
                 <li className="lg:mt-3">
                   <a href="#jewelry-pack" className="inline-flex min-h-11 items-center font-bold text-accent hover:text-bronze">
-                    Jewelry pack
+                    Jewellery solution
                   </a>
                 </li>
               </ul>
@@ -110,14 +110,47 @@ export default function Page() {
         </div>
       </Section>
 
+      <Section tone="paper">
+        <div className="container-x">
+          <h2 data-reveal>Launching soon.</h2>
+          <ul className="mt-stack-lg grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8" data-stagger>
+            {launchingSoon.map((m) => (
+              <li key={m.name} className="rounded-xl border border-rule bg-ground p-6">
+                <ModuleIcon name={m.icon} />
+                <h3 className="mt-4">{m.name}</h3>
+                <p className="mt-2 text-muted">{m.line}</p>
+                <span className="mt-4 inline-block rounded-full bg-tint px-3 py-1 text-small font-bold text-muted">Launching soon</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Section>
+
+      <Section tone="ground">
+        <div className="container-x">
+          <h2 data-reveal>Engines that run underneath every module.</h2>
+          <dl className="mt-stack-lg grid gap-x-8 gap-y-6 sm:grid-cols-2" data-stagger>
+            {engines.map((e) => (
+              <div key={e.name} className="border-t border-rule pt-4">
+                <dt className="font-bold">{e.name}</dt>
+                <dd className="mt-1 text-muted">{e.line}</dd>
+              </div>
+            ))}
+          </dl>
+          <p className="mt-stack-lg max-w-3xl text-lead" data-reveal>
+            <strong>Intelligent by design.</strong> TiVora knows every open item across all modules and acts like your manager: it
+            reminds you what to do, warns you what not to do, and shows the next step, so every job finishes on time.
+          </p>
+        </div>
+      </Section>
+
       <Section tone="paper" id="jewelry-pack">
         <div className="container-x">
           <div className="max-w-3xl" data-reveal>
-            <Pill kind="available" />
-            <h2 className="mt-4">The Jewelry pack.</h2>
+            <h2>The Jewellery solution.</h2>
             <p className="mt-4 text-lead text-muted">
-              TiVora ERP – Jewelry adds four more modules to the same twelve, for the workshop, the factory floor, tagged stock and
-              loans against jewelry.
+              The Jewellery industry solution adds four more modules to the platform, for the workshop, the factory floor, tagged stock and
+              loans against jewellery.
             </p>
           </div>
           <div className="mt-stack-lg grid gap-6 sm:grid-cols-2 lg:gap-8">
@@ -133,7 +166,7 @@ export default function Page() {
             ))}
           </div>
           <div className="mt-stack" data-reveal>
-            <ButtonLink href="/industries/jewelry/" variant="secondary">See TiVora ERP – Jewelry</ButtonLink>
+            <ButtonLink href="/industries/jewelry/" variant="secondary">See the Jewellery solution</ButtonLink>
           </div>
         </div>
       </Section>

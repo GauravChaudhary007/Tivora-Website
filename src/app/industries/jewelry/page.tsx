@@ -6,20 +6,19 @@ import { Section } from "@/components/layout/Section";
 import { CtaBand } from "@/components/layout/CtaBand";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { ModuleIcon } from "@/components/ui/ModuleIcon";
-import { Pill } from "@/components/ui/Pill";
 import { Screen } from "@/components/ui/Screen";
 
 export const metadata: Metadata = pageMeta({
-  title: "TiVora ERP – Jewelry",
+  title: "Jewellery",
   description:
-    "Your gold is accounted for, every gram of it. TiVora ERP – Jewelry follows your metal from the showroom counter to the karigar's bench.",
+    "Your gold is accounted for, every gram of it. The Jewellery solution follows your metal from the showroom counter to the karigar's bench: metal and stone tracking, purity, making charges, old gold and karigar management.",
   path: "/industries/jewelry/",
 });
 
 const stages = [
   {
     title: "In the showroom",
-    body: "Tagged stock, the day's board rate, jewelry and general-goods billing, old-metal exchange, goods on approval, customer orders, savings schemes, and counters with a cash-up at the end of the day.",
+    body: "Tagged stock, the day's board rate, jewellery and general-goods billing, old-metal exchange, goods on approval, customer orders, savings schemes, and counters with a cash-up at the end of the day.",
   },
   {
     title: "In the workshop",
@@ -43,24 +42,20 @@ export default function Page() {
   return (
     <>
       <PageHero
-        eyebrow="TiVora ERP – Jewelry"
+        eyebrow="Jewellery"
         title="Your gold is accounted for, every gram of it."
-        lead="From the showroom counter to the karigar's bench, TiVora ERP – Jewelry follows your metal. Bill a necklace with its weight, making charge and stones; take old gold in exchange on the same bill; issue metal to a karigar and see exactly how much fine metal comes back, with the wastage (ghat) explained."
+        lead="From the showroom counter to the karigar's bench, TiVora follows your metal. Metal and stone tracking, purity, making charges, old gold and karigar management are built in. Bill a necklace with its weight, making charge and stones; take old gold in exchange on the same bill; issue metal to a karigar and see exactly how much fine metal comes back, with the wastage (ghat) explained."
         actions={
           <>
             <ButtonLink href="/contact/?trade=jewelry">See it on your own numbers</ButtonLink>
-            <ButtonLink href="/modules/#jewelry-pack" variant="secondary">See the Jewelry modules</ButtonLink>
+            <ButtonLink href="/modules/#jewelry-pack" variant="secondary">See the Jewellery modules</ButtonLink>
           </>
         }
       />
 
       <Section tone="ground">
         <div className="container-x">
-          <div className="flex flex-wrap items-center gap-4" data-reveal>
-            <Pill kind="available" />
-            <p className="text-muted">Running in jewelry showrooms and workshops today.</p>
-          </div>
-          <ol className="mt-stack-lg grid gap-6 lg:grid-cols-3 lg:gap-8">
+          <ol className=" grid gap-6 lg:grid-cols-3 lg:gap-8">
             {stages.map((s, i) => (
               <li key={s.title} className="rounded-xl border border-rule bg-paper p-6 shadow-card" data-reveal>
                 <p className="font-mono text-eyebrow font-medium uppercase text-accent">0{i + 1}</p>

@@ -9,6 +9,8 @@ const ICONS = {
   ReceiptText: "receipt-text", HeartHandshake: "heart-handshake", ShoppingCart: "shopping-cart", Package: "package", Factory: "factory",
   Scale: "scale", Landmark: "landmark", FileText: "file-text", ChartColumn: "chart-column", SlidersHorizontal: "sliders-horizontal",
   Truck: "truck", Building2: "building-complex", Hammer: "hammer", FlaskConical: "flask-conical", ScanLine: "scan-line", LockKeyhole: "lock-keyhole",
+  ClipboardCheck: "clipboard-check", LayoutDashboard: "layout-dashboard", ClipboardList: "clipboard-list", Wrench: "wrench",
+  Users: "users", Ship: "ship", BadgeCheck: "badge-check", CalendarClock: "calendar-clock",
 };
 const out = {};
 for (const [name, file] of Object.entries(ICONS)) {
