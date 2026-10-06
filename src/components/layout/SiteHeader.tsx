@@ -73,8 +73,8 @@ export function SiteHeader() {
         className="fixed inset-x-0 top-0 z-50 h-header border-b border-rule bg-ground/85 text-ink backdrop-blur-md transition-colors duration-(--duration-base) data-[tone=night]:border-transparent data-[tone=night]:bg-night/90 data-[tone=night]:text-ground"
       >
         <div className="container-x flex h-full items-center justify-between gap-4">
-          <Link href="/" aria-label="Tivora ERP home" className="inline-flex min-h-11 shrink-0 items-center" onClick={close}>
-            <Logo tone="light" className="h-8 w-auto sm:h-10 in-data-[tone=night]:hidden" alt="Tivora ERP" />
+          <Link href="/" aria-label="TiVora ERP home" className="inline-flex min-h-11 shrink-0 items-center" onClick={close}>
+            <Logo tone="light" className="h-8 w-auto sm:h-10 in-data-[tone=night]:hidden" alt="TiVora ERP" />
             <Logo tone="dark" className="hidden h-8 w-auto sm:h-10 in-data-[tone=night]:block" alt="" />
           </Link>
 

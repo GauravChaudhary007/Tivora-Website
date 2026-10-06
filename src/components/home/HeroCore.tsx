@@ -93,7 +93,7 @@ export function HeroCore({ children, film }: { children: ReactNode; film: ReactN
           <div className="bg-ember pointer-events-none absolute inset-0" aria-hidden="true" />
           <div className="container-x relative grid items-center gap-stack-lg py-stack lg:grid-cols-12">
             <div className="lg:col-span-5">
-              <p className="font-mono text-eyebrow font-medium text-gold uppercase">Tivora ERP · from HiTech, Kathmandu</p>
+              <p className="font-mono text-eyebrow font-medium text-gold uppercase">TiVora ERP · from HiTech, Kathmandu</p>
               <h1 className="mt-5 text-h1">One platform. Every business.</h1>
               <p className="mt-6 max-w-prose text-lead text-muted-dark">
                 Sales, buying, stock, the production floor and the books, in one system. Bikram Sambat dates, VAT and IRD formats are built in, because it is
@@ -107,7 +107,7 @@ export function HeroCore({ children, film }: { children: ReactNode; film: ReactN
               </div>
               <p className="mt-8 flex max-w-prose items-start gap-3 text-small text-muted-dark">
                 <span className="mt-2 size-2 shrink-0 rounded-full bg-gold" aria-hidden="true" />
-                Tivora ERP – Jewelry is running in showrooms today. General trading and Paint are next.
+                TiVora ERP – Jewelry is running in showrooms today. General trading and Paint are next.
               </p>
             </div>
             <div className="lg:col-span-7">{film}</div>

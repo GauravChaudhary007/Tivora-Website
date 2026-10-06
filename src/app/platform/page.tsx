@@ -10,7 +10,7 @@ import { VideoSection } from "@/components/video/VideoSection";
 export const metadata: Metadata = pageMeta({
   title: "Platform",
   description:
-    "One accounting core and one stock engine, with Bikram Sambat dates, VAT and IRD formats built in. See how Tivora ERP fits together.",
+    "One accounting core and one stock engine, with Bikram Sambat dates, VAT and IRD formats built in. See how TiVora ERP fits together.",
   path: "/platform/",
 });
 
@@ -50,7 +50,7 @@ export default function Page() {
       <PageHero
         eyebrow="The platform"
         title="One accounting core. One stock engine."
-        lead="Every Tivora product shares the same ledger and the same stock engine, and adds a pack for its own trade. A sale made at the counter updates the stock and the ledger at the same moment, so nothing is typed twice and the numbers always agree."
+        lead="Every TiVora product shares the same ledger and the same stock engine, and adds a pack for its own trade. A sale made at the counter updates the stock and the ledger at the same moment, so nothing is typed twice and the numbers always agree."
         actions={
           <>
             <ButtonLink href="/modules/">See the modules</ButtonLink>
@@ -87,7 +87,7 @@ export default function Page() {
             <p className="font-mono text-eyebrow font-medium uppercase text-accent">Built for Nepal</p>
             <h2 className="mt-3">Made for the way Nepal does business.</h2>
             <p className="mt-5 text-lead text-muted">
-              Every date in Tivora ERP can be read in Bikram Sambat, and every document is numbered by fiscal year. VAT is
+              Every date in TiVora ERP can be read in Bikram Sambat, and every document is numbered by fiscal year. VAT is
               worked out on each line and gathered into the VAT books, the monthly VAT return, and Annex 9 and Annex 13.
               TDS is deducted where it applies, and invoices can be sent in the CBMS format IRD publishes for billing
               software.
@@ -119,12 +119,12 @@ export default function Page() {
           </div>
           <div className="space-y-5 text-lead text-muted lg:col-span-7" data-reveal>
             <p>
-              In the Tivora cloud, every company has its own database, kept apart from every other customer&apos;s. Your
+              In the TiVora cloud, every company has its own database, kept apart from every other customer&apos;s. Your
               data is backed up automatically, and every change is written to an audit log that cannot be edited. HiTech&apos;s
               own staff sign in to their console with a second step, a code from an authenticator app.
             </p>
             <p>
-              If a subscription runs out, Tivora ERP turns read-only rather than locking you out. You can always open and
+              If a subscription runs out, TiVora ERP turns read-only rather than locking you out. You can always open and
               print your own records.
             </p>
           </div>

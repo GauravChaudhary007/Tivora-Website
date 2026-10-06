@@ -10,7 +10,7 @@ import { Screen } from "@/components/ui/Screen";
 
 export const metadata: Metadata = pageMeta({
   title: "Industries",
-  description: "Tivora ERP is built one trade at a time. Tivora ERP – Jewelry is running in showrooms today; other trades are coming.",
+  description: "TiVora ERP is built one trade at a time. TiVora ERP – Jewelry is running in showrooms today; other trades are coming.",
   path: "/industries/",
 });
 
@@ -23,7 +23,7 @@ export default function Page() {
       <PageHero
         eyebrow="Industries"
         title="Built one trade at a time."
-        lead="Every Tivora product shares the same accounting core and stock engine, and adds a pack for its own trade."
+        lead="Every TiVora product shares the same accounting core and stock engine, and adds a pack for its own trade."
       />
 
       <Section tone="ground">

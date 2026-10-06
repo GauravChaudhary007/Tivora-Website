@@ -10,7 +10,7 @@ export function Logo({
   kind = "lockup",
   tone = "light",
   className = "",
-  alt = "Tivora ERP",
+  alt = "TiVora ERP",
   priority = false,
 }: {
   kind?: "lockup" | "symbol";

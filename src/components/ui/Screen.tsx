@@ -32,7 +32,7 @@ export function Screen({
           <span className="size-2.5 rounded-full bg-rule" />
           <span className="size-2.5 rounded-full bg-rule" />
           <span className="size-2.5 rounded-full bg-rule" />
-          <span className="ml-3 rounded-full bg-paper px-4 py-0.5 text-eyebrow text-muted">Tivora ERP</span>
+          <span className="ml-3 rounded-full bg-paper px-4 py-0.5 text-eyebrow text-muted">TiVora ERP</span>
         </div>
         {/* eslint-disable-next-line @next/next/no-img-element -- pre-sized WebP, static export has no optimizer */}
         <img

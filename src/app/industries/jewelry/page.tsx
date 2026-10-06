@@ -10,9 +10,9 @@ import { Pill } from "@/components/ui/Pill";
 import { Screen } from "@/components/ui/Screen";
 
 export const metadata: Metadata = pageMeta({
-  title: "Tivora ERP – Jewelry",
+  title: "TiVora ERP – Jewelry",
   description:
-    "Your gold is accounted for, every gram of it. Tivora ERP – Jewelry follows your metal from the showroom counter to the karigar's bench.",
+    "Your gold is accounted for, every gram of it. TiVora ERP – Jewelry follows your metal from the showroom counter to the karigar's bench.",
   path: "/industries/jewelry/",
 });
 
@@ -43,9 +43,9 @@ export default function Page() {
   return (
     <>
       <PageHero
-        eyebrow="Tivora ERP – Jewelry"
+        eyebrow="TiVora ERP – Jewelry"
         title="Your gold is accounted for, every gram of it."
-        lead="From the showroom counter to the karigar's bench, Tivora ERP – Jewelry follows your metal. Bill a necklace with its weight, making charge and stones; take old gold in exchange on the same bill; issue metal to a karigar and see exactly how much fine metal comes back, with the wastage (ghat) explained."
+        lead="From the showroom counter to the karigar's bench, TiVora ERP – Jewelry follows your metal. Bill a necklace with its weight, making charge and stones; take old gold in exchange on the same bill; issue metal to a karigar and see exactly how much fine metal comes back, with the wastage (ghat) explained."
         actions={
           <>
             <ButtonLink href="/contact/?trade=jewelry">See it on your own numbers</ButtonLink>

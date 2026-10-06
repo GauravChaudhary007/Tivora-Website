@@ -14,13 +14,13 @@ export function TradesScene() {
         <div data-reveal="" className="max-w-prose">
           <h2>Built one trade at a time.</h2>
           <p className="mt-5 text-lead text-muted">
-            Every Tivora product shares the same accounting core and stock engine, and adds a pack for its own trade.
+            Every TiVora product shares the same accounting core and stock engine, and adds a pack for its own trade.
           </p>
         </div>
         <div data-stagger="" className="mt-stack-lg grid gap-stack lg:grid-cols-12">
           <div className="rounded-xl border border-rule bg-paper p-6 shadow-card lg:col-span-7 lg:p-8">
             <Pill kind="available" />
-            <h3 className="mt-4">Tivora ERP – Jewelry</h3>
+            <h3 className="mt-4">TiVora ERP – Jewelry</h3>
             <div className="relative mt-6 pl-6 sm:pl-12">
               <Screen slug="home-jewelry" imgClassName="aspect-5/2 object-cover object-bottom" sizes="(min-width: 1024px) 560px, 100vw" />
               <Screen

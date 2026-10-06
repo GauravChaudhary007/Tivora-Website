@@ -7,7 +7,7 @@ import { DemoForm } from "@/components/forms/DemoForm";
 
 export const metadata: Metadata = pageMeta({
   title: "Request a demo",
-  description: "Tell us about your business and we will show you Tivora ERP on a trade like yours.",
+  description: "Tell us about your business and we will show you TiVora ERP on a trade like yours.",
   path: "/contact/",
 });
 
@@ -17,7 +17,7 @@ export default function Page() {
       <PageHero
         eyebrow="Request a demo"
         title="See it on your own numbers."
-        lead="Tell us about your business and we will show you Tivora ERP on a trade like yours."
+        lead="Tell us about your business and we will show you TiVora ERP on a trade like yours."
       />
       <Section tone="ground">
         <div className="container-x grid gap-stack lg:grid-cols-12 lg:gap-8">

@@ -1,7 +1,7 @@
-// Company facts, navigation and standard captions. Wording follows the Tivora ERP Website
+// Company facts, navigation and standard captions. Wording follows the TiVora ERP Website
 // Brief (29 Sep 2026) and the claims policy (docs/REVAMP-SPEC.md section H).
 export const site = {
-  name: "Tivora ERP",
+  name: "TiVora ERP",
   tagline: "One platform. Every business.",
   /** Descriptor inside the official lockup; "HiTech Intelligent Unified Enterprise Platforms" is the open alternative. */
   descriptor: "HiTech Intelligent ERP Solution",
@@ -47,7 +47,7 @@ export const footerColumns = {
 } as const;
 
 export const footerNote =
-  "Tivora ERP is a product of HiTech Solutions and Services Pvt. Ltd., Kathmandu.";
+  "TiVora ERP is a product of HiTech Solutions and Services Pvt. Ltd., Kathmandu.";
 
 /** Screenshot captions: deliberately empty (owner decision), so no caption renders under any screen. */
 export const DEMO_CAPTION = {

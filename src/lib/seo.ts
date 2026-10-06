@@ -9,6 +9,6 @@ export function pageMeta({ title, description, path }: { title: string; descript
     title,
     description,
     alternates: { canonical: path },
-    openGraph: { title, description, url: path, type: "website", siteName: "Tivora ERP", images: ["/opengraph-image.png"] },
+    openGraph: { title, description, url: path, type: "website", siteName: "TiVora ERP", images: ["/opengraph-image.png"] },
   };
 }

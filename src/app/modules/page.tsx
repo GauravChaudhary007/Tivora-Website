@@ -116,7 +116,7 @@ export default function Page() {
             <Pill kind="available" />
             <h2 className="mt-4">The Jewelry pack.</h2>
             <p className="mt-4 text-lead text-muted">
-              Tivora ERP – Jewelry adds four more modules to the same twelve, for the workshop, the factory floor, tagged stock and
+              TiVora ERP – Jewelry adds four more modules to the same twelve, for the workshop, the factory floor, tagged stock and
               loans against jewelry.
             </p>
           </div>
@@ -133,7 +133,7 @@ export default function Page() {
             ))}
           </div>
           <div className="mt-stack" data-reveal>
-            <ButtonLink href="/industries/jewelry/" variant="secondary">See Tivora ERP – Jewelry</ButtonLink>
+            <ButtonLink href="/industries/jewelry/" variant="secondary">See TiVora ERP – Jewelry</ButtonLink>
           </div>
         </div>
       </Section>

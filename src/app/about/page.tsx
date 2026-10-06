@@ -9,11 +9,11 @@ import { ButtonLink } from "@/components/ui/ButtonLink";
 export const metadata: Metadata = pageMeta({
   title: "About HiTech",
   description:
-    "Tivora ERP is the new platform from HiTech Solutions and Services, who have built business software in Nepal for more than 25 years.",
+    "TiVora ERP is the new platform from HiTech Solutions and Services, who have built business software in Nepal for more than 25 years.",
   path: "/about/",
 });
 
-// HiTech company figures, not Tivora ERP's (claims policy H): exactly these numbers, attributed.
+// HiTech company figures, not TiVora ERP's (claims policy H): exactly these numbers, attributed.
 const figures = [
   { n: "25+", l: "years" },
   { n: "10,000+", l: "clients" },
@@ -36,7 +36,7 @@ export default function Page() {
         <div className="container-x grid gap-stack-lg lg:grid-cols-12 lg:gap-8">
           <div className="space-y-5 text-lead text-muted lg:col-span-7" data-reveal>
             <p>
-              Tivora ERP is HiTech&apos;s new platform, bringing HiTech&apos;s experience of Nepali shops, accountants and chartered
+              TiVora ERP is HiTech&apos;s new platform, bringing HiTech&apos;s experience of Nepali shops, accountants and chartered
               accountants into one modern system.
             </p>
             <p>
@@ -53,7 +53,7 @@ export default function Page() {
                 </div>
               ))}
             </dl>
-            <p className="mt-3 text-small text-muted">Company figures of HiTech, not of Tivora ERP.</p>
+            <p className="mt-3 text-small text-muted">Company figures of HiTech, not of TiVora ERP.</p>
           </div>
         </div>
       </Section>

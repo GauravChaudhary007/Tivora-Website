@@ -10,7 +10,7 @@ export function CtaBand() {
         <div className="max-w-prose">
           <h2>See it on your own numbers.</h2>
           <p className="mt-4 text-lead text-muted-dark">
-            Tell us about your business and we will show you Tivora ERP on a trade like yours.
+            Tell us about your business and we will show you TiVora ERP on a trade like yours.
           </p>
         </div>
         <ButtonLink href={CTA.href}>{CTA.label}</ButtonLink>
