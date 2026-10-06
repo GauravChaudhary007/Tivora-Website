@@ -24,13 +24,32 @@ export function RevealRoot() {
       },
       { rootMargin: "0px 0px -8% 0px" },
     );
+    // Groups: children rise in reading order, 70ms apart (index capped in CSS). --i is set once here.
+    const groups = Array.from(document.querySelectorAll<HTMLElement>("[data-stagger]"));
+    groups.forEach((g) => {
+      Array.from(g.children).forEach((c, i) => (c as HTMLElement).style.setProperty("--i", String(i)));
+      g.classList.add("js-reveal-group");
+    });
+    const gio = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (!e.isIntersecting) continue;
+          e.target.classList.add("is-in");
+          gio.unobserve(e.target);
+        }
+      },
+      { rootMargin: "0px 0px -8% 0px" },
+    );
+    groups.forEach((g) => gio.observe(g));
     els.forEach((el) => {
       el.classList.add("js-reveal");
       io.observe(el);
     });
     return () => {
       io.disconnect();
+      gio.disconnect();
       els.forEach((el) => el.classList.remove("js-reveal", "is-in"));
+      groups.forEach((g) => g.classList.remove("js-reveal-group", "is-in"));
     };
   }, [pathname]);
   return null;

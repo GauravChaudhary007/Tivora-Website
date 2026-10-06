@@ -117,7 +117,7 @@ export function HeroCore({ children, film }: { children: ReactNode; film: ReactN
       </section>
 
       {/* Scene 1: one bill through the twelve modules. Static default: the world in its final lit state beside a numbered list. */}
-      <section ref={root} data-tone="night" className="bg-night text-ground scheme-dark">
+      <section id="tour-platform" ref={root} data-tone="night" className="bg-night text-ground scheme-dark">
         <div className="flex items-center py-section in-data-live:min-h-svh">
           <div className="container-x grid items-center gap-stack lg:grid-cols-12">
             <div className="lg:col-span-5">

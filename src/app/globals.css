@@ -182,6 +182,19 @@
       opacity var(--duration-slow) var(--ease-out-expo),
       transform var(--duration-slow) var(--ease-out-expo);
   }
+  /* Grouped stagger: children visible by default, hidden only once RevealRoot marks the group. */
+  .js-reveal-group > * {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  .js-reveal-group.is-in > * {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity var(--duration-slow) var(--ease-out-expo),
+      transform var(--duration-slow) var(--ease-out-expo);
+    transition-delay: calc(min(var(--i, 0), 4) * 70ms);
+  }
 }
 
 @utility container-x {
@@ -271,6 +284,135 @@
       animation: section-in linear both;
       animation-timeline: view();
       animation-range: entry 0% entry 45%;
+    }
+  }
+}
+
+/* Home tour: chapter rail and progress hairline */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+.tour-rail {
+  position: fixed;
+  left: 1.25rem;
+  top: 50%;
+  z-index: 30;
+  translate: 0 -50%;
+  --tour-dot: var(--color-ink);
+}
+.tour-rail[data-on="night"] {
+  --tour-dot: var(--color-ground);
+}
+.tour-rail ol {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* 8px dots on a 14px pitch */
+}
+.tour-rail a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 8px;
+  width: 8px;
+}
+.tour-dot {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: var(--tour-dot);
+  opacity: 0.35;
+  transition: background-color var(--duration-base) var(--ease-in-out);
+}
+.tour-pill {
+  position: absolute;
+  left: 0;
+  top: -7px; /* 22px pill centred on the first 8px dot */
+  width: 8px;
+  height: 22px;
+  border-radius: 9999px;
+  background: var(--tour-dot);
+  pointer-events: none;
+  transform: translateY(calc(var(--slot, 0) * 14px));
+  transition:
+    transform var(--duration-base) var(--ease-out-expo),
+    background-color var(--duration-base) var(--ease-in-out);
+}
+.tour-label {
+  position: absolute;
+  left: 20px;
+  white-space: nowrap;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--color-ink);
+  color: var(--color-ground);
+  opacity: 0;
+  transform: translateX(-4px);
+  pointer-events: none;
+  transition:
+    opacity var(--duration-fast) var(--ease-out-expo),
+    transform var(--duration-fast) var(--ease-out-expo);
+}
+.tour-rail[data-on="night"] .tour-label {
+  background: var(--color-ground);
+  color: var(--color-ink);
+}
+.tour-rail a:hover .tour-label,
+.tour-rail a:focus-visible .tour-label {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .tour-pill,
+  .tour-dot,
+  .tour-label {
+    transition: none;
+  }
+}
+.tour-progress {
+  display: none;
+}
+@keyframes tour-progress {
+  to {
+    transform: scaleX(1);
+  }
+}
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .tour-progress {
+      display: block;
+      position: fixed;
+      inset: 0 0 auto 0;
+      height: 2px;
+      z-index: 60;
+      background: var(--color-gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      pointer-events: none;
+      animation: tour-progress linear both;
+      animation-timeline: scroll(root);
+    }
+  }
+}
+
+/* One entrance for every real screen (opacity and transform only; no end frame, so nothing is left on the element). */
+@keyframes screen-rise {
+  from {
+    opacity: 0.55;
+    transform: translateY(40px) scale(0.97);
+  }
+}
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .screen-rise {
+      animation: screen-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 55%;
     }
   }
 }

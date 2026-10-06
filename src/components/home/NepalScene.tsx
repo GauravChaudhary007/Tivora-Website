@@ -29,7 +29,7 @@ export function NepalScene() {
         const tl = gsap
           .timeline({
             defaults: { ease: "none" },
-            scrollTrigger: { trigger: q("[data-pin]")[0], start: "top top", end: "+=140%", pin: true, scrub: 0.6 },
+            scrollTrigger: { trigger: q("[data-pin]")[0], start: "top top", end: "+=140%", pin: true, anticipatePin: 1, scrub: 1 },
           })
           .to(fill, { clipPath: SHOW, duration: 0.5 }, 0)
           .to(q("[data-mega]"), { yPercent: -40, opacity: 0, duration: 0.15 }, 0.5)
@@ -51,7 +51,7 @@ export function NepalScene() {
   });
 
   return (
-    <section ref={root} data-tone="night" className="overflow-hidden bg-night text-ground scheme-dark">
+    <section id="tour-nepal" ref={root} data-tone="night" className="overflow-hidden bg-night text-ground scheme-dark">
       <div data-pin="" className="flex flex-col justify-center py-section lg:in-data-live:h-svh lg:in-data-live:py-0">
         <div className="container-x lg:in-data-live:grid">
           <div data-mega="" className="lg:in-data-live:col-start-1 lg:in-data-live:row-start-1 lg:in-data-live:self-center">

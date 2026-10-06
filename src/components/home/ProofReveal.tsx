@@ -4,7 +4,7 @@ import { Screen } from "@/components/ui/Screen";
 /** Scene 2: the real Home screen. A plain section; the copy and the screen fade up as they enter (data-reveal, see RevealRoot). */
 export function ProofReveal() {
   return (
-    <Section tone="ground" size="lg">
+    <Section tone="ground" size="lg" id="tour-screen">
       <div className="container-x grid items-center gap-stack-lg lg:grid-cols-12">
         <div data-reveal="" className="lg:col-span-5">
           <h2>This is the real screen.</h2>
@@ -13,7 +13,7 @@ export function ProofReveal() {
           </p>
         </div>
         <div data-reveal="" className="min-w-0 lg:col-span-7">
-          <div className="hidden lg:block">
+          <div className="screen-rise hidden lg:block">
             <Screen slug="home-paint" caption={false} sizes="(min-width: 1024px) 700px, 100vw" />
           </div>
           {/* Below 1024px the full screen is unreadable: two real crops in a swipe row. */}

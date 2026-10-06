@@ -7,6 +7,7 @@ import { ModuleCards } from "@/components/home/ModuleCards";
 import { ModuleTrack } from "@/components/home/ModuleTrack";
 import { NepalScene } from "@/components/home/NepalScene";
 import { ProofReveal } from "@/components/home/ProofReveal";
+import { TourRail } from "@/components/home/TourRail";
 import { TradesScene } from "@/components/home/TradesScene";
 import { VideoBlock } from "@/components/video/VideoBlock";
 import { WorkDeskScene } from "@/components/home/WorkDeskScene";
@@ -14,6 +15,7 @@ import { WorkDeskScene } from "@/components/home/WorkDeskScene";
 export default function Page() {
   return (
     <div className="home-flow">
+      <TourRail />
       <HeroCore film={<VideoBlock id="master" />}>
         <IsoWorld props underlay={<Flows />} />
       </HeroCore>

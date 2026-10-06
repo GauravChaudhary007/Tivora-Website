@@ -28,7 +28,7 @@ export function ClosingScene() {
             </p>
             <DemoForm />
           </div>
-          <aside className="lg:col-span-5" aria-label="Contact details">
+          <aside data-stagger="" className="lg:col-span-5" aria-label="Contact details">
             <h3>HiTech Solutions and Services</h3>
             <address className="mt-4 text-muted not-italic">{addressLine}</address>
             <ul className="mt-4">

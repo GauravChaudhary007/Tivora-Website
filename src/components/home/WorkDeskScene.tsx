@@ -23,14 +23,14 @@ export function WorkDeskScene() {
       gsap.fromTo(
         q("[data-frame]"),
         { yPercent: -4 },
-        { yPercent: 6, ease: "none", scrollTrigger: { trigger: q("[data-frame]")[0], start: "top bottom", end: "bottom top", scrub: true } },
+        { yPercent: 6, ease: "none", scrollTrigger: { trigger: q("[data-frame]")[0], start: "top bottom", end: "bottom top", scrub: 1 } },
       );
     });
     return () => mm.revert();
   });
 
   return (
-    <section ref={root} data-tone="ground" className="overflow-hidden bg-ground py-section-lg text-ink">
+    <section id="tour-workdesk" ref={root} data-tone="ground" className="overflow-hidden bg-ground py-section-lg text-ink">
       <div className="container-x grid items-center gap-stack-lg lg:grid-cols-12">
         <div className="lg:col-span-4">
           <h2>Mornings start with what needs you.</h2>
@@ -57,7 +57,8 @@ export function WorkDeskScene() {
         </div>
         <div className="min-w-0 lg:col-span-8 lg:bleed-right">
           <WorkDeskStills />
-          <div data-frame="" className="relative hidden lg:block">
+          <div className="screen-rise hidden lg:block">
+          <div data-frame="" className="relative">
             <Screen slug="work-desk" caption={false} imgClassName="aspect-7/2 object-cover object-top" sizes="(min-width: 1024px) 900px, 100vw" />
             <div className="pointer-events-none absolute inset-x-0 bottom-0 aspect-7/2" aria-hidden="true">
               {MARKS.map((m, i) => (
@@ -70,6 +71,7 @@ export function WorkDeskScene() {
                 </span>
               ))}
             </div>
+          </div>
           </div>
         </div>
       </div>

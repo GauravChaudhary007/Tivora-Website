@@ -30,8 +30,8 @@ export function DashboardZoom({ pinned = true }: { pinned?: boolean }) {
         const tl = gsap.timeline({
           defaults: { ease: "power2.inOut" },
           scrollTrigger: pinned
-            ? { trigger: q("[data-pin]")[0], start: "top top", end: "+=160%", pin: true, scrub: 0.6 }
-            : { trigger: q("[data-pin]")[0], start: "top 60%", end: "bottom 40%", scrub: 0.6 },
+            ? { trigger: q("[data-pin]")[0], start: "top top", end: "+=160%", pin: true, anticipatePin: 1, scrub: 1 }
+            : { trigger: q("[data-pin]")[0], start: "top 60%", end: "bottom 40%", scrub: 1 },
         });
         STOPS.forEach((st, i) => {
           tl.to(img, { ...pos(st), duration: 0.8 }, i * 1.4);
@@ -47,7 +47,7 @@ export function DashboardZoom({ pinned = true }: { pinned?: boolean }) {
   );
 
   return (
-    <section ref={root} data-tone="paper" className="overflow-hidden bg-paper text-ink">
+    <section id="tour-dashboards" ref={root} data-tone="paper" className="overflow-hidden bg-paper text-ink">
       <div data-pin="" className={`flex flex-col justify-center py-section ${pinned ? "lg:in-data-live:h-svh lg:in-data-live:py-0" : ""}`}>
         <div className="container-x grid items-center gap-stack lg:grid-cols-12">
           <div className="lg:col-span-4">

@@ -9,7 +9,7 @@ const coming = trades.filter((t) => t.status === "coming");
 /** Scene 7. Light, not pinned; the shared [data-reveal] handles the entrance. */
 export function TradesScene() {
   return (
-    <Section tone="ground" size="lg">
+    <Section tone="ground" size="lg" id="tour-editions">
       <div className="container-x">
         <div data-reveal="" className="max-w-prose">
           <h2>Built one trade at a time.</h2>
@@ -17,8 +17,8 @@ export function TradesScene() {
             Every Tivora product shares the same accounting core and stock engine, and adds a pack for its own trade.
           </p>
         </div>
-        <div className="mt-stack-lg grid gap-stack lg:grid-cols-12">
-          <div data-reveal="" className="rounded-xl border border-rule bg-paper p-6 shadow-card lg:col-span-7 lg:p-8">
+        <div data-stagger="" className="mt-stack-lg grid gap-stack lg:grid-cols-12">
+          <div className="rounded-xl border border-rule bg-paper p-6 shadow-card lg:col-span-7 lg:p-8">
             <Pill kind="available" />
             <h3 className="mt-4">Tivora ERP – Jewelry</h3>
             <div className="relative mt-6 pl-6 sm:pl-12">
@@ -43,7 +43,7 @@ export function TradesScene() {
               See Jewelry
             </ButtonLink>
           </div>
-          <ul data-reveal="" className="divide-y divide-rule self-start border-y border-rule lg:col-span-5">
+          <ul className="divide-y divide-rule self-start border-y border-rule lg:col-span-5">
             {coming.map((t) => (
               <li key={t.slug} className="flex items-center justify-between gap-4 py-4">
                 <span className="font-bold">{t.name}</span>
