@@ -4,8 +4,7 @@ import { useRef, type ReactNode } from "react";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { live, MOTION_QUERIES, useScene } from "@/lib/scene";
 import { BEATS } from "./beats";
-import { SymbolStage } from "./SymbolStage";
-import { centre, collapse, H, makeCamera, ORDER, ORIGIN, ORIGIN_FRAC, S, SYMBOL_K, VB } from "./world";
+import { centre, collapse, H, makeCamera, ORDER, ORIGIN, S, VB } from "./world";
 
 const ZOOM = 1.35;
 const lift = H + 95;
@@ -19,12 +18,11 @@ const CARD_AT = {
 
 /**
  * Scenes 0 and 1 as ONE pinned scene on desktop (one world, one timeline), so the hand-over is a single continuous move:
- * the real symbol tilts, travels to the world's centre and scales onto its four slab tops, cross-fades into the world,
- * and the bill beats start from exactly that size and position. Mobile: the hero is plain and "Follow one bill" pins
+ * the hero (headline + the master film, the first thing a visitor sees) fades out as the explainer world fades in. Mobile: the hero is plain and "Follow one bill" pins
  * alone (250%). Reduced motion / no JS: hero, then the world with its numbered list, nothing pinned or hidden.
  * children = <IsoWorld props />.
  */
-export function HeroCore({ children }: { children: ReactNode }) {
+export function HeroCore({ children, film }: { children: ReactNode; film: ReactNode }) {
   const root = useRef<HTMLElement>(null);
   useScene(root, ({ gsap }) => {
     const mm = gsap.matchMedia();
@@ -39,7 +37,6 @@ export function HeroCore({ children }: { children: ReactNode }) {
       const caps = q("[data-cap]");
       const cards = q("[data-card]");
       const worldBox = q("[data-worldbox] > svg");
-      const svg = worldBox[0];
       const at = (k: (typeof ORDER)[number]) => ({ x: centre(k, lift)[0], y: centre(k, lift)[1] });
 
       ORDER.forEach((k, i) => gsap.set(ds[i], { ...collapse(k), opacity: i === 0 ? 1 : 0.35 }));
@@ -64,30 +61,9 @@ export function HeroCore({ children }: { children: ReactNode }) {
       });
 
       // Beat 0 starts after the hero hand-over (desktop only).
-      const T0 = desktop ? 0.9 : 0;
+      const T0 = desktop ? 0.6 : 0;
       if (desktop) {
-        // Where the symbol must go and how big it must be so its squares land on the collapsed world's slab tops.
-        const home = q("[data-symhome]")[0];
-        const slot = q("[data-symslot]")[0] as HTMLElement;
-        const geo = () => {
-          const w = svg.getBoundingClientRect();
-          const h = home.getBoundingClientRect();
-          return {
-            x: w.left + w.width * ORIGIN_FRAC.x - (h.left + h.width / 2),
-            y: w.top + w.height * ORIGIN_FRAC.y - (h.top + h.height / 2),
-            sc: (SYMBOL_K * w.width) / slot.offsetWidth,
-          };
-        };
-        tl.fromTo(
-          q("[data-sym]"),
-          { "--rx": "0deg", "--rz": "0deg", "--sc": 1 },
-          { "--rx": "55deg", "--rz": "-45deg", "--sc": () => geo().sc, duration: 0.8, ease: "none" },
-          0,
-        )
-          .to(slot, { x: () => geo().x, y: () => geo().y, duration: 0.8 }, 0)
-          .to(q("[data-copy]"), { autoAlpha: 0, y: "-12vh", duration: 0.6, ease: "none" }, 0)
-          .to(q("[data-sym]"), { opacity: 0, duration: 0.15, ease: "none" }, 0.75)
-          .to(worldBox, { opacity: 1, duration: 0.15, ease: "none" }, 0.75);
+        tl.to(q("[data-a]"), { autoAlpha: 0, duration: 0.45, ease: "none" }, 0).to(worldBox, { opacity: 1, duration: 0.3, ease: "none" }, 0.3);
       }
 
       const swap = (i: number, t: number) => {
@@ -132,7 +108,7 @@ export function HeroCore({ children }: { children: ReactNode }) {
         >
           <div className="bg-ember pointer-events-none absolute inset-0" aria-hidden="true" />
           <div className="container-x relative grid items-center gap-stack-lg lg:grid-cols-12">
-            <div data-copy="" className="lg:col-span-7">
+            <div data-copy="" className="lg:col-span-5">
               <p className="font-mono text-eyebrow font-medium text-gold uppercase">Tivora ERP · from HiTech, Kathmandu</p>
               <h1 className="mt-5 text-display">One platform. Every business.</h1>
               <p className="mt-6 max-w-prose text-lead text-muted-dark">
@@ -150,9 +126,7 @@ export function HeroCore({ children }: { children: ReactNode }) {
                 Tivora ERP – Jewelry is running in showrooms today. General trading and Paint are next.
               </p>
             </div>
-            <div data-symhome="" className="flex justify-center py-stack lg:col-span-5">
-              <SymbolStage priority />
-            </div>
+            <div className="lg:col-span-7">{film}</div>
           </div>
         </div>
 
@@ -163,14 +137,15 @@ export function HeroCore({ children }: { children: ReactNode }) {
         >
           <div className="container-x grid items-center gap-stack lg:grid-cols-12">
             <div className="lg:col-span-5">
-              <p data-bhead="" className="mb-6 font-mono text-eyebrow font-medium text-gold uppercase in-data-live:mb-0">
-                Follow one bill
-              </p>
+              <div data-bhead="" className="mb-6 in-data-live:mb-0">
+                <p className="font-mono text-eyebrow font-medium text-gold uppercase">One entry, four departments</p>
+                <p className="mt-3 text-lead text-ground">Raise one bill at the counter. Stock, the production floor and the books update from that same entry. Nobody types it twice.</p>
+              </div>
               <ol className="mt-4 list-none space-y-stack in-data-live:grid in-data-live:space-y-0">
                 {BEATS.map((b, i) => (
                   <li key={b.tag} data-cap="" className="in-data-live:col-start-1 in-data-live:row-start-1">
                     <p className="font-mono text-eyebrow font-medium text-gold uppercase">
-                      {i + 1} · {b.tag}
+                      Step {i + 1} of 4 · {b.tag}
                     </p>
                     <h2 className="mt-3 text-h3 in-data-live:text-h2">{b.title}</h2>
                     <p className="mt-3 text-lead text-muted-dark">{b.body}</p>

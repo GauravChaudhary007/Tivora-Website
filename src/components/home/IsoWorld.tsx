@@ -3,6 +3,7 @@ import { C, H, ORDER, ORIGIN, POS, VB, centre, collapse, outline, type District 
 
 // The "Follow one bill" world: four rounded slabs (the mark's squares), 45-degree links, one chip.
 // Server component, decorative (aria-hidden). Scenes find parts by data attributes (several copies may exist).
+const LABEL: Record<District, string> = { counter: "Counter · Sales", godown: "Godown · Stock", floor: "Floor · Production", ledger: "Ledger · Accounts & tax" };
 const f = (n: number) => n.toFixed(1);
 const pt = ([x, y]: [number, number], z: number) => iso(x, y, z).map(f).join(",");
 
@@ -117,6 +118,9 @@ export function IsoWorld({ props = false, collapsed = false, className = "" }: {
                 {props && (
                   <g data-props="">
                     <Props d={d} />
+                    <text x={centre(d, 0)[0]} y={centre(d, 0)[1] + 118} textAnchor="middle" className="fill-ground font-sans text-3xl font-bold">
+                      {LABEL[d]}
+                    </text>
                   </g>
                 )}
               </g>
