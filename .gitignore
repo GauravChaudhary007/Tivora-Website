@@ -47,3 +47,10 @@ next-env.d.ts
 
 # local tooling
 /.claude/
+
+# launch videos (docs/VIDEO-SPEC.md 4.3): tooling deps, derived frames and renders are never committed
+/video/node_modules/
+/video/frames/
+/video/build/
+/video/out/
+/public/videos/
