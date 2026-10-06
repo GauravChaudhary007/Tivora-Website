@@ -15,12 +15,12 @@ const plexMono = IBM_Plex_Mono({ variable: "--font-plex-mono", subsets: ["latin"
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: { default: "TiVora ERP · One platform. Every business.", template: "%s · TiVora ERP" },
+  title: { default: "TiVora ERP · The ERP that works like your best manager", template: "%s · TiVora ERP" },
   description:
-    "TiVora ERP from HiTech, Kathmandu: sales, buying, stock, production and accounts in one system, with Bikram Sambat dates, VAT and IRD formats built in.",
+    "TiVora ERP from HiTech, Kathmandu, knows everything happening in your business, tells every person what to do next and why, and is customised for your industry and your way of working.",
   openGraph: {
-    title: "TiVora ERP · One platform. Every business.",
-    description: "Sales, buying, stock, production and accounts in one system, made in Nepal for Nepal.",
+    title: "TiVora ERP · The ERP that works like your best manager",
+    description: "One entry, every module: a Work Desk for every person, live dashboards, approvals and Nepal's tax and trade built in.",
     type: "website",
     siteName: "TiVora ERP",
     images: ["/opengraph-image.png"],

@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { iso, prism } from "@/lib/iso";
 import { CHAIN, H, MODS, ORIGIN, P, POS, S, VB, centre, collapse, outline, type Mod } from "./world";
 
-// The "Follow one bill" world: the twelve modules as rounded slabs on a 4 x 3 grid, 45-degree links along one bill's path, one chip.
+// The "Follow one bill" world: the modules as rounded slabs on a 4 x 3 grid, 45-degree links along one bill's path, one chip.
 // Server component, decorative (aria-hidden). Scenes find parts by data attributes (several copies may exist).
 const f = (n: number) => n.toFixed(1);
 const pt = ([x, y]: [number, number], z: number) => iso(x, y, z).map(f).join(",");

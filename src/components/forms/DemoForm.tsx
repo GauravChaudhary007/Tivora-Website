@@ -3,15 +3,18 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { site } from "@/content/site";
 
-const TRADES = ["Jewelry", "General trading", "Paint", "FMCG", "Automobile", "Home Appliances", "Pharma", "Other"];
+const TRADES = ["Jewellery", "Paint & Coatings", "FMCG", "Pharmacy", "Automobile", "Trading", "Manufacturing", "Other"];
 const SLUG_TO_TRADE: Record<string, string> = {
-  jewelry: "Jewelry",
-  general: "General trading",
-  paint: "Paint",
+  jewelry: "Jewellery",
+  jewellery: "Jewellery",
+  general: "Trading",
+  trading: "Trading",
+  paint: "Paint & Coatings",
   fmcg: "FMCG",
   automobile: "Automobile",
-  "home-appliances": "Home Appliances",
-  pharma: "Pharma",
+  pharma: "Pharmacy",
+  pharmacy: "Pharmacy",
+  manufacturing: "Manufacturing",
 };
 
 // The form is always a light card, so it reads the same on night and light sections.
@@ -86,9 +89,9 @@ export function DemoForm() {
           <input id="df-company" name="company" autoComplete="organization" maxLength={160} className={FIELD} />
         </div>
         <div>
-          <label htmlFor="df-industry" className={LABEL}>Trade</label>
+          <label htmlFor="df-industry" className={LABEL}>Industry</label>
           <select ref={tradeSelect} id="df-industry" name="industry" defaultValue="" className={FIELD}>
-            <option value="">Select a trade</option>
+            <option value="">Select an industry</option>
             {TRADES.map((t) => (
               <option key={t} value={t}>{t}</option>
             ))}

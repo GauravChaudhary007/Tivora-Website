@@ -12,7 +12,7 @@ export function ClosingScene() {
       <Section tone="paper" size="md">
         <div data-reveal="" className="container-x flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <p className="max-w-prose text-lead">
-            TiVora ERP is the new platform from HiTech Solutions and Services, who have built business software in Nepal for more than 25 years.
+            TiVora ERP is the new platform from HiTech Solutions and Services, who have built business software in Nepal for 26+ years.
           </p>
           <ButtonLink href="/about/" variant="ghost">
             About HiTech
@@ -22,9 +22,9 @@ export function ClosingScene() {
       <Section tone="ground" size="lg" id="demo">
         <div className="container-x grid gap-stack lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-7">
-            <h2>See it on your own numbers.</h2>
+            <h2>See TiVora run your business, before you decide.</h2>
             <p className="mt-4 mb-stack max-w-prose text-lead text-muted">
-              Tell us about your business and we will show you TiVora ERP on a trade like yours.
+              A live demo customised to your industry, with your products, your process and your reports. We&rsquo;ll show your Work Desk, your dashboard and your approvals working on the call.
             </p>
             <DemoForm />
           </div>

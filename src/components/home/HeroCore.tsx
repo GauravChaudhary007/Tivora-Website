@@ -18,7 +18,7 @@ const STOP_S = 3.4; // seconds each stop of the bill's path is on screen
 
 /**
  * Scene 0 is the hero (headline + the master film, the first thing a visitor sees). Scene 1 explains the idea in a loop that plays by
- * itself, not scrubbed by scroll: the bill's chip travels Sales > Inventory > Production > Finance & Tax across the twelve modules while the
+ * itself, not scrubbed by scroll: the bill's chip travels Sales > Inventory > Production > Finance & Tax across the modules while the
  * caption and card follow it, then the whole world shows and it starts over. It pauses while off screen. Scrolling on simply moves into
  * Scene 2 ("This is the real screen"). Reduced motion / no JS: the world in its final lit state beside a numbered list, nothing hidden.
  * children = <IsoWorld props underlay={<Flows />} />.
@@ -93,11 +93,11 @@ export function HeroCore({ children, film }: { children: ReactNode; film: ReactN
           <div className="bg-ember pointer-events-none absolute inset-0" aria-hidden="true" />
           <div className="container-x relative grid items-center gap-stack-lg py-stack lg:grid-cols-12">
             <div className="lg:col-span-5">
-              <p className="font-mono text-eyebrow font-medium text-gold uppercase">TiVora ERP · from HiTech, Kathmandu</p>
-              <h1 className="mt-5 text-h1">One platform. Every business.</h1>
+              <p className="font-mono text-eyebrow font-medium text-gold uppercase">The ERP that tells you what&rsquo;s next</p>
+              <h1 className="mt-5 text-h1">The ERP that works like your best manager.</h1>
               <p className="mt-6 max-w-prose text-lead text-muted-dark">
-                Sales, buying, stock, the production floor and the books, in one system. Bikram Sambat dates, VAT and IRD formats are built in, because it is
-                made in Nepal for Nepal.
+                TiVora knows everything happening in your business, tells every person what to do next and why, and is customised for your industry and your way
+                of working.
               </p>
               <div className="mt-stack flex flex-col gap-3 sm:flex-row lg:flex-col lg:items-start 2xl:flex-row">
                 <ButtonLink href="/contact/">See it on your own numbers</ButtonLink>
@@ -105,10 +105,6 @@ export function HeroCore({ children, film }: { children: ReactNode; film: ReactN
                   Explore the platform
                 </ButtonLink>
               </div>
-              <p className="mt-8 flex max-w-prose items-start gap-3 text-small text-muted-dark">
-                <span className="mt-2 size-2 shrink-0 rounded-full bg-gold" aria-hidden="true" />
-                TiVora ERP – Jewelry is running in showrooms today. General trading and Paint are next.
-              </p>
             </div>
             <div className="lg:col-span-7">{film}</div>
           </div>
@@ -116,14 +112,14 @@ export function HeroCore({ children, film }: { children: ReactNode; film: ReactN
 
       </section>
 
-      {/* Scene 1: one bill through the twelve modules. Static default: the world in its final lit state beside a numbered list. */}
+      {/* Scene 1: one bill through the modules. Static default: the world in its final lit state beside a numbered list. */}
       <section id="tour-platform" ref={root} data-tone="night" className="bg-night text-ground scheme-dark">
         <div className="flex items-center py-section in-data-live:min-h-svh">
           <div className="container-x grid items-center gap-stack lg:grid-cols-12">
             <div className="lg:col-span-5">
               <div className="mb-6 in-data-live:mb-0">
-                <p className="font-mono text-eyebrow font-medium text-gold uppercase">One entry, twelve modules</p>
-                <p className="mt-3 text-lead text-ground">Raise one bill at the counter. Stock, the production floor and the books update from that same entry. Nobody types it twice. Here is that one bill passing through four of the twelve modules.</p>
+                <p className="font-mono text-eyebrow font-medium text-gold uppercase">One entry, every module</p>
+                <p className="mt-3 text-lead text-ground">Raise one bill at the counter. Stock, the production floor and the books update from that same entry. Nobody types it twice. Here is that one bill passing through four modules.</p>
               </div>
               <ol className="mt-4 list-none space-y-stack in-data-live:grid in-data-live:space-y-0">
                 {BEATS.map((b, i) => (

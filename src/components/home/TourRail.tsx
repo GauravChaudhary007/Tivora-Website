@@ -8,8 +8,8 @@ export const CHAPTERS = [
   { id: "tour-workdesk", label: "Work Desk" },
   { id: "tour-dashboards", label: "Dashboards" },
   { id: "tour-nepal", label: "Made for Nepal" },
-  { id: "tour-modules", label: "Twelve modules" },
-  { id: "tour-editions", label: "Editions" },
+  { id: "tour-modules", label: "Modules" },
+  { id: "tour-editions", label: "Industries" },
   { id: "demo", label: "Request a demo" },
 ] as const;
 

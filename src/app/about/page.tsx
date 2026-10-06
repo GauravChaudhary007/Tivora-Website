@@ -9,16 +9,17 @@ import { ButtonLink } from "@/components/ui/ButtonLink";
 export const metadata: Metadata = pageMeta({
   title: "About HiTech",
   description:
-    "TiVora ERP is the new platform from HiTech Solutions and Services, who have built business software in Nepal for more than 25 years.",
+    "TiVora ERP is the new platform from HiTech Solutions and Services, who have built business software in Nepal for 26+ years.",
   path: "/about/",
 });
 
 // HiTech company figures, not TiVora ERP's (claims policy H): exactly these numbers, attributed.
 const figures = [
-  { n: "25+", l: "years" },
-  { n: "10,000+", l: "clients" },
-  { n: "100+", l: "professionals" },
-  { n: "15+", l: "branches" },
+  { n: "26+", l: "years" },
+  { n: "100+", l: "team members" },
+  { n: "20+", l: "support offices" },
+  { n: "5+", l: "countries" },
+  { n: "10K+", l: "clients" },
 ];
 
 const products = ["Swastik", "Swastik POS", "Swastik Restaurant", "Bizant", "Pharmasoft", "HiTech Payroll", "HiTech Smartsuite"];
@@ -29,7 +30,7 @@ export default function Page() {
       <PageHero
         eyebrow="About"
         title="Made by HiTech."
-        lead="HiTech Solutions and Services Pvt. Ltd. has built business software in Nepal for more than 25 years."
+        lead="HiTech Solutions and Services Pvt. Ltd. has built business software in Nepal for 26+ years."
       />
 
       <Section tone="ground">
@@ -64,6 +65,7 @@ export default function Page() {
             <h2>Visit or call us.</h2>
             <div className="mt-6">
               <ButtonLink href={site.website} variant="ghost" className="sm:w-auto">{site.websiteLabel}</ButtonLink>
+              <ButtonLink href={site.productUrl} variant="ghost" className="mt-3 sm:ml-3 sm:mt-0 sm:w-auto">{site.productSite}</ButtonLink>
             </div>
           </div>
           <address className="space-y-3 not-italic lg:col-span-7" data-reveal>

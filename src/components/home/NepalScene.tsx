@@ -4,15 +4,16 @@ import { useRef } from "react";
 import { live, MOTION_QUERIES, useScene } from "@/lib/scene";
 
 const FACTS = [
-  "Bikram Sambat dates and fiscal years throughout, documents numbered by fiscal year (SI-2083/84-00001).",
-  "13% VAT on each line, the VAT books, the monthly VAT return, Annex 9 and Annex 13.",
-  "TDS where it applies, on labour and services.",
-  "E-invoicing in the CBMS format IRD publishes: CBMS-ready, built to IRD's current formats.",
+  "VAT on every line and every document, with Annex 9 and Annex 13 reports.",
+  "TDS and income tax. Connected to IRD, with issued bills locked forever.",
+  "Bikram Sambat and AD dates, and the Nepali fiscal year.",
+  "Letters of credit with the register and margin held, trust receipt and short-term loans, bank limits with headroom, bank guarantees and foreign-currency settlement.",
+  "Landed cost: freight, duty, clearing and bank charges allocated to item cost, estimate against actual.",
 ];
 const HIDE = "inset(0% 100% 0% 0%)";
 const SHOW = "inset(0% 0% 0% 0%)";
 
-/** Scene 5. Giant "2083" fills gold with scroll (clip-path sweep), then the four facts stack in. Desktop pinned 140%; mobile fills once on enter. */
+/** Scene 5. Giant "2083" fills gold with scroll (clip-path sweep), then the facts stack in. Desktop pinned 140%; mobile fills once on enter. */
 export function NepalScene() {
   const root = useRef<HTMLElement>(null);
   useScene(root, (g) => {
@@ -66,7 +67,7 @@ export function NepalScene() {
             <p className="mt-4 font-mono text-small font-medium text-muted-dark">2083-06-14 BS · 2026-09-30 AD</p>
           </div>
           <div data-facts="" className="mt-stack-lg lg:in-data-live:col-start-1 lg:in-data-live:row-start-1 lg:in-data-live:mt-0 lg:in-data-live:self-center">
-            <h2 className="max-w-3xl">Made for the way Nepal does business.</h2>
+            <h2 className="max-w-3xl">Ready for Nepal: tax, trade, finance and import costing.</h2>
             <ul className="mt-stack max-w-3xl divide-y divide-rule-dark border-y border-rule-dark">
               {FACTS.map((t) => (
                 <li key={t} data-fact="" className="py-4 text-lead">

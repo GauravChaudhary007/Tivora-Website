@@ -14,7 +14,11 @@ export const site = {
     { label: "01-5389641", tel: "+97715389641" },
     { label: "01-5389642", tel: "+97715389642" },
     { label: "01-5389643", tel: "+97715389643" },
+    { label: "9802031373", tel: "+9779802031373" },
+    { label: "9800133468", tel: "+9779800133468" },
   ],
+  productSite: "www.tivoraerp.com",
+  productUrl: "https://www.tivoraerp.com",
   emails: { info: "info@hitechnepal.com.np", support: "support@hitechnepal.com.np" },
   /** Mirrors --color-night in globals.css (viewport.themeColor needs a literal). */
   themeColor: "#110D08",
