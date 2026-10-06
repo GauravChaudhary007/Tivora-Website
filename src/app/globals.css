@@ -228,3 +228,49 @@
     opacity: 0.35;
   }
 }
+
+/* Home flow: where one section's tone differs from the one above, the new section's first few rem blend from the old colour (no hard edge),
+   and each section fades up as it enters (scroll-driven CSS, opacity only: no layout shift, and it cannot break the GSAP pins). */
+.home-flow > [data-tone] {
+  position: relative;
+  isolation: isolate;
+}
+.home-flow > [data-tone]::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: clamp(3rem, 8vw, 6rem);
+  background: linear-gradient(var(--seam-from, transparent), var(--seam-to, transparent));
+  pointer-events: none;
+  z-index: -1;
+}
+.home-flow > [data-tone="night"] + [data-tone="ground"] {
+  --seam-from: var(--color-night);
+  --seam-to: var(--color-ground);
+}
+.home-flow > [data-tone="night"] + [data-tone="paper"] {
+  --seam-from: var(--color-night);
+  --seam-to: var(--color-paper);
+}
+.home-flow > [data-tone="ground"] + [data-tone="night"] {
+  --seam-from: var(--color-ground);
+  --seam-to: var(--color-night);
+}
+.home-flow > [data-tone="paper"] + [data-tone="night"] {
+  --seam-from: var(--color-paper);
+  --seam-to: var(--color-night);
+}
+@keyframes section-in {
+  from {
+    opacity: 0.4;
+  }
+}
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .home-flow > [data-tone] {
+      animation: section-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 45%;
+    }
+  }
+}

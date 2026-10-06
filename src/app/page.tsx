@@ -13,7 +13,7 @@ import { WorkDeskScene } from "@/components/home/WorkDeskScene";
 
 export default function Page() {
   return (
-    <>
+    <div className="home-flow">
       <HeroCore film={<VideoBlock id="master" />}>
         <IsoWorld props underlay={<Flows />} />
       </HeroCore>
@@ -26,6 +26,6 @@ export default function Page() {
       </ModuleTrack>
       <TradesScene />
       <ClosingScene />
-    </>
+    </div>
   );
 }
