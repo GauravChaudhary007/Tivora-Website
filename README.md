@@ -45,3 +45,10 @@ ffmpeg -i tivora_video.mp4 -vf scale=1280:-2 -c:v libx264 -preset slow -crf 25 -
 # hero loop (0:37–0:46.5), silent
 ffmpeg -ss 37 -t 9.5 -i tivora_video.mp4 -an -vf scale=1280:-2 -c:v libx264 -preset slow -crf 26 -pix_fmt yuv420p -movflags +faststart public/videos/hero-loop.mp4
 ```
+
+## Deploy
+
+Two builds from one codebase (`trailingSlash: true` in both):
+
+- **Docker / Node:** `npm run build`, then `node .next/standalone/server.js`. The form posts to `src/app/api/demo/route.ts`; set `DEMO_WEBHOOK_URL` (see `.env.example`). Without it the form answers 503 with a friendly message.
+- **cPanel / Apache (static):** `npm run build:static` writes `out/` (asserts all 8 routes, `404.html`, `sitemap.xml`, `robots.txt`, no `_next/image`) and copies `deploy/static/` into it (`.htaccess`, `api/demo/index.php`, `api/demo/config.php`). Upload the contents of `out/` to `public_html`, then edit `api/demo/config.php` on the server (`to_email` and/or `webhook_url`; never commit real values). Keep `route.ts` and `index.php` in lockstep: same field keys (`name, company, industry, city, phone, email, message`), same length caps.
