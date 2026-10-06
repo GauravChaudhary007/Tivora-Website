@@ -1,45 +1,14 @@
-"use client";
-
-import { useRef, type ReactNode } from "react";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Section } from "@/components/layout/Section";
 import { DemoForm } from "@/components/forms/DemoForm";
 import { addressLine, site } from "@/content/site";
-import { MOTION_QUERIES, useScene } from "@/lib/scene";
-import { collapse, IDS } from "./world";
-import { SymbolStage } from "./SymbolStage";
 
 const link = "inline-flex min-h-11 items-center text-accent underline underline-offset-4 hover:text-bronze";
 
-/** Scenes 8 and 9. children = <IsoWorld />. The world collapses back into the official symbol (desktop: pinned scrub; mobile: plays once), then the demo form. */
-export function ClosingScene({ children }: { children: ReactNode }) {
-  const root = useRef<HTMLDivElement>(null);
-  useScene(root, (g) => {
-    const { gsap } = g;
-      const mm = gsap.matchMedia();
-      mm.add(MOTION_QUERIES, (ctx) => {
-        const { desktop } = ctx.conditions as { desktop: boolean };
-        const q = gsap.utils.selector(root);
-        gsap.set(q("[data-world]"), { opacity: 1 });
-        gsap.set(q("[data-label]"), { opacity: 0 }); // the spread world reaches under the label; it appears once the world has collapsed
-        gsap.set(q("[data-sym]"), { opacity: 0, "--rx": "55deg", "--rz": "-45deg", "--sc": 1.6 });
-        const tl = gsap.timeline({
-          defaults: { ease: "power2.inOut" },
-          scrollTrigger: desktop
-            ? { trigger: q("[data-pin]")[0], start: "top top", end: "+=100%", pin: true, scrub: 0.6 }
-            : { trigger: q("[data-pin]")[0], start: "top 70%", once: true },
-        });
-        IDS.forEach((k) => tl.to(q(`[data-d=${k}]`), { ...collapse(k), duration: 0.5 }, 0));
-        tl.to(q("[data-world]"), { opacity: 0, duration: 0.2, ease: "none" }, 0.5)
-          .to(q("[data-sym]"), { opacity: 1, duration: 0.2, ease: "none" }, 0.5)
-          .to(q("[data-sym]"), { "--rx": "0deg", "--rz": "0deg", "--sc": 1, duration: 0.4 }, 0.6)
-          .to(q("[data-label]"), { opacity: 1, duration: 0.2, ease: "none" }, 0.9);
-      });
-    return () => mm.revert();
-  });
-
+/** The end of the home page: who is behind Tivora, then the demo form with HiTech's contact details. */
+export function ClosingScene() {
   return (
-    <div ref={root}>
+    <>
       <Section tone="paper" size="md">
         <div data-reveal="" className="container-x flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <p className="max-w-prose text-lead">
@@ -50,12 +19,6 @@ export function ClosingScene({ children }: { children: ReactNode }) {
           </ButtonLink>
         </div>
       </Section>
-      <section data-tone="night" className="bg-night text-ground scheme-dark">
-        <div data-pin="" className="flex min-h-svh flex-col items-center justify-center gap-6 overflow-hidden py-section">
-          <SymbolStage>{children}</SymbolStage>
-          <p data-label="" className="mt-12 font-mono text-eyebrow font-medium text-gold uppercase">Twelve modules. One ledger.</p>
-        </div>
-      </section>
       <Section tone="ground" size="lg" id="demo">
         <div className="container-x grid gap-stack lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-7">
@@ -85,6 +48,6 @@ export function ClosingScene({ children }: { children: ReactNode }) {
           </aside>
         </div>
       </Section>
-    </div>
+    </>
   );
 }

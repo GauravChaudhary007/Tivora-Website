@@ -25,9 +25,7 @@ export default function Page() {
         <ModuleCards />
       </ModuleTrack>
       <TradesScene />
-      <ClosingScene>
-        <IsoWorld />
-      </ClosingScene>
+      <ClosingScene />
     </>
   );
 }
