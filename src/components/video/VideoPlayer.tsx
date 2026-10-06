@@ -6,7 +6,7 @@ type Conn = { saveData?: boolean; effectiveType?: string };
 
 /**
  * The only <video> in the site. Until the button is pressed only the poster exists: no video element,
- * so not even metadata is fetched (zero video bytes on load). Silent film; captions are WebVTT, off by default (words are burned in).
+ * so not even metadata is fetched (zero video bytes on load). Narrated film (starts only after the visitor presses play, so sound is allowed); captions are WebVTT, off by default (words are burned in).
  * 720p when Save-Data is on, the connection is 3g or slower, or the screen is under 1024 px wide; else 1080p.
  */
 export function VideoPlayer({
@@ -47,10 +47,9 @@ export function VideoPlayer({
           poster={poster}
           controls
           autoPlay
-          muted
           playsInline
           preload="auto"
-          aria-label={`${name}, ${length}, no sound`}
+          aria-label={`${name}, ${length}, with narration`}
           className="absolute inset-0 size-full rounded-frame bg-night shadow-frame"
         >
           <track kind="captions" srcLang="en" label="English" src={vtt} />
@@ -70,7 +69,7 @@ export function VideoPlayer({
           <button
             type="button"
             onClick={play}
-            aria-label={`Play video: ${name}, ${length}, no sound`}
+            aria-label={`Play video: ${name}, ${length}, with narration`}
             className="group absolute inset-0 flex items-center justify-center rounded-frame"
           >
             <span className="flex size-16 items-center justify-center rounded-full bg-night/80 text-gold shadow-card transition-transform duration-fast ease-out-expo group-hover:scale-110 sm:size-20">

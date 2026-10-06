@@ -1,0 +1,228 @@
+{
+ "outro": "Tivora ERP. One platform. Every business.",
+ "master": [
+  [
+   0.8,
+   "Tivora ERP, from HiTech, Kathmandu. One platform, for every business.",
+   7
+  ],
+  [
+   9.5,
+   "Raise a bill at the counter. Stock, the production floor and the books follow, from that same entry.",
+   9
+  ],
+  [
+   19.5,
+   "This is the real software. Every module, from one Home.",
+   7
+  ],
+  [
+   27.5,
+   "Search the menu with Control K. Switch company. Dates in both B S and A D.",
+   9
+  ],
+  [
+   37.5,
+   "The Work Desk shows what needs you first: credit limits, late orders, unposted journals.",
+   8
+  ],
+  [
+   46.5,
+   "Every module has its own dashboard, from sales and purchase to stock, production, finance, tax and trade.",
+   14
+  ],
+  [
+   61.5,
+   "Quotations become sales orders at the quoted prices, and every bill carries its VAT.",
+   9
+  ],
+  [
+   71.5,
+   "Letters of credit, from application to retirement, and every report in one place.",
+   8
+  ],
+  [
+   80.5,
+   "Made for Nepal, with Bikram Sambat dates and VAT registers.",
+   5.5
+  ],
+  [
+   86.3,
+   "Jewelry is available now. General trading and Paint are next.",
+   4.5
+  ]
+ ],
+ "owner": [
+  [
+   1,
+   "The owner's morning.",
+   3
+  ],
+  [
+   4.5,
+   "Open Home and your entries are one click away.",
+   4.5
+  ],
+  [
+   9.5,
+   "The Work Desk gathers everything that needs you: what is late, what is due today, and what is coming this week.",
+   8
+  ],
+  [
+   17.5,
+   "A customer is over the credit limit. A production order is late. A journal is not posted. Each has an action, one click away.",
+   13
+  ],
+  [
+   32.5,
+   "Then the numbers: who owes you, and whom you owe.",
+   5.5
+  ],
+  [
+   38.5,
+   "Sales this month, and the VAT.",
+   3.5
+  ],
+  [
+   51,
+   "Sales against last month, and what customers owe.",
+   6
+  ]
+ ],
+ "money": [
+  [
+   1,
+   "Books, banks and tax.",
+   3
+  ],
+  [
+   4.5,
+   "Vouchers, books, cheques and the final accounts.",
+   5
+  ],
+  [
+   10.5,
+   "Receipts, payments and contra, against a cash or bank book.",
+   7.5
+  ],
+  [
+   18.5,
+   "Import-loan and L C payments post as automatic vouchers.",
+   6.5
+  ],
+  [
+   25.5,
+   "Every voucher, in date order, in B S and A D.",
+   6.5
+  ],
+  [
+   32.5,
+   "The trial balance, and it balances.",
+   3.5
+  ],
+  [
+   41.5,
+   "The asset register, with depreciation and the asset schedule.",
+   6.5
+  ],
+  [
+   48.8,
+   "Letters of credit, import loans and bank guarantees, from application to retirement, and month-end revaluation.",
+   11.5
+  ],
+  [
+   60.8,
+   "VAT registers, Annex nine and thirteen, and TDS certificates.",
+   4.5
+  ],
+  [
+   66,
+   "C B M S-ready, built to I R D's current formats.",
+   5.5
+  ]
+ ],
+ "stock": [
+  [
+   1,
+   "Buy. Store. Make. Deliver.",
+   3
+  ],
+  [
+   4.3,
+   "The stock moves with every entry.",
+   2.8
+  ],
+  [
+   7.3,
+   "From requisition and R F Q to the order. Supplier quotations compared, and import costs pooled into the goods.",
+   12.5
+  ],
+  [
+   20.5,
+   "Indents, approvals, godown transfers and stock audit. Batches, H S N codes and every godown.",
+   7.5
+  ],
+  [
+   34.5,
+   "Plan, order, issue, receive. Bills of materials, plants and machines. Yield, loss and batch trace.",
+   9.5
+  ],
+  [
+   44.5,
+   "A late production order reaches the owner's desk.",
+   4
+  ],
+  [
+   49,
+   "Deliver with your own vehicles or hired transporters, and track freight bills.",
+   6.5
+  ],
+  [
+   56,
+   "The floor knows what to make. And the ledger already has it.",
+   5.5
+  ]
+ ],
+ "sales": [
+  [
+   1,
+   "From quotation to receipt.",
+   3
+  ],
+  [
+   4.3,
+   "Start the day at the counter, with price lists, discount schemes, counters and tills.",
+   10
+  ],
+  [
+   15,
+   "Sales below the floor price, and temporary credit limits, are reported.",
+   5
+  ],
+  [
+   20.5,
+   "A quotation becomes the sales order, at the quoted prices.",
+   7.5
+  ],
+  [
+   28.3,
+   "Every bill, dated in both calendars.",
+   2.7
+  ],
+  [
+   32.2,
+   "VAT on every line. Paid, partly paid, or unpaid.",
+   6
+  ],
+  [
+   44.8,
+   "Ageing in bands, as a list, pivot or graph.",
+   5.5
+  ],
+  [
+   51,
+   "Over the limit? The Work Desk flags it.",
+   4.5
+  ]
+ ]
+}
