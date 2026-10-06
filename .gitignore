@@ -47,6 +47,10 @@ next-env.d.ts
 
 # local tooling
 /.claude/
+/cpanel-package/
+/tivora-cpanel.zip
+/out/
+/tivora-static.zip
 
 # launch videos (docs/VIDEO-SPEC.md 4.3): tooling deps, derived frames and renders are never committed
 /video/node_modules/
@@ -54,3 +58,4 @@ next-env.d.ts
 /video/build/
 /video/out/
 /public/videos/
+video/audio/*.wav
