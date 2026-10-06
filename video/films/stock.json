@@ -26,7 +26,7 @@
    "steps": [
     { "t": 0, "dur": 0.8, "cam": { "x": -245, "y": -175, "s": 1.25 } },
     { "t": 0, "dur": 0.8, "link": 1 },
-    { "t": 0.2, "dur": 2.8, "card": { "d": "godown", "tag": "Godown", "text": "Store & Inventory" } }
+    { "t": 0.8, "dur": 2.2, "card": { "d": "godown", "tag": "Godown", "text": "Store & Inventory" } }
    ],
    "captions": [ { "t": 0.1, "dur": 2.8, "text": "The stock moves with it." } ] },
   { "id": "S2", "in": 7, "out": 20, "type": "screen", "tone": "ground", "enter": "T1", "demo": true, "demoAt": 0.9,

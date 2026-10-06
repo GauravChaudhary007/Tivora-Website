@@ -1,0 +1,103 @@
+{
+ "id": "sales",
+ "title": "From quotation to receipt.",
+ "duration": 62.0,
+ "poster": 22.0,
+ "chrome": "Tivora ERP",
+ "tagline": "One platform. Every business.",
+ "demo": "Demo company \"Kathmandu Paints\", sample figures. The Paint edition is coming.",
+ "bug": "Demo company · sample figures",
+ "budget": { "m1080": 12, "m720": 5, "poster": 0.15 },
+ "end": {
+  "cta": "Request a demo",
+  "url": "www.hitechnepal.com.np",
+  "phones": "01-5389641 · 01-5389642 · 01-5389643",
+  "product": "Tivora ERP is a product of HiTech Solutions and Services Pvt. Ltd., Kathmandu.",
+  "demo": "Demo company \"Kathmandu Paints\", sample figures. The Paint edition is coming."
+ },
+ "scenes": [
+  { "id": "A0", "in": 0, "out": 4, "type": "logo", "tone": "night",
+   "captions": [
+    { "t": 1.0, "dur": 2.3, "style": "eyebrow", "text": "TIVORA ERP · SALES & RECEIVABLES", "pos": "c", "y": 380 },
+    { "t": 1.0, "dur": 2.3, "style": "display", "pos": "c", "size": 110, "y": 700, "text": "From quotation to receipt." }
+   ] },
+  { "id": "A1", "in": 4, "out": 14.5, "type": "screen", "tone": "ground", "enter": "T1", "demo": true, "demoAt": 0.9,
+   "plate": "hub-sales",
+   "camera": [[0,25,9,1.8],[2.2,25,9,1.8],[2.8,62,40,1.8,"inOut"],[5.7,62,40,1.8],[6.3,87,55,1.8,"inOut"],[10.5,87,55,1.8]],
+   "callouts": [
+    [0.4,1.9,1.25,14.2,12.5,4.0],
+    [3.0,1.4,52.2,48.4,9.6,4.9],
+    [4.3,1.5,52.2,57.9,7.0,2.2],
+    [6.5,1.7,76.9,57.4,9.6,2.2],
+    [7.9,2.0,76.9,79.0,19.4,2.2]
+   ],
+   "captions": [
+    { "t": 0.2, "dur": 2.2, "text": "Day start at the counter." },
+    { "t": 2.5, "dur": 3.45, "text": "Price lists, discount schemes, counters and tills." },
+    { "t": 6.2, "dur": 3.9, "text": "Below-floor sales and temporary credit limits, reported." }
+   ] },
+  { "id": "A2", "in": 14.5, "out": 20, "type": "screen", "tone": "ground", "enter": "T3", "plate": "quotations",
+   "camera": [[0,50,50,1],[0.8,30,40,1.3,"inOut"],[2.8,30,40,1.3],[3.6,80,70,1.5,"inOut"],[5.5,80,70,1.5]],
+   "callouts": [
+    [0.8,2.3,1.0,13.6,34.3,6.1],
+    [3.3,2.0,82.6,74.2,6.1,6.6]
+   ],
+   "captions": [ { "t": 0.3, "dur": 4.8, "text": "A quotation becomes the sales order, at the quoted prices." } ] },
+  { "id": "A3", "in": 20, "out": 28, "type": "screen", "tone": "ground", "enter": "T3", "plate": "invoices",
+   "camera": [[0,50,50,1.0],[0.5,30,40,1.5,"inOut"],[2.7,30,40,1.5],[3.3,66,55,1.5,"inOut"],[5.1,66,55,1.5],[5.7,50,50,1.15,"inOut"],[8,50,50,1.15]],
+   "callouts": [
+    [0.6,2.2,9.5,30.0,12.9,61.0],
+    [2.9,2.2,63.3,30.0,5.2,61.0],
+    [5.7,2.2,1.0,14.5,23.4,4.1],
+    [5.7,2.2,78.1,30.0,4.9,61.0]
+   ],
+   "captions": [
+    { "t": 0.2, "dur": 2.4, "text": "Every bill, dated in AD and BS." },
+    { "t": 2.7, "dur": 2.4, "text": "VAT on every line of the list." },
+    { "t": 5.2, "dur": 2.6, "text": "Paid, partly paid, unpaid." }
+   ] },
+  { "id": "A4", "in": 28, "out": 31, "type": "screen", "tone": "ground", "enter": "T3", "plate": "general-sales-head",
+   "camera": [[0,50,50,1],[3,50,50,1.15]],
+   "callouts": [ [0.5,2.0,2.2,61.8,50.0,21.8] ],
+   "captions": [ { "t": 0.2, "dur": 2.5, "text": "Sold by quantity and rate." } ] },
+  { "id": "A5", "in": 31, "out": 37.5, "type": "screen", "tone": "ground", "enter": "T3", "plate": "receivable",
+   "camera": [[0,50,50,1],[0.6,25,40,1.4,"inOut"],[3.0,25,40,1.4],[3.7,85,50,1.4,"inOut"],[6.5,85,50,1.4]],
+   "callouts": [
+    [0.8,2.2,1.7,29.5,57.5,10.5],
+    [3.5,2.7,75.0,47.0,24.0,6.5]
+   ],
+   "captions": [
+    { "t": 0.2, "dur": 2.8, "text": "What each customer still owes." },
+    { "t": 3.2, "dur": 3.0, "text": "0-⁠30, 31-⁠60, 61-⁠90, over 90 days." }
+   ] },
+  { "id": "A6a", "in": 37.5, "out": 41.5, "type": "screen", "tone": "ground", "enter": "T3", "plate": "desk-main",
+   "camera": [[0,13,28,2.0],[3.3,13,28,2.0],[4.0,21,35,4,"out",true]],
+   "callouts": [
+    [0.4,3.0,1.0,20.9,0,0,null,{"kind":"marker","n":1}],
+    [1.2,2.2,20.0,33.2,4.2,2.8]
+   ],
+   "captions": [ { "t": 0.2, "dur": 3.4, "text": "Over the credit limit, flagged on the Work Desk." } ] },
+  { "id": "A6b", "in": 41.5, "out": 44.5, "type": "screen", "tone": "ground", "enter": "T2", "cap": "tl", "plate": "exec",
+   "camera": [[0,35,80,1.2],[3,30,84,1.5]],
+   "callouts": [ [0.6,2.0,27.0,89.9,15.5,3.1] ],
+   "captions": [ { "t": 0.2, "dur": 2.6, "text": "The same flag, on the dashboard." } ] },
+  { "id": "A7", "in": 44.5, "out": 50.5, "type": "screen", "tone": "ground", "enter": "T3", "plate": "sales-dash",
+   "camera": [[0,50,50,1],[0.5,20,45,1.3,"inOut"],[2.8,20,45,1.3],[3.4,50,64,1.3,"inOut"],[6,50,64,1.3]],
+   "callouts": [
+    [0.8,2.0,2.5,43.7,14.8,1.8],
+    [3.5,2.2,34.1,56.4,31.7,18.5]
+   ],
+   "captions": [
+    { "t": 0.2, "dur": 2.8, "text": "Sales against the same days last month." },
+    { "t": 3.1, "dur": 2.5, "text": "Quotations turned into orders." }
+   ] },
+  { "id": "A8", "in": 50.5, "out": 55.5, "type": "screen", "tone": "ground", "enter": "T3", "plate": "hub-services",
+   "camera": [[0,50,50,1],[2.0,60,78,1.4,"inOut"],[5,60,78,1.4]],
+   "callouts": [ [1.8,2.8,49.8,78.3,24.9,5.5] ],
+   "captions": [
+    { "t": 0.2, "dur": 4.3, "text": "The dates that bring customers back." },
+    { "t": 1.6, "dur": 2.9, "style": "kicker", "text": "Birthdays and anniversaries." }
+   ] },
+  { "id": "A9", "in": 55.5, "out": 62, "type": "endcard", "tone": "night", "hold": 2.5 }
+ ]
+}
