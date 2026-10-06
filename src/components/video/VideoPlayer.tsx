@@ -6,7 +6,7 @@ type Conn = { saveData?: boolean; effectiveType?: string };
 
 /**
  * The only <video> in the site. Until the button is pressed only the poster exists: no video element,
- * so not even metadata is fetched (zero video bytes on load). Silent film; captions are WebVTT, on by default.
+ * so not even metadata is fetched (zero video bytes on load). Silent film; captions are WebVTT, off by default (words are burned in).
  * 720p when Save-Data is on, the connection is 3g or slower, or the screen is under 1024 px wide; else 1080p.
  */
 export function VideoPlayer({
@@ -53,7 +53,7 @@ export function VideoPlayer({
           aria-label={`${name}, ${length}, no sound`}
           className="absolute inset-0 size-full rounded-frame bg-night shadow-frame"
         >
-          <track kind="captions" srcLang="en" label="English" src={vtt} default />
+          <track kind="captions" srcLang="en" label="English" src={vtt} />
         </video>
       ) : (
         <>

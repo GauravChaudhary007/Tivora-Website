@@ -18,4 +18,5 @@ export function cues(film) {
   return out;
 }
 const ts = (s) => { const ms = Math.round(s * 1000), p = (n, l = 2) => String(n).padStart(l, "0"); return `${p(Math.floor(ms / 3600000))}:${p(Math.floor(ms / 60000) % 60)}:${p(Math.floor(ms / 1000) % 60)}.${p(ms % 1000, 3)}`; };
-export const vtt = (film) => "WEBVTT\n\n" + cues(film).map((c, i) => `${i + 1}\n${ts(c.start)} --> ${ts(c.end)}\n${c.text}\n`).join("\n");
+const esc = (t) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+export const vtt = (film) => "WEBVTT\n\n" + cues(film).map((c, i) => `${i + 1}\n${ts(c.start)} --> ${ts(c.end)}\n${esc(c.text)}\n`).join("\n");
