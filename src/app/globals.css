@@ -195,3 +195,21 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Pulses travelling along the module-to-module links in the home explainer (Flows.tsx). One bright dash per link, looping. */
+@keyframes flow-pulse {
+  to {
+    stroke-dashoffset: -1;
+  }
+}
+.flow-pulse {
+  stroke-dasharray: 0.07 0.93;
+  animation: flow-pulse 3.2s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .flow-pulse {
+    animation: none;
+    stroke-dasharray: none;
+    opacity: 0.35;
+  }
+}

@@ -1,5 +1,6 @@
 import { ClosingScene } from "@/components/home/ClosingScene";
 import { DashboardZoom } from "@/components/home/DashboardZoom";
+import { Flows } from "@/components/home/Flows";
 import { HeroCore } from "@/components/home/HeroCore";
 import { IsoWorld } from "@/components/home/IsoWorld";
 import { ModuleCards } from "@/components/home/ModuleCards";
@@ -14,7 +15,7 @@ export default function Page() {
   return (
     <>
       <HeroCore film={<VideoBlock id="master" />}>
-        <IsoWorld props />
+        <IsoWorld props underlay={<Flows />} />
       </HeroCore>
       <ProofReveal>
         <IsoWorld props />
