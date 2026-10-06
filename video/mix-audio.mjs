@@ -34,7 +34,9 @@ for (const film of process.argv.length > 2 ? process.argv.slice(2) : order) {
   for (const res of ["1080", "720"]) {
     const dst = `public/videos/tivora-${film}-v1-${res}.mp4`;
     const silent = `video/out/silent/tivora-${film}-v1-${res}.mp4`;
-    if (!existsSync(silent)) copyFileSync(dst, silent); // keep the silent master once
+    // A render writes a silent file over dst: that is the fresh master, so keep it as the silent source (an already-mixed dst keeps its stored silent master).
+    const dstHasAudio = /Audio:/.test(spawnSync(FF, ["-hide_banner", "-i", dst], { encoding: "utf8" }).stderr);
+    if (!dstHasAudio || !existsSync(silent)) copyFileSync(dst, silent);
     execFileSync(FF, ["-y", "-hide_banner", "-loglevel", "error", "-i", silent, ...inputs, "-filter_complex", filt.join(";"), "-map", "0:v", "-map", "[out]", "-c:v", "copy", "-c:a", "aac", "-b:a", "128k", "-t", String(LEN[film]), dst], { stdio: "inherit" });
     console.log(`${film} ${res}: ${(readFileSync(dst).length / 1e6).toFixed(1)} MB`);
   }
