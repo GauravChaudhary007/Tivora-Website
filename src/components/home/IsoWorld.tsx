@@ -1,5 +1,5 @@
 import { iso, prism } from "@/lib/iso";
-import { C, H, ORDER, POS, centre, collapse, outline, type District } from "./world";
+import { C, H, ORDER, ORIGIN, POS, VB, centre, collapse, outline, type District } from "./world";
 
 // The "Follow one bill" world: four rounded slabs (the mark's squares), 45-degree links, one chip.
 // Server component, decorative (aria-hidden). Scenes find parts by data attributes (several copies may exist).
@@ -24,7 +24,7 @@ function Slab({ d, gold }: { d: District; gold?: boolean }) {
     <>
       <path d={left} className="fill-night-3 stroke-night-3" strokeWidth=".6" />
       <path d={right} className="fill-night-2 stroke-night-2" strokeWidth=".6" />
-      <polygon points={o.map((p) => pt(p, H)).join(" ")} className={`fill-slab-top ${gold ? "stroke-gold" : "stroke-rule-dark"}`} strokeWidth={gold ? 3 : 1} />
+      <polygon points={o.map((p) => pt(p, H)).join(" ")} className={`fill-slab-top-lit ${gold ? "stroke-gold" : "stroke-rule-dark"}`} strokeWidth={gold ? 3 : 1} />
     </>
   );
 }
@@ -93,8 +93,8 @@ const link = (a: District, b: District) => {
 export function IsoWorld({ props = false, collapsed = false, className = "" }: { props?: boolean; collapsed?: boolean; className?: string }) {
   const park = centre("ledger", H + 95);
   return (
-    <svg viewBox="0 0 1200 900" aria-hidden="true" focusable="false" className={`block h-auto w-full overflow-visible ${className}`}>
-      <g transform={`translate(600 ${450 + H})`}>
+    <svg viewBox={`${VB.x} ${VB.y} ${VB.w} ${VB.h}`} aria-hidden="true" focusable="false" className={`block h-auto w-full overflow-visible ${className}`}>
+      <g transform={`translate(${ORIGIN.x} ${ORIGIN.y})`}>
         <g data-cam="">
           {props && (
           <g>

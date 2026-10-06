@@ -81,7 +81,7 @@ export const modules: Module[] = [
   },
   {
     slug: "gold-loans", name: "Gold Loans", icon: "LockKeyhole", pack: "jewelry",
-    appLine: "Loans against pledged jewellery: valuation, interest, renewals, custody, notices and auctions.",
+    appLine: "Loans against pledged jewelry: valuation, interest, renewals, custody, notices and auctions.",
     bullets: ["Valuation and interest", "Renewals and custody", "Notices and auctions"],
   },
 ];

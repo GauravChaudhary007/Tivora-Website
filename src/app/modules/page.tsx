@@ -104,7 +104,7 @@ export default function Page() {
             <h2 className="mt-4">The Jewelry pack.</h2>
             <p className="mt-4 text-lead text-muted">
               Tivora ERP – Jewelry adds four modules to the same core, for the workshop, the factory floor, tagged stock and
-              loans against jewellery.
+              loans against jewelry.
             </p>
           </div>
           <div className="mt-stack-lg grid gap-6 sm:grid-cols-2 lg:gap-8">

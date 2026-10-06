@@ -5,6 +5,7 @@ import { Section } from "@/components/layout/Section";
 import { CtaBand } from "@/components/layout/CtaBand";
 import { Screen } from "@/components/ui/Screen";
 import { DashboardZoom } from "@/components/home/DashboardZoom";
+import { WorkDeskStills } from "@/components/home/WorkDeskStills";
 
 export const metadata: Metadata = pageMeta({
   title: "Work Desk and dashboards",
@@ -51,8 +52,11 @@ export default function Page() {
               ))}
             </ol>
           </div>
-          <div className="lg:col-span-7" data-reveal>
-            <Screen slug="work-desk" sizes="(min-width: 1024px) 720px, 100vw" />
+          <div className="min-w-0 lg:col-span-7" data-reveal>
+            <div className="hidden lg:block">
+              <Screen slug="work-desk" sizes="(min-width: 1024px) 720px, 100vw" />
+            </div>
+            <WorkDeskStills caption />
             <p className="mt-3 text-small text-muted">Customer, supplier and staff names are blurred.</p>
           </div>
         </div>

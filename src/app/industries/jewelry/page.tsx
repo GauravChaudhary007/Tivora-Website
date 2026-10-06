@@ -19,7 +19,7 @@ export const metadata: Metadata = pageMeta({
 const stages = [
   {
     title: "In the showroom",
-    body: "Tagged stock, the day's board rate, jewellery and general-goods billing, old-metal exchange, goods on approval, customer orders, savings schemes, and counters with a cash-up at the end of the day.",
+    body: "Tagged stock, the day's board rate, jewelry and general-goods billing, old-metal exchange, goods on approval, customer orders, savings schemes, and counters with a cash-up at the end of the day.",
   },
   {
     title: "In the workshop",
@@ -58,7 +58,7 @@ export default function Page() {
         <div className="container-x">
           <div className="flex flex-wrap items-center gap-4" data-reveal>
             <Pill kind="available" />
-            <p className="text-muted">Running in jewellery showrooms and workshops today.</p>
+            <p className="text-muted">Running in jewelry showrooms and workshops today.</p>
           </div>
           <ol className="mt-stack-lg grid gap-6 lg:grid-cols-3 lg:gap-8">
             {stages.map((s, i) => (

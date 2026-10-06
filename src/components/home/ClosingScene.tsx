@@ -5,7 +5,7 @@ import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Section } from "@/components/layout/Section";
 import { DemoForm } from "@/components/forms/DemoForm";
 import { addressLine, site } from "@/content/site";
-import { gsap, MOTION_QUERIES, useGSAP } from "@/lib/gsap";
+import { MOTION_QUERIES, useScene } from "@/lib/scene";
 import { collapse, ORDER } from "./world";
 import { SymbolStage } from "./SymbolStage";
 
@@ -14,8 +14,8 @@ const link = "inline-flex min-h-11 items-center text-accent underline underline-
 /** Scenes 8 and 9. children = <IsoWorld />. The world collapses back into the official symbol (desktop: pinned scrub; mobile: plays once), then the demo form. */
 export function ClosingScene({ children }: { children: ReactNode }) {
   const root = useRef<HTMLDivElement>(null);
-  useGSAP(
-    () => {
+  useScene(root, (g) => {
+    const { gsap } = g;
       const mm = gsap.matchMedia();
       mm.add(MOTION_QUERIES, (ctx) => {
         const { desktop } = ctx.conditions as { desktop: boolean };
@@ -35,9 +35,8 @@ export function ClosingScene({ children }: { children: ReactNode }) {
           .to(q("[data-sym]"), { "--rx": "0deg", "--rz": "0deg", "--sc": 1, duration: 0.4 }, 0.6)
           .to(q("[data-label]"), { opacity: 1, duration: 0.2, ease: "none" }, 0.9);
       });
-    },
-    { scope: root },
-  );
+    return () => mm.revert();
+  });
 
   return (
     <div ref={root}>

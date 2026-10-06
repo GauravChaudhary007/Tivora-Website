@@ -4,6 +4,7 @@ import { DEMO_CAPTION } from "./site";
 
 export type ScreenSlug =
   | "home-paint" | "work-desk" | "executive-dashboard" | "executive-sales" | "executive-target" | "executive-glance"
+  | "home-paint-m1" | "home-paint-m2" | "work-desk-m1" | "work-desk-m2" | "work-desk-m3"
   | "sales-dashboard" | "finance-dashboard" | "dashboards" | "home-jewelry" | "menu-paint" | "menu-jewelry" | "menu-classic";
 
 export type ScreenDef = {
@@ -43,8 +44,28 @@ export const SCREENS: Record<ScreenSlug, ScreenDef> = {
     width: 901, height: 380, caption: paint, edition: "paint", src: big("executive-target", 901),
   },
   "executive-glance": {
-    alt: "Executive dashboard At a glance row: money received, what customers owe, what you owe, and cash and bank. A supplier name is blurred.",
-    width: 1563, height: 247, caption: paint, edition: "paint", src: big("executive-glance", 960), srcSet: set("executive-glance", 960, 1563),
+    alt: "Executive dashboard At a glance row: money received, what customers owe, and what you owe. A supplier name is blurred.",
+    width: 1150, height: 247, caption: paint, edition: "paint", src: big("executive-glance", 960), srcSet: set("executive-glance", 960, 1150),
+  },
+  "home-paint-m1": {
+    alt: "Tivora ERP Home screen, top left: Namaste, Paint, shortcut buttons, and the Sales and Accounts Receivable and Customer Services module cards.",
+    width: 700, height: 490, caption: paint, edition: "paint", src: big("home-paint-m1", 700),
+  },
+  "home-paint-m2": {
+    alt: "Tivora ERP Home screen, more module cards: Purchase and Accounts Payable, Store and Inventory, Trade and Finance, and Tax and IRD.",
+    width: 727, height: 482, caption: paint, edition: "paint", src: big("home-paint-m2", 727),
+  },
+  "work-desk-m1": {
+    alt: "Work Desk critical card: a customer over the credit limit under Sales and Accounts Receivable, with a Review button. The customer name is blurred.",
+    width: 515, height: 275, caption: paint, edition: "paint", src: big("work-desk-m1", 515),
+  },
+  "work-desk-m2": {
+    alt: "Work Desk critical card: a manufacturing order 49 days past its due date, with a Receive button.",
+    width: 515, height: 275, caption: paint, edition: "paint", src: big("work-desk-m2", 515),
+  },
+  "work-desk-m3": {
+    alt: "Work Desk critical card: an abnormal-loss journal that is not posted, with a Manufacturing Account button.",
+    width: 515, height: 275, caption: paint, edition: "paint", src: big("work-desk-m3", 515),
   },
   "sales-dashboard": {
     alt: "Tivora ERP Sales and Accounts Receivable dashboard with sales, bills and returns cards and a sales by day chart.",

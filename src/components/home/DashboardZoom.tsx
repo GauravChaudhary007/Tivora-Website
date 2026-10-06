@@ -3,13 +3,13 @@
 import { useRef } from "react";
 import { Screen } from "@/components/ui/Screen";
 import { DEMO_CAPTION } from "@/content/site";
-import { gsap, live, MOTION_QUERIES, useGSAP } from "@/lib/gsap";
+import { live, MOTION_QUERIES, useScene } from "@/lib/scene";
 
 // Zoom stops: point of the screenshot (fraction of width/height) brought to the frame centre at scale s.
 const STOPS = [
   { s: 2.2, x: 0.335, y: 0.495, text: "Sales for the period, against the same days last month." },
   { s: 2, x: 0.74, y: 0.495, text: "A running total against target." },
-  { s: 1.25, x: 0.58, y: 0.6, text: "At a glance: money received, what customers owe, what you owe, cash and bank." },
+  { s: 1.62, x: 0.468, y: 0.685, text: "At a glance: money received, what customers owe and what you owe." },
 ];
 const STILLS = ["executive-sales", "executive-target", "executive-glance"] as const;
 const pos = (st: (typeof STOPS)[number]) => ({ xPercent: 100 * (0.5 - st.s * st.x), yPercent: 100 * (0.5 - st.s * st.y), scale: st.s });
@@ -17,8 +17,9 @@ const pos = (st: (typeof STOPS)[number]) => ({ xPercent: 100 * (0.5 - st.s * st.
 /** Scene 4. Home: pinned, scroll zooms into three parts of the real dashboard. `pinned={false}` (/work-desk/) scrubs without pinning. Below 1024px: three real crops in a swipe row. */
 export function DashboardZoom({ pinned = true }: { pinned?: boolean }) {
   const root = useRef<HTMLElement>(null);
-  useGSAP(
-    () => {
+  useScene(
+    root,
+    ({ gsap }) => {
       const mm = gsap.matchMedia();
       mm.add(MOTION_QUERIES.desktop, () => {
         const q = gsap.utils.selector(root);
@@ -41,8 +42,9 @@ export function DashboardZoom({ pinned = true }: { pinned?: boolean }) {
         tl.to({}, { duration: 0.6 });
         return off;
       });
+      return () => mm.revert();
     },
-    { scope: root, dependencies: [pinned] },
+    [pinned],
   );
 
   return (

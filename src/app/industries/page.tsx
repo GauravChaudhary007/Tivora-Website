@@ -32,7 +32,7 @@ export default function Page() {
             <Pill kind="available" />
             <h2 className="mt-4">{jewelry.name}</h2>
             <p className="mt-5 text-lead text-muted">
-              For jewellery showrooms and workshops. From the showroom counter to the karigar&apos;s bench, it follows your
+              For jewelry showrooms and workshops. From the showroom counter to the karigar&apos;s bench, it follows your
               metal.
             </p>
             <ul className="mt-6 space-y-2.5">

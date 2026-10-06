@@ -35,3 +35,25 @@ export function outline(cx: number, cy: number, n = 5): [number, number][] {
   });
   return out;
 }
+
+/** Visible window of the world SVG: the content (spread slabs, props, chip) with its empty margins cropped, so the world fills its box. */
+export const VB = { x: 80, y: 90, w: 1040, h: 700 };
+/** World origin in viewBox units (the camera pivot), and as a fraction of the SVG box. */
+export const ORIGIN = { x: 600, y: 450 + H };
+export const ORIGIN_FRAC = { x: (ORIGIN.x - VB.x) / VB.w, y: (ORIGIN.y - VB.y) / VB.h };
+/**
+ * Scale at which the tilted symbol's four squares span the collapsed world's four slab tops (771 viewBox units wide
+ * for the collapsed layout; the tilted symbol is 1.414 x its side wide): symbolScale = SYMBOL_K * worldWidthPx / symbolWidthPx.
+ */
+export const SYMBOL_K = 771 / VB.w / Math.SQRT2;
+
+/**
+ * Camera for the world: a plain {x, y, scale} object that GSAP tweens, written to the `data-cam` group's transform
+ * attribute (translate then scale, about the world origin, which is the group's local 0,0). GSAP's own svgOrigin
+ * machinery resolves global coordinates against the element's current matrix and drifts under dev re-mounts.
+ */
+export function makeCamera(el: Element | undefined) {
+  const view = { x: 0, y: 0, scale: 1 };
+  const apply = () => el?.setAttribute("transform", `translate(${view.x.toFixed(2)} ${view.y.toFixed(2)}) scale(${view.scale.toFixed(4)})`);
+  return { view, apply, reset: () => el?.removeAttribute("transform") };
+}

@@ -1,18 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { useRef } from "react";
-import { ModuleIcon } from "@/components/ui/ModuleIcon";
-import { modules, tradeFinanceExtra } from "@/content/modules";
-import { gsap, MOTION_QUERIES, useGSAP } from "@/lib/gsap";
+import { useRef, type ReactNode } from "react";
+import { MOTION_QUERIES, useScene } from "@/lib/scene";
 
-const core = modules.filter((m) => m.pack === "core");
-
-/** Scene 6. Desktop: pinned horizontal track. Mobile and reduced motion: a native scroll-snap row. A thin gold line (the core) runs through every card at icon height. */
-export function ModuleTrack() {
+/** Scene 6. children = <ModuleCards /> (rendered on the server, so lucide never ships in the client bundle). Desktop: pinned horizontal track. Mobile and reduced motion: a native scroll-snap row. A thin gold line (the core) runs through every card at icon height. */
+export function ModuleTrack({ children }: { children: ReactNode }) {
   const root = useRef<HTMLElement>(null);
-  useGSAP(
-    () => {
+  useScene(root, (g) => {
+    const { gsap } = g;
       const mm = gsap.matchMedia();
       mm.add(MOTION_QUERIES.desktop, () => {
         const q = gsap.utils.selector(root);
@@ -25,9 +21,8 @@ export function ModuleTrack() {
           scrollTrigger: { trigger: q("[data-pin]")[0], start: "top top", end: () => `+=${dist()}`, pin: true, scrub: true, invalidateOnRefresh: true },
         });
       });
-    },
-    { scope: root },
-  );
+    return () => mm.revert();
+  });
 
   return (
     <section ref={root} data-tone="ground" className="overflow-hidden bg-ground text-ink">
@@ -46,16 +41,7 @@ export function ModuleTrack() {
         >
           <div data-track="" className="relative w-max px-gutter">
             <div className="pointer-events-none absolute inset-x-0 top-12 h-px bg-gold" aria-hidden="true" />
-            <ul className="flex gap-6">
-              {core.map((m) => (
-                <li key={m.slug} className="flex h-90 w-72 shrink-0 snap-start flex-col rounded-xl border border-rule bg-paper p-6 shadow-card sm:w-80">
-                  <ModuleIcon name={m.icon} className="relative" />
-                  <h3 className="mt-6">{m.name}</h3>
-                  <p className="mt-2 text-small text-muted">{m.appLine}</p>
-                  {m.slug === "trade-finance" && <p className="mt-2 text-small font-bold text-accent">{tradeFinanceExtra}</p>}
-                </li>
-              ))}
-            </ul>
+            {children}
           </div>
         </div>
       </div>

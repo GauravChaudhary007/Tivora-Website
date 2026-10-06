@@ -36,13 +36,14 @@
   --color-night-2: #1c1a16; /* = --color-ink, raised surface on dark */
   --color-night-3: #2a241b; /* cards on dark, slab side faces */
   --color-slab-top: #3b3224; /* iso slab top face on dark */
+  --color-slab-top-lit: #5c4b32; /* DERIVED: lighter slab top (slab-top lifted ~15% toward gold) so the world reads on night; used by the iso world only */
 
   /* Type: families are set by next/font in layout.tsx (variables --font-manrope, --font-serif, --font-plex-mono) */
   --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-serif), ui-serif, Georgia, serif;
   --font-mono: var(--font-plex-mono), ui-monospace, monospace;
 
-  --text-mega: clamp(5rem, 1rem + 18vw, 16rem);
+  --text-mega: clamp(6rem, 26vw, 18rem);
   --text-mega--line-height: 0.85;
   --text-mega--letter-spacing: -0.04em;
   --text-display: clamp(2.5rem, 1.3rem + 5vw, 5.75rem);

@@ -24,11 +24,20 @@ const SCREENS = [
     cut: R(0, 0, 1898, 893), // drops the browser status bar showing the dev URL
     redact: ["badge", R(343, 350, 228, 30) /* Balaju Hardware & Paints */, R(1020, 434, 120, 24) /* person name */, EVEREST_WD],
   },
+  // mobile stills (375px): pre-cropped so text stays legible; same redactions, then cropped
+  { slug: "home-paint-m1", file: "Home Paint.PNG", cut: R(371, 82, 700, 490), redact: ["badge"] },
+  { slug: "home-paint-m2", file: "Home Paint.PNG", cut: R(1090, 348, 727, 482), redact: ["badge"] },
+  ...[[319, "work-desk-m1"], [845, "work-desk-m2"], [1372, "work-desk-m3"]].map(([left, slug]) => ({
+    slug,
+    file: "Work Desk Paint.PNG",
+    cut: R(left, 255, 515, 275),
+    redact: ["badge", R(343, 350, 228, 30), R(1020, 434, 120, 24), EVEREST_WD],
+  })),
   { slug: "executive-dashboard", file: "Executive dash Paint.PNG", redact: ["badge", ...EVEREST_EX] },
   // zoom stops for the mobile swipe row (same redactions, then cropped)
   { slug: "executive-sales", file: "Executive dash Paint.PNG", cut: R(320, 270, 643, 380), redact: ["badge", ...EVEREST_EX] },
   { slug: "executive-target", file: "Executive dash Paint.PNG", cut: R(982, 270, 901, 380), redact: ["badge", ...EVEREST_EX] },
-  { slug: "executive-glance", file: "Executive dash Paint.PNG", cut: R(320, 674, 1563, 247), redact: ["badge", ...EVEREST_EX] },
+  { slug: "executive-glance", file: "Executive dash Paint.PNG", cut: R(320, 674, 1150, 247), redact: ["badge", ...EVEREST_EX] },
   { slug: "sales-dashboard", file: "sales dash paint.PNG", redact: ["badge"] },
   { slug: "finance-dashboard", file: "Finance and sales dash paint.PNG", redact: ["badge"] },
   { slug: "dashboards", file: "Dashboards.PNG", redact: ["badge"] },
@@ -49,12 +58,20 @@ async function findBadge(buf, w) {
         x0 = Math.min(x0, x); y0 = Math.min(y0, y); x1 = Math.max(x1, x); y1 = Math.max(y1, y);
       }
     }
-  return x1 < 0 ? null : R(x0 - 4, Math.max(0, y0 - 4), x1 - x0 + 9, y1 - y0 + 9);
+  if (x1 < 0) return null;
+  // Cover, not blur (a blur of red stays a red smudge): fill with the top-bar colour sampled just right of the badge.
+  const i = ((y0 + 2) * info.width + x1 + 7) * info.channels;
+  return { ...R(x0 - 4, Math.max(0, y0 - 4), x1 - x0 + 9, y1 - y0 + 9), fill: { r: data[i], g: data[i + 1], b: data[i + 2] } };
 }
 
 async function redact(buf, regions) {
   const overlays = [];
-  for (const r of regions) overlays.push({ input: await sharp(buf).extract(r).blur(8).toBuffer(), left: r.left, top: r.top });
+  for (const { fill, ...r } of regions)
+    overlays.push({
+      input: fill ? await sharp({ create: { width: r.width, height: r.height, channels: 3, background: fill } }).png().toBuffer() : await sharp(buf).extract(r).blur(8).toBuffer(),
+      left: r.left,
+      top: r.top,
+    });
   return overlays.length ? sharp(buf).composite(overlays).png().toBuffer() : buf;
 }
 
@@ -79,7 +96,8 @@ for (const s of SCREENS) {
   if (!s.cut || s.slug === "work-desk") regions.forEach((r, i) => tiles.push({ label: `${s.slug} #${i}`, before: sharp(raw).extract(pad(r, 30, width)), after: sharp(done).extract(pad(r, 30, width)) }));
   console.log(s.slug, sizes.map((x) => x[0]).join(","), `${w}x${(await sharp(cut).metadata()).height}`, `redactions:${regions.length}`);
 }
-function pad(r, p, maxW) {
+function pad(r0, p, maxW) {
+  const r = { left: r0.left, top: r0.top, width: r0.width, height: r0.height };
   const left = Math.max(0, r.left - p), top = Math.max(0, r.top - p);
   return { left, top, width: Math.min(maxW - left, r.width + 2 * p), height: r.height + 2 * p };
 }

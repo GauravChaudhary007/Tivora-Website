@@ -1,22 +1,26 @@
-import {
-  ChartColumn, Factory, FileText, FlaskConical, Hammer, HeartHandshake, Landmark, LockKeyhole,
-  Package, ReceiptText, Scale, ScanLine, ShoppingCart, SlidersHorizontal, type LucideIcon,
-} from "lucide-react";
+import { createElement } from "react";
 import type { IconName } from "@/content/modules";
+import { ICON_NODES } from "@/content/icon-nodes";
 
-const ICONS: Record<IconName, LucideIcon> = {
-  ReceiptText, HeartHandshake, ShoppingCart, Package, Factory, Scale, Landmark,
-  FileText, ChartColumn, SlidersHorizontal, Hammer, FlaskConical, ScanLine, LockKeyhole,
-};
-
-/** Lucide icon in a rounded-square chip (radius 32%, the symbol's corner ratio). */
+/** Icon in a rounded-square chip (radius 32%, the symbol's corner ratio). Plain server-rendered SVG (nodes from lucide, see scripts/gen-icons.mjs). */
 export function ModuleIcon({ name, className = "" }: { name: IconName; className?: string }) {
-  const Icon = ICONS[name];
   return (
     <span
       className={`inline-flex size-12 shrink-0 items-center justify-center rounded-module bg-tint text-accent in-data-[tone=night]:bg-night-3 in-data-[tone=night]:text-gold ${className}`}
     >
-      <Icon aria-hidden="true" className="size-6" />
+      <svg
+        aria-hidden="true"
+        className="size-6"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        {ICON_NODES[name].map(([tag, attrs], i) => createElement(tag, { ...attrs, key: i }))}
+      </svg>
     </span>
   );
 }

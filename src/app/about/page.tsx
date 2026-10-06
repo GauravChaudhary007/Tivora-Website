@@ -36,9 +36,8 @@ export default function Page() {
         <div className="container-x grid gap-stack-lg lg:grid-cols-12 lg:gap-8">
           <div className="space-y-5 text-lead text-muted lg:col-span-7" data-reveal>
             <p>
-              More than 10,000 businesses use HiTech software, supported by over 100 people across 15+ branches. Tivora ERP
-              is HiTech&apos;s new platform, bringing that experience of Nepali shops, accountants and chartered accountants
-              into one modern system.
+              Tivora ERP is HiTech&apos;s new platform, bringing HiTech&apos;s experience of Nepali shops, accountants and chartered
+              accountants into one modern system.
             </p>
             <p>
               HiTech also makes {products.join(", ").replace(/, ([^,]*)$/, " and $1")}.

@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { gsap, live, MOTION_QUERIES, ScrollTrigger, useGSAP } from "@/lib/gsap";
+import { live, MOTION_QUERIES, useScene } from "@/lib/scene";
 
 const FACTS = [
   "Bikram Sambat dates and fiscal years throughout, documents numbered by fiscal year (SI-2083/84-00001).",
@@ -15,8 +15,8 @@ const SHOW = "inset(0% 0% 0% 0%)";
 /** Scene 5. Giant "2083" fills gold with scroll (clip-path sweep), then the four facts stack in. Desktop pinned 140%; mobile fills once on enter. */
 export function NepalScene() {
   const root = useRef<HTMLElement>(null);
-  useGSAP(
-    () => {
+  useScene(root, (g) => {
+    const { gsap, ScrollTrigger } = g;
       const mm = gsap.matchMedia();
       const q = gsap.utils.selector(root);
       const fill = q("[data-fill]");
@@ -47,9 +47,8 @@ export function NepalScene() {
           onEnter: () => gsap.to(fill, { clipPath: SHOW, duration: 1.2, ease: "expo.out" }),
         });
       });
-    },
-    { scope: root },
-  );
+    return () => mm.revert();
+  });
 
   return (
     <section ref={root} data-tone="night" className="overflow-hidden bg-night text-ground scheme-dark">
