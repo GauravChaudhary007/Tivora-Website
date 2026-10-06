@@ -1,0 +1,1697 @@
+{
+ "id": "master",
+ "title": "One platform. Every business.",
+ "duration": 100.0,
+ "poster": 33.0,
+ "chrome": "Tivora ERP",
+ "tagline": "One platform. Every business.",
+ "demo": "Demo company \"Kathmandu Paints\", sample figures. The Paint edition is coming.",
+ "bug": "Demo company · sample figures",
+ "end": {
+  "cta": "Request a demo",
+  "url": "www.hitechnepal.com.np",
+  "phones": "01-5389641 · 01-5389642 · 01-5389643",
+  "product": "Tivora ERP is a product of HiTech Solutions and Services Pvt. Ltd., Kathmandu.",
+  "demo": "Demo company \"Kathmandu Paints\", sample figures. The Paint edition is coming."
+ },
+ "scenes": [
+  {
+   "id": "M0",
+   "in": 0,
+   "out": 3.5,
+   "type": "logo",
+   "tone": "night",
+   "captions": [
+    {
+     "t": 1.4,
+     "dur": 2.0,
+     "style": "eyebrow",
+     "text": "TIVORA ERP · FROM HITECH, KATHMANDU",
+     "pos": "c",
+     "y": 380
+    }
+   ]
+  },
+  {
+   "id": "M1",
+   "in": 3.5,
+   "out": 9.0,
+   "type": "world",
+   "tone": "night",
+   "world": {
+    "ox": 1330,
+    "oy": 560,
+    "k": 1.0,
+    "morph": "in",
+    "chip": false
+   },
+   "captions": [
+    {
+     "t": 0.3,
+     "dur": 5.2,
+     "style": "giant",
+     "size": 150,
+     "x": 96,
+     "y": 330,
+     "text": "One platform."
+    },
+    {
+     "t": 2.9,
+     "dur": 2.6,
+     "style": "giant",
+     "size": 150,
+     "x": 96,
+     "y": 500,
+     "text": "Every business."
+    }
+   ]
+  },
+  {
+   "id": "M2",
+   "in": 9.0,
+   "out": 19.0,
+   "type": "world",
+   "tone": "night",
+   "world": {
+    "ox": 1330,
+    "oy": 560,
+    "k": 1.0,
+    "s": 1.1,
+    "chip": false
+   },
+   "steps": [
+    {
+     "t": 0,
+     "dur": 0.5,
+     "chip": "counter"
+    },
+    {
+     "t": 0,
+     "dur": 0.8,
+     "cam": {
+      "d": "counter",
+      "s": 1.35
+     }
+    },
+    {
+     "t": 0,
+     "dim": "counter",
+     "dur": 0.3
+    },
+    {
+     "t": 0,
+     "dur": 2.0,
+     "card": {
+      "d": "counter",
+      "tag": "Counter",
+      "text": "Sales & Accounts Receivable"
+     }
+    },
+    {
+     "t": 2.0,
+     "dur": 0.7,
+     "chip": "godown"
+    },
+    {
+     "t": 2.0,
+     "dur": 0.7,
+     "link": 0
+    },
+    {
+     "t": 2.0,
+     "dur": 0.9,
+     "cam": {
+      "d": "godown",
+      "s": 1.35
+     }
+    },
+    {
+     "t": 2.0,
+     "dim": "godown",
+     "dur": 0.3
+    },
+    {
+     "t": 2.0,
+     "dur": 2.0,
+     "card": {
+      "d": "godown",
+      "tag": "Godown",
+      "text": "Store & Inventory"
+     }
+    },
+    {
+     "t": 4.0,
+     "dur": 0.7,
+     "chip": "floor"
+    },
+    {
+     "t": 4.0,
+     "dur": 0.7,
+     "link": 1
+    },
+    {
+     "t": 4.0,
+     "dur": 0.9,
+     "cam": {
+      "d": "floor",
+      "s": 1.35
+     }
+    },
+    {
+     "t": 4.0,
+     "dim": "floor",
+     "dur": 0.3
+    },
+    {
+     "t": 4.0,
+     "dur": 2.0,
+     "card": {
+      "d": "floor",
+      "tag": "Floor",
+      "text": "Production"
+     }
+    },
+    {
+     "t": 6.0,
+     "dur": 0.7,
+     "chip": "ledger"
+    },
+    {
+     "t": 6.0,
+     "dur": 0.7,
+     "link": 2
+    },
+    {
+     "t": 6.0,
+     "dur": 0.9,
+     "cam": {
+      "d": "ledger",
+      "s": 1.35
+     }
+    },
+    {
+     "t": 6.0,
+     "dim": "ledger",
+     "dur": 0.3
+    },
+    {
+     "t": 6.0,
+     "dur": 2.0,
+     "card": {
+      "d": "ledger",
+      "tag": "Ledger",
+      "text": "Finance & Accounts · Tax & IRD"
+     }
+    },
+    {
+     "t": 8.0,
+     "dur": 0.9,
+     "link": 3
+    },
+    {
+     "t": 8.0,
+     "dur": 1.2,
+     "cam": {
+      "x": 0,
+      "y": 0,
+      "s": 1.0
+     }
+    },
+    {
+     "t": 8.0,
+     "dim": null,
+     "dur": 0.3
+    },
+    {
+     "t": 10.0,
+     "dur": 0.6,
+     "cam": {
+      "d": "ledger",
+      "s": 9,
+      "fx": 960,
+      "fy": 540
+     },
+     "ease": "in"
+    }
+   ],
+   "captions": [
+    {
+     "t": 0,
+     "dur": 2.0,
+     "text": "A bill at the counter."
+    },
+    {
+     "t": 2.0,
+     "dur": 2.0,
+     "text": "The stock moves with it."
+    },
+    {
+     "t": 4.0,
+     "dur": 2.0,
+     "text": "The floor knows what to make."
+    },
+    {
+     "t": 6.0,
+     "dur": 2.0,
+     "text": "And the ledger already has it."
+    },
+    {
+     "t": 8.0,
+     "dur": 2.0,
+     "style": "display",
+     "pos": "c",
+     "size": 96,
+     "y": 880,
+     "text": "Typed once. Every number agrees."
+    }
+   ]
+  },
+  {
+   "id": "M3",
+   "in": 19.0,
+   "out": 22.0,
+   "type": "screen",
+   "tone": "ground",
+   "enter": "T1",
+   "enterDelay": 0.6,
+   "demo": true,
+   "demoAt": 0.6,
+   "toneTo": {
+    "from": "night",
+    "tone": "ground",
+    "t": 0.6,
+    "dur": 1.4
+   },
+   "plate": "home-modules",
+   "camera": [
+    [
+     0,
+     50,
+     40,
+     1
+    ],
+    [
+     3,
+     50,
+     40,
+     1
+    ]
+   ],
+   "captions": [
+    {
+     "t": 0.6,
+     "dur": 2.4,
+     "text": "This is the real screen."
+    }
+   ]
+  },
+  {
+   "id": "M4",
+   "in": 22.0,
+   "out": 27.0,
+   "type": "screen",
+   "tone": "ground",
+   "plate": "home-modules",
+   "camera": [
+    [
+     0,
+     50,
+     40,
+     1
+    ],
+    [
+     1.5,
+     50,
+     40,
+     1
+    ],
+    [
+     3.5,
+     50,
+     52,
+     1.35
+    ]
+   ],
+   "callouts": [
+    [
+     0.4,
+     1.6,
+     1.2,
+     11.8,
+     40.6,
+     3.5
+    ],
+    [
+     2.4,
+     2.2,
+     1.2,
+     23.0,
+     97.7,
+     58.2
+    ]
+   ],
+   "captions": [
+    {
+     "t": 0.2,
+     "dur": 4.6,
+     "text": "Every module, one Home."
+    },
+    {
+     "t": 2.2,
+     "dur": 2.6,
+     "style": "kicker",
+     "text": "Star any entry to keep it here."
+    }
+   ]
+  },
+  {
+   "id": "M5",
+   "in": 27.0,
+   "out": 31.0,
+   "type": "screen",
+   "tone": "ground",
+   "enter": "T3",
+   "plate": "home-topbar",
+   "camera": [
+    [
+     0,
+     50,
+     50,
+     1
+    ],
+    [
+     0.7,
+     50,
+     50,
+     1
+    ],
+    [
+     1.4,
+     34,
+     50,
+     1.9
+    ],
+    [
+     2.2,
+     34,
+     50,
+     1.9
+    ],
+    [
+     3.4,
+     86,
+     50,
+     1.9
+    ]
+   ],
+   "callouts": [
+    [
+     1.3,
+     1.0,
+     20.4,
+     14,
+     27.3,
+     69
+    ],
+    [
+     2.4,
+     1.0,
+     74.6,
+     14,
+     17.2,
+     69
+    ],
+    [
+     3.4,
+     0.6,
+     92.3,
+     14,
+     7.3,
+     69
+    ]
+   ],
+   "captions": [
+    {
+     "t": 0.2,
+     "dur": 2.0,
+     "text": "Ctrl K searches the menu."
+    },
+    {
+     "t": 2.2,
+     "dur": 1.8,
+     "text": "One login. Switch company. Dates in BS and AD."
+    }
+   ]
+  },
+  {
+   "id": "M6",
+   "in": 31.0,
+   "out": 37.0,
+   "type": "screen",
+   "tone": "ground",
+   "enter": "T3",
+   "plate": "desk-main",
+   "camera": [
+    [
+     0,
+     45,
+     30,
+     1
+    ],
+    [
+     1.2,
+     45,
+     30,
+     1
+    ],
+    [
+     2.0,
+     13,
+     28,
+     1.5
+    ],
+    [
+     3.4,
+     38,
+     28,
+     1.5
+    ],
+    [
+     4.7,
+     62,
+     28,
+     1.5
+    ]
+   ],
+   "callouts": [
+    [
+     1.9,
+     1.3,
+     1.0,
+     18.2,
+     23.8,
+     19.5
+    ],
+    [
+     1.9,
+     1.3,
+     17.7,
+     33.8,
+     7.1,
+     3.9
+    ],
+    [
+     3.2,
+     1.3,
+     25.9,
+     18.2,
+     23.8,
+     19.5
+    ],
+    [
+     3.2,
+     1.3,
+     43.0,
+     33.8,
+     6.7,
+     3.9
+    ],
+    [
+     4.5,
+     1.3,
+     50.7,
+     18.2,
+     23.8,
+     19.5
+    ],
+    [
+     4.5,
+     1.3,
+     67.8,
+     33.8,
+     6.7,
+     3.9
+    ]
+   ],
+   "captions": [
+    {
+     "t": 0.2,
+     "dur": 5.6,
+     "text": "Mornings start with what needs you."
+    },
+    {
+     "t": 2.0,
+     "dur": 1.3,
+     "style": "kicker",
+     "text": "Over the credit limit."
+    },
+    {
+     "t": 3.3,
+     "dur": 1.3,
+     "style": "kicker",
+     "text": "An order late on the floor."
+    },
+    {
+     "t": 4.6,
+     "dur": 1.3,
+     "style": "kicker",
+     "text": "A journal not posted."
+    }
+   ]
+  },
+  {
+   "id": "M7",
+   "in": 37.0,
+   "out": 41.0,
+   "type": "split",
+   "tone": "ground",
+   "enter": "T3",
+   "panes": [
+    {
+     "plate": "desk-main",
+     "box": [
+      96,
+      100,
+      820,
+      600
+     ],
+     "camera": [
+      [
+       0,
+       89,
+       52,
+       1.9
+      ],
+      [
+       4,
+       89,
+       52,
+       1.9
+      ]
+     ],
+     "callouts": [
+      [
+       0.6,
+       3.0,
+       79.1,
+       48.5,
+       20.3,
+       10
+      ]
+     ]
+    },
+    {
+     "plate": "desk-perf",
+     "box": [
+      960,
+      100,
+      864,
+      600
+     ],
+     "delay": 0.12,
+     "camera": [
+      [
+       0,
+       50,
+       35,
+       0.6
+      ],
+      [
+       4,
+       50,
+       35,
+       0.6
+      ]
+     ],
+     "callouts": [
+      [
+       0.8,
+       1.6,
+       50,
+       24.3,
+       16.4,
+       22.5
+      ],
+      [
+       1.6,
+       1.6,
+       83.6,
+       24.3,
+       16,
+       22.5
+      ]
+     ]
+    }
+   ],
+   "captions": [
+    {
+     "t": 0.2,
+     "dur": 3.6,
+     "text": "What's due, and who is on time."
+    }
+   ]
+  },
+  {
+   "id": "M8a",
+   "in": 41.0,
+   "out": 43.3,
+   "type": "screen",
+   "tone": "ground",
+   "enter": "T3",
+   "plate": "dashboards",
+   "camera": [
+    [
+     0,
+     50,
+     50,
+     1
+    ],
+    [
+     1.6,
+     50,
+     50,
+     1
+    ],
+    [
+     2.3,
+     17.2,
+     25.4,
+     6,
+     "out",
+     true
+    ]
+   ],
+   "callouts": [
+    [
+     0.4,
+     1.4,
+     1.3,
+     15.9,
+     31.8,
+     18.9
+    ]
+   ],
+   "captions": [
+    {
+     "t": 0.2,
+     "dur": 2.0,
+     "text": "A dashboard for every module."
+    }
+   ]
+  },
+  {
+   "id": "M8b",
+   "in": 43.3,
+   "out": 46.0,
+   "type": "screen",
+   "tone": "ground",
+   "enter": "T2",
+   "plate": "exec",
+   "camera": [
+    [
+     0,
+     50,
+     50,
+     1
+    ],
+    [
+     1.0,
+     21,
+     46,
+     1.5
+    ],
+    [
+     1.7,
+     21,
+     46,
+     1.5
+    ],
+    [
+     2.7,
+     70,
+     46,
+     1.5
+    ]
+   ],
+   "callouts": [
+    [
+     0.9,
+     1.7,
+     1.2,
+     23.5,
+     40.0,
+     44.7
+    ]
+   ],
+   "captions": [
+    {
+     "t": 0.0,
+     "dur": 2.7,
+     "text": "The whole business on one page."
+    }
+   ]
+  },
+  {
+   "id": "M9",
+   "in": 46.0,
+   "out": 61.0,
+   "type": "wall",
+   "tone": "ground",
+   "enter": "fade",
+   "cap": "tl",
+   "dwell": 1.25,
+   "move": 0.45,
+   "pullAt": 14.4,
+   "zoom": 1.1,
+   "readOk": true,
+   "tiles": [
+    {
+     "plate": "hub-sales",
+     "ring": [
+      1.25,
+      14.3,
+      12.5,
+      3.9
+     ]
+    },
+    {
+     "plate": "hub-purchase",
+     "ring": [
+      15.2,
+      14.3,
+      18.0,
+      3.9
+     ]
+    },
+    {
+     "plate": "hub-inventory",
+     "ring": [
+      32.8,
+      13.5,
+      11.3,
+      3.7
+     ]
+    },
+    {
+     "plate": "hub-production",
+     "ring": [
+      51.6,
+      32.6,
+      10.2,
+      2.9
+     ]
+    },
+    {
+     "plate": "hub-transport",
+     "ring": [
+      1.25,
+      18.3,
+      8.9,
+      5.0
+     ]
+    },
+    {
+     "plate": "hub-services",
+     "ring": [
+      49.2,
+      76.0,
+      25.8,
+      9.0
+     ]
+    },
+    {
+     "plate": "hub-accounts",
+     "ring": [
+      77.1,
+      50.8,
+      17.2,
+      15.2
+     ]
+    },
+    {
+     "plate": "hub-fixedassets",
+     "ring": [
+      35.8,
+      86.1,
+      13.6,
+      6.1
+     ]
+    },
+    {
+     "plate": "hub-treasury",
+     "ring": [
+      1.25,
+      16.5,
+      10.7,
+      4.5
+     ]
+    },
+    {
+     "plate": "hub-tax",
+     "ring": [
+      51.6,
+      53.5,
+      14.2,
+      9.6
+     ]
+    },
+    {
+     "plate": "hub-admin",
+     "ring": [
+      4.8,
+      22.5,
+      70.5,
+      9.0
+     ]
+    },
+    {
+     "plate": "reports-centre",
+     "ring": [
+      2.0,
+      4.0,
+      32.1,
+      1.5
+     ]
+    }
+   ],
+   "captions": [
+    {
+     "t": 0.0,
+     "dur": 1.25,
+     "text": "Sales & Accounts Receivable"
+    },
+    {
+     "t": 0.0,
+     "dur": 1.25,
+     "style": "kicker",
+     "text": "Counter to receipt."
+    },
+    {
+     "t": 1.25,
+     "dur": 1.25,
+     "text": "Purchase & Accounts Payable"
+    },
+    {
+     "t": 1.25,
+     "dur": 1.25,
+     "style": "kicker",
+     "text": "Requisition to payment."
+    },
+    {
+     "t": 2.5,
+     "dur": 1.25,
+     "text": "Store & Inventory"
+    },
+    {
+     "t": 2.5,
+     "dur": 1.25,
+     "style": "kicker",
+     "text": "Every godown."
+    },
+    {
+     "t": 3.75,
+     "dur": 1.25,
+     "text": "Production"
+    },
+    {
+     "t": 3.75,
+     "dur": 1.25,
+     "style": "kicker",
+     "text": "BOM to batch cost."
+    },
+    {
+     "t": 5.0,
+     "dur": 1.25,
+     "text": "Transport & Delivery"
+    },
+    {
+     "t": 5.0,
+     "dur": 1.25,
+     "style": "kicker",
+     "text": "Trips and freight."
+    },
+    {
+     "t": 6.25,
+     "dur": 1.25,
+     "text": "Customer Services"
+    },
+    {
+     "t": 6.25,
+     "dur": 1.25,
+     "style": "kicker",
+     "text": "Birthdays, anniversaries."
+    },
+    {
+     "t": 7.5,
+     "dur": 1.25,
+     "text": "Finance & Accounts"
+    },
+    {
+     "t": 7.5,
+     "dur": 1.25,
+     "style": "kicker",
+     "text": "Vouchers to final accounts."
+    },
+    {
+     "t": 8.75,
+     "dur": 1.25,
+     "text": "Fixed Assets"
+    },
+    {
+     "t": 8.75,
+     "dur": 1.25,
+     "style": "kicker",
+     "text": "Register and depreciation."
+    },
+    {
+     "t": 10.0,
+     "dur": 1.25,
+     "text": "Trade & Finance"
+    },
+    {
+     "t": 10.0,
+     "dur": 1.25,
+     "style": "kicker",
+     "text": "LCs and foreign currency."
+    },
+    {
+     "t": 11.25,
+     "dur": 1.25,
+     "text": "Tax & IRD"
+    },
+    {
+     "t": 11.25,
+     "dur": 1.25,
+     "style": "kicker",
+     "text": "VAT, Annex 9 and 13, TDS."
+    },
+    {
+     "t": 12.5,
+     "dur": 1.25,
+     "text": "Control Panel"
+    },
+    {
+     "t": 12.5,
+     "dur": 1.25,
+     "style": "kicker",
+     "text": "Every setting, one place."
+    },
+    {
+     "t": 13.75,
+     "dur": 1.25,
+     "text": "Reports Centre"
+    },
+    {
+     "t": 13.75,
+     "dur": 1.25,
+     "style": "kicker",
+     "text": "Every report, one place."
+    }
+   ]
+  },
+  {
+   "id": "M10a",
+   "in": 61.0,
+   "out": 63.5,
+   "type": "screen",
+   "tone": "ground",
+   "enter": "T3",
+   "plate": "quotations",
+   "camera": [
+    [
+     0,
+     50,
+     50,
+     1
+    ],
+    [
+     2.5,
+     30,
+     40,
+     1.25
+    ]
+   ],
+   "callouts": [
+    [
+     0.5,
+     1.8,
+     1.0,
+     11.8,
+     34.2,
+     5.9
+    ],
+    [
+     1.1,
+     1.2,
+     82.4,
+     74.0,
+     6.3,
+     7.5
+    ]
+   ],
+   "captions": [
+    {
+     "t": 0.2,
+     "dur": 2.1,
+     "text": "A quotation becomes the sales order, at the quoted prices."
+    }
+   ]
+  },
+  {
+   "id": "M10b",
+   "in": 63.5,
+   "out": 66.0,
+   "type": "screen",
+   "tone": "ground",
+   "enter": "T3",
+   "plate": "invoices",
+   "camera": [
+    [
+     0,
+     50,
+     50,
+     1
+    ],
+    [
+     2.5,
+     65,
+     55,
+     1.25
+    ]
+   ],
+   "callouts": [
+    [
+     0.6,
+     1.8,
+     60.9,
+     30.3,
+     7.2,
+     61.8
+    ],
+    [
+     0.6,
+     1.8,
+     77.9,
+     30.3,
+     7.2,
+     61.8
+    ]
+   ],
+   "captions": [
+    {
+     "t": 0.2,
+     "dur": 2.1,
+     "text": "Every bill with its VAT, paid or not."
+    }
+   ]
+  },
+  {
+   "id": "M10c",
+   "in": 66.0,
+   "out": 68.5,
+   "type": "screen",
+   "tone": "ground",
+   "enter": "T3",
+   "plate": "vouchers",
+   "camera": [
+    [
+     0,
+     50,
+     50,
+     1
+    ],
+    [
+     2.5,
+     30,
+     50,
+     1.25
+    ]
+   ],
+   "callouts": [
+    [
+     0.6,
+     1.8,
+     28.3,
+     30.4,
+     6.0,
+     4.0
+    ],
+    [
+     0.6,
+     1.8,
+     28.3,
+     68.4,
+     6.0,
+     11.6
+    ]
+   ],
+   "captions": [
+    {
+     "t": 0.2,
+     "dur": 2.1,
+     "text": "LC and import-loan payments post as automatic vouchers."
+    }
+   ]
+  },
+  {
+   "id": "M10d",
+   "in": 68.5,
+   "out": 71.0,
+   "type": "screen",
+   "tone": "ground",
+   "enter": "T3",
+   "plate": "lcs",
+   "camera": [
+    [
+     0,
+     50,
+     50,
+     1
+    ],
+    [
+     2.5,
+     45,
+     50,
+     1.25
+    ]
+   ],
+   "callouts": [
+    [
+     0.6,
+     1.8,
+     47.5,
+     39.7,
+     18.8,
+     48.5
+    ]
+   ],
+   "captions": [
+    {
+     "t": 0.2,
+     "dur": 2.1,
+     "text": "Letters of credit, from application to retirement."
+    }
+   ]
+  },
+  {
+   "id": "M11a",
+   "in": 71.0,
+   "out": 73.5,
+   "type": "screen",
+   "tone": "ground",
+   "enter": "T3",
+   "plate": "reports-centre",
+   "fit": "w",
+   "camera": [
+    [
+     0,
+     50,
+     8,
+     1.4
+    ],
+    [
+     2.5,
+     50,
+     60,
+     1.4
+    ]
+   ],
+   "callouts": [
+    [
+     0.3,
+     1.2,
+     1.9,
+     3.9,
+     32.0,
+     1.6
+    ]
+   ],
+   "captions": [
+    {
+     "t": 0.1,
+     "dur": 2.3,
+     "text": "Every report, in one searchable place."
+    }
+   ]
+  },
+  {
+   "id": "M11b",
+   "in": 73.5,
+   "out": 75.25,
+   "type": "split",
+   "tone": "ground",
+   "enter": "T3",
+   "panes": [
+    {
+     "plate": "daybook-head",
+     "box": [
+      160,
+      70,
+      1600,
+      150
+     ],
+     "camera": [
+      [
+       0,
+       50,
+       50,
+       1
+      ],
+      [
+       1.75,
+       50,
+       50,
+       1
+      ]
+     ],
+     "callouts": [
+      [
+       0.3,
+       1.2,
+       0.5,
+       50,
+       75,
+       45
+      ]
+     ]
+    },
+    {
+     "plate": "daybook",
+     "box": [
+      160,
+      240,
+      1600,
+      480
+     ],
+     "camera": [
+      [
+       0,
+       50,
+       50,
+       1
+      ],
+      [
+       1.75,
+       6,
+       50,
+       1.8
+      ]
+     ],
+     "callouts": [
+      [
+       0.5,
+       1.1,
+       3.0,
+       30,
+       4.7,
+       60
+      ]
+     ]
+    }
+   ],
+   "captions": [
+    {
+     "t": 0.0,
+     "dur": 1.75,
+     "text": "Day book in BS and AD."
+    }
+   ]
+  },
+  {
+   "id": "M11c",
+   "in": 75.25,
+   "out": 76.75,
+   "type": "screen",
+   "tone": "ground",
+   "enter": "T3",
+   "plate": "stock-report",
+   "camera": [
+    [
+     0,
+     50,
+     13,
+     1.6
+    ],
+    [
+     1.5,
+     85,
+     55,
+     1.6
+    ]
+   ],
+   "callouts": [
+    [
+     0.2,
+     0.8,
+     1.6,
+     10.3,
+     97.3,
+     7.4
+    ],
+    [
+     0.8,
+     0.7,
+     86.5,
+     28.0,
+     10.8,
+     72.0
+    ]
+   ],
+   "captions": [
+    {
+     "t": 0.0,
+     "dur": 1.5,
+     "text": "Stock: opening, in, out, closing."
+    }
+   ]
+  },
+  {
+   "id": "M11d",
+   "in": 76.75,
+   "out": 78.0,
+   "type": "screen",
+   "tone": "ground",
+   "enter": "T3",
+   "plate": "receivable",
+   "camera": [
+    [
+     0,
+     50,
+     50,
+     1
+    ],
+    [
+     1.25,
+     50,
+     50,
+     1.2
+    ]
+   ],
+   "callouts": [
+    [
+     0.2,
+     0.5,
+     1.7,
+     30.6,
+     57.0,
+     8.3
+    ],
+    [
+     0.6,
+     0.6,
+     73.9,
+     47.9,
+     24.8,
+     47.9
+    ]
+   ],
+   "captions": [
+    {
+     "t": 0.0,
+     "dur": 1.25,
+     "text": "Ageing, as a list, pivot or graph."
+    }
+   ]
+  },
+  {
+   "id": "M11e",
+   "in": 78.0,
+   "out": 80.0,
+   "type": "screen",
+   "tone": "ground",
+   "enter": "T3",
+   "plate": "tb-balanced",
+   "shiftY": 0.2,
+   "camera": [
+    [
+     0,
+     50,
+     50,
+     1
+    ],
+    [
+     1.2,
+     5,
+     85,
+     2.0
+    ]
+   ],
+   "callouts": [
+    [
+     0.8,
+     1.2,
+     2.1,
+     79.0,
+     4.5,
+     11.0
+    ],
+    [
+     1.0,
+     1.0,
+     2.1,
+     79.0,
+     4.5,
+     11.0,
+     null,
+     {
+      "kind": "underline"
+     }
+    ]
+   ],
+   "t4": {
+    "text": "Balanced.",
+    "t": 0.2,
+    "dur": 1.8,
+    "top": 150
+   }
+  },
+  {
+   "id": "M12",
+   "in": 80.0,
+   "out": 86.0,
+   "type": "type",
+   "tone": "night",
+   "captions": [
+    {
+     "t": 0,
+     "dur": 6.0,
+     "style": "giant",
+     "size": 440,
+     "pos": "c",
+     "y": 400,
+     "fx": "sweep",
+     "slide": -150,
+     "slideT": 1.6,
+     "text": "2083"
+    },
+    {
+     "t": 1.6,
+     "dur": 4.4,
+     "style": "mono",
+     "pos": "c",
+     "y": 470,
+     "text": "2083-06-20 BS · 2026-10-06 AD"
+    },
+    {
+     "t": 1.8,
+     "dur": 4.2,
+     "style": "h2",
+     "pos": "c",
+     "y": 560,
+     "text": "Made for the way Nepal does business."
+    },
+    {
+     "t": 2.5,
+     "dur": 3.5,
+     "style": "line",
+     "pos": "c",
+     "y": 680,
+     "text": "Bikram Sambat dates and fiscal years."
+    },
+    {
+     "t": 3.4,
+     "dur": 2.6,
+     "style": "line",
+     "pos": "c",
+     "y": 740,
+     "text": "VAT registers, Annex 9 and Annex 13."
+    },
+    {
+     "t": 4.3,
+     "dur": 1.7,
+     "style": "line",
+     "pos": "c",
+     "y": 800,
+     "text": "TDS by party, with certificates."
+    },
+    {
+     "t": 5.2,
+     "dur": 0.8,
+     "style": "line",
+     "pos": "c",
+     "y": 860,
+     "text": "CBMS-ready, built to IRD's current formats."
+    }
+   ]
+  },
+  {
+   "id": "M13",
+   "in": 86.0,
+   "out": 90.0,
+   "type": "screen",
+   "tone": "night",
+   "enter": "T1",
+   "exit": "fly",
+   "plate": "jewelry-home",
+   "fitW": 1100,
+   "anchor": [
+    1290,
+    520
+   ],
+   "shift": 0,
+   "extras": [
+    {
+     "plate": "menu-jewelry",
+     "fitW": 245,
+     "anchor": [
+      760,
+      540
+     ],
+     "parallax": 40
+    }
+   ],
+   "camera": [
+    [
+     0,
+     50,
+     50,
+     1
+    ],
+    [
+     4,
+     50,
+     55,
+     1.2
+    ]
+   ],
+   "callouts": [
+    [
+     0.4,
+     1.2,
+     4.5,
+     41.0,
+     21.8,
+     24.7
+    ],
+    [
+     0.8,
+     1.2,
+     73.2,
+     41.0,
+     21.9,
+     24.7
+    ],
+    [
+     1.6,
+     2.0,
+     4.5,
+     68.0,
+     21.8,
+     20.7
+    ]
+   ],
+   "captions": [
+    {
+     "t": 0.2,
+     "dur": 3.8,
+     "style": "h2",
+     "x": 96,
+     "y": 250,
+     "w": 580,
+     "text": "Built one trade at a time."
+    },
+    {
+     "t": 0.8,
+     "dur": 3.2,
+     "style": "line",
+     "x": 96,
+     "y": 560,
+     "w": 640,
+     "pill": {
+      "kind": "ok",
+      "text": "Available now"
+     },
+     "text": "Tivora ERP – Jewelry"
+    },
+    {
+     "t": 1.2,
+     "dur": 2.8,
+     "style": "line",
+     "x": 96,
+     "y": 640,
+     "w": 640,
+     "pill": {
+      "kind": "soon",
+      "text": "Coming"
+     },
+     "text": "General trading and Paint"
+    },
+    {
+     "t": 0.4,
+     "dur": 3.6,
+     "style": "eyebrow",
+     "x": 96,
+     "y": 960,
+     "w": 800,
+     "text": "Tivora ERP – Jewelry, demo data."
+    }
+   ]
+  },
+  {
+   "id": "M14",
+   "in": 90.0,
+   "out": 95.0,
+   "type": "world",
+   "tone": "night",
+   "world": {
+    "ox": 960,
+    "oy": 500,
+    "k": 1.0,
+    "s": 0.55,
+    "morph": "out",
+    "centre": [
+     960,
+     470
+    ],
+    "op": 0,
+    "chip": false
+   },
+   "steps": [
+    {
+     "t": 0,
+     "dur": 0.4,
+     "op": 1
+    }
+   ],
+   "captions": [
+    {
+     "t": 3.2,
+     "dur": 1.8,
+     "style": "display",
+     "pos": "c",
+     "y": 650,
+     "text": "One platform. Every business."
+    }
+   ]
+  },
+  {
+   "id": "M15",
+   "in": 95.0,
+   "out": 100.0,
+   "type": "endcard",
+   "tone": "night",
+   "carry": true,
+   "fromY": 470
+  }
+ ]
+}
