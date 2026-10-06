@@ -1,4 +1,3 @@
-import { DEMO_CAPTION } from "@/content/site";
 import { FILMS, filmReady, fmtTime, videoUrls, type FilmId } from "@/content/videos";
 import { VideoPlayer } from "./VideoPlayer";
 
@@ -24,9 +23,6 @@ export function VideoBlock({ id, className = "" }: { id: FilmId; className?: str
   return (
     <figure className={className}>
       <VideoPlayer title={f.title} length={length} poster={u.poster} posterAlt={f.posterAlt} src1080={u.src1080} src720={u.src720} vtt={u.vtt} />
-      <figcaption className="mt-3 text-small text-muted in-data-[tone=night]:text-muted-dark">
-        {length} · with narration (an AI voice) and the words on screen. {DEMO_CAPTION.paint}
-      </figcaption>
       <details className="mt-3 rounded-lg border border-rule px-4 py-2 in-data-[tone=night]:border-rule-dark">
         <summary className="min-h-11 cursor-pointer py-2 font-bold">Read the video as text</summary>
         <ol className="space-y-1 pb-3 text-small">

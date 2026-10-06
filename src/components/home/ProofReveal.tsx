@@ -1,6 +1,5 @@
 import { Section } from "@/components/layout/Section";
 import { Screen } from "@/components/ui/Screen";
-import { DEMO_CAPTION } from "@/content/site";
 
 /** Scene 2: the real Home screen. A plain section; the copy and the screen fade up as they enter (data-reveal, see RevealRoot). */
 export function ProofReveal() {
@@ -12,7 +11,6 @@ export function ProofReveal() {
           <p className="mt-5 max-w-prose text-lead text-muted">
             Every module on one menu. Ctrl K finds any entry. Switch companies from the top bar, and read every date in Bikram Sambat and AD.
           </p>
-          <p className="mt-5 text-small text-muted">{DEMO_CAPTION.paint}</p>
         </div>
         <div data-reveal="" className="min-w-0 lg:col-span-7">
           <div className="hidden lg:block">

@@ -28,7 +28,7 @@ export const SCREENS: Record<ScreenSlug, ScreenDef> = {
     width: 1600, height: 778, caption: paint, edition: "paint", src: big("home-paint", 1600), srcSet: set("home-paint", 960, 1600),
   },
   "work-desk": {
-    alt: "Tivora ERP Work Desk listing three critical items under Needs you now, followed by My work and coming up, with Today in numbers at the right. Customer, supplier and staff names are blurred.",
+    alt: "Tivora ERP Work Desk listing three critical items under Needs you now, followed by My work and coming up, with Today in numbers at the right.",
     width: 1600, height: 753, caption: paint, edition: "paint", src: big("work-desk", 1600), srcSet: set("work-desk", 960, 1600),
   },
   "executive-dashboard": {

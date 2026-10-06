@@ -47,13 +47,13 @@ export const footerColumns = {
 } as const;
 
 export const footerNote =
-  "Tivora ERP is a product of HiTech Solutions and Services Pvt. Ltd., Kathmandu. Screens show a demo company with sample data.";
+  "Tivora ERP is a product of HiTech Solutions and Services Pvt. Ltd., Kathmandu.";
 
-/** Standard screenshot captions (claims policy, section H). */
+/** Screenshot captions: deliberately empty (owner decision), so no caption renders under any screen. */
 export const DEMO_CAPTION = {
-  paint: 'Demo company "Kathmandu Paints", sample figures. The Paint edition is coming.',
-  jewelry: "Tivora ERP – Jewelry, demo data.",
-  core: "Tivora ERP menu, demo company.",
+  paint: "",
+  jewelry: "",
+  core: "",
 } as const;
 
 /** All routes, for the sitemap (WP3) and nav checks. */

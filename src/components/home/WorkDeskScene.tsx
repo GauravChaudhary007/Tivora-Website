@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useRef } from "react";
 import { Screen } from "@/components/ui/Screen";
-import { DEMO_CAPTION } from "@/content/site";
 import { MOTION_QUERIES, useScene } from "@/lib/scene";
 import { WORK_DESK_CARDS, WorkDeskStills } from "./WorkDeskStills";
 
@@ -72,7 +71,6 @@ export function WorkDeskScene() {
               ))}
             </div>
           </div>
-          <p className="mt-3 text-small text-muted">{DEMO_CAPTION.paint}</p>
         </div>
       </div>
     </section>

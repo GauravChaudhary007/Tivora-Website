@@ -64,8 +64,7 @@ export default function Page() {
             <div className="hidden lg:block">
               <Screen slug="work-desk" sizes="(min-width: 1024px) 720px, 100vw" />
             </div>
-            <WorkDeskStills caption />
-            <p className="mt-3 text-small text-muted">Customer, supplier and staff names are blurred.</p>
+            <WorkDeskStills />
           </div>
         </div>
       </Section>

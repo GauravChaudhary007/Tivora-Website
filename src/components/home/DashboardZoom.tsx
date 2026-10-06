@@ -2,7 +2,6 @@
 
 import { useRef } from "react";
 import { Screen } from "@/components/ui/Screen";
-import { DEMO_CAPTION } from "@/content/site";
 import { live, MOTION_QUERIES, useScene } from "@/lib/scene";
 
 // Zoom stops: point of the screenshot (fraction of width/height) brought to the frame centre at scale s.
@@ -67,7 +66,6 @@ export function DashboardZoom({ pinned = true }: { pinned?: boolean }) {
             <div data-zoom="">
               <Screen slug="executive-dashboard" caption={false} sizes="(min-width: 1024px) 800px, 100vw" />
             </div>
-            <p className="mt-3 text-small text-muted">{DEMO_CAPTION.paint}</p>
           </div>
         </div>
         <div className="mt-stack lg:hidden">
@@ -79,7 +77,6 @@ export function DashboardZoom({ pinned = true }: { pinned?: boolean }) {
               </li>
             ))}
           </ul>
-          <p className="px-gutter text-small text-muted">{DEMO_CAPTION.paint}</p>
         </div>
       </div>
     </section>
