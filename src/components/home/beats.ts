@@ -15,8 +15,8 @@ export const BEATS = [
   {
     tag: "Floor",
     title: "The floor knows what to make.",
-    body: "Production Plan & Manufacturing: BOMs, production plans and orders, material to the floor, receipts costed batch by batch, variance and the Production Journal.",
-    card: ["Production Plan & Manufacturing", "Material to the floor."],
+    body: "Production: BOMs, production plans and orders, material to the floor, receipts costed batch by batch, variance and the Production Journal.",
+    card: ["Production", "Material to the floor."],
   },
   {
     tag: "Ledger",

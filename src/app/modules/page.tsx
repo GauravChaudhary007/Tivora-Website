@@ -15,7 +15,7 @@ import { filmReady, type FilmId } from "@/content/videos";
 export const metadata: Metadata = pageMeta({
   title: "Modules",
   description:
-    "Ten modules on one ledger: sales, customer services, purchase, inventory, production, finance, trade finance, tax, reports and administration.",
+    "Twelve modules on one ledger: reports, purchase, inventory, production, sales, transport, customer services, finance, fixed assets, trade finance, tax and the control panel.",
   path: "/modules/",
 });
 
@@ -27,9 +27,6 @@ const screenFor: Partial<Record<string, ScreenSlug>> = {
   finance: "finance-dashboard",
   reports: "dashboards",
 };
-// Reports Centre and Administration lines are not worded on any app screen yet (owner to confirm),
-// so those two show name + a plain description only, no bullet list.
-const descriptionOnly = new Set(["reports", "administration"]);
 
 const filmFor: Partial<Record<string, { id: FilmId; heading: string }>> = {
   sales: { id: "sales", heading: "From quotation to receipt, in a minute." },
@@ -61,7 +58,7 @@ function ModuleBlock({ m }: { m: Module }) {
         <h3 className="text-h3">{m.name}</h3>
       </div>
       <p className="mt-4 max-w-prose text-lead text-muted">{m.appLine}</p>
-      {!descriptionOnly.has(m.slug) && <Bullets items={m.bullets} />}
+      {m.bullets.length > 0 && <Bullets items={m.bullets} />}
       {film && (
         <div className="mt-8 max-w-2xl">
           <h3 className="text-h3">{film.heading}</h3>
@@ -79,7 +76,7 @@ export default function Page() {
     <>
       <PageHero
         eyebrow="Modules"
-        title="Ten modules. One ledger underneath."
+        title="Twelve modules. One ledger underneath."
         lead="Sales, buying, stock, the production floor and the books share one set of entries, so a figure changed in one module is the same figure in every other."
       />
 
@@ -119,7 +116,7 @@ export default function Page() {
             <Pill kind="available" />
             <h2 className="mt-4">The Jewelry pack.</h2>
             <p className="mt-4 text-lead text-muted">
-              Tivora ERP – Jewelry adds four modules to the same core, for the workshop, the factory floor, tagged stock and
+              Tivora ERP – Jewelry adds four more modules to the same twelve, for the workshop, the factory floor, tagged stock and
               loans against jewelry.
             </p>
           </div>

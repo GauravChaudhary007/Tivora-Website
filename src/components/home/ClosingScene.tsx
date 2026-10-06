@@ -6,7 +6,7 @@ import { Section } from "@/components/layout/Section";
 import { DemoForm } from "@/components/forms/DemoForm";
 import { addressLine, site } from "@/content/site";
 import { MOTION_QUERIES, useScene } from "@/lib/scene";
-import { collapse, ORDER } from "./world";
+import { collapse, IDS } from "./world";
 import { SymbolStage } from "./SymbolStage";
 
 const link = "inline-flex min-h-11 items-center text-accent underline underline-offset-4 hover:text-bronze";
@@ -29,7 +29,7 @@ export function ClosingScene({ children }: { children: ReactNode }) {
             ? { trigger: q("[data-pin]")[0], start: "top top", end: "+=100%", pin: true, scrub: 0.6 }
             : { trigger: q("[data-pin]")[0], start: "top 70%", once: true },
         });
-        ORDER.forEach((k) => tl.to(q(`[data-d=${k}]`), { ...collapse(k), duration: 0.5 }, 0));
+        IDS.forEach((k) => tl.to(q(`[data-d=${k}]`), { ...collapse(k), duration: 0.5 }, 0));
         tl.to(q("[data-world]"), { opacity: 0, duration: 0.2, ease: "none" }, 0.5)
           .to(q("[data-sym]"), { opacity: 1, duration: 0.2, ease: "none" }, 0.5)
           .to(q("[data-sym]"), { "--rx": "0deg", "--rz": "0deg", "--sc": 1, duration: 0.4 }, 0.6)
@@ -53,7 +53,7 @@ export function ClosingScene({ children }: { children: ReactNode }) {
       <section data-tone="night" className="bg-night text-ground scheme-dark">
         <div data-pin="" className="flex min-h-svh flex-col items-center justify-center gap-6 overflow-hidden py-section">
           <SymbolStage>{children}</SymbolStage>
-          <p data-label="" className="mt-12 font-mono text-eyebrow font-medium text-gold uppercase">Four modules. One core.</p>
+          <p data-label="" className="mt-12 font-mono text-eyebrow font-medium text-gold uppercase">Twelve modules. One ledger.</p>
         </div>
       </section>
       <Section tone="ground" size="lg" id="demo">

@@ -6,8 +6,8 @@ import { ORIGIN_FRAC, SYMBOL_K } from "./world";
 export const TILT = { transform: "rotateX(var(--rx,0deg)) rotateZ(var(--rz,0deg)) scale(var(--sc,1))" };
 
 /**
- * The official symbol, with (optionally) the collapsed iso world centred over it. The world is sized so its four slab
- * tops sit on the tilted squares at the cross-fade (symbol scale 1.6): world width = 1.6 * 1.414 * symbol / (771/viewBox width).
+ * The official symbol, with (optionally) the collapsed iso world centred over it. The world is sized so its gathered 4 x 3 slabs
+ * span the tilted symbol at the cross-fade (symbol scale 1.6): world width = 1.6 * 1.414 * symbol / (771/viewBox width).
  * Used by the closing scene; the hero tilts the symbol onto Scene 1's own world instead (HeroCore).
  */
 export function SymbolStage({ children, priority = false }: { children?: ReactNode; priority?: boolean }) {

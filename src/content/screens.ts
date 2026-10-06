@@ -84,7 +84,7 @@ export const SCREENS: Record<ScreenSlug, ScreenDef> = {
     width: 1600, height: 778, caption: DEMO_CAPTION.jewelry, edition: "jewelry", src: big("home-jewelry", 1600), srcSet: set("home-jewelry", 960, 1600),
   },
   "menu-paint": {
-    alt: "Tivora ERP side menu listing the ten modules with entry counts, and recently opened pages.",
+    alt: "Tivora ERP side menu listing the modules with entry counts, and recently opened pages.",
     width: 284, height: 922, caption: DEMO_CAPTION.core, edition: "core", src: "/screens/menu-paint-1x.webp",
   },
   "menu-jewelry": {

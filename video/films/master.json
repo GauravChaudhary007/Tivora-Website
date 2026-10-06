@@ -39,9 +39,9 @@
    "type": "world",
    "tone": "night",
    "world": {
-    "ox": 1330,
-    "oy": 560,
-    "k": 1.0,
+    "ox": 1460,
+    "oy": 740,
+    "k": 0.7,
     "morph": "in",
     "chip": false
    },
@@ -73,36 +73,36 @@
    "type": "world",
    "tone": "night",
    "world": {
-    "ox": 1330,
-    "oy": 560,
+    "ox": 1250,
+    "oy": 520,
     "k": 1.0,
-    "s": 1.1,
+    "s": 1.0,
     "chip": false
    },
    "steps": [
     {
      "t": 0,
      "dur": 0.5,
-     "chip": "counter"
+     "chip": "sales"
     },
     {
      "t": 0,
      "dur": 0.8,
      "cam": {
-      "d": "counter",
-      "s": 1.35
+      "d": "sales",
+      "s": 1.12
      }
     },
     {
      "t": 0,
-     "dim": "counter",
+     "dim": "sales",
      "dur": 0.3
     },
     {
      "t": 0,
      "dur": 2.0,
      "card": {
-      "d": "counter",
+      "d": "sales",
       "tag": "Counter",
       "text": "Sales & Accounts Receivable"
      }
@@ -110,7 +110,7 @@
     {
      "t": 2.0,
      "dur": 0.7,
-     "chip": "godown"
+     "chip": "inventory"
     },
     {
      "t": 2.0,
@@ -121,20 +121,20 @@
      "t": 2.0,
      "dur": 0.9,
      "cam": {
-      "d": "godown",
-      "s": 1.35
+      "d": "inventory",
+      "s": 1.12
      }
     },
     {
      "t": 2.0,
-     "dim": "godown",
+     "dim": "inventory",
      "dur": 0.3
     },
     {
      "t": 2.0,
      "dur": 2.0,
      "card": {
-      "d": "godown",
+      "d": "inventory",
       "tag": "Godown",
       "text": "Store & Inventory"
      }
@@ -142,7 +142,7 @@
     {
      "t": 4.0,
      "dur": 0.7,
-     "chip": "floor"
+     "chip": "production"
     },
     {
      "t": 4.0,
@@ -153,20 +153,20 @@
      "t": 4.0,
      "dur": 0.9,
      "cam": {
-      "d": "floor",
-      "s": 1.35
+      "d": "production",
+      "s": 1.12
      }
     },
     {
      "t": 4.0,
-     "dim": "floor",
+     "dim": "production",
      "dur": 0.3
     },
     {
      "t": 4.0,
      "dur": 2.0,
      "card": {
-      "d": "floor",
+      "d": "production",
       "tag": "Floor",
       "text": "Production"
      }
@@ -174,7 +174,7 @@
     {
      "t": 6.0,
      "dur": 0.7,
-     "chip": "ledger"
+     "chip": "finance"
     },
     {
      "t": 6.0,
@@ -185,20 +185,20 @@
      "t": 6.0,
      "dur": 0.9,
      "cam": {
-      "d": "ledger",
-      "s": 1.35
+      "d": ["finance", "tax"],
+      "s": 1.12
      }
     },
     {
      "t": 6.0,
-     "dim": "ledger",
+     "dim": ["finance", "tax"],
      "dur": 0.3
     },
     {
      "t": 6.0,
      "dur": 2.0,
      "card": {
-      "d": "ledger",
+      "d": "finance",
       "tag": "Ledger",
       "text": "Finance & Accounts · Tax & IRD"
      }
@@ -226,7 +226,7 @@
      "t": 10.0,
      "dur": 0.6,
      "cam": {
-      "d": "ledger",
+      "d": "finance",
       "s": 9,
       "fx": 960,
       "fy": 540
@@ -1672,7 +1672,7 @@
     "ox": 960,
     "oy": 500,
     "k": 1.0,
-    "s": 0.55,
+    "s": 0.75,
     "morph": "out",
     "centre": [
      960,

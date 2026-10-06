@@ -1,23 +1,18 @@
-// The ten core modules plus the four Jewelry-pack modules. `appLine` is the app's own wording
-// (read off the demo screens); `bullets` come only from the Website Brief's feature lists.
-// Reports Centre, Administration and the Customer Services bullets are not worded on any
-// screen we have, so their lines are plain descriptions built from the brief: WP2 to confirm with the app team.
+// The twelve modules of the platform plus the four Jewelry-pack modules. `appLine` is the app's own wording, copied from the
+// Home screen of the current build (assests/app-captures/home.png); `bullets` come only from the Website Brief's feature lists.
+// Reports Centre, Transport & Delivery, Fixed Assets and Control Panel have no brief bullets: the app's line is all we say.
 export type IconName =
   | "ReceiptText" | "HeartHandshake" | "ShoppingCart" | "Package" | "Factory" | "Scale" | "Landmark"
-  | "FileText" | "ChartColumn" | "SlidersHorizontal" | "Hammer" | "FlaskConical" | "ScanLine" | "LockKeyhole";
+  | "FileText" | "ChartColumn" | "SlidersHorizontal" | "Truck" | "Building2" | "Hammer" | "FlaskConical" | "ScanLine" | "LockKeyhole";
 
 export type Module = { slug: string; name: string; icon: IconName; appLine: string; bullets: string[]; pack: "core" | "jewelry" };
 
+/** Home-screen order of the app. */
 export const modules: Module[] = [
   {
-    slug: "sales", name: "Sales & Accounts Receivable", icon: "ReceiptText", pack: "core",
-    appLine: "Billing at the counter, orders and estimates, receipts, and what customers owe.",
-    bullets: ["Quotations, orders, invoices and returns", "Credit limits", "Bill-wise outstanding and ageing"],
-  },
-  {
-    slug: "customer-services", name: "Customer Services", icon: "HeartHandshake", pack: "core",
-    appLine: "Savings schemes, repairs and the dates that bring customers back.",
-    bullets: ["Savings schemes", "Customer orders"],
+    slug: "reports", name: "Reports Centre", icon: "ChartColumn", pack: "core",
+    appLine: "Every report you may open, in one searchable list, with your saved views.",
+    bullets: [],
   },
   {
     slug: "purchase", name: "Purchase & Accounts Payable", icon: "ShoppingCart", pack: "core",
@@ -30,19 +25,39 @@ export const modules: Module[] = [
     bullets: ["Godowns, batches and lots", "Transfers and stock audit", "Reorder report", "FIFO, LIFO, moving average or board-rate valuation"],
   },
   {
-    slug: "production", name: "Production Plan & Manufacturing", icon: "Factory", pack: "core",
+    slug: "production", name: "Production", icon: "Factory", pack: "core",
     appLine: "BOMs, production plans and orders, material to the floor, receipts costed batch by batch, variance and the Production Journal.",
     bullets: ["BOMs, production plans and orders", "Material issued to the floor", "Receipts costed batch by batch", "Variance and the Production Journal"],
   },
   {
+    slug: "sales", name: "Sales & Accounts Receivable", icon: "ReceiptText", pack: "core",
+    appLine: "Billing at the counter, orders and estimates, receipts, and what customers owe.",
+    bullets: ["Quotations, orders, invoices and returns", "Credit limits", "Bill-wise outstanding and ageing"],
+  },
+  {
+    slug: "transport", name: "Transport & Delivery", icon: "Truck", pack: "core",
+    appLine: "Dispatch, own vehicles and trips, hired transporters and their freight bills.",
+    bullets: [],
+  },
+  {
+    slug: "customer-services", name: "Customer Services", icon: "HeartHandshake", pack: "core",
+    appLine: "Savings schemes, repairs and the dates that bring customers back.",
+    bullets: ["Savings schemes", "Customer orders"],
+  },
+  {
     slug: "finance", name: "Finance & Accounts", icon: "Scale", pack: "core",
-    appLine: "Vouchers, books, cheques, assets and the final accounts.",
+    appLine: "Vouchers, books, cheques and the final accounts.",
     bullets: [
       "True double-entry ledger",
       "Trial balance, profit and loss, balance sheet and cash flow",
       "Bank reconciliation and the cheque (PDC) register",
-      "Fixed assets, budgets and cost centres",
+      "Budgets and cost centres",
     ],
+  },
+  {
+    slug: "fixed-assets", name: "Fixed Assets", icon: "Building2", pack: "core",
+    appLine: "The asset register, depreciation, disposals and the asset schedule.",
+    bullets: [],
   },
   {
     slug: "trade-finance", name: "Trade & Finance", icon: "Landmark", pack: "core",
@@ -55,14 +70,9 @@ export const modules: Module[] = [
     bullets: ["13% VAT on each line, gathered into the VAT books", "Monthly VAT return, Annex 9 and Annex 13", "TDS where it applies", "E-invoicing in the CBMS format IRD publishes"],
   },
   {
-    slug: "reports", name: "Reports Centre", icon: "ChartColumn", pack: "core",
-    appLine: "Fixed statutory layouts and a pivot report builder.",
-    bullets: ["Fixed statutory layouts", "Pivot report builder"],
-  },
-  {
-    slug: "administration", name: "Administration", icon: "SlidersHorizontal", pack: "core",
-    appLine: "Roles, rights and the settings behind the system.",
-    bullets: ["Roles and rights inside the app", "An audit log of every change"],
+    slug: "control-panel", name: "Control Panel", icon: "SlidersHorizontal", pack: "core",
+    appLine: "Every setting in one place: company, users, documents, workflow, accounting and tax, each module, and your data and licence.",
+    bullets: [],
   },
   {
     slug: "karigar", name: "Karigar / Workshop", icon: "Hammer", pack: "jewelry",

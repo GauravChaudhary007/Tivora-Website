@@ -3,7 +3,7 @@ import { modules, tradeFinanceExtra } from "@/content/modules";
 
 const core = modules.filter((m) => m.pack === "core");
 
-/** The ten core module cards for Scene 6 (server component; passed to ModuleTrack as children). */
+/** The twelve module cards for Scene 6 (server component; passed to ModuleTrack as children). */
 export function ModuleCards() {
   return (
     <ul className="flex gap-6">

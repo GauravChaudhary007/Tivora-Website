@@ -11,7 +11,7 @@ const FROM = "inset(34% 34% 34% 34% round 32%)"; // a rounded square, the module
 const TO = "inset(-12% -12% -12% -12% round 0%)"; // beyond the box so the frame shadow survives
 
 /**
- * Scene 2. children = <IsoWorld />. Desktop: the ledger slab floods the screen, a rounded-square mask opens onto the
+ * Scene 2. children = <IsoWorld />. Desktop: the Finance slab floods the screen, a rounded-square mask opens onto the
  * real Home screen as a full-bleed layer, and after ~65% of the scrub that layer settles into its place in the layout.
  * Mobile: the mask opens once on enter, onto pre-cropped stills.
  */
@@ -23,7 +23,7 @@ export function ProofReveal({ children }: { children: ReactNode }) {
     const frame = q("[data-frame]");
     mm.add(MOTION_QUERIES.desktop, () => {
       const off = live(root.current);
-      const c = centre("ledger", H);
+      const c = centre("finance", H);
       const pin = q("[data-pin]")[0];
       const slot = q("[data-slot]")[0];
       // The frame's full-bleed pose: centred on the pinned frame and scaled to cover it. Measured against the (untransformed) slot.
@@ -87,7 +87,7 @@ export function ProofReveal({ children }: { children: ReactNode }) {
           <div data-copy="" className="lg:col-span-5">
             <h2>This is the real screen.</h2>
             <p className="mt-5 max-w-prose text-lead text-muted">
-              Ten modules on one menu. Ctrl K finds any entry. Switch companies from the top bar, and read every date in Bikram Sambat and AD.
+              Every module on one menu. Ctrl K finds any entry. Switch companies from the top bar, and read every date in Bikram Sambat and AD.
             </p>
             <p className="mt-5 text-small text-muted">{DEMO_CAPTION.paint}</p>
           </div>

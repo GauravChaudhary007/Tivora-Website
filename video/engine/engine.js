@@ -39,13 +39,15 @@
   })();
 
   // ---- iso world math: mirrors src/components/home/world.ts + src/lib/iso.ts (extract-world.mjs asserts the constants)
-  const WS = { S: 180, GAP: 180, GS: 85, H: 22, VB: { x: 80, y: 90, w: 1040, h: 700 }, O: { x: 600, y: 472 } };
-  const ORDER = ["counter", "godown", "floor", "ledger"], POS = { counter: [-1, -1], godown: [1, -1], floor: [1, 1], ledger: [-1, 1] };
-  const C30 = Math.cos(Math.PI / 6), WC = (WS.S + WS.GAP) / 2;
+  const WS = { S: 140, GAP: 70, GS: 30, H: 22, VB: { x: 10, y: 100, w: 1160, h: 720 }, O: { x: 600, y: 472 } };
+  // twelve modules on a 4 x 3 grid (column, row), same ids as MODS in world.ts
+  const AT = { reports: [0, 0], purchase: [1, 0], transport: [2, 0], customer: [3, 0], sales: [0, 1], inventory: [1, 1], production: [2, 1], finance: [3, 1], control: [0, 2], trade: [1, 2], assets: [2, 2], tax: [3, 2] };
+  const ORDER = Object.keys(AT), POS = Object.fromEntries(ORDER.map((d) => [d, [AT[d][0] - 1.5, AT[d][1] - 1]]));
+  const C30 = Math.cos(Math.PI / 6), WC = WS.S + WS.GAP, DIM = 0.5;
   const iso = (x, y, z = 0) => [(x - y) * C30, (x + y) * 0.5 - z];
   const centre = (d, z = WS.H) => iso(POS[d][0] * WC, POS[d][1] * WC, z);
-  const collapse = (d) => { const k = (WS.GAP - WS.GS) / 2, [x, y] = iso(POS[d][0] * k, POS[d][1] * k); return { x: -x, y: -y }; };
-  const SYM_SIDE = 2 * WS.S + WS.GS; // symbol side in world units (collapsed slabs)
+  const collapse = (d) => { const k = WS.GAP - WS.GS, [x, y] = iso(POS[d][0] * k, POS[d][1] * k); return { x: -x, y: -y }; };
+  const SYM_SIDE = 3 * WS.S + 2 * WS.GS; // symbol side in world units (the gathered grid's short side)
 
   // ---- callouts, plates, camera
   const normCall = (c) => (Array.isArray(c) ? { t: c[0], dur: c[1], x: c[2], y: c[3], w: c[4], h: c[5], label: c[6], ...(c[7] || {}) } : c);
@@ -366,19 +368,23 @@
     svg.style.left = ox - (WS.O.x - V.x) * k + "px"; svg.style.top = oy - (WS.O.y - V.y) * k + "px";
     const ds = {}; svg.querySelectorAll("[data-d]").forEach((g) => (ds[g.dataset.d] = g));
     const links = [...svg.querySelectorAll("[data-link]")], chipEl = svg.querySelector("[data-chip]"), camg = svg.querySelector("[data-cam]");
-    const park = centre(wc.chipAt || "counter", WS.H + 95);
-    const Wd = { op: wc.op ?? 1, sep: wc.sep ?? 1, cam: { x: 0, y: 0, s: wc.s ?? 1 }, dop: { counter: 1, godown: 1, floor: 1, ledger: 1 }, link: [0, 0, 0, 0], chip: { x: park[0], y: park[1], op: wc.chip === false ? 0 : 1 } };
-    const focusV = (d, s, fx, fy) => { const p = centre(d); return { x: (fx - ox) / k - s * p[0], y: (fy - oy) / k - s * p[1] }; };
+    const park = centre(wc.chipAt || "sales", WS.H + 95);
+    const Wd = { op: wc.op ?? 1, sep: wc.sep ?? 1, cam: { x: 0, y: 0, s: wc.s ?? 1 }, dop: Object.fromEntries(ORDER.map((d) => [d, 1])), link: [0, 0, 0, 0], chip: { x: park[0], y: park[1], op: wc.chip === false ? 0 : 1 } };
+    const focusV = (d, s, fx, fy) => { const ps = [].concat(d).map((m) => centre(m)), p = [0, 1].map((i) => ps.reduce((n, q) => n + q[i], 0) / ps.length); return { x: (fx - ox) / k - s * p[0], y: (fy - oy) / k - s * p[1] }; };
     const cards = [];
     for (const st of sc.steps || []) {
       const a = A + st.t, ease = EZ(st.ease);
       if (st.cam) {
         const c = st.cam, v = c.d ? focusV(c.d, c.s, c.fx ?? ox, c.fy ?? oy - 40) : { x: c.x ?? 0, y: c.y ?? 0 };
+        if (c.d && c.s < 2) { // keep the whole zoomed world inside the frame (world extent 576 / 354 / 332 units from its origin): no clipped labels
+          v.x = Math.max((60 - ox) / k + 576 * c.s, Math.min((1860 - ox) / k - 576 * c.s, v.x));
+          v.y = Math.max((110 - oy) / k + 354 * c.s, Math.min((1000 - oy) / k - 332 * c.s, v.y));
+        }
         tl.to(Wd.cam, { x: v.x, y: v.y, s: c.s, duration: st.dur, ease }, a);
       }
       if (st.chip) { const p = centre(st.chip, WS.H + 95); tl.to(Wd.chip, { x: p[0], y: p[1], op: 1, duration: st.dur, ease: EZ("out") }, a); }
       if (st.link != null) tl.to(Wd.link, { [st.link]: 1, duration: st.dur, ease: EZ() }, a);
-      if (st.dim !== undefined) ORDER.forEach((d) => tl.to(Wd.dop, { [d]: st.dim === null || st.dim === d ? 1 : 0.35, duration: D.base }, a));
+      if (st.dim !== undefined) ORDER.forEach((d) => tl.to(Wd.dop, { [d]: st.dim === null || [].concat(st.dim).includes(d) ? 1 : DIM, duration: D.base }, a));
       if (st.card) {
         const c = el("div", "card", S.rig); c.innerHTML = `<small>${st.card.tag}</small><span>${st.card.text}</span>`;
         const cs = { op: 0 }; cards.push({ c, cs, d: st.card.d });
@@ -423,9 +429,8 @@
       links.forEach((l, i) => (l.style.strokeDashoffset = 1 - Wd.link[i]));
       chipEl.style.transform = `translate(${Wd.chip.x}px,${Wd.chip.y}px)`; chipEl.style.opacity = Wd.chip.op;
       cards.forEach(({ c, cs, d }) => {
-        const p = centre(d), x = ox + k * (Wd.cam.s * p[0] + Wd.cam.x), y = oy + k * (Wd.cam.s * p[1] + Wd.cam.y);
-        c.style.visibility = cs.op > 0.002 ? "visible" : "hidden"; c.style.opacity = cs.op;
-        c.style.transform = `translate(${x + 70}px,${y - 270}px)`;
+                c.style.visibility = cs.op > 0.002 ? "visible" : "hidden"; c.style.opacity = cs.op;
+        c.style.transform = `translate(${1824 - c.offsetWidth}px,104px)`; // fixed top-right: never covers a module label
       });
       if (sym) { sym.render(); lock.render(); }
     });

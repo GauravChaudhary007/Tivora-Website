@@ -20,7 +20,7 @@ const ctx = await browser.newContext({ viewport: { width: 1920, height: 1080 }, 
 const page = await ctx.newPage();
 await page.goto("http://127.0.0.1:4318/");
 const svg = await page.evaluate(() => {
-  const el = [...document.querySelectorAll("svg")].find((s) => s.querySelector("[data-chip]") && s.querySelectorAll("[data-d]").length === 4 && s.querySelectorAll("[data-link]").length === 4);
+  const el = [...document.querySelectorAll("svg")].find((s) => s.querySelector("[data-chip]") && s.querySelectorAll("[data-d]").length === 12 && s.querySelectorAll("[data-link]").length === 4);
   if (!el) return null;
   const props = ["fill", "stroke", "stroke-width", "opacity", "font-family", "font-size", "font-weight", "stroke-linecap"];
   const clone = el.cloneNode(true);
@@ -32,6 +32,7 @@ const svg = await page.evaluate(() => {
   });
   clone.removeAttribute("class");
   clone.querySelectorAll("[data-d],[data-chip]").forEach((g) => g.removeAttribute("style"));
+  clone.querySelectorAll("[data-flows]").forEach((n) => n.remove()); // CSS-animated site decoration: keep it out of the deterministic film frames
   clone.querySelector("[data-cam]").removeAttribute("transform");
   clone.querySelectorAll("[data-link]").forEach((l) => l.style.removeProperty("stroke-dashoffset"));
   return clone.outerHTML;
@@ -40,6 +41,6 @@ await browser.close();
 srv.close();
 if (!svg) throw new Error("world svg not found in out/index.html");
 const n = (re) => (svg.match(re) || []).length;
-if (n(/data-d=/g) !== 4 || n(/data-link=/g) !== 4 || n(/data-chip=/g) !== 1 || n(/data-cam=/g) !== 1) throw new Error("world svg failed assertions");
+if (n(/data-d=/g) !== 12 || n(/data-link=/g) !== 4 || n(/data-chip=/g) !== 1 || n(/data-cam=/g) !== 1) throw new Error("world svg failed assertions");
 writeFileSync(join(build, "iso-world.svg"), svg);
 console.log("wrote video/build/iso-world.svg (" + svg.length + " B) and fonts.css (" + faces.length + " faces)");

@@ -135,7 +135,7 @@ export default function Page() {
         <div className="container-x">
           <div className="max-w-3xl" data-reveal>
             <p className="font-mono text-eyebrow font-medium uppercase text-accent">How you move around</p>
-            <h2 className="mt-3">Ten modules on one menu.</h2>
+            <h2 className="mt-3">Twelve modules on one menu.</h2>
             <ul className="mt-6 space-y-3">
               {moves.map((m) => (
                 <li key={m} className="flex gap-3">
