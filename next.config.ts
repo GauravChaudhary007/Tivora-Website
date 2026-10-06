@@ -21,9 +21,9 @@ const nextConfig: NextConfig = {
         async headers() {
           return [
             {
-              // Logos and screenshots never change in place (a new cut gets a new
+              // Logos, screenshots and films never change in place (a new cut gets a new
               // file name), so browsers can keep them for a long time.
-              source: "/:dir(brand|screens)/:file*",
+              source: "/:dir(brand|screens|videos)/:file*",
               headers: [{ key: "Cache-Control", value: "public, max-age=2592000, stale-while-revalidate=86400" }],
             },
           ];

@@ -7,6 +7,7 @@ import { ModuleTrack } from "@/components/home/ModuleTrack";
 import { NepalScene } from "@/components/home/NepalScene";
 import { ProofReveal } from "@/components/home/ProofReveal";
 import { TradesScene } from "@/components/home/TradesScene";
+import { VideoScene } from "@/components/home/VideoScene";
 import { WorkDeskScene } from "@/components/home/WorkDeskScene";
 
 export default function Page() {
@@ -24,6 +25,7 @@ export default function Page() {
       <ModuleTrack>
         <ModuleCards />
       </ModuleTrack>
+      <VideoScene />
       <TradesScene />
       <ClosingScene>
         <IsoWorld />

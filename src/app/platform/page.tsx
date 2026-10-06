@@ -5,6 +5,7 @@ import { Section } from "@/components/layout/Section";
 import { CtaBand } from "@/components/layout/CtaBand";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Screen } from "@/components/ui/Screen";
+import { VideoSection } from "@/components/video/VideoSection";
 
 export const metadata: Metadata = pageMeta({
   title: "Platform",
@@ -72,6 +73,13 @@ export default function Page() {
           </ol>
         </div>
       </Section>
+
+      <VideoSection
+        id="money"
+        tone="night"
+        title="Books, banks and tax."
+        body="Vouchers to the trial balance, letters of credit, VAT and TDS, in 72 seconds."
+      />
 
       <Section tone="paper" id="nepal">
         <div className="container-x grid gap-stack-lg lg:grid-cols-12 lg:gap-8">

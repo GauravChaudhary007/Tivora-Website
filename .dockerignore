@@ -4,6 +4,9 @@ node_modules
 .gitea
 .tools
 .claude
+video
+assests
+out
 *.md
 !README.md
 .env*

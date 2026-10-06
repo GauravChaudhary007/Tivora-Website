@@ -4,6 +4,7 @@ import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
 import { CtaBand } from "@/components/layout/CtaBand";
 import { Screen } from "@/components/ui/Screen";
+import { VideoSection } from "@/components/video/VideoSection";
 import { DashboardZoom } from "@/components/home/DashboardZoom";
 import { WorkDeskStills } from "@/components/home/WorkDeskStills";
 
@@ -28,6 +29,13 @@ export default function Page() {
         eyebrow="Work Desk"
         title="Mornings start with what needs you."
         lead="The Work Desk lists what is late, critical or due, across every module. The action is one click away."
+      />
+
+      <VideoSection
+        id="owner"
+        tone="paper"
+        title="The owner's morning."
+        body="The Work Desk, performance and dashboards, in a minute."
       />
 
       <Section tone="ground">

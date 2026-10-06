@@ -4,10 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/check-videos.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "build:static": "node scripts/build-static.mjs"
+    "build:static": "node scripts/build-static.mjs",
+    "video:prep": "npm --prefix video run prep",
+    "video:render": "npm --prefix video run render --",
+    "video:verify": "npm --prefix video run verify"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

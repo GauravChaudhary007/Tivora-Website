@@ -9,6 +9,8 @@ import { Screen } from "@/components/ui/Screen";
 import { Pill } from "@/components/ui/Pill";
 import { ModuleIcon } from "@/components/ui/ModuleIcon";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { VideoBlock } from "@/components/video/VideoBlock";
+import { filmReady, type FilmId } from "@/content/videos";
 
 export const metadata: Metadata = pageMeta({
   title: "Modules",
@@ -29,6 +31,11 @@ const screenFor: Partial<Record<string, ScreenSlug>> = {
 // so those two show name + a plain description only, no bullet list.
 const descriptionOnly = new Set(["reports", "administration"]);
 
+const filmFor: Partial<Record<string, { id: FilmId; heading: string }>> = {
+  sales: { id: "sales", heading: "From quotation to receipt, in a minute." },
+  production: { id: "stock", heading: "Buy, store, make and deliver, in 68 seconds." },
+};
+
 function Bullets({ items }: { items: string[] }) {
   return (
     <ul className="mt-5 space-y-2.5">
@@ -44,6 +51,9 @@ function Bullets({ items }: { items: string[] }) {
 
 function ModuleBlock({ m }: { m: Module }) {
   const shot = screenFor[m.slug];
+  // Heading and film both vanish in production while the film's files are missing.
+  const f = filmFor[m.slug];
+  const film = f && (process.env.NODE_ENV !== "production" || filmReady(f.id)) ? f : null;
   return (
     <article id={m.slug} className="scroll-mt-24 border-t border-rule pt-10 first:border-t-0 first:pt-0" data-reveal>
       <div className="flex items-center gap-4">
@@ -52,6 +62,12 @@ function ModuleBlock({ m }: { m: Module }) {
       </div>
       <p className="mt-4 max-w-prose text-lead text-muted">{m.appLine}</p>
       {!descriptionOnly.has(m.slug) && <Bullets items={m.bullets} />}
+      {film && (
+        <div className="mt-8 max-w-2xl">
+          <h3 className="text-h3">{film.heading}</h3>
+          <VideoBlock id={film.id} className="mt-4" />
+        </div>
+      )}
       {m.slug === "trade-finance" && <p className="mt-4 text-small text-muted">{tradeFinanceExtra}</p>}
       {shot && <Screen slug={shot} sizes="(min-width: 1024px) 640px, 100vw" className="mt-8 max-w-2xl" />}
     </article>

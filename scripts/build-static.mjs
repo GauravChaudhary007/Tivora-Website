@@ -5,6 +5,8 @@ import { execSync } from "node:child_process";
 import { cpSync, existsSync, readdirSync, readFileSync, renameSync, rmSync, statSync } from "node:fs";
 import { join } from "node:path";
 
+await import("./check-videos.mjs"); // warns (REQUIRE_VIDEOS=1: fails) when public/videos/ lacks a film
+
 const api = "src/app/api";
 const parked = "src/.api-parked";
 rmSync("out", { recursive: true, force: true });
