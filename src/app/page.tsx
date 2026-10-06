@@ -17,9 +17,7 @@ export default function Page() {
       <HeroCore film={<VideoBlock id="master" />}>
         <IsoWorld props underlay={<Flows />} />
       </HeroCore>
-      <ProofReveal>
-        <IsoWorld props />
-      </ProofReveal>
+      <ProofReveal />
       <WorkDeskScene />
       <DashboardZoom />
       <NepalScene />
