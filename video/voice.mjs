@@ -23,10 +23,27 @@ const speak = (t) =>
     .replace(/Ctrl K/g, "Control K").replace(/Annex (\d+)/g, (_, n) => "Annex " + num(+n))
     .replace(/\b(\d{1,2})\b(?!-)/g, (_, n) => num(+n)).replace(/(\d+)-(\d+)/g, (_, a, b) => `${num(+a)} to ${num(+b)}`)
     .replace(/\s+([.,?!])/g, "$1");
+// The approved explanatory script (docs/NARRATION-SCRIPT.md) wins over caption-derived lines: rows are | t | fit | scene | text |.
+const SECTION = { Master: "master", Owner: "owner", Books: "money", Buy: "stock", From: "sales" };
+const script = {};
+if (existsSync("docs/NARRATION-SCRIPT.md")) {
+  let film;
+  for (const line of readFileSync("docs/NARRATION-SCRIPT.md", "utf8").split(/\r?\n/)) {
+    const h = /^## (\w+)/.exec(line);
+    if (h) film = SECTION[h[1]];
+    const r = /^\|\s*([\d.]+)\s*\|\s*([\d.]+)\s*\|[^|]*\|\s*(.+?)\s*\|\s*$/.exec(line);
+    if (film && r) (script[film] ??= []).push([+r[1], r[3], +r[2]]);
+  }
+}
 mkdirSync("video/audio", { recursive: true });
 const all = existsSync("video/narration.json") ? JSON.parse(readFileSync("video/narration.json", "utf8")) : {};
 const jobs = [];
 for (const f of films) {
+  if (script[f]) {
+    all[f] = script[f];
+    all[f].forEach((l, i) => jobs.push([`video/audio/${f}-${i}.wav`, l[1]]));
+    continue;
+  }
   const j = JSON.parse(readFileSync(`video/films/${f}.json`, "utf8"));
   const cues = [];
   for (const s of j.scenes) {

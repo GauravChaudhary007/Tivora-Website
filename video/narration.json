@@ -2,402 +2,277 @@
  "outro": "Tivora ERP. One platform. Every business.",
  "master": [
   [
-   3.9,
-   "One platform.",
-   2.5
+   0.6,
+   "This is Tivora ERP, from HiTech in Kathmandu.",
+   2.8
   ],
   [
-   6.5,
-   "Every business.",
-   2.5
+   3.6,
+   "One platform for every business, from the counter to the books.",
+   5.2
   ],
   [
-   9.1,
-   "A bill at the counter. The stock moves with it.",
-   3.9
+   9.2,
+   "Here is how it works. A bill is raised at the counter. The stock moves, the production floor knows what to make, and the ledger already has the entry. You type it once.",
+   9.6
   ],
   [
-   13.1,
-   "The floor knows what to make. And the ledger already has it.",
-   3.9
-  ],
-  [
-   17.1,
-   "Typed once. Every number agrees.",
-   2.4
-  ],
-  [
-   19.7,
-   "This is the real screen.",
-   2.5
-  ],
-  [
-   22.3,
-   "Every module, one Home. Star any entry to keep it here.",
-   4.9
-  ],
-  [
-   27.3,
-   "Control K searches the menu. One login. Switch company. Dates in B S and A D.",
-   3.9
-  ],
-  [
-   31.3,
-   "Mornings start with what needs you. Over the credit limit.",
-   3
-  ],
-  [
-   34.4,
-   "An order late on the floor. A journal not posted. What's due, and who is on time.",
-   6.8
-  ],
-  [
-   41.3,
-   "A dashboard for every module. The whole business on one page.",
-   4.7
-  ],
-  [
-   46.1,
-   "Sales and Accounts Receivable. Purchase and Accounts Payable",
-   2.4
-  ],
-  [
-   48.6,
-   "Store and Inventory. Production",
-   2.4
-  ],
-  [
-   51.1,
-   "Transport and Delivery. Customer Services",
-   2.4
-  ],
-  [
-   53.6,
-   "Finance and Accounts. Fixed Assets",
-   2.4
-  ],
-  [
-   56.1,
-   "Trade and Finance. Tax and I R D",
-   2.4
-  ],
-  [
-   58.6,
-   "Control Panel. Reports Centre",
+   19.2,
+   "This is the real software.",
    2.6
   ],
   [
-   61.3,
-   "A quotation becomes the sales order, at the quoted prices. Every bill with its VAT, paid or not.",
-   4.9
+   22.2,
+   "Every module sits on one Home screen, so nobody has to hunt through menus.",
+   4.6
   ],
   [
-   66.3,
-   "L C and import-loan payments post as automatic vouchers. Letters of credit, from application to retirement.",
-   4.8
+   27.2,
+   "Search any entry with Control K, or star the ones you use every day.",
+   3.6
   ],
   [
-   71.2,
-   "Every report, in one searchable place. Day book in B S and A D.",
-   4.05
-  ],
-  [
-   75.35,
-   "Stock: opening, in, out, closing. Ageing, as a list, pivot or graph.",
-   3.15
-  ],
-  [
-   80.7,
-   "Made for Nepal. Bikram Sambat dates, VAT registers, TDS certificates, and C B M S ready.",
+   31.2,
+   "The Work Desk shows the owner what needs attention each morning: a credit limit, a late order, a journal not posted.",
    5.6
   ],
   [
-   86.4,
-   "Jewelry is available now. General trading and Paint are next.",
-   4.1
+   37.2,
+   "And what is due, and who is keeping up.",
+   3.6
   ],
   [
-   93.3,
-   "One platform. Every business.",
-   2.2
+   41.2,
+   "Each module has its own dashboard, and one page shows the whole business.",
+   4.6
+  ],
+  [
+   46.2,
+   "Twelve modules work from the same books: sales and purchase, stock and production, transport and delivery, customer services, finance, fixed assets, trade finance, tax, reports, and the control panel.",
+   14.6
+  ],
+  [
+   61.2,
+   "A quotation becomes a sales order at the quoted prices. Every bill carries its V A T, paid or not. And letters of credit are followed from application to retirement.",
+   9.6
+  ],
+  [
+   71.2,
+   "Reports live in one searchable place: the day book, stock movement, and receivables ageing as a list, a pivot or a graph. The trial balance balances.",
+   8.6
+  ],
+  [
+   80.2,
+   "It is made for Nepal: Bikram Sambat dates, V A T registers, T D S, and Annex nine and thirteen.",
+   5.6
+  ],
+  [
+   86.2,
+   "Jewelry is available now. General trading and Paint are next.",
+   3.6
+  ],
+  [
+   90.2,
+   "Tivora ERP. One platform. Every business.",
+   4.6
+  ],
+  [
+   95.8,
+   "Request a demo, and see it on your own numbers.",
+   3.5
   ]
  ],
  "owner": [
   [
-   1.1,
-   "The owner's morning.",
-   2.7
+   1,
+   "The owner's morning, on Tivora.",
+   3
   ],
   [
-   5,
-   "Namaste. Your entries, one click away. Star any entry to keep it on Home.",
-   4.2
+   4.3,
+   "Everything starts on Home. Your most used entries are one click away.",
+   4.5
   ],
   [
-   9.3,
-   "One desk for every module.",
-   4.3
+   9.5,
+   "The Work Desk is where the day begins. It gathers what needs you from every module, sorted by late, today, this week or snoozed. A customer is over the credit limit. A production order is weeks late. A journal has not been posted. Each one has its action beside it, so you fix it there.",
+   22
   ],
   [
-   13.7,
-   "Late, today, this week, snoozed.",
-   3.5
-  ],
-  [
-   17.3,
-   "A customer over the credit limit. The action is one click away.",
-   3.1
-  ],
-  [
-   20.5,
-   "A production order fifty-five days late. The action is one click away.",
-   3.1
-  ],
-  [
-   23.7,
-   "A journal not posted. The action is one click away.",
-   3.5
-  ],
-  [
-   27.4,
-   "Coming up: the TDS deposit and the VAT return.",
-   4.7
-  ],
-  [
-   32.2,
-   "Who owes you, and whom you owe. Sales, last thirty days.",
-   6
+   32.3,
+   "Then the numbers: who owes you, and whom you owe, in one view.",
+   5.5
   ],
   [
    38.3,
-   "VAT this month: output less input.",
-   3.9
-  ],
-  [
-   42.3,
-   "Assigned, done, on time, overdue. Per person, by week or month.",
-   4.4
+   "Sales for the last thirty days. The V A T this month, output less input. And work assigned, done, on time or overdue.",
+   8.2
   ],
   [
    46.8,
-   "A dashboard for every module. Open items, critical, late.",
-   3.8
+   "Every module has a dashboard of its own. Sales against the same days last month, a running total against target, and what customers owe.",
+   10
   ],
   [
-   50.7,
-   "Sales against the same days of Bhadra. A running total against target.",
-   4.6
-  ],
-  [
-   55.4,
-   "What customers owe. What you owe.",
-   2.6
+   58,
+   "Tivora ERP. One platform. Every business.",
+   4.5
   ]
  ],
  "money": [
   [
-   1.1,
+   1,
    "Books, banks and tax.",
-   2.7
+   3
   ],
   [
-   5,
-   "Vouchers, books, cheques and the final accounts.",
-   5.1
+   4.3,
+   "This is where the money is kept: vouchers, books, cheques and the final accounts.",
+   5.5
   ],
   [
-   10.2,
-   "Receipts, payments and contra, against a cash or bank book. L C and import-loan payments post as automatic vouchers.",
-   8
+   10.3,
+   "Receipts, payments and contra entries are made against a cash or bank book, so every rupee has a place.",
+   7.5
   ],
   [
    18.3,
-   "Every voucher in date order. B S and A D. VAT on the purchase, already in the books.",
-   6.8
+   "When an import-loan or L C payment is made, its voucher posts by itself. Nobody retypes it.",
+   6.5
   ],
   [
-   25.2,
-   "Trial balance, up to today.",
-   2.8
+   25.3,
+   "Every voucher stays in date order, in B S and A D, so any entry can be found and checked.",
+   6.5
   ],
   [
-   32.2,
-   "PandL, balance sheet, cash flow, funds flow.",
-   4
+   32.3,
+   "The trial balance is always up to today, and it balances.",
+   3.5
   ],
   [
    36.3,
-   "Asset register, depreciation, the asset schedule.",
-   4.8
+   "From it come the profit and loss, balance sheet, cash flow and funds flow.",
+   4.7
   ],
   [
-   41.2,
-   "Letters of credit, import loans, bank guarantees.",
-   3.4
-  ],
-  [
-   44.7,
-   "From application to retirement.",
-   3.7
+   41.3,
+   "Fixed assets have their own register, with depreciation and the asset schedule built in.",
+   6.7
   ],
   [
    48.5,
-   "Foreign-currency exposure and month-end revaluation.",
-   3.5
+   "Trade finance is covered too: letters of credit, import loans and bank guarantees, from application to retirement, with foreign currency revalued at month end.",
+   11.5
   ],
   [
-   52.1,
-   "VAT registers and the monthly VAT report. Annex thirteen, Annex nine and C B M S totals.",
-   5.1
+   60.5,
+   "For tax: V A T registers, Annex nine and thirteen, and T D S certificates by party.",
+   4.8
   ],
   [
-   57.3,
-   "TDS by party, with certificates.",
-   2.6
-  ],
-  [
-   62.3,
-   "C B M S-ready. Built to I R D's current formats.",
-   3.5
+   65.8,
+   "It is C B M S ready, and built to I R D's current formats.",
+   5.7
   ]
  ],
  "stock": [
   [
-   1.1,
+   1,
    "Buy. Store. Make. Deliver.",
-   2.7
-  ],
-  [
-   4.2,
-   "The stock moves with it.",
-   3.1
-  ],
-  [
-   7.4,
-   "From requisition and R F Q to the order. Supplier quotations, compared.",
-   5.7
-  ],
-  [
-   13.2,
-   "Import costs, pooled into the goods.",
    3
   ],
   [
-   16.3,
-   "Received but not billed. Payables ageing.",
-   3.9
-  ],
-  [
-   20.3,
-   "Indents, approvals, godown transfers, stock audit.",
-   3.6
-  ],
-  [
-   24,
-   "Batches, H S N and every godown. Stock valued, with N R V.",
-   4.2
-  ],
-  [
-   28.3,
-   "Opening, inward, outward, closing. Product by product, in a second unit if you need it.",
-   5.9
-  ],
-  [
-   34.3,
-   "Plan, order, issue, receive.",
+   4.2,
+   "One entry moves the stock, from purchase to delivery.",
    2.8
   ],
   [
-   37.2,
-   "Bills of materials, plants and machines.",
-   3.1
+   7.2,
+   "Buying starts with a requisition and a request for quotation. Supplier quotes are compared side by side, import costs are pooled into the goods, and what is received but not yet billed stays visible.",
+   12.3
   ],
   [
-   40.4,
-   "Yield and loss. Batch trace. Machine efficiency.",
-   3.9
+   20.2,
+   "In the godown: indents, approvals, transfers and stock audit, with batches, H S N codes and every godown tracked.",
+   7.3
   ],
   [
-   44.4,
-   "A late order reaches the owner's desk.",
-   3.9
+   28.2,
+   "Stock is valued, and you see opening, inward, outward and closing for every product.",
+   5.3
   ],
   [
-   48.6,
-   "Own vehicles, hired transporters, freight bills.",
-   3.2
+   34.2,
+   "On the floor: plan, order, issue, receive. Bills of materials, plants and machines, with yield, loss and batch trace.",
+   9.3
   ],
   [
-   51.9,
-   "Document expiry for vehicles and drivers.",
-   3.2
+   44.2,
+   "A late order reaches the owner's desk by itself.",
+   3.8
   ],
   [
-   57.6,
-   "The floor knows what to make. And the ledger already has it.",
-   4.4
+   48.8,
+   "Delivery runs on your own vehicles or hired transporters, with freight bills and document expiry.",
+   6.2
+  ],
+  [
+   55.8,
+   "The floor knows what to make, and the ledger already has it.",
+   5.2
+  ],
+  [
+   62,
+   "Tivora ERP. One platform. Every business.",
+   4.5
   ]
  ],
  "sales": [
   [
-   1.1,
+   1,
    "From quotation to receipt.",
-   2.7
+   3
   ],
   [
    4.3,
-   "Day start at the counter. Price lists, discount schemes, counters and tills.",
-   5.9
+   "The day starts at the counter, with price lists, discount schemes, counters and tills.",
+   9.5
   ],
   [
-   10.3,
-   "Below-floor sales and temporary credit limits, reported.",
-   4.3
-  ],
-  [
-   14.9,
-   "A quotation becomes the sales order, at the quoted prices.",
-   5.2
+   14.8,
+   "Sales below the floor price, and temporary credit limits, are reported.",
+   5
   ],
   [
    20.3,
-   "Every bill, dated in A D and B S. VAT on every line of the list.",
-   4.9
+   "A quotation becomes the sales order at the quoted prices, so nothing is entered twice.",
+   7.5
   ],
   [
-   25.3,
-   "Paid, partly paid, unpaid.",
-   2.9
+   28.2,
+   "Every bill is dated in both calendars.",
+   2.7
   ],
   [
-   28.3,
-   "Sold by quantity and rate.",
-   2.9
-  ],
-  [
-   31.3,
-   "What each customer still owes.",
-   2.9
-  ],
-  [
-   34.3,
-   "0-⁠thirty, 31-⁠sixty, 61-⁠ninety, over ninety days.",
-   3.4
+   31.8,
+   "Each line carries its V A T, and every bill shows paid, partly paid or unpaid.",
+   5.5
   ],
   [
    37.8,
-   "Over the credit limit, flagged on the Work Desk. The same flag, on the dashboard.",
-   6.9
-  ],
-  [
-   44.8,
-   "Sales against the same days last month. Quotations turned into orders.",
-   5.8
+   "You see what each customer still owes, in ageing bands, as a list, a pivot or a graph.",
+   12.2
   ],
   [
    50.8,
-   "The dates that bring customers back. Birthdays and anniversaries.",
-   4.7
+   "Over the credit limit? The Work Desk flags it, and so does the dashboard.",
+   4.2
+  ],
+  [
+   56,
+   "Tivora ERP. One platform. Every business.",
+   4.5
   ]
  ]
 }
