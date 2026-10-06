@@ -2,15 +2,14 @@
 
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { ScrollTrigger } from "@/lib/gsap";
 
-/** Re-measures every ScrollTrigger once fonts have loaded and after each route change. */
+/** Re-measures every ScrollTrigger once fonts have loaded, on pages that have scenes. GSAP is imported lazily so other pages never download it. */
 export function ScrollRefresh() {
   const pathname = usePathname();
   useEffect(() => {
-    ScrollTrigger.config({ ignoreMobileResize: true });
+    if (!document.querySelector("[data-pin]")) return;
     let live = true;
-    document.fonts.ready.then(() => live && ScrollTrigger.refresh());
+    document.fonts.ready.then(() => live && import("@/lib/gsap").then((m) => live && m.ScrollTrigger.refresh()));
     return () => {
       live = false;
     };

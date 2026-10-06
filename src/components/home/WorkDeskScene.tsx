@@ -55,7 +55,7 @@ export function WorkDeskScene() {
             See the Work Desk
           </Link>
         </div>
-        <div className="lg:col-span-7 lg:-mr-[max(var(--spacing-gutter),calc((100vw-76rem)/2+var(--spacing-gutter)))]">
+        <div className="lg:col-span-7 lg:bleed-right">
           <div data-frame="" className="relative">
             <Screen slug="work-desk" caption={false} imgClassName="aspect-7/2 object-cover object-top" sizes="(min-width: 1024px) 800px, 100vw" />
             <div className="pointer-events-none absolute inset-x-0 bottom-0 aspect-7/2" aria-hidden="true">

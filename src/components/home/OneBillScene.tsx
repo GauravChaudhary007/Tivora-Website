@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, type ReactNode } from "react";
-import { gsap, MOTION_QUERIES, useGSAP } from "@/lib/gsap";
+import { gsap, live, MOTION_QUERIES, useGSAP } from "@/lib/gsap";
 import { centre, collapse, H, ORDER } from "./world";
 
 const BEATS = [
@@ -50,12 +50,13 @@ export function OneBillScene({ children }: { children: ReactNode }) {
         const cards = q("[data-card]");
         const at = (k: (typeof ORDER)[number]) => ({ x: centre(k, lift)[0], y: centre(k, lift)[1] });
 
+        const off = live(root.current);
         gsap.set(cam, { svgOrigin: "0 0" });
         ORDER.forEach((k, i) => gsap.set(ds[i], { ...collapse(k), opacity: i === 0 ? 1 : 0.35 }));
         gsap.set(q("[data-props]"), { opacity: 0 });
         gsap.set(links, { strokeDashoffset: 1 });
         gsap.set(chip, { ...at("counter"), opacity: 0 });
-        gsap.set([...caps, ...cards], { opacity: 0, y: 24 });
+        gsap.set([...caps.slice(1), ...cards], { opacity: 0, y: 24 });
 
         const tl = gsap.timeline({
           defaults: { ease: "power2.inOut" },
@@ -82,6 +83,7 @@ export function OneBillScene({ children }: { children: ReactNode }) {
           .to(cards[3], { opacity: 0, y: -24, duration: 0.25 }, 4)
           .to(caps[4], { opacity: 1, y: 0, duration: 0.35 }, 4.3)
           .to({}, { duration: 0.6 }, 5);
+        return off;
       });
     },
     { scope: root },
@@ -89,26 +91,26 @@ export function OneBillScene({ children }: { children: ReactNode }) {
 
   return (
     <section ref={root} data-tone="night" className="bg-night text-ground scheme-dark">
-      <div data-pin="" className="flex items-center py-section-sm motion-safe:h-svh motion-safe:overflow-hidden motion-safe:pt-header motion-safe:pb-20 lg:py-section lg:motion-safe:pb-0">
+      <div data-pin="" className="flex items-center py-section-sm in-data-live:h-svh in-data-live:overflow-hidden in-data-live:pt-header in-data-live:pb-20 lg:py-section lg:in-data-live:pb-0">
         <div className="container-x grid items-center gap-stack lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <p className="font-mono text-eyebrow font-medium text-gold uppercase motion-reduce:mb-6">Follow one bill</p>
-            <ol className="mt-4 list-none motion-safe:grid motion-reduce:space-y-stack">
+            <p className="font-mono text-eyebrow font-medium text-gold uppercase in-data-live:mb-0 mb-6">Follow one bill</p>
+            <ol className="mt-4 list-none space-y-stack in-data-live:grid in-data-live:space-y-0">
               {BEATS.map((b, i) => (
                 <li
                   key={b.tag}
                   data-cap=""
-                  className="motion-safe:col-start-1 motion-safe:row-start-1 motion-safe:opacity-0 motion-safe:first:opacity-100"
+                  className="in-data-live:col-start-1 in-data-live:row-start-1"
                 >
                   <p className="font-mono text-eyebrow font-medium text-gold uppercase">
                     {i + 1} · {b.tag}
                   </p>
-                  <h2 className="mt-3 motion-reduce:text-h3">{b.title}</h2>
+                  <h2 className="mt-3 text-h3 in-data-live:text-h2">{b.title}</h2>
                   <p className="mt-3 text-lead text-muted-dark">{b.body}</p>
                 </li>
               ))}
-              <li data-cap="" className="motion-safe:col-start-1 motion-safe:row-start-1 motion-safe:opacity-0">
-                <h2 className="motion-reduce:text-h3">Typed once. Every number agrees.</h2>
+              <li data-cap="" className="in-data-live:col-start-1 in-data-live:row-start-1">
+                <h2 className="text-h3 in-data-live:text-h2">Typed once. Every number agrees.</h2>
               </li>
             </ol>
           </div>
@@ -118,7 +120,7 @@ export function OneBillScene({ children }: { children: ReactNode }) {
               <div
                 key={b.tag}
                 data-card=""
-                className="absolute top-0 right-0 hidden w-60 rounded-lg border border-rule-dark bg-night-2 p-4 opacity-0 lg:motion-safe:block"
+                className="absolute top-0 right-0 hidden w-60 rounded-lg border border-rule-dark bg-night-2 p-4 lg:in-data-live:block"
               >
                 <p className="font-mono text-eyebrow font-medium text-gold uppercase">{b.tag}</p>
                 <p className="mt-1 font-bold">{b.card[0]}</p>

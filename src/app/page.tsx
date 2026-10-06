@@ -19,7 +19,7 @@ export default function Page() {
         <IsoWorld props />
       </OneBillScene>
       <ProofReveal>
-        <IsoWorld />
+        <IsoWorld props />
       </ProofReveal>
       <WorkDeskScene />
       <DashboardZoom />

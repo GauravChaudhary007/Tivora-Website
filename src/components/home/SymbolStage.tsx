@@ -11,6 +11,7 @@ export const TILT = { transform: "rotateX(var(--rx,0deg)) rotateZ(var(--rz,0deg)
 export function SymbolStage({ children, priority = false }: { children: ReactNode; priority?: boolean }) {
   return (
     <div className="relative size-44 sm:size-52 lg:size-56">
+      {/* 330% width: the world must span 3.3x the symbol so slab tops land on the tilted squares; no spacing token expresses a ratio of the parent. */}
       <div data-world="" className="pointer-events-none absolute top-1/2 left-1/2 w-[330%] -translate-x-1/2 -translate-y-1/2 opacity-0" aria-hidden="true">
         {children}
       </div>

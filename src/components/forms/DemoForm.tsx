@@ -1,7 +1,6 @@
 "use client";
 
-import { Suspense, useState, type FormEvent } from "react";
-import { useSearchParams } from "next/navigation";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { site } from "@/content/site";
 
 const TRADES = ["Jewelry", "General trading", "Paint", "FMCG", "Automobile", "Home Appliances", "Pharma", "Other"];
@@ -22,8 +21,13 @@ const LABEL = "block text-small font-bold text-ink";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
-function Form() {
-  const trade = SLUG_TO_TRADE[useSearchParams().get("trade") ?? ""] ?? "";
+export function DemoForm() {
+  const tradeSelect = useRef<HTMLSelectElement>(null);
+  // ?trade= is read on the client, so the static HTML still ships the whole form (no useSearchParams/Suspense bailout).
+  useEffect(() => {
+    const t = SLUG_TO_TRADE[new URLSearchParams(window.location.search).get("trade") ?? ""];
+    if (t && tradeSelect.current) tradeSelect.current.value = t;
+  }, []);
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
 
@@ -83,7 +87,7 @@ function Form() {
         </div>
         <div>
           <label htmlFor="df-industry" className={LABEL}>Trade</label>
-          <select id="df-industry" name="industry" defaultValue={trade} className={FIELD}>
+          <select ref={tradeSelect} id="df-industry" name="industry" defaultValue="" className={FIELD}>
             <option value="">Select a trade</option>
             {TRADES.map((t) => (
               <option key={t} value={t}>{t}</option>
@@ -108,6 +112,9 @@ function Form() {
         <textarea id="df-message" name="message" rows={4} maxLength={2000} autoComplete="off" className={FIELD} />
       </div>
       <p className="mt-3 text-small text-muted">Phone or email is needed so we can reach you.</p>
+      <noscript>
+        <p className="mt-3 text-small font-bold">This form needs JavaScript. Please call or email us using the details on this page.</p>
+      </noscript>
 
       {status === "error" && (
         <p role="alert" className="mt-4 rounded-md bg-tint p-3 text-small text-ink">
@@ -123,13 +130,5 @@ function Form() {
         {status === "sending" ? "Sending..." : "Request a demo"}
       </button>
     </form>
-  );
-}
-
-export function DemoForm() {
-  return (
-    <Suspense fallback={null}>
-      <Form />
-    </Suspense>
   );
 }

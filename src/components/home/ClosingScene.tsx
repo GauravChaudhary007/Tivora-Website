@@ -21,6 +21,7 @@ export function ClosingScene({ children }: { children: ReactNode }) {
         const { desktop } = ctx.conditions as { desktop: boolean };
         const q = gsap.utils.selector(root);
         gsap.set(q("[data-world]"), { opacity: 1 });
+        gsap.set(q("[data-label]"), { opacity: 0 }); // the spread world reaches under the label; it appears once the world has collapsed
         gsap.set(q("[data-sym]"), { opacity: 0, "--rx": "55deg", "--rz": "-45deg", "--sc": 1.6 });
         const tl = gsap.timeline({
           defaults: { ease: "power2.inOut" },
@@ -31,7 +32,8 @@ export function ClosingScene({ children }: { children: ReactNode }) {
         ORDER.forEach((k) => tl.to(q(`[data-d=${k}]`), { ...collapse(k), duration: 0.5 }, 0));
         tl.to(q("[data-world]"), { opacity: 0, duration: 0.2, ease: "none" }, 0.5)
           .to(q("[data-sym]"), { opacity: 1, duration: 0.2, ease: "none" }, 0.5)
-          .to(q("[data-sym]"), { "--rx": "0deg", "--rz": "0deg", "--sc": 1, duration: 0.4 }, 0.6);
+          .to(q("[data-sym]"), { "--rx": "0deg", "--rz": "0deg", "--sc": 1, duration: 0.4 }, 0.6)
+          .to(q("[data-label]"), { opacity: 1, duration: 0.2, ease: "none" }, 0.9);
       });
     },
     { scope: root },
@@ -52,7 +54,7 @@ export function ClosingScene({ children }: { children: ReactNode }) {
       <section data-tone="night" className="bg-night text-ground scheme-dark">
         <div data-pin="" className="flex min-h-svh flex-col items-center justify-center gap-6 overflow-hidden py-section">
           <SymbolStage>{children}</SymbolStage>
-          <p className="font-mono text-eyebrow font-medium text-gold uppercase mt-12">Four modules. One core.</p>
+          <p data-label="" className="mt-12 font-mono text-eyebrow font-medium text-gold uppercase">Four modules. One core.</p>
         </div>
       </section>
       <Section tone="ground" size="lg" id="demo">

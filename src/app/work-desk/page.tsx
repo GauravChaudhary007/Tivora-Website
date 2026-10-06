@@ -4,6 +4,7 @@ import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
 import { CtaBand } from "@/components/layout/CtaBand";
 import { Screen } from "@/components/ui/Screen";
+import { DashboardZoom } from "@/components/home/DashboardZoom";
 
 export const metadata: Metadata = pageMeta({
   title: "Work Desk and dashboards",
@@ -17,12 +18,6 @@ const critical = [
   { label: "Over the credit limit", body: "A customer's open bills pass the limit set for them, with Review one click away." },
   { label: "Order late on the floor", body: "A manufacturing order is past its due date with material still to receive." },
   { label: "Journal not posted", body: "An abnormal-loss journal from production has not been posted, with the button that posts it." },
-];
-
-const glance = [
-  "Sales for the period, against the same days last month.",
-  "A running total against target.",
-  "At a glance: money received, what customers owe, what you owe, cash and bank.",
 ];
 
 export default function Page() {
@@ -79,21 +74,7 @@ export default function Page() {
         </div>
       </Section>
 
-      <Section tone="ground">
-        <div className="container-x" data-reveal>
-          <h2 className="max-w-3xl">The whole business on one page.</h2>
-          <p className="mt-4 max-w-prose text-lead text-muted">Today, this month, last month or year to date.</p>
-          <ol className="mt-8 grid gap-4 md:grid-cols-3 md:gap-6">
-            {glance.map((g, i) => (
-              <li key={g} className="rounded-xl border border-rule bg-paper p-5">
-                <p className="font-mono text-eyebrow font-medium uppercase text-accent">0{i + 1}</p>
-                <p className="mt-2">{g}</p>
-              </li>
-            ))}
-          </ol>
-          <Screen slug="executive-dashboard" sizes="(min-width: 1280px) 1216px, 100vw" className="mt-stack-lg" />
-        </div>
-      </Section>
+      <DashboardZoom pinned={false} />
 
       <CtaBand />
     </>

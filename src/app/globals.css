@@ -160,6 +160,13 @@
     opacity: 0;
     transform: translateY(24px);
   }
+  .js-reveal.is-in {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity var(--duration-slow) var(--ease-out-expo),
+      transform var(--duration-slow) var(--ease-out-expo);
+  }
 }
 
 @utility container-x {
@@ -167,6 +174,11 @@
   max-width: var(--container-content);
   margin-inline: auto;
   padding-inline: var(--spacing-gutter);
+}
+
+/* Pushes a grid column to the viewport's right edge (Scene 3 bleed): container gutter + the space outside --container-content */
+@utility bleed-right {
+  margin-right: calc(-1 * max(var(--spacing-gutter), (100vw - var(--container-content)) / 2 + var(--spacing-gutter)));
 }
 
 @utility bg-ember {

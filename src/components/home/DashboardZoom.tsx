@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { Screen } from "@/components/ui/Screen";
 import { DEMO_CAPTION } from "@/content/site";
-import { gsap, MOTION_QUERIES, useGSAP } from "@/lib/gsap";
+import { gsap, live, MOTION_QUERIES, useGSAP } from "@/lib/gsap";
 
 // Zoom stops: point of the screenshot (fraction of width/height) brought to the frame centre at scale s.
 const STOPS = [
@@ -22,10 +22,11 @@ export function DashboardZoom({ pinned = true }: { pinned?: boolean }) {
       const mm = gsap.matchMedia();
       mm.add(MOTION_QUERIES.desktop, () => {
         const q = gsap.utils.selector(root);
+        const off = live(root.current);
         const img = q("[data-zoom] img");
         const caps = q("[data-cap]");
         gsap.set(img, { transformOrigin: "0 0", xPercent: 0, yPercent: 0 });
-        gsap.set(caps, { opacity: 0, y: 24 });
+        gsap.set(caps.slice(1), { opacity: 0, y: 24 });
         const tl = gsap.timeline({
           defaults: { ease: "power2.inOut" },
           scrollTrigger: pinned
@@ -38,6 +39,7 @@ export function DashboardZoom({ pinned = true }: { pinned?: boolean }) {
           tl.to(caps[i], { opacity: 1, y: 0, duration: 0.4 }, i * 1.4 + 0.4);
         });
         tl.to({}, { duration: 0.6 });
+        return off;
       });
     },
     { scope: root, dependencies: [pinned] },
@@ -45,14 +47,14 @@ export function DashboardZoom({ pinned = true }: { pinned?: boolean }) {
 
   return (
     <section ref={root} data-tone="paper" className="overflow-hidden bg-paper text-ink">
-      <div data-pin="" className="flex flex-col justify-center py-section lg:motion-safe:h-svh lg:motion-safe:py-0">
+      <div data-pin="" className={`flex flex-col justify-center py-section ${pinned ? "lg:in-data-live:h-svh lg:in-data-live:py-0" : ""}`}>
         <div className="container-x grid items-center gap-stack lg:grid-cols-12">
           <div className="lg:col-span-4">
             <h2>The whole business on one page.</h2>
             <p className="mt-4 text-lead text-muted">Today, this month, last month or year to date.</p>
-            <ol className="mt-stack hidden list-none lg:grid lg:motion-reduce:block lg:motion-reduce:space-y-4">
+            <ol className="mt-stack hidden list-none space-y-4 lg:block lg:in-data-live:grid lg:in-data-live:space-y-0">
               {STOPS.map((st, i) => (
-                <li key={st.text} data-cap="" className="lg:motion-safe:col-start-1 lg:motion-safe:row-start-1 lg:motion-safe:opacity-0 lg:motion-safe:first:opacity-100">
+                <li key={st.text} data-cap="" className="lg:in-data-live:col-start-1 lg:in-data-live:row-start-1">
                   <span className="font-mono text-eyebrow font-medium text-accent uppercase">{i + 1} of 3</span>
                   <p className="mt-2 text-h3 font-bold">{st.text}</p>
                 </li>

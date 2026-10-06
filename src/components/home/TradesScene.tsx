@@ -28,7 +28,7 @@ export function TradesScene() {
                 caption={false}
                 sizes="144px"
                 imgClassName="aspect-3/4 object-cover object-top"
-                className="absolute top-8 left-0 w-20 translate-y-10 sm:w-32"
+                className="absolute top-4 left-0 w-20 sm:top-8 sm:w-32"
               />
             </div>
             <ul className="mt-6 grid gap-2 font-bold sm:grid-cols-2">
