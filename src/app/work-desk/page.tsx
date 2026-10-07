@@ -17,11 +17,11 @@ export const metadata: Metadata = pageMeta({
   path: "/work-desk/",
 });
 
-// Three CRITICAL cards on the redacted Work Desk screen, read left to right.
+// Three CRITICAL cards on the Work Desk screen, read left to right.
 const critical = [
   { label: "Over the credit limit", body: "A customer's open bills pass the limit set for them, with Review one click away." },
-  { label: "Order late on the floor", body: "A manufacturing order is past its due date with material still to receive." },
-  { label: "Journal not posted", body: "An abnormal-loss journal from production has not been posted, with the button that posts it." },
+  { label: "Gold loan past its term", body: "A gold loan has run past its term, so the pledge can be followed up before interest piles up." },
+  { label: "RFID exit-gate read", body: "A tagged piece was read at the exit gate, so missing stock is flagged the moment it leaves." },
 ];
 
 export default function Page() {

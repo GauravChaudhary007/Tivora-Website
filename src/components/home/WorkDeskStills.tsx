@@ -3,8 +3,8 @@ import type { ScreenSlug } from "@/content/screens";
 
 export const WORK_DESK_CARDS: { slug: ScreenSlug; label: string }[] = [
   { slug: "work-desk-m1", label: "Over the credit limit" },
-  { slug: "work-desk-m2", label: "Order late on the floor" },
-  { slug: "work-desk-m3", label: "Journal not posted" },
+  { slug: "work-desk-m2", label: "Gold loan past its term" },
+  { slug: "work-desk-m3", label: "RFID exit-gate read" },
 ];
 
 /** Below 1024px the full Work Desk screen is unreadable: the three critical cards as real pre-cropped stills in a swipe row. */

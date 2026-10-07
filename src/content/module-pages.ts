@@ -3,7 +3,6 @@
 // Source: docs/APP-MAP-MODULES-JEWELRY.md (live Jewelry edition). Rules: no customer, supplier or karigar names, no sample
 // figures presented as results, no counts of modules, no AI, IRD-certified or price claims.
 import type { IconName } from "./modules";
-import type { ScreenSlug } from "./screens";
 
 export type ModuleGroup = "Core modules" | "Jewellery pack";
 export type Highlight = { icon: IconName; title: string; what: string; why: string };
@@ -26,7 +25,6 @@ export type ModulePage = {
   alerts: string[];
   /** Slugs of other module pages. */
   connectsTo: string[];
-  screen?: ScreenSlug;
   /** The matching entry in modules.ts when its slug differs (used by the /modules cards). */
   indexSlug?: string;
 };
@@ -61,7 +59,7 @@ export const modulePages: ModulePage[] = [
     reports: ["Sales Register (product-wise)", "Below-floor Sales", "Salesperson Performance", "Outstanding and Ageing", "Customer Order Register", "Goods on Approval Register"],
     alerts: ["A customer far over the credit limit (critical)", "Board rate not set today", "Customer orders past the promised date", "Goods on approval past the due-back date"],
     connectsTo: ["inventory", "karigar", "finance", "tax-ird", "rfid", "customer-services"],
-    screen: "sales-dashboard", indexSlug: "sales",
+    indexSlug: "sales",
   },
   {
     slug: "purchase", name: "Purchase & Accounts Payable", group: "Core modules", icon: "ShoppingCart",
@@ -308,7 +306,7 @@ export const modulePages: ModulePage[] = [
     reports: ["Day Book", "Trial Balance", "Trading Account by Metal", "Profit and Loss", "Balance Sheet", "Exceptions"],
     alerts: ["Finance checks surface through the Exceptions report", "Cash or bank going below zero", "Credit sales let past the limit"],
     connectsTo: ["sales", "purchase", "fixed-assets", "trade-finance", "tax-ird"],
-    screen: "finance-dashboard", indexSlug: "finance",
+    indexSlug: "finance",
   },
   {
     slug: "fixed-assets", name: "Fixed Assets", group: "Core modules", icon: "Building2",

@@ -8,6 +8,7 @@ import { Section } from "@/components/layout/Section";
 import { CtaBand } from "@/components/layout/CtaBand";
 import { ModuleIcon } from "@/components/ui/ModuleIcon";
 import { Screen } from "@/components/ui/Screen";
+import type { ScreenSlug } from "@/content/screens";
 import { Bullets, StepList } from "@/components/pages/blocks";
 
 export const dynamicParams = false;
@@ -94,10 +95,9 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
         </div>
       </Section>
 
-      {(m.screen || related.length > 0) && (
         <Section tone="paper">
           <div className="container-x space-y-stack-lg">
-            {m.screen && <Screen slug={m.screen} sizes="(min-width: 1024px) 960px, 100vw" className="mx-auto max-w-4xl" />}
+            <Screen slug={`module-${m.slug}` as ScreenSlug} sizes="(min-width: 1024px) 960px, 100vw" className="mx-auto max-w-4xl" />
             {related.length > 0 && (
               <div data-reveal>
                 <h2 className="text-h3">Works with.</h2>
@@ -118,7 +118,6 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             )}
           </div>
         </Section>
-      )}
 
       <CtaBand />
     </>
