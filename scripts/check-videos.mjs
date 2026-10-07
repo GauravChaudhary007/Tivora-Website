@@ -11,12 +11,13 @@ const films = src.split(/^ {2}\w+: \{$/m).slice(1).map((block) => ({
   id: block.match(/^ {4}id: "(\w+)"/m)?.[1],
   version: block.match(/^ {4}version: "([^"]+)"/m)?.[1] ?? version,
   captions: !/^ {4}captions: false/m.test(block),
+  file: block.match(/^ {4}file: "([^"]+)"/m)?.[1],
 })).filter((f) => f.id);
 if (!version || !films.length) throw new Error("check-videos: could not read VERSION / film ids from src/content/videos.ts");
 
-const names = films.flatMap(({ id, version: v, captions }) => {
+const names = films.flatMap(({ id, version: v, captions, file }) => {
   const b = `tivora-${id}-${v}`;
-  return [`${b}-1080.mp4`, `${b}-720.mp4`, `${b}-poster.jpg`, ...(captions ? [`${b}.en.vtt`] : [])];
+  return [file ?? `${b}-1080.mp4`, `${b}-720.mp4`, `${b}-poster.jpg`, ...(captions ? [`${b}.en.vtt`] : [])];
 });
 const missing = names.filter((n) => !existsSync(`public/videos/${n}`));
 

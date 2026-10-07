@@ -15,6 +15,8 @@ export type Film = {
   transcript: readonly (readonly [number, string])[];
   /** File version when it differs from VERSION (an owner-supplied cut). */
   version?: string;
+  /** Owner-supplied file in public/videos/, served as the 1080 source as-is. */
+  file?: string;
   /** false: no caption file exists for this cut, so the player gets no captions track. */
   captions?: boolean;
 };
@@ -28,6 +30,7 @@ export const FILMS: Record<FilmId, Film> = {
     duration: 124,
     posterAlt: "TiVora ERP film, 2:04: the Work Desk, every branch live, one entry for the whole chain, dashboards and access control",
     version: "v3",
+    file: "Tivora_ERP_Film_v3.mp4",
     captions: false,
     // Owner-supplied cut (Tivora_ERP_Film_v3.mp4): its on-screen headlines, read from the frames.
     transcript: [
@@ -126,7 +129,7 @@ export function videoFiles(id: FilmId) {
   const film = FILMS[id];
   const base = `tivora-${id}-${film.version ?? VERSION}`;
   return {
-    src1080: pick(id, base, "1080"),
+    src1080: film.file ?? pick(id, base, "1080"),
     src720: pick(id, base, "720"),
     poster: `${base}-poster.jpg`,
     ...(film.captions === false ? {} : { vtt: `${base}.en.vtt` }),
