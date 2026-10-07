@@ -27,8 +27,9 @@ export const site = {
   themeColor: "#110D08",
 } as const;
 
-/** Consent wording shown beside the checkbox; the version id (consentText: "v1") is sent with each lead. */
-export const CONSENT_LABEL = "I agree to receive TiVora updates by email and WhatsApp. You can opt out at any time.";
+/** Two separate opt-ins; the version id (consentText: "v2") is sent with each lead. */
+export const CONSENT_EMAIL_LABEL = "I agree to receive TiVora updates by email. You can opt out at any time.";
+export const CONSENT_WHATSAPP_LABEL = "I would like regular WhatsApp updates from TiVora, including the TiVora ERP updates Channel.";
 
 export const addressLine = `${site.address.street}, ${site.address.city}, ${site.address.country}`;
 

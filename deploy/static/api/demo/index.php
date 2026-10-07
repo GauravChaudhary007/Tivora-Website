@@ -62,6 +62,7 @@ if (isset($body['website']) && $body['website'] !== '' && $body['website'] !== n
 
 $utm = (isset($body['utm']) && is_array($body['utm'])) ? $body['utm'] : array();
 $consent = isset($body['marketingConsent']) && ($body['marketingConsent'] === true || $body['marketingConsent'] === 'true' || $body['marketingConsent'] === 1);
+$wconsent = isset($body['whatsappConsent']) && ($body['whatsappConsent'] === true || $body['whatsappConsent'] === 'true' || $body['whatsappConsent'] === 1);
 $lead = array(
     'name'            => field($body, 'name', 120),
     'company'         => field($body, 'company', 160),
@@ -74,8 +75,10 @@ $lead = array(
     'businessSize'    => choice($body, 'businessSize', array('small', 'medium', 'large')),
     'currentSoftware' => choice($body, 'currentSoftware', array('excel', 'other-erp', 'hitech', 'none')),
     'marketingConsent' => $consent,
-    'consentText'     => $consent ? field($body, 'consentText', 20) : '',
+    'whatsappConsent' => $wconsent,
+    'consentText'     => ($consent || $wconsent) ? field($body, 'consentText', 20) : '',
     'consentAt'       => $consent ? gmdate('c') : '',
+    'whatsappConsentAt' => $wconsent ? gmdate('c') : '',
     'utm'             => array('source' => field($utm, 'source', 80), 'medium' => field($utm, 'medium', 80), 'campaign' => field($utm, 'campaign', 80)),
     'landing'         => field($body, 'landing', 200),
     'referrer'        => field($body, 'referrer', 300),
@@ -121,7 +124,9 @@ $queued = q_mutate($cfg, function (&$recs) use (&$rec, $lead, $rules, $pending, 
             $merged = $old['lead'];
             foreach ($lead as $k => $v) {
                 if ($k === 'utm') { foreach ($v as $uk => $uv) if ($uv !== '' && $merged['utm'][$uk] === '') $merged['utm'][$uk] = $uv; }
-                elseif ($k === 'marketingConsent' || $k === 'consentText' || $k === 'consentAt') { if ($lead['marketingConsent'] && !$merged['marketingConsent']) $merged[$k] = $v; }
+                elseif ($k === 'marketingConsent' || $k === 'consentAt') { if ($lead['marketingConsent'] && !$merged['marketingConsent']) $merged[$k] = $v; }
+                elseif ($k === 'whatsappConsent' || $k === 'whatsappConsentAt') { if ($lead['whatsappConsent'] && empty($merged['whatsappConsent'])) $merged[$k] = $v; }
+                elseif ($k === 'consentText') { if ($v !== '') $merged[$k] = $v; }
                 elseif ($v !== '' && $v !== false) $merged[$k] = $v;
             }
             $s = score_lead($merged, $rules);

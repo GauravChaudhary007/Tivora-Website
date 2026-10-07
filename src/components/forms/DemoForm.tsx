@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import { CONSENT_LABEL, site } from "@/content/site";
+import { CONSENT_EMAIL_LABEL, CONSENT_WHATSAPP_LABEL, site } from "@/content/site";
 
 const TRADES = ["Jewellery", "Paint & Coatings", "FMCG", "Pharmacy", "Automobile", "Trading", "Manufacturing", "Other"];
 const SLUG_TO_TRADE: Record<string, string> = {
@@ -61,6 +61,7 @@ export function DemoForm() {
   }, []);
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
+  const [joinChannel, setJoinChannel] = useState(false);
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -78,7 +79,8 @@ export function DemoForm() {
       businessSize: get("businessSize"),
       currentSoftware: get("currentSoftware"),
       marketingConsent: f.get("marketingConsent") === "on",
-      consentText: "v1",
+      whatsappConsent: f.get("whatsappConsent") === "on",
+      consentText: "v2",
       website: get("website"),
       startedAt: startedAt.current,
       utm: touch.current?.utm ?? { source: "", medium: "", campaign: "" },
@@ -99,6 +101,7 @@ export function DemoForm() {
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(typeof data.error === "string" ? data.error : "");
+      setJoinChannel(body.whatsappConsent);
       setStatus("sent");
     } catch (err) {
       setError(err instanceof Error && err.message ? err.message : "We couldn't send your request right now.");
@@ -111,12 +114,20 @@ export function DemoForm() {
       <div role="status" className="rounded-lg bg-paper p-6 text-ink shadow-card">
         <h3>Thank you.</h3>
         <p className="mt-2">We will call you back.</p>
-        {site.whatsappChannel && (
-          <p className="mt-2">
-            <a href={site.whatsappChannel} target="_blank" rel="noopener noreferrer" className="font-bold underline">
-              Follow TiVora updates on WhatsApp
+        {/* WhatsApp cannot add people to a Channel; they must tap Follow themselves, so this is a link, never an auto-open. */}
+        {joinChannel && site.whatsappChannel && (
+          <div className="mt-5 rounded-md bg-tint p-4">
+            <h4 className="font-bold">One more step: join the TiVora ERP updates Channel on WhatsApp</h4>
+            <p className="mt-1 text-small">Tap the button, WhatsApp opens, then tap Follow.</p>
+            <a
+              href={site.whatsappChannel}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-flex min-h-12 w-full items-center justify-center rounded-md bg-accent px-6 py-3 text-base font-bold text-paper hover:bg-bronze sm:w-auto"
+            >
+              Join the Channel on WhatsApp
             </a>
-          </p>
+          </div>
         )}
       </div>
     );
@@ -178,9 +189,13 @@ export function DemoForm() {
         <label htmlFor="df-message" className={LABEL}>Message</label>
         <textarea id="df-message" name="message" rows={4} maxLength={2000} autoComplete="off" className={FIELD} />
       </div>
-      <label htmlFor="df-consent" className="mt-4 flex min-h-11 items-start gap-3 text-small text-ink">
-        <input id="df-consent" name="marketingConsent" type="checkbox" className="mt-0.5 size-6 shrink-0 accent-accent" />
-        <span>{CONSENT_LABEL}</span>
+      <label htmlFor="df-consent-email" className="mt-4 flex min-h-11 items-start gap-3 text-small text-ink">
+        <input id="df-consent-email" name="marketingConsent" type="checkbox" className="mt-0.5 size-6 shrink-0 accent-accent" />
+        <span>{CONSENT_EMAIL_LABEL}</span>
+      </label>
+      <label htmlFor="df-consent-whatsapp" className="mt-2 flex min-h-11 items-start gap-3 text-small text-ink">
+        <input id="df-consent-whatsapp" name="whatsappConsent" type="checkbox" className="mt-0.5 size-6 shrink-0 accent-accent" />
+        <span>{CONSENT_WHATSAPP_LABEL}</span>
       </label>
       {/* Honeypot: off-screen, not display:none, so bots still fill it; people and screen readers never reach it. */}
       <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">

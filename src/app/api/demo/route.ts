@@ -12,6 +12,7 @@ type DemoRequest = {
   businessSize?: string;
   currentSoftware?: string;
   marketingConsent?: unknown;
+  whatsappConsent?: unknown;
   consentText?: string;
   website?: string;
   startedAt?: unknown;
@@ -67,6 +68,7 @@ export async function POST(request: Request) {
     businessSize: pick(body.businessSize, ["small", "medium", "large"]),
     currentSoftware: pick(body.currentSoftware, ["excel", "other-erp", "hitech", "none"]),
     marketingConsent: body.marketingConsent === true,
+    whatsappConsent: body.whatsappConsent === true,
     consentText: clean(body.consentText, 20),
     startedAt,
     utm: { source: clean(utm.source, 100), medium: clean(utm.medium, 100), campaign: clean(utm.campaign, 150) },

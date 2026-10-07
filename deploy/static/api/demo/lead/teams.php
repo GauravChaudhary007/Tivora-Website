@@ -17,7 +17,8 @@ function teams_card($rec, $cfg, $rules) {
     $style = array('Hot' => 'attention', 'Warm' => 'warning', 'Cold' => 'accent');
     $facts = array();
     foreach (array('Phone' => $l['phone'], 'Email' => $l['email'], 'Company' => $l['company'], 'Industry' => $l['industry'], 'City' => $l['city'],
-        'Timeline' => $l['timeline'], 'Business size' => $l['businessSize'], 'Current software' => $l['currentSoftware']) as $k => $v) {
+        'Timeline' => $l['timeline'], 'Business size' => $l['businessSize'], 'Current software' => $l['currentSoftware'],
+        'Email updates' => $l['marketingConsent'] ? 'Yes' : 'No', 'WhatsApp updates + Channel' => !empty($l['whatsappConsent']) ? 'Yes' : 'No') as $k => $v) {
         if ($v !== '') $facts[] = array('title' => $k, 'value' => $v);
     }
     $title = $rec['priority'] . ' lead, score ' . $rec['score'] . ($rec['repeat'] > 0 ? ' (repeat inquiry ' . ($rec['repeat'] + 1) . ')' : '');

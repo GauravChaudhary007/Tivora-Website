@@ -76,7 +76,7 @@ try {
   mock.state.graphDelayMs = 800;
   const hot = { name: "Ram Shrestha", company: "Acme Jewels", phone: "9812345678", email: "ram@acmejewels.com.np", industry: "Jewellery", city: "Kathmandu",
     message: "We need a demo and price for 3 branches, urgent", timeline: "1m", businessSize: "large", currentSoftware: "excel",
-    marketingConsent: true, consentText: "v1", website: "", ...old(), utm: { source: "google", medium: "cpc", campaign: "launch" }, landing: "/contact/", referrer: "" };
+    marketingConsent: true, whatsappConsent: true, consentText: "v2", website: "", ...old(), utm: { source: "google", medium: "cpc", campaign: "launch" }, landing: "/contact/", referrer: "" };
   let r = await post(hot);
   assert.equal(r.status, 200); assert.deepEqual(r.json, { ok: true });
   assert.ok(r.ms < 400, `visitor response took ${Math.round(r.ms)} ms (Graph delay is 800 ms)`);
@@ -91,7 +91,7 @@ try {
   const row1 = mock.state.rows[0];
   assert.equal(cell(row1, "Score"), 100); assert.equal(cell(row1, "Priority"), "Hot");
   assert.equal(cell(row1, "Lead ID"), q[0].id); assert.match(cell(row1, "Landing page / UTM"), /utm|source=google/);
-  assert.match(cell(row1, "Marketing consent (timestamp)"), /^v1 /);
+  assert.match(cell(row1, "Email consent (timestamp)"), /^v2 /); assert.match(cell(row1, "WhatsApp consent (timestamp)"), /^v2 /);
   const card1 = cardText(mock.state.teams[0]);
   assert.match(card1, /Hot lead, score 100/); assert.match(card1, /tel:\+9779812345678/); assert.match(card1, /wa\.me\/9779812345678/);
   assert.match(card1, /mailto:ram@acmejewels/); assert.match(card1, /Open sheet/);
@@ -131,7 +131,7 @@ try {
 
   // 5. Graph down: still queued, Teams still sent, retry later delivers the row (and does not resend Teams).
   mock.state.graphDown = true;
-  const down = { ...hot, name: "Hari Karki", email: "hari@kcpaints.com", phone: "9851234567", company: "KC Paints", industry: "Paint & Coatings", ...old() };
+  const down = { ...hot, name: "Hari Karki", email: "hari@kcpaints.com", phone: "9851234567", company: "KC Paints", industry: "Paint & Coatings", whatsappConsent: false, ...old() };
   assert.equal((await post(down)).status, 200);
   await waitFor(() => mock.state.teams.length === 4, "teams while graph down");
   await waitFor(() => queue()[2]?.delivery.graph.status === "failed", "graph failed status");
@@ -148,7 +148,7 @@ try {
   ok("a second retry is a no-op");
 
   // 6. Outcome -> Brevo lists; moves; no consent skipped; unsubscribe flows back.
-  const id1 = queue()[0].id, id2 = queue()[1].id, id3 = queue()[2].id; // hot (consent), Sita (no consent), Hari (consent)
+  const id1 = queue()[0].id, id2 = queue()[1].id, id3 = queue()[2].id; // hot (consent), Sita (no consent), Hari (email tick only)
   setCell(rowOf(id1), "Outcome", "Potential"); setCell(rowOf(id2), "Outcome", "Deal"); setCell(rowOf(id3), "Outcome", "Nurturing");
   await sync("outcomes");
   const lists = (email) => { const c = mock.state.contacts.get(email); return c ? [...c.listIds].sort() : null; };
@@ -178,16 +178,21 @@ try {
   mock.state.rows.push({ index: 3, values: [rules.columns.map(() => "")] });
   const extra = mock.state.rows[3];                               // Gita: consent, Nurturing, messaged today -> not due
   const today = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Kathmandu" }).format(new Date());
-  for (const [k, v] of Object.entries({ "Lead ID": "L-X", Name: "Gita Rai", Company: "Gita Stores", Phone: "9841000000", Email: "g@gita.com", "Marketing consent (timestamp)": "v1 2026-01-01", Outcome: "Nurturing", "Last WhatsApp sent": today })) setCell(extra, k, v);
+  for (const [k, v] of Object.entries({ "Lead ID": "L-X", Name: "Gita Rai", Company: "Gita Stores", Phone: "9841000000", Email: "g@gita.com", "WhatsApp consent (timestamp)": "v2 2026-01-01", Outcome: "Nurturing", "Last WhatsApp sent": today })) setCell(extra, k, v);
+  mock.state.rows.push({ index: 4, values: [rules.columns.map(() => "")] });
+  const wala = mock.state.rows[4];                               // Wala: WhatsApp tick only, Deal, due -> listed, but never in Brevo
+  for (const [k, v] of Object.entries({ "Lead ID": "L-W", Name: "Wala Sherpa", Company: "Wala Traders", Phone: "9801234567", Email: "wala@wala.com", "WhatsApp consent (timestamp)": "v2 2026-01-01", Outcome: "Deal" })) setCell(wala, k, v);
+  await sync("outcomes");
+  assert.equal(mock.state.contacts.get("wala@wala.com"), undefined);
   const teamsBefore = mock.state.teams.length;
   const wa = await sync("whatsapp", "--force");
-  assert.match(wa, /1 to send/);
+  assert.match(wa, /2 to send/);
   assert.equal(mock.state.teams.length, teamsBefore + 1);
   const waCard = cardText(mock.state.teams.at(-1));
-  assert.match(waCard, /Ram Shrestha/); assert.match(waCard, /wa\.me\/9779812345678\?text=Namaste%20Ram/);
+  assert.match(waCard, /Ram Shrestha/); assert.match(waCard, /Wala Sherpa/); assert.match(waCard, /wa\.me\/9779812345678\?text=Namaste%20Ram/);
   for (const nope of ["Sita", "Hari", "Gita"]) assert.doesNotMatch(waCard, new RegExp(nope));
-  ok("WhatsApp post lists only the due, consenting, subscribed lead, with a pre-filled wa.me link (Sita no consent, Hari unsubscribed, Gita not due)");
-  setCell(rowOf(id1), "WhatsApp done", true);
+  ok("WhatsApp post lists only the due, consenting, subscribed lead, with a pre-filled wa.me link (Sita no consent, Hari email tick only, Gita not due); WhatsApp-only lead listed but not synced to Brevo");
+  setCell(rowOf(id1), "WhatsApp done", true); setCell(wala, "WhatsApp done", true);
   await sync("whatsapp", "--force");
   assert.equal(cell(rowOf(id1), "Last WhatsApp sent"), today); assert.equal(cell(rowOf(id1), "WhatsApp done"), "");
   assert.match(await sync("whatsapp", "--force"), /0 to send/);

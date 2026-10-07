@@ -62,7 +62,7 @@ function sync_sheet($cfg, $rules, $brevo) {
         if ($email !== '' && isset($blocked[$email]) && !sheet_truthy($row['Unsubscribed'])) { $ch['Unsubscribed'] = 'Yes'; $row['Unsubscribed'] = 'Yes'; }
         $oc = trim($row['Outcome']);
         if ($brevo && brevo_configured($cfg) && in_array($oc, $rules['outcomes'], true) && $email !== ''
-            && trim((string) $row['Marketing consent (timestamp)']) !== '' && !sheet_truthy($row['Unsubscribed'])
+            && trim((string) $row['Email consent (timestamp)']) !== '' && !sheet_truthy($row['Unsubscribed'])
             && (!isset($st['outcomes'][$row['Lead ID']]) || $st['outcomes'][$row['Lead ID']] !== $oc)) {
             $res = brevo_set_outcome($cfg, $row['Name'], $row['Company'], $email, $oc);
             say('brevo ' . $row['Lead ID'] . ' -> ' . $oc . ': ' . ($res['ok'] ? 'ok' : $res['error']));

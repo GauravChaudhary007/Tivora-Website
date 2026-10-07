@@ -1,5 +1,5 @@
 <?php
-// Daily "WhatsApp to send" list: consenting leads with an Outcome whose cadence is due.
+// Daily "WhatsApp to send" list: WhatsApp-consenting leads with an Outcome whose cadence is due.
 // Sending stays manual (tap the wa.me link, press send from the Business number); the tick in the sheet stamps the date.
 
 function np_today() {
@@ -32,7 +32,7 @@ function whatsapp_due($rows, $rules, $today) {
         $row = $r['row'];
         $oc = isset($row['Outcome']) ? trim($row['Outcome']) : '';
         if (!isset($rules['cadenceDays']['whatsapp'][$oc])) continue;
-        if (trim((string) $row['Marketing consent (timestamp)']) === '' || sheet_truthy($row['Unsubscribed'])) continue;
+        if (trim((string) $row['WhatsApp consent (timestamp)']) === '' || sheet_truthy($row['Unsubscribed'])) continue;
         if (sheet_truthy($row['WhatsApp done'])) continue; // tick not yet processed: treat as sent
         $p = phone_info($row['Phone'], $rules);
         if (!$p['mobile']) continue;

@@ -95,7 +95,8 @@ function sheet_row_from_record($rec, $rules) {
         'Phone' => $l['phone'], 'Email' => $l['email'], 'Industry' => $l['industry'], 'City' => $l['city'],
         'Business size' => $l['businessSize'], 'Timeline' => $l['timeline'], 'Current software' => $l['currentSoftware'],
         'Message' => $l['message'], 'Landing page / UTM' => $where,
-        'Marketing consent (timestamp)' => $l['marketingConsent'] ? ($l['consentText'] . ' ' . $l['consentAt']) : '',
+        'Email consent (timestamp)' => $l['marketingConsent'] ? ($l['consentText'] . ' ' . $l['consentAt']) : '',
+        'WhatsApp consent (timestamp)' => !empty($l['whatsappConsent']) ? ($l['consentText'] . ' ' . $l['whatsappConsentAt']) : '',
         'Score' => $rec['score'], 'Priority' => $rec['priority'], 'Score reasons' => implode('; ', $rec['reasons']),
     );
 }
@@ -103,7 +104,7 @@ function sheet_row_from_record($rec, $rules) {
 // Columns the website refreshes on a repeat inquiry (never Owner, Contacted at, Outcome, Notes ...).
 function sheet_repeat_columns() {
     return array('Phone', 'Email', 'Company', 'Industry', 'City', 'Business size', 'Timeline', 'Current software', 'Message',
-        'Landing page / UTM', 'Marketing consent (timestamp)', 'Score', 'Priority', 'Score reasons');
+        'Landing page / UTM', 'Email consent (timestamp)', 'WhatsApp consent (timestamp)', 'Score', 'Priority', 'Score reasons');
 }
 
 // Delivers a queue record to the sheet: add, or on repeat/retry update the existing row. Returns array('ok','error').
