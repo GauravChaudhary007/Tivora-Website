@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Logo } from "@/components/brand/Logo";
+import { modulePages } from "@/content/module-pages";
 import { addressLine, appUrl, footerColumns, footerNote, site } from "@/content/site";
 
 const linkCls = "inline-flex min-h-11 items-center text-ground hover:text-gold-soft";
@@ -76,6 +77,18 @@ export function SiteFooter() {
           </address>
         </div>
       </div>
+      <nav aria-label="Modules" className="container-x mt-stack-lg border-t border-rule-dark pt-6">
+        <h2 className="font-mono text-eyebrow font-medium uppercase text-gold">Modules</h2>
+        <ul className="mt-3 grid gap-x-6 sm:grid-cols-2 lg:grid-cols-4">
+          {modulePages.map((m) => (
+            <li key={m.slug}>
+              <Link href={`/modules/${m.slug}/`} prefetch={false} className={linkCls}>
+                {m.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
       <p className="container-x mt-stack-lg border-t border-rule-dark pt-6 text-small text-muted-dark">{footerNote}</p>
     </footer>
   );

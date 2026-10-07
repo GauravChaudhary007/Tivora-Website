@@ -4,7 +4,9 @@
 export type IconName =
   | "ReceiptText" | "HeartHandshake" | "ShoppingCart" | "Package" | "Factory" | "Scale" | "Landmark"
   | "FileText" | "ChartColumn" | "SlidersHorizontal" | "Truck" | "Building2" | "Hammer" | "FlaskConical" | "ScanLine" | "LockKeyhole"
-  | "ClipboardCheck" | "LayoutDashboard" | "ClipboardList" | "Wrench" | "Users" | "Ship" | "BadgeCheck" | "CalendarClock";
+  | "ClipboardCheck" | "LayoutDashboard" | "ClipboardList" | "Wrench" | "Users" | "Ship" | "BadgeCheck" | "CalendarClock"
+  | "ShieldCheck" | "Coins" | "Gem" | "Layers" | "Clock" | "Search" | "Repeat" | "Bell" | "Percent" | "Calculator" | "MapPin" | "Gauge" | "Tag"
+  | "Banknote" | "Globe" | "ArrowLeftRight" | "FileCheck" | "Eye" | "ChevronDown";
 
 export type Module = { slug: string; name: string; icon: IconName; appLine: string; more?: string; bullets: string[]; pack: "core" | "jewelry" };
 

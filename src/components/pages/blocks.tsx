@@ -74,7 +74,7 @@ export function StepList({
     <ol className="space-y-4" data-stagger>
       {steps.map((s, i) => (
         <li key={s.title} className="grid gap-3 rounded-xl border border-rule bg-paper p-5 shadow-card sm:grid-cols-12 sm:gap-6">
-          <div className="flex gap-4 sm:col-span-5">
+          <div className={`flex gap-4 ${s.auto ? "sm:col-span-5" : "sm:col-span-12"}`}>
             <span className="flex size-8 shrink-0 items-center justify-center rounded-full border-2 border-gold bg-paper font-mono text-small font-medium">
               {i + 1}
             </span>

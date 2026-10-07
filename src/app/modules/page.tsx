@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { pageMeta } from "@/lib/seo";
 import { modules, launchingSoon, engines, tradeFinanceExtra, type Module } from "@/content/modules";
 import type { ScreenSlug } from "@/content/screens";
@@ -9,6 +10,7 @@ import { Screen } from "@/components/ui/Screen";
 import { ModuleIcon } from "@/components/ui/ModuleIcon";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { VideoBlock } from "@/components/video/VideoBlock";
+import { pageHrefForIndexSlug } from "@/content/module-pages";
 import { filmReady, type FilmId } from "@/content/videos";
 
 export const metadata: Metadata = pageMeta({
@@ -45,6 +47,18 @@ function Bullets({ items }: { items: string[] }) {
   );
 }
 
+function PageLink({ slug, name }: { slug: string; name: string }) {
+  const href = pageHrefForIndexSlug(slug);
+  if (!href) return null;
+  return (
+    <p className="mt-4">
+      <Link href={href} className="inline-flex min-h-11 items-center font-bold text-accent underline underline-offset-4 hover:text-bronze">
+        Explore {name}
+      </Link>
+    </p>
+  );
+}
+
 function ModuleBlock({ m }: { m: Module }) {
   const shot = screenFor[m.slug];
   // Heading and film both vanish in production while the film's files are missing.
@@ -59,6 +73,7 @@ function ModuleBlock({ m }: { m: Module }) {
       <p className="mt-4 max-w-prose text-lead text-muted">{m.appLine}</p>
       {m.more && <p className="mt-3 max-w-prose text-muted">{m.more}</p>}
       {m.bullets.length > 0 && <Bullets items={m.bullets} />}
+      <PageLink slug={m.slug} name={m.name} />
       {film && (
         <div className="mt-8 max-w-2xl">
           <h3 className="text-h3">{film.heading}</h3>
@@ -162,6 +177,7 @@ export default function Page() {
                 </div>
                 <p className="mt-4 text-muted">{m.appLine}</p>
                 <Bullets items={m.bullets} />
+                <PageLink slug={m.slug} name={m.name} />
               </article>
             ))}
           </div>

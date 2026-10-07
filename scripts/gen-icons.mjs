@@ -11,6 +11,10 @@ const ICONS = {
   Truck: "truck", Building2: "building-complex", Hammer: "hammer", FlaskConical: "flask-conical", ScanLine: "scan-line", LockKeyhole: "lock-keyhole",
   ClipboardCheck: "clipboard-check", LayoutDashboard: "layout-dashboard", ClipboardList: "clipboard-list", Wrench: "wrench",
   Users: "users", Ship: "ship", BadgeCheck: "badge-check", CalendarClock: "calendar-clock",
+  // Highlight-card icons for the module pages
+  ShieldCheck: "shield-check", Coins: "coins", Gem: "gem", Layers: "layers", Clock: "clock", Search: "search", Repeat: "repeat", Bell: "bell",
+  Percent: "percent", Calculator: "calculator", MapPin: "map-pin", Gauge: "gauge", Tag: "tag", Banknote: "banknote", Globe: "globe",
+  ArrowLeftRight: "arrow-left-right", FileCheck: "file-check", Eye: "eye", ChevronDown: "chevron-down",
 };
 const out = {};
 for (const [name, file] of Object.entries(ICONS)) {

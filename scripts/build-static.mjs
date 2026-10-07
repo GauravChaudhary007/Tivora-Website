@@ -19,7 +19,8 @@ try {
   renameSync(parked, api);
 }
 
-const routes = ["", "platform/", "modules/", "work-desk/", "industries/", "industries/jewelry/", "about/", "contact/"];
+const routes = ["", "platform/", "modules/", "work-desk/", "industries/", "industries/jewelry/", "about/", "contact/",
+  ...["sales", "purchase", "inventory", "karigar", "factory", "rfid", "gold-loans", "customer-services", "transport", "finance", "fixed-assets", "trade-finance", "tax-ird"].map((s) => `modules/${s}/`)];
 const required = [...routes.map((r) => `out/${r}index.html`), "out/404.html", "out/sitemap.xml", "out/robots.txt"];
 const missing = required.filter((f) => !existsSync(f));
 if (missing.length) throw new Error(`Static export incomplete, missing: ${missing.join(", ")}`);
