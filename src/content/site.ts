@@ -18,12 +18,17 @@ export const site = {
     { label: "9800133468", tel: "+9779800133468" },
   ],
   whatsapp: { label: "+977 9709117067", href: "https://wa.me/9779709117067" },
+  /** WhatsApp Channel URL; the owner fills it in. Empty hides the link on the thank-you panel. */
+  whatsappChannel: "" as string,
   productSite: "www.tivoraerp.com",
   productUrl: "https://www.tivoraerp.com",
   emails: { info: "info@hitechnepal.com.np", support: "support@hitechnepal.com.np" },
   /** Mirrors --color-night in globals.css (viewport.themeColor needs a literal). */
   themeColor: "#110D08",
 } as const;
+
+/** Consent wording shown beside the checkbox; the version id (consentText: "v1") is sent with each lead. */
+export const CONSENT_LABEL = "I agree to receive TiVora updates by email and WhatsApp. You can opt out at any time.";
 
 export const addressLine = `${site.address.street}, ${site.address.city}, ${site.address.country}`;
 

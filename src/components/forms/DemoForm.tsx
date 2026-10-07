@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import { site } from "@/content/site";
+import { CONSENT_LABEL, site } from "@/content/site";
 
 const TRADES = ["Jewellery", "Paint & Coatings", "FMCG", "Pharmacy", "Automobile", "Trading", "Manufacturing", "Other"];
 const SLUG_TO_TRADE: Record<string, string> = {
@@ -24,12 +24,40 @@ const LABEL = "block text-small font-bold text-ink";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
+const TIMELINE: [string, string][] = [["1m", "Within a month"], ["1-3m", "In 1 to 3 months"], ["exploring", "Just exploring"]];
+const SIZE: [string, string][] = [["small", "1-10 staff, one location"], ["medium", "11-50 staff or 2-5 locations"], ["large", "50+ staff or many branches"]];
+const SOFTWARE: [string, string][] = [["excel", "Excel or paper"], ["other-erp", "Another ERP or accounting software"], ["hitech", "A HiTech product"], ["none", "Nothing yet"]];
+
+type Touch = { utm: { source: string; medium: string; campaign: string }; landing: string; referrer: string };
+
+// First touch is kept for the browser session, so a lead is credited to the visit that brought them in.
+function firstTouch(): Touch {
+  try {
+    const saved = sessionStorage.getItem("tv-first-touch");
+    if (saved) return JSON.parse(saved) as Touch;
+  } catch {}
+  const q = new URLSearchParams(window.location.search);
+  const touch: Touch = {
+    utm: { source: q.get("utm_source") ?? "", medium: q.get("utm_medium") ?? "", campaign: q.get("utm_campaign") ?? "" },
+    landing: window.location.pathname,
+    referrer: document.referrer,
+  };
+  try {
+    sessionStorage.setItem("tv-first-touch", JSON.stringify(touch));
+  } catch {}
+  return touch;
+}
+
 export function DemoForm() {
   const tradeSelect = useRef<HTMLSelectElement>(null);
+  const startedAt = useRef(0);
+  const touch = useRef<Touch | null>(null);
   // ?trade= is read on the client, so the static HTML still ships the whole form (no useSearchParams/Suspense bailout).
   useEffect(() => {
     const t = SLUG_TO_TRADE[new URLSearchParams(window.location.search).get("trade") ?? ""];
     if (t && tradeSelect.current) tradeSelect.current.value = t;
+    startedAt.current = Date.now();
+    touch.current = firstTouch();
   }, []);
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
@@ -46,6 +74,16 @@ export function DemoForm() {
       phone: get("phone"),
       email: get("email"),
       message: get("message"),
+      timeline: get("timeline"),
+      businessSize: get("businessSize"),
+      currentSoftware: get("currentSoftware"),
+      marketingConsent: f.get("marketingConsent") === "on",
+      consentText: "v1",
+      website: get("website"),
+      startedAt: startedAt.current,
+      utm: touch.current?.utm ?? { source: "", medium: "", campaign: "" },
+      landing: touch.current?.landing ?? "",
+      referrer: touch.current?.referrer ?? "",
     };
     if (!body.name || (!body.phone && !body.email)) {
       setError("Please share your name and a phone number or email.");
@@ -73,12 +111,19 @@ export function DemoForm() {
       <div role="status" className="rounded-lg bg-paper p-6 text-ink shadow-card">
         <h3>Thank you.</h3>
         <p className="mt-2">We will call you back.</p>
+        {site.whatsappChannel && (
+          <p className="mt-2">
+            <a href={site.whatsappChannel} target="_blank" rel="noopener noreferrer" className="font-bold underline">
+              Follow TiVora updates on WhatsApp
+            </a>
+          </p>
+        )}
       </div>
     );
   }
 
   return (
-    <form onSubmit={onSubmit} noValidate className="rounded-lg bg-paper p-6 text-ink shadow-card sm:p-8">
+    <form onSubmit={onSubmit} noValidate className="relative overflow-hidden rounded-lg bg-paper p-6 text-ink shadow-card sm:p-8">
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="df-name" className={LABEL}>Your name</label>
@@ -110,9 +155,37 @@ export function DemoForm() {
           <input id="df-email" name="email" type="email" autoComplete="email" maxLength={160} className={FIELD} />
         </div>
       </div>
+      <div className="mt-5 grid gap-5 sm:grid-cols-3">
+        {(
+          [
+            ["timeline", "When are you planning to start?", TIMELINE],
+            ["businessSize", "How big is your business?", SIZE],
+            ["currentSoftware", "What do you use today?", SOFTWARE],
+          ] as const
+        ).map(([name, label, opts]) => (
+          <div key={name}>
+            <label htmlFor={`df-${name}`} className={LABEL}>{label}</label>
+            <select id={`df-${name}`} name={name} defaultValue="" className={FIELD}>
+              <option value="">Select (optional)</option>
+              {opts.map(([v, text]) => (
+                <option key={v} value={v}>{text}</option>
+              ))}
+            </select>
+          </div>
+        ))}
+      </div>
       <div className="mt-5">
         <label htmlFor="df-message" className={LABEL}>Message</label>
         <textarea id="df-message" name="message" rows={4} maxLength={2000} autoComplete="off" className={FIELD} />
+      </div>
+      <label htmlFor="df-consent" className="mt-4 flex min-h-11 items-start gap-3 text-small text-ink">
+        <input id="df-consent" name="marketingConsent" type="checkbox" className="mt-0.5 size-6 shrink-0 accent-accent" />
+        <span>{CONSENT_LABEL}</span>
+      </label>
+      {/* Honeypot: off-screen, not display:none, so bots still fill it; people and screen readers never reach it. */}
+      <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
+        <label htmlFor="df-website">Website</label>
+        <input id="df-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
       </div>
       <p className="mt-3 text-small text-muted">Phone or email is needed so we can reach you.</p>
       <noscript>
