@@ -45,9 +45,9 @@ export function NepalScene() {
 
   return (
     <section id="tour-nepal" ref={root} data-tone="night" className="overflow-hidden bg-night py-section-sm text-ground scheme-dark lg:py-section">
-      <div className="container-x grid items-center gap-stack lg:grid-cols-12">
-        <div className="lg:col-span-4">
-          <div className="relative font-display text-7xl leading-none font-semibold lg:text-8xl">
+      <div className="container-x">
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:gap-12">
+          <div className="relative shrink-0 font-display text-7xl leading-none font-semibold lg:text-8xl">
             <span aria-hidden="true" className="block text-night-3">
               2083
             </span>
@@ -55,10 +55,12 @@ export function NepalScene() {
               2083
             </span>
           </div>
-          <h2 className="mt-5">Ready for Nepal: tax, trade, finance and import costing.</h2>
-          <p className="mt-3 max-w-prose text-muted-dark">Built in Kathmandu for the way Nepali businesses actually operate.</p>
+          <div className="max-w-2xl">
+            <h2>Ready for Nepal: tax, trade, finance and import costing.</h2>
+            <p className="mt-2 text-muted-dark">Built in Kathmandu for the way Nepali businesses actually operate.</p>
+          </div>
         </div>
-        <ul data-stagger="" className="grid gap-3 sm:grid-cols-2 lg:col-span-8 lg:grid-cols-3">
+        <ul data-stagger="" className="mt-stack grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           <Tile icon="ReceiptText" title="VAT on every line">
             <Chip>Annex 9</Chip>
             <Chip>Annex 13</Chip>

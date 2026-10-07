@@ -250,8 +250,8 @@ export default function Page() {
       </Section>
 
       <Section tone="ground">
-        <div className="container-x">
-          <div className="max-w-3xl" data-reveal>
+        <div className="container-x grid items-center gap-stack-lg lg:grid-cols-12">
+          <div className="lg:col-span-4" data-reveal>
             <p className="font-mono text-eyebrow font-medium uppercase text-accent">How you move around</p>
             <h2 className="mt-3">One menu for every module.</h2>
             <ul className="mt-6 space-y-3">
@@ -263,8 +263,8 @@ export default function Page() {
               ))}
             </ul>
           </div>
-          <div className="mt-stack-lg lg:max-w-3xl" data-reveal>
-            <Screen slug="menu-paint" sizes="320px" className="max-w-xs" />
+          <div className="min-w-0 lg:col-span-8" data-reveal>
+            <Screen slug="home-paint" caption={false} sizes="(min-width: 1024px) 800px, 100vw" highlight={{ x: 0, y: 0, w: 15.6, h: 100, label: "One menu" }} />
           </div>
         </div>
       </Section>

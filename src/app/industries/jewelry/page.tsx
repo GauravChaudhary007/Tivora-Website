@@ -85,13 +85,8 @@ export default function Page() {
       </Section>
 
       <Section tone="ground">
-        <div className="container-x grid items-start gap-stack-lg lg:grid-cols-12 lg:gap-8">
-          <div className="lg:col-span-8" data-reveal>
-            <Screen slug="home-jewelry" sizes="(min-width: 1024px) 800px, 100vw" />
-          </div>
-          <div className="mx-auto lg:col-span-4" data-reveal>
-            <Screen slug="menu-jewelry" sizes="300px" className="max-w-xs" />
-          </div>
+        <div className="container-x" data-reveal>
+          <Screen slug="home-jewelry" sizes="(min-width: 1280px) 1100px, 100vw" highlight={{ x: 0, y: 0, w: 15.6, h: 100, label: "One menu" }} />
         </div>
       </Section>
 
