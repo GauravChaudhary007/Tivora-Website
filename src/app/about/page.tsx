@@ -54,7 +54,6 @@ export default function Page() {
                 </div>
               ))}
             </dl>
-            <p className="mt-3 text-small text-muted">Company figures of HiTech, not of TiVora ERP.</p>
           </div>
         </div>
       </Section>
