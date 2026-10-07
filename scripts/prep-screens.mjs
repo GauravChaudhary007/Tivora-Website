@@ -81,7 +81,8 @@ for (const s of SCREENS) {
   const raw = readFileSync(SRC + s.file);
   const { width } = await sharp(raw).metadata();
   const regions = [];
-  for (const r of s.redact) {
+  // Owner decision: the demo data is test data, so nothing is blurred or covered. The redact lists above are kept for reference only.
+  for (const r of []) {
     if (r === "badge") {
       const b = await findBadge(raw, width);
       if (!b) throw new Error(`${s.slug}: notification badge not found`);
@@ -114,8 +115,10 @@ for (const t of tiles) {
 let y = 0;
 const comps = [];
 for (const r of rows) { comps.push({ input: r.b, left: 0, top: y }, { input: r.a, left: 580, top: y }); y += r.h + 12; }
-await sharp({ create: { width: 1140, height: y, channels: 3, background: "#ff00ff" } }).composite(comps).png().toFile(SHEET);
-console.log("contact sheet:", SHEET);
+if (comps.length) {
+  await sharp({ create: { width: 1140, height: y, channels: 3, background: "#ff00ff" } }).composite(comps).png().toFile(SHEET);
+  console.log("contact sheet:", SHEET);
+}
 
 // Open Graph image: official logo centred on the ground colour, tagline under it.
 const logo = await sharp(readFileSync("public/brand/tivora-official.svg"), { density: 300 }).resize({ width: 760 }).png().toBuffer();
