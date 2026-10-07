@@ -13,7 +13,7 @@ const STOPS = [
 const STILLS = ["executive-sales", "executive-target", "executive-glance"] as const;
 const pos = (st: (typeof STOPS)[number]) => ({ xPercent: 100 * (0.5 - st.s * st.x), yPercent: 100 * (0.5 - st.s * st.y), scale: st.s });
 
-/** Scene 4. Home: pinned, scroll zooms into three parts of the real dashboard. `pinned={false}` (/work-desk/) scrubs without pinning. Below 1024px: three real crops in a swipe row. */
+/** Scene 4. Home: pinned, scroll zooms into three parts of the dashboard. `pinned={false}` (/work-desk/) scrubs without pinning. Below 1024px: three crops in a swipe row. */
 export function DashboardZoom({ pinned = true }: { pinned?: boolean }) {
   const root = useRef<HTMLElement>(null);
   useScene(

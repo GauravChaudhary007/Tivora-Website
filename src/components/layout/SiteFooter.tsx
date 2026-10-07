@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Logo } from "@/components/brand/Logo";
-import { addressLine, footerColumns, footerNote, site } from "@/content/site";
+import { addressLine, appUrl, footerColumns, footerNote, site } from "@/content/site";
 
 const linkCls = "inline-flex min-h-11 items-center text-ground hover:text-gold-soft";
 
@@ -42,6 +42,11 @@ export function SiteFooter() {
                 )}
               </li>
             ))}
+            <li>
+              <a href={appUrl} rel="noopener" className={linkCls}>
+                Login
+              </a>
+            </li>
           </ul>
         </nav>
 
@@ -57,6 +62,11 @@ export function SiteFooter() {
                   </a>
                 </li>
               ))}
+              <li>
+                <a href={site.whatsapp.href} rel="noopener" className={linkCls}>
+                  WhatsApp {site.whatsapp.label}
+                </a>
+              </li>
               <li>
                 <a href={`mailto:${site.emails.info}`} className={linkCls}>
                   {site.emails.info}

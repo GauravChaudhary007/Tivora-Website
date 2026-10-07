@@ -17,6 +17,7 @@ export const site = {
     { label: "9802031373", tel: "+9779802031373" },
     { label: "9800133468", tel: "+9779800133468" },
   ],
+  whatsapp: { label: "+977 9709117067", href: "https://wa.me/9779709117067" },
   productSite: "www.tivoraerp.com",
   productUrl: "https://www.tivoraerp.com",
   emails: { info: "info@hitechnepal.com.np", support: "support@hitechnepal.com.np" },
@@ -33,6 +34,9 @@ export const nav = [
   { label: "Industries", href: "/industries/" },
   { label: "About", href: "/about/" },
 ] as const;
+
+/** Sign-in for existing customers (opens the TiVora ERP app). */
+export const appUrl = "https://dev.tivoraerp.com";
 
 export const CTA = { label: "Request a demo", href: "/contact/" } as const;
 

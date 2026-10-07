@@ -40,6 +40,11 @@ export function ClosingScene() {
                 </li>
               ))}
               <li>
+                <a className={link} href={site.whatsapp.href} rel="noopener">
+                  WhatsApp {site.whatsapp.label}
+                </a>
+              </li>
+              <li>
                 <a className={link} href={`mailto:${site.emails.info}`}>
                   {site.emails.info}
                 </a>

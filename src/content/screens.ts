@@ -5,7 +5,7 @@ import { DEMO_CAPTION } from "./site";
 export type ScreenSlug =
   | "home-paint" | "work-desk" | "executive-dashboard" | "executive-sales" | "executive-target" | "executive-glance"
   | "home-paint-m1" | "home-paint-m2" | "work-desk-m1" | "work-desk-m2" | "work-desk-m3"
-  | "sales-dashboard" | "finance-dashboard" | "dashboards" | "home-jewelry" | "menu-paint" | "menu-jewelry" | "menu-classic";
+  | "sales-dashboard" | "finance-dashboard" | "dashboards" | "home-jewelry" | "menu-paint" | "menu-jewelry";
 
 export type ScreenDef = {
   alt: string;
@@ -90,9 +90,5 @@ export const SCREENS: Record<ScreenSlug, ScreenDef> = {
   "menu-jewelry": {
     alt: "TiVora ERP – Jewelry side menu: the core modules plus Karigar / Workshop, Manufacturing, RFID and Gold Loans.",
     width: 289, height: 930, caption: DEMO_CAPTION.jewelry, edition: "jewelry", src: "/screens/menu-jewelry-1x.webp",
-  },
-  "menu-classic": {
-    alt: "TiVora ERP classic menu style: a search box, Work Desk, and expandable groups Master, Transaction, Finance Report, AR / AP, Inventory, Statutory, Configuration, Housekeeping and User.",
-    width: 304, height: 920, caption: DEMO_CAPTION.core, edition: "core", src: "/screens/menu-classic-1x.webp",
   },
 };

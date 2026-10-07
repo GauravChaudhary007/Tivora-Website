@@ -46,7 +46,7 @@ const moves = [
   "Press Ctrl K and type: the menu search finds any entry.",
   "Switch company from the top bar without signing out.",
   "Read every date in Bikram Sambat and AD side by side.",
-  "Pick the modern menu, or the classic grouped menu; use the light or dark theme.",
+  "Pick the menu style that suits you; use the light or dark theme.",
 ];
 
 export default function Page() {
@@ -263,11 +263,9 @@ export default function Page() {
               ))}
             </ul>
           </div>
-          <div className="mt-stack-lg grid gap-8 sm:grid-cols-2 lg:max-w-3xl" data-reveal>
+          <div className="mt-stack-lg lg:max-w-3xl" data-reveal>
             <Screen slug="menu-paint" sizes="320px" className="max-w-xs" />
-            <Screen slug="menu-classic" sizes="320px" className="max-w-xs" />
           </div>
-          <p className="mt-6 max-w-prose text-small text-muted">The modern menu on the left, the classic menu on the right.</p>
         </div>
       </Section>
 

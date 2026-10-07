@@ -400,7 +400,7 @@
   }
 }
 
-/* One entrance for every real screen (opacity and transform only; no end frame, so nothing is left on the element). */
+/* One entrance for every screen (opacity and transform only; no end frame, so nothing is left on the element). */
 @keyframes screen-rise {
   from {
     opacity: 0.55;

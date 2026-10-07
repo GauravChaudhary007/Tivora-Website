@@ -38,6 +38,11 @@ export default function Page() {
               ))}
             </ul>
             <ul className="mt-2 space-y-1">
+              <li>
+                <a className="inline-flex min-h-11 items-center text-accent underline underline-offset-4" href={site.whatsapp.href} rel="noopener">
+                  WhatsApp {site.whatsapp.label}
+                </a>
+              </li>
               {Object.values(site.emails).map((e) => (
                 <li key={e}>
                   <a className="inline-flex min-h-11 items-center text-accent underline underline-offset-4" href={`mailto:${e}`}>

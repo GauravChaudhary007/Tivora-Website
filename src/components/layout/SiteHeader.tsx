@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Logo } from "@/components/brand/Logo";
 import { ButtonLink } from "@/components/ui/ButtonLink";
-import { CTA, nav } from "@/content/site";
+import { CTA, appUrl, nav } from "@/content/site";
 
 const isActive = (here: string, href: string) => {
   const h = href.replace(/\/$/, "");
@@ -93,6 +93,11 @@ export function SiteHeader() {
 
           <div className="flex items-center gap-2">
             <div className="hidden sm:block">
+              <ButtonLink href={appUrl} variant="secondary">
+                Login
+              </ButtonLink>
+            </div>
+            <div className="hidden sm:block">
               <ButtonLink href={CTA.href}>{CTA.label}</ButtonLink>
             </div>
             <button
@@ -125,9 +130,14 @@ export function SiteHeader() {
               </li>
             ))}
           </ul>
-          <ButtonLink href={CTA.href} onClick={close} className="mt-auto">
-            {CTA.label}
-          </ButtonLink>
+          <div className="mt-auto flex flex-col gap-3">
+            <ButtonLink href={appUrl} variant="secondary" onClick={close}>
+              Login
+            </ButtonLink>
+            <ButtonLink href={CTA.href} onClick={close}>
+              {CTA.label}
+            </ButtonLink>
+          </div>
         </nav>
       </div>
 
