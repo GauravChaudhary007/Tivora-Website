@@ -3,12 +3,13 @@
 import { useEffect, useRef, useState } from "react";
 
 export const CHAPTERS = [
-  { id: "tour-platform", label: "Platform" },
-  { id: "tour-screen", label: "The real screen" },
+  { id: "tour-strengths", label: "Strengths" },
+  { id: "tour-process", label: "Modules tour" },
+  { id: "tour-screen", label: "Home screen" },
   { id: "tour-workdesk", label: "Work Desk" },
   { id: "tour-dashboards", label: "Dashboards" },
   { id: "tour-nepal", label: "Made for Nepal" },
-  { id: "tour-modules", label: "Modules" },
+  { id: "tour-modules", label: "All modules" },
   { id: "tour-editions", label: "Industries" },
   { id: "demo", label: "Request a demo" },
 ] as const;
