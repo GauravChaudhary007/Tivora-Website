@@ -1,82 +1,99 @@
 "use client";
 
 import { useRef } from "react";
-import { live, MOTION_QUERIES, useScene } from "@/lib/scene";
+import { ModuleIcon } from "@/components/ui/ModuleIcon";
+import type { IconName } from "@/content/modules";
+import { MOTION_QUERIES, useScene } from "@/lib/scene";
 
-const FACTS = [
-  "VAT on every line and every document, with Annex 9 and Annex 13 reports.",
-  "TDS and income tax. Connected to IRD, with issued bills locked forever.",
-  "Bikram Sambat and AD dates, and the Nepali fiscal year.",
-  "Letters of credit with the register and margin held, trust receipt and short-term loans, bank limits with headroom, bank guarantees and foreign-currency settlement.",
-  "Landed cost: freight, duty, clearing and bank charges allocated to item cost, estimate against actual.",
-];
 const HIDE = "inset(0% 100% 0% 0%)";
 const SHOW = "inset(0% 0% 0% 0%)";
 
-/** Scene 5. Giant "2083" fills gold with scroll (clip-path sweep), then the facts stack in. Desktop pinned 140%; mobile fills once on enter. */
+const Chip = ({ children }: { children: string }) => (
+  <span className="rounded-full border border-rule-dark bg-night-3/60 px-3 py-1 text-small whitespace-nowrap text-ground">{children}</span>
+);
+
+function Tile({ icon, title, text, wide = false, children }: { icon: IconName; title: string; text?: string; wide?: boolean; children?: React.ReactNode }) {
+  return (
+    <li className={`flex flex-col gap-3 rounded-2xl border border-rule-dark bg-night-2 p-5 transition-colors duration-300 hover:border-gold/40 ${wide ? "sm:col-span-2" : ""}`}>
+      <div className="flex items-center gap-3">
+        <ModuleIcon name={icon} className="size-10" />
+        <h3 className="text-h3">{title}</h3>
+      </div>
+      {text && <p className="text-muted-dark">{text}</p>}
+      {children && <div className="flex flex-wrap items-center gap-2">{children}</div>}
+    </li>
+  );
+}
+
+/** Scene 5: Ready for Nepal. The giant 2083 fills gold once on enter, beside a bento of icon tiles (the brochure p10 facts). No pin: compact and readable. */
 export function NepalScene() {
   const root = useRef<HTMLElement>(null);
-  useScene(root, (g) => {
-    const { gsap, ScrollTrigger } = g;
-      const mm = gsap.matchMedia();
-      const q = gsap.utils.selector(root);
-      const fill = q("[data-fill]");
-      mm.add(MOTION_QUERIES.desktop, () => {
-        const off = live(root.current);
-        const facts = q("[data-fact]");
-        gsap.set(fill, { clipPath: HIDE });
-        gsap.set(q("[data-facts]"), { opacity: 0 });
-        gsap.set(facts, { opacity: 0, y: 24 });
-        const tl = gsap
-          .timeline({
-            defaults: { ease: "none" },
-            scrollTrigger: { trigger: q("[data-pin]")[0], start: "top top", end: "+=140%", pin: true, anticipatePin: 1, scrub: 1 },
-          })
-          .to(fill, { clipPath: SHOW, duration: 0.5 }, 0)
-          .to(q("[data-mega]"), { yPercent: -40, opacity: 0, duration: 0.15 }, 0.5)
-          .to(q("[data-facts]"), { opacity: 1, duration: 0.1 }, 0.5);
-        facts.forEach((f, i) => tl.to(f, { opacity: 1, y: 0, duration: 0.1 }, 0.55 + i * 0.12));
-        tl.to({}, { duration: 0.1 }, 0.9);
-        return off;
-      });
-      mm.add(MOTION_QUERIES.mobile, () => {
-        gsap.set(fill, { clipPath: HIDE });
-        ScrollTrigger.create({
-          trigger: fill[0],
-          start: "top 85%",
-          once: true,
-          onEnter: () => gsap.to(fill, { clipPath: SHOW, duration: 1.2, ease: "expo.out" }),
-        });
-      });
+  useScene(root, ({ gsap, ScrollTrigger }) => {
+    const mm = gsap.matchMedia();
+    const fill = gsap.utils.selector(root)("[data-fill]");
+    mm.add(`${MOTION_QUERIES.desktop}, ${MOTION_QUERIES.mobile}`, () => {
+      gsap.set(fill, { clipPath: HIDE });
+      ScrollTrigger.create({ trigger: fill[0], start: "top 85%", once: true, onEnter: () => gsap.to(fill, { clipPath: SHOW, duration: 1.4, ease: "expo.out" }) });
+    });
     return () => mm.revert();
   });
 
   return (
-    <section id="tour-nepal" ref={root} data-tone="night" className="overflow-hidden bg-night text-ground scheme-dark">
-      <div data-pin="" className="flex flex-col justify-center py-section lg:in-data-live:h-svh lg:in-data-live:py-0">
-        <div className="container-x lg:in-data-live:grid">
-          <div data-mega="" className="lg:in-data-live:col-start-1 lg:in-data-live:row-start-1 lg:in-data-live:self-center">
-            <div className="relative font-display text-mega font-semibold">
-              <span aria-hidden="true" className="block text-night-3">
-                2083
-              </span>
-              <span data-fill="" className="absolute inset-0 text-gold">
-                2083
-              </span>
-            </div>
-            <p className="mt-4 font-mono text-small font-medium text-muted-dark">2083-06-14 BS · 2026-09-30 AD</p>
+    <section id="tour-nepal" ref={root} data-tone="night" className="overflow-hidden bg-night py-section text-ground scheme-dark">
+      <div className="container-x grid items-start gap-stack-lg lg:grid-cols-12">
+        <div className="lg:sticky lg:top-28 lg:col-span-5">
+          <div className="relative font-display text-8xl leading-none font-semibold lg:text-9xl">
+            <span aria-hidden="true" className="block text-night-3">
+              2083
+            </span>
+            <span data-fill="" aria-hidden="true" className="absolute inset-0 text-gold">
+              2083
+            </span>
           </div>
-          <div data-facts="" className="mt-stack-lg lg:in-data-live:col-start-1 lg:in-data-live:row-start-1 lg:in-data-live:mt-0 lg:in-data-live:self-center">
-            <h2 className="max-w-3xl">Ready for Nepal: tax, trade, finance and import costing.</h2>
-            <ul className="mt-stack max-w-3xl divide-y divide-rule-dark border-y border-rule-dark">
-              {FACTS.map((t) => (
-                <li key={t} data-fact="" className="py-4 text-lead">
-                  {t}
-                </li>
-              ))}
-            </ul>
-          </div>
+          <h2 className="mt-6">Ready for Nepal: tax, trade, finance and import costing.</h2>
+          <p className="mt-4 max-w-prose text-lead text-muted-dark">Built in Kathmandu for the way Nepali businesses actually operate.</p>
         </div>
+        <ul data-stagger="" className="grid gap-4 sm:grid-cols-2 lg:col-span-7">
+          <Tile icon="ReceiptText" title="VAT on every line" text="On every line and every document." wide>
+            <Chip>Annex 9</Chip>
+            <Chip>Annex 13</Chip>
+            <Chip>VAT reports</Chip>
+          </Tile>
+          <Tile icon="Scale" title="TDS and income tax" text="Deducted and reported where it applies." />
+          <Tile icon="LockKeyhole" title="Connected to IRD" text="Issued bills are locked forever." />
+          <Tile icon="CalendarClock" title="Bikram Sambat and AD" text="Both dates side by side, and the Nepali fiscal year." wide>
+            <Chip>BS 2083</Chip>
+            <Chip>AD 2026</Chip>
+          </Tile>
+          <Tile icon="Landmark" title="Trade and finance" wide>
+            <Chip>Letters of credit</Chip>
+            <Chip>Margin held</Chip>
+            <Chip>Trust receipt</Chip>
+            <Chip>Short-term loans</Chip>
+            <Chip>Bank limits</Chip>
+            <Chip>Bank guarantees</Chip>
+            <Chip>Foreign-currency settlement</Chip>
+          </Tile>
+          <Tile icon="Ship" title="Landed cost" text="Charges land in the item cost, estimate against actual." wide>
+            <Chip>Freight</Chip>
+            <span aria-hidden="true" className="text-gold">
+              →
+            </span>
+            <Chip>Duty</Chip>
+            <span aria-hidden="true" className="text-gold">
+              →
+            </span>
+            <Chip>Clearing</Chip>
+            <span aria-hidden="true" className="text-gold">
+              →
+            </span>
+            <Chip>Bank charges</Chip>
+            <span aria-hidden="true" className="text-gold">
+              →
+            </span>
+            <Chip>Item cost</Chip>
+          </Tile>
+        </ul>
       </div>
     </section>
   );
