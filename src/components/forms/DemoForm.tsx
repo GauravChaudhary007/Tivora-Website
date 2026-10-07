@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import { useEffect, useId, useRef, useState, type FormEvent } from "react";
 import { CONSENT_EMAIL_LABEL, CONSENT_WHATSAPP_LABEL, site } from "@/content/site";
 
 const TRADES = ["Jewellery", "Paint & Coatings", "FMCG", "Pharmacy", "Automobile", "Trading", "Manufacturing", "Other"];
@@ -48,17 +48,20 @@ function firstTouch(): Touch {
   return touch;
 }
 
-export function DemoForm() {
+/** `trade`: preselect the industry (the dialog passes the clicked link's ?trade=); otherwise this page's ?trade= is used. */
+export function DemoForm({ trade }: { trade?: string } = {}) {
+  // Unique per instance: the form can sit on a page and in the demo dialog at once.
+  const uid = `${useId()}df-`;
   const tradeSelect = useRef<HTMLSelectElement>(null);
   const startedAt = useRef(0);
   const touch = useRef<Touch | null>(null);
   // ?trade= is read on the client, so the static HTML still ships the whole form (no useSearchParams/Suspense bailout).
   useEffect(() => {
-    const t = SLUG_TO_TRADE[new URLSearchParams(window.location.search).get("trade") ?? ""];
+    const t = SLUG_TO_TRADE[trade ?? new URLSearchParams(window.location.search).get("trade") ?? ""];
     if (t && tradeSelect.current) tradeSelect.current.value = t;
     startedAt.current = Date.now();
     touch.current = firstTouch();
-  }, []);
+  }, [trade]);
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
   const [joinChannel, setJoinChannel] = useState(false);
@@ -137,16 +140,16 @@ export function DemoForm() {
     <form onSubmit={onSubmit} noValidate className="relative overflow-hidden rounded-lg bg-paper p-6 text-ink shadow-card sm:p-8">
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="df-name" className={LABEL}>Your name</label>
-          <input id="df-name" name="name" required autoComplete="name" maxLength={120} className={FIELD} />
+          <label htmlFor={`${uid}name`} className={LABEL}>Your name</label>
+          <input id={`${uid}name`} name="name" required autoComplete="name" maxLength={120} className={FIELD} />
         </div>
         <div>
-          <label htmlFor="df-company" className={LABEL}>Business name</label>
-          <input id="df-company" name="company" autoComplete="organization" maxLength={160} className={FIELD} />
+          <label htmlFor={`${uid}company`} className={LABEL}>Business name</label>
+          <input id={`${uid}company`} name="company" autoComplete="organization" maxLength={160} className={FIELD} />
         </div>
         <div>
-          <label htmlFor="df-industry" className={LABEL}>Industry</label>
-          <select ref={tradeSelect} id="df-industry" name="industry" defaultValue="" className={FIELD}>
+          <label htmlFor={`${uid}industry`} className={LABEL}>Industry</label>
+          <select ref={tradeSelect} id={`${uid}industry`} name="industry" defaultValue="" className={FIELD}>
             <option value="">Select an industry</option>
             {TRADES.map((t) => (
               <option key={t} value={t}>{t}</option>
@@ -154,16 +157,16 @@ export function DemoForm() {
           </select>
         </div>
         <div>
-          <label htmlFor="df-city" className={LABEL}>City</label>
-          <input id="df-city" name="city" autoComplete="address-level2" maxLength={80} className={FIELD} />
+          <label htmlFor={`${uid}city`} className={LABEL}>City</label>
+          <input id={`${uid}city`} name="city" autoComplete="address-level2" maxLength={80} className={FIELD} />
         </div>
         <div>
-          <label htmlFor="df-phone" className={LABEL}>Phone</label>
-          <input id="df-phone" name="phone" type="tel" inputMode="tel" autoComplete="tel" maxLength={40} className={FIELD} />
+          <label htmlFor={`${uid}phone`} className={LABEL}>Phone</label>
+          <input id={`${uid}phone`} name="phone" type="tel" inputMode="tel" autoComplete="tel" maxLength={40} className={FIELD} />
         </div>
         <div>
-          <label htmlFor="df-email" className={LABEL}>Email</label>
-          <input id="df-email" name="email" type="email" autoComplete="email" maxLength={160} className={FIELD} />
+          <label htmlFor={`${uid}email`} className={LABEL}>Email</label>
+          <input id={`${uid}email`} name="email" type="email" autoComplete="email" maxLength={160} className={FIELD} />
         </div>
       </div>
       <div className="mt-5 grid gap-5 sm:grid-cols-3">
@@ -175,8 +178,8 @@ export function DemoForm() {
           ] as const
         ).map(([name, label, opts]) => (
           <div key={name}>
-            <label htmlFor={`df-${name}`} className={LABEL}>{label}</label>
-            <select id={`df-${name}`} name={name} defaultValue="" className={FIELD}>
+            <label htmlFor={`${uid}${name}`} className={LABEL}>{label}</label>
+            <select id={`${uid}${name}`} name={name} defaultValue="" className={FIELD}>
               <option value="">Select (optional)</option>
               {opts.map(([v, text]) => (
                 <option key={v} value={v}>{text}</option>
@@ -186,21 +189,21 @@ export function DemoForm() {
         ))}
       </div>
       <div className="mt-5">
-        <label htmlFor="df-message" className={LABEL}>Message</label>
-        <textarea id="df-message" name="message" rows={4} maxLength={2000} autoComplete="off" className={FIELD} />
+        <label htmlFor={`${uid}message`} className={LABEL}>Message</label>
+        <textarea id={`${uid}message`} name="message" rows={4} maxLength={2000} autoComplete="off" className={FIELD} />
       </div>
-      <label htmlFor="df-consent-email" className="mt-4 flex min-h-11 items-start gap-3 text-small text-ink">
-        <input id="df-consent-email" name="marketingConsent" type="checkbox" className="mt-0.5 size-6 shrink-0 accent-accent" />
+      <label htmlFor={`${uid}consent-email`} className="mt-4 flex min-h-11 items-start gap-3 text-small text-ink">
+        <input id={`${uid}consent-email`} name="marketingConsent" type="checkbox" className="mt-0.5 size-6 shrink-0 accent-accent" />
         <span>{CONSENT_EMAIL_LABEL}</span>
       </label>
-      <label htmlFor="df-consent-whatsapp" className="mt-2 flex min-h-11 items-start gap-3 text-small text-ink">
-        <input id="df-consent-whatsapp" name="whatsappConsent" type="checkbox" className="mt-0.5 size-6 shrink-0 accent-accent" />
+      <label htmlFor={`${uid}consent-whatsapp`} className="mt-2 flex min-h-11 items-start gap-3 text-small text-ink">
+        <input id={`${uid}consent-whatsapp`} name="whatsappConsent" type="checkbox" className="mt-0.5 size-6 shrink-0 accent-accent" />
         <span>{CONSENT_WHATSAPP_LABEL}</span>
       </label>
       {/* Honeypot: off-screen, not display:none, so bots still fill it; people and screen readers never reach it. */}
       <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
-        <label htmlFor="df-website">Website</label>
-        <input id="df-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+        <label htmlFor={`${uid}website`}>Website</label>
+        <input id={`${uid}website`} name="website" type="text" tabIndex={-1} autoComplete="off" />
       </div>
       <p className="mt-3 text-small text-muted">Phone or email is needed so we can reach you.</p>
       <noscript>
