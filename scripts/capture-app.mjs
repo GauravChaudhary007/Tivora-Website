@@ -1,8 +1,10 @@
 // Captures full-resolution frames of the Tivora dev app for the launch videos.
 // You sign in yourself in the window that opens; this script never sees or stores the password.
-// Run:  npm i --no-save playwright-core   then   node scripts/capture-app.mjs
-import { chromium } from "playwright-core";
+// Run:  node scripts/capture-app.mjs   (needs video/node_modules: run `npm install` inside video/ once if missing)
+import { createRequire } from "node:module";
 import { mkdirSync } from "node:fs";
+// playwright-core lives in video/node_modules (npm install inside video/ if it is missing)
+const { chromium } = createRequire(new URL("../video/", import.meta.url))("playwright-core");
 
 const BASE = "https://dev.tivoraerp.com";
 const OUT = "assests/app-captures";
