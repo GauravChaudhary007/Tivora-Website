@@ -14,7 +14,6 @@ export function Screen({
   sizes = "(min-width: 1280px) 720px, 100vw",
   className = "",
   imgClassName = "",
-  highlight,
 }: {
   slug: ScreenSlug;
   priority?: boolean;
@@ -23,8 +22,6 @@ export function Screen({
   sizes?: string;
   className?: string;
   imgClassName?: string;
-  /** Spotlight on part of the screen (percent of the image): the rest dims, the area gets a gold ring and an optional label. */
-  highlight?: { x: number; y: number; w: number; h: number; label?: string };
 }) {
   const s = SCREENS[slug];
   const text = caption === undefined ? DEMO_CAPTION[s.edition] : caption;
@@ -37,7 +34,6 @@ export function Screen({
           <span className="size-2.5 rounded-full bg-rule" />
           <span className="ml-3 rounded-full bg-paper px-4 py-0.5 text-eyebrow text-muted">TiVora ERP</span>
         </div>
-        <div className="relative overflow-hidden">
         {/* eslint-disable-next-line @next/next/no-img-element -- pre-sized WebP, static export has no optimizer */}
         <img
           src={s.src}
@@ -52,24 +48,6 @@ export function Screen({
           style={crop ? { objectPosition: crop } : undefined}
           className={`block h-auto w-full ${imgClassName}`}
         />
-        {highlight && (
-          <>
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute rounded-md ring-2 ring-gold shadow-[0_0_0_200vmax_color-mix(in_srgb,var(--color-night)_58%,transparent)]"
-              style={{ left: `${highlight.x}%`, top: `${highlight.y}%`, width: `${highlight.w}%`, height: `${highlight.h}%` }}
-            />
-            {highlight.label && (
-              <span
-                className="pointer-events-none absolute rounded-full bg-gold px-3 py-1 text-small font-bold text-night shadow-frame-dark"
-                style={{ left: `calc(${highlight.x + highlight.w}% + 0.75rem)`, top: `calc(${highlight.y}% + 1rem)` }}
-              >
-                {highlight.label}
-              </span>
-            )}
-          </>
-        )}
-        </div>
       </div>
       {text && <figcaption className="mt-3 text-small text-muted in-data-[tone=night]:text-muted-dark">{text}</figcaption>}
     </figure>

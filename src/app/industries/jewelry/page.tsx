@@ -86,7 +86,7 @@ export default function Page() {
 
       <Section tone="ground">
         <div className="container-x" data-reveal>
-          <Screen slug="home-jewelry" sizes="(min-width: 1280px) 1100px, 100vw" highlight={{ x: 0, y: 0, w: 15.6, h: 100, label: "One menu" }} />
+          <Screen slug="home-jewelry" sizes="(min-width: 1280px) 1100px, 100vw" />
         </div>
       </Section>
 

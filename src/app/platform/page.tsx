@@ -4,7 +4,6 @@ import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
 import { CtaBand } from "@/components/layout/CtaBand";
 import { ButtonLink } from "@/components/ui/ButtonLink";
-import { Screen } from "@/components/ui/Screen";
 import { VideoSection } from "@/components/video/VideoSection";
 import { Bullets, Chain, DataTable, Eyebrow, Pillars, StepList } from "@/components/pages/blocks";
 import {
@@ -40,13 +39,6 @@ const nepalFacts = [
   "Annex 9 and Annex 13.",
   "TDS where it applies, on labour and services.",
   "Connected to IRD; issued bills locked forever.",
-];
-
-const moves = [
-  "Press Ctrl K and type: the menu search finds any entry.",
-  "Switch company from the top bar without signing out.",
-  "Read every date in Bikram Sambat and AD side by side.",
-  "Pick the menu style that suits you; use the light or dark theme.",
 ];
 
 export default function Page() {
@@ -245,26 +237,6 @@ export default function Page() {
               If a subscription runs out, TiVora ERP turns read-only rather than locking you out. You can always open and
               print your own records.
             </p>
-          </div>
-        </div>
-      </Section>
-
-      <Section tone="ground">
-        <div className="container-x grid items-center gap-stack-lg lg:grid-cols-12">
-          <div className="lg:col-span-4" data-reveal>
-            <p className="font-mono text-eyebrow font-medium uppercase text-accent">How you move around</p>
-            <h2 className="mt-3">One menu for every module.</h2>
-            <ul className="mt-6 space-y-3">
-              {moves.map((m) => (
-                <li key={m} className="flex gap-3">
-                  <span className="mt-2.5 size-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />
-                  <span>{m}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="min-w-0 lg:col-span-8" data-reveal>
-            <Screen slug="home-paint" caption={false} sizes="(min-width: 1024px) 800px, 100vw" highlight={{ x: 0, y: 0, w: 15.6, h: 100, label: "One menu" }} />
           </div>
         </div>
       </Section>
