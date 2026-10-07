@@ -34,4 +34,10 @@ const bad = htmlFiles("out").filter((f) => readFileSync(f, "utf8").includes("_ne
 if (bad.length) throw new Error(`"_next/image" found in: ${bad.join(", ")}`);
 
 cpSync("deploy/static", "out", { recursive: true });
+// Lead pipeline: the canonical rules (config/lead-rules.json) ship beside the PHP handler.
+cpSync("config/lead-rules.json", "out/api/demo/lead-rules.json");
+const leadFiles = ["index.php", "sync.php", "config.sample.php", "lead-rules.json", "data/.htaccess", "lead/.htaccess",
+  ...["http", "score", "queue", "graph", "teams", "brevo", "whatsapp", "deliver"].map((m) => `lead/${m}.php`)];
+const noLead = leadFiles.filter((f) => !existsSync(`out/api/demo/${f}`));
+if (noLead.length) throw new Error(`Lead pipeline files missing from out/api/demo: ${noLead.join(", ")}`);
 console.log("\nStatic site ready in out/ — zip its contents and upload to public_html.");

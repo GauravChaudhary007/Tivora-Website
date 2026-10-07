@@ -47,3 +47,11 @@ ErrorDocument 404 /404.html
 <Files "config.php">
   Require all denied
 </Files>
+
+# Lead pipeline: worker, includes, queue data and scoring rules are never web-reachable
+<FilesMatch "^(sync\.php|config\.sample\.php|lead-rules\.json)$">
+  Require all denied
+</FilesMatch>
+<IfModule mod_rewrite.c>
+  RewriteRule ^api/demo/(lead|data)(/|$) - [F,L]
+</IfModule>

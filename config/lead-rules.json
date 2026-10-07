@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "weights": {
+    "timeline":  { "1m": 25, "1-3m": 15, "exploring": 4, "": 8 },
+    "size":      { "small": 6, "medium": 14, "large": 20, "": 8 },
+    "industry":  { "Jewellery": 15, "Paint & Coatings": 15, "Trading": 15, "FMCG": 11, "Pharmacy": 11, "Automobile": 11, "Manufacturing": 11, "Other": 4, "": 4 },
+    "software":  { "excel": 10, "none": 10, "other-erp": 8, "hitech": 6, "": 4 },
+    "contact":   { "nepalMobile": 7, "businessEmail": 5, "both": 3 },
+    "message":   { "perKeyword": 2, "keywordMax": 8, "longChars": 40, "long": 2 },
+    "location":  { "nepal": 5, "other": 1 },
+    "repeatBonus": 10
+  },
+  "keywords": ["pric(e|ing)", "quot(e|ation)", "demo", "branch", "migrat", "vat", "ird", "urgent"],
+  "freeEmailDomains": ["gmail.com", "googlemail.com", "yahoo.com", "yahoo.co.in", "ymail.com", "hotmail.com", "outlook.com", "live.com", "msn.com", "icloud.com", "me.com", "aol.com", "proton.me", "protonmail.com", "rediffmail.com", "mail.com", "gmx.com", "zoho.com"],
+  "nepalMobileRegex": "^(?:\\+?977|0)?(9[78][0-9]{8})$",
+  "nepalLandlineRegex": "^(?:\\+?977|0)?(1[0-9]{7}|[2-9][0-9]{7})$",
+  "nepalCities": ["kathmandu", "lalitpur", "patan", "bhaktapur", "pokhara", "biratnagar", "birgunj", "butwal", "bharatpur", "chitwan", "dharan", "hetauda", "janakpur", "nepalgunj", "itahari", "dhangadhi", "tulsipur", "damak", "birtamod", "bhairahawa", "siddharthanagar", "lumbini", "kirtipur", "banepa", "dang", "ghorahi", "surkhet", "illam", "ilam", "jhapa", "nepal"],
+  "bands": {
+    "hot":  { "min": 70, "label": "Hot",  "sla": "Call within 15 minutes in working hours" },
+    "warm": { "min": 40, "label": "Warm", "sla": "Call the same day" },
+    "cold": { "min": 0,  "label": "Cold", "sla": "Contact within 2 days; add to the email nurture" }
+  },
+  "spam": {
+    "junkNamePatterns": ["^(.)\\1{2,}$", "^[0-9 .,_-]+$", "^(test|testing|asdf|asdfgh|qwerty|abc|xyz|aaa|na|n/a|none)$", "^.$"],
+    "testEmailDomains": ["example.com", "example.org", "test.com", "mailinator.com", "tempmail.com", "10minutemail.com", "guerrillamail.com", "yopmail.com"],
+    "testEmailLocalParts": ["test", "testing", "asdf", "qwerty", "abc"],
+    "maxLinksInMessage": 2,
+    "messageBadWords": ["viagra", "casino", "crypto", "seo services", "backlinks", "loan offer"]
+  },
+  "dedupeDays": 7,
+  "rateLimit": { "perIpPerHour": 5 },
+  "minFillSeconds": 3,
+  "columns": ["Lead ID", "Received", "Name", "Company", "Phone", "Email", "Industry", "City", "Business size", "Timeline", "Current software", "Message", "Landing page / UTM", "Marketing consent (timestamp)", "Score", "Priority", "Score reasons", "Owner", "Contacted at", "Outcome", "Notes", "Unsubscribed", "Last email sent", "Last WhatsApp sent", "WhatsApp done", "Last synced"],
+  "outcomes": ["Deal", "Potential", "Nurturing"],
+  "cadenceDays": {
+    "whatsapp": { "Potential": 7, "Nurturing": 14, "Deal": 30 },
+    "email":    { "Potential": 7, "Nurturing": 14, "Deal": 30 }
+  },
+  "whatsappListMax": 25,
+  "templates": {
+    "whatsapp": {
+      "Potential": "Namaste {name}, this is the TiVora ERP team at HiTech Solutions and Services. Thank you for your interest for {company}. If useful, we can walk you through the modules that fit your business. Reply here or call 01-5389641.",
+      "Nurturing": "Namaste {name}, a short note from the TiVora ERP team at HiTech Solutions and Services. When {company} is ready to look at a single system for sales, stock and accounts, we are happy to arrange a walkthrough. Call 01-5389641 any time.",
+      "Deal": "Namaste {name}, the TiVora ERP team at HiTech Solutions and Services has an update for {company}. Reply here if you would like it explained, or call 01-5389641."
+    },
+    "email": {
+      "Potential": { "subject": "TiVora ERP for {company}", "body": "Namaste {name}, thank you for your interest in TiVora ERP. Reply to this email or call 01-5389641 and we will arrange a walkthrough for {company}." },
+      "Nurturing": { "subject": "A note from TiVora ERP", "body": "Namaste {name}, a short note from the TiVora ERP team at HiTech Solutions and Services. We are here when {company} is ready to talk." },
+      "Deal":      { "subject": "TiVora ERP product update", "body": "Namaste {name}, here is what is new in TiVora ERP. Write to support@hitechnepal.com.np with any question." }
+    }
+  }
+}
