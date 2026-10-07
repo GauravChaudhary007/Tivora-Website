@@ -13,6 +13,10 @@ export type Film = {
   duration: number;
   posterAlt: string;
   transcript: readonly (readonly [number, string])[];
+  /** File version when it differs from VERSION (an owner-supplied cut). */
+  version?: string;
+  /** false: no caption file exists for this cut, so the player gets no captions track. */
+  captions?: boolean;
 };
 
 const VERSION = "v1";
@@ -20,26 +24,23 @@ const VERSION = "v1";
 export const FILMS: Record<FilmId, Film> = {
   master: {
     id: "master",
-    title: "One platform. Every business.",
-    duration: 100,
-    posterAlt: "TiVora ERP walkthrough, 1:40: modules, Work Desk, dashboards, reports, Nepal dates and tax",
+    title: "The ERP that tells you what's next.",
+    duration: 124,
+    posterAlt: "TiVora ERP film, 2:04: the Work Desk, every branch live, one entry for the whole chain, dashboards and access control",
+    version: "v3",
+    captions: false,
+    // Owner-supplied cut (Tivora_ERP_Film_v3.mp4): its on-screen headlines, read from the frames.
     transcript: [
-      [0.6, "This is TiVora ERP, from HiTech in Kathmandu."],
-      [3.6, "One platform for every business, from the counter to the books."],
-      [9.2, "Here is how it works. A bill is raised at the counter. The stock moves, the production floor knows what to make, and the ledger already has the entry. You type it once."],
-      [19.2, "This is the real software."],
-      [22.2, "Every module sits on one Home screen, so nobody has to hunt through menus."],
-      [27.2, "Search any entry with Control K, or star the ones you use every day."],
-      [31.2, "The Work Desk shows the owner what needs attention each morning: a credit limit, a late order, a journal not posted."],
-      [37.2, "And what is due, and who is keeping up."],
-      [41.2, "Each module has its own dashboard, and one page shows the whole business."],
-      [46.2, "Twelve modules work from the same books: sales and purchase, stock and production, transport and delivery, customer services, finance, fixed assets, trade finance, tax, reports, and the control panel."],
-      [61.2, "A quotation becomes a sales order at the quoted prices. Every bill carries its V A T, paid or not. And letters of credit are followed from application to retirement."],
-      [71.2, "Reports live in one searchable place: the day book, stock movement, and receivables ageing as a list, a pivot or a graph. The trial balance balances."],
-      [80.2, "It is made for Nepal: Bikram Sambat dates, V A T registers, T D S, and Annex nine and thirteen."],
-      [86.2, "Jewelry is available now. General trading and Paint are next."],
-      [90.2, "TiVora ERP. One platform. Every business."],
-      [95.8, "Request a demo, and see it on your own numbers."],
+      [0, "Does your team know what to do today, without asking you?"],
+      [30, "Every company. Every branch. Live."],
+      [40, "Work Desk. Every person. Their own desk."],
+      [50, "One entry. Everything else follows."],
+      [70, "The same chain runs in purchase and production."],
+      [90, "Your business, anywhere. Open only to the right people."],
+      [100, "Plus solutions made for your industry."],
+      [108, "Zero re-typing. Mistakes stopped. Nothing forgotten. Live numbers."],
+      [112, "The next-generation ERP, by HiTech. 28+ years, 10,000+ clients, 15+ branches, 100+ professionals."],
+      [118, "TiVora ERP, HiTech Intelligent ERP Solution. The ERP that tells you what's next."],
     ],
   },
   owner: {
@@ -52,7 +53,7 @@ export const FILMS: Record<FilmId, Film> = {
       [4.3, "Everything starts on Home. Your most used entries are one click away."],
       [9.5, "The Work Desk is where the day begins. It gathers what needs you from every module, sorted by late, today, this week or snoozed. A customer is over the credit limit. A production order is weeks late. A journal has not been posted. Each one has its action beside it, so you fix it there."],
       [32.3, "Then the numbers: who owes you, and whom you owe, in one view."],
-      [38.3, "Sales for the last thirty days. The V A T this month, output less input. And work assigned, done, on time or overdue."],
+      [38.3, "Sales for the last thirty days. The VAT this month, output less input. And work assigned, done, on time or overdue."],
       [46.8, "Every module has a dashboard of its own. Sales against the same days last month, a running total against target, and what customers owe."],
       [58, "TiVora ERP. One platform. Every business."],
     ],
@@ -66,14 +67,14 @@ export const FILMS: Record<FilmId, Film> = {
       [1, "Books, banks and tax."],
       [4.3, "This is where the money is kept: vouchers, books, cheques and the final accounts."],
       [10.3, "Receipts, payments and contra entries are made against a cash or bank book, so every rupee has a place."],
-      [18.3, "When an import-loan or L C payment is made, its voucher posts by itself. Nobody retypes it."],
-      [25.3, "Every voucher stays in date order, in B S and A D, so any entry can be found and checked."],
+      [18.3, "When an import-loan or LC payment is made, its voucher posts by itself. Nobody retypes it."],
+      [25.3, "Every voucher stays in date order, in BS and AD, so any entry can be found and checked."],
       [32.3, "The trial balance is always up to today, and it balances."],
       [36.3, "From it come the profit and loss, balance sheet, cash flow and funds flow."],
       [41.3, "Fixed assets have their own register, with depreciation and the asset schedule built in."],
       [48.5, "Trade finance is covered too: letters of credit, import loans and bank guarantees, from application to retirement, with foreign currency revalued at month end."],
-      [60.5, "For tax: V A T registers, Annex nine and thirteen, and T D S certificates by party."],
-      [65.8, "It is C B M S ready, and built to I R D's current formats."],
+      [60.5, "For tax: VAT registers, Annex nine and thirteen, and TDS certificates by party."],
+      [65.8, "It is connected to IRD, and issued bills are locked forever."],
     ],
   },
   stock: {
@@ -85,7 +86,7 @@ export const FILMS: Record<FilmId, Film> = {
       [1, "Buy. Store. Make. Deliver."],
       [4.2, "One entry moves the stock, from purchase to delivery."],
       [7.2, "Buying starts with a requisition and a request for quotation. Supplier quotes are compared side by side, import costs are pooled into the goods, and what is received but not yet billed stays visible."],
-      [20.2, "In the godown: indents, approvals, transfers and stock audit, with batches, H S N codes and every godown tracked."],
+      [20.2, "In the godown: indents, approvals, transfers and stock audit, with batches, HSN codes and every godown tracked."],
       [28.2, "Stock is valued, and you see opening, inward, outward and closing for every product."],
       [34.2, "On the floor: plan, order, issue, receive. Bills of materials, plants and machines, with yield, loss and batch trace."],
       [44.2, "A late order reaches the owner's desk by itself."],
@@ -105,7 +106,7 @@ export const FILMS: Record<FilmId, Film> = {
       [14.8, "Sales below the floor price, and temporary credit limits, are reported."],
       [20.3, "A quotation becomes the sales order at the quoted prices, so nothing is entered twice."],
       [28.2, "Every bill is dated in both calendars."],
-      [31.8, "Each line carries its V A T, and every bill shows paid, partly paid or unpaid."],
+      [31.8, "Each line carries its VAT, and every bill shows paid, partly paid or unpaid."],
       [37.8, "You see what each customer still owes, in ageing bands, as a list, a pivot or a graph."],
       [50.8, "Over the credit limit? The Work Desk flags it, and so does the dashboard."],
       [56, "TiVora ERP. One platform. Every business."],
@@ -122,12 +123,13 @@ const pick = (id: FilmId, base: string, res: "1080" | "720") => {
 
 /** Exact file names the renderer must write into public/videos/ (docs/VIDEO-SPEC.md 4.3), with enhanced versions preferred. */
 export function videoFiles(id: FilmId) {
-  const base = `tivora-${id}-${VERSION}`;
+  const film = FILMS[id];
+  const base = `tivora-${id}-${film.version ?? VERSION}`;
   return {
     src1080: pick(id, base, "1080"),
     src720: pick(id, base, "720"),
     poster: `${base}-poster.jpg`,
-    vtt: `${base}.en.vtt`,
+    ...(film.captions === false ? {} : { vtt: `${base}.en.vtt` }),
   };
 }
 
@@ -137,7 +139,7 @@ export function videoUrls(id: FilmId) {
     src1080: `/videos/${f.src1080}`,
     src720: `/videos/${f.src720}`,
     poster: `/videos/${f.poster}`,
-    vtt: `/videos/${f.vtt}`,
+    vtt: f.vtt && `/videos/${f.vtt}`,
   };
 }
 

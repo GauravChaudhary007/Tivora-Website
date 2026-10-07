@@ -6,12 +6,17 @@ import { existsSync, readFileSync } from "node:fs";
 
 const src = readFileSync("src/content/videos.ts", "utf8");
 const version = src.match(/const VERSION = "([^"]+)"/)?.[1];
-const ids = [...src.matchAll(/^ {4}id: "(\w+)"/gm)].map((m) => m[1]);
-if (!version || !ids.length) throw new Error("check-videos: could not read VERSION / film ids from src/content/videos.ts");
+// Each film block: its id, plus an optional own `version` and `captions: false` (see the Film type).
+const films = src.split(/^ {2}\w+: \{$/m).slice(1).map((block) => ({
+  id: block.match(/^ {4}id: "(\w+)"/m)?.[1],
+  version: block.match(/^ {4}version: "([^"]+)"/m)?.[1] ?? version,
+  captions: !/^ {4}captions: false/m.test(block),
+})).filter((f) => f.id);
+if (!version || !films.length) throw new Error("check-videos: could not read VERSION / film ids from src/content/videos.ts");
 
-const names = ids.flatMap((id) => {
-  const b = `tivora-${id}-${version}`;
-  return [`${b}-1080.mp4`, `${b}-720.mp4`, `${b}-poster.jpg`, `${b}.en.vtt`];
+const names = films.flatMap(({ id, version: v, captions }) => {
+  const b = `tivora-${id}-${v}`;
+  return [`${b}-1080.mp4`, `${b}-720.mp4`, `${b}-poster.jpg`, ...(captions ? [`${b}.en.vtt`] : [])];
 });
 const missing = names.filter((n) => !existsSync(`public/videos/${n}`));
 

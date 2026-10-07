@@ -5,10 +5,11 @@ import { vtt } from "./captions.mjs";
 
 // Transcript = the spoken narration (video/narration.json) in reading form: "V A T" back to "VAT".
 const narration = JSON.parse(readFileSync("video/narration.json", "utf8"));
-const written = (t) => t.replace(/\bTivora\b/g, "TiVora").replace(/(?:[A-Z] )+[A-Z]/g, (m) => m.replace(/ /g, ""));
+const written = (t) => t.replace(/\bTivora\b/g, "TiVora").replace(/\b(?:[A-Z] )+[A-Z]\b/g, (m) => m.replace(/ /g, ""));
 
-const ids = ["master", "owner", "money", "stock", "sales"];
-let ts = readFileSync("src/content/videos.ts", "utf8");
+// The master is an owner-supplied cut (v3) with a hand-written transcript: never regenerate it.
+const ids = ["owner", "money", "stock", "sales"];
+let ts = readFileSync("src/content/videos.ts", "utf8").split("\r\n").join("\n"); // tolerate Windows line endings
 for (const id of ids) {
   const film = JSON.parse(readFileSync(`video/films/${id}.json`, "utf8"));
   writeFileSync(`public/videos/tivora-${id}-v1.en.vtt`, vtt(film));

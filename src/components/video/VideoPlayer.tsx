@@ -24,7 +24,7 @@ export function VideoPlayer({
   posterAlt: string;
   src1080: string;
   src720: string;
-  vtt: string;
+  vtt?: string;
 }) {
   const [src, setSrc] = useState<string | null>(null);
   const video = useRef<HTMLVideoElement>(null);
@@ -52,7 +52,7 @@ export function VideoPlayer({
           aria-label={`${name}, ${length}, with narration`}
           className="absolute inset-0 size-full rounded-frame bg-night shadow-frame"
         >
-          <track kind="captions" srcLang="en" label="English" src={vtt} />
+          {vtt && <track kind="captions" srcLang="en" label="English" src={vtt} />}
         </video>
       ) : (
         <>
