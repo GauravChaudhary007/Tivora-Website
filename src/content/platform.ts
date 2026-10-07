@@ -75,7 +75,7 @@ export const taxFacts = [
   "VAT on every line and every document.",
   "Annex 9 and Annex 13 reports.",
   "TDS and income tax.",
-  "Connected to IRD; issued bills locked forever.",
+  "IRD certified; issued bills locked forever.",
   "Bikram Sambat and AD dates; Nepali fiscal year.",
 ];
 export const tradeFacts = [

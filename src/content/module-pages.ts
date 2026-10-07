@@ -1,7 +1,7 @@
 // One entry per business module that has its own page (/modules/<slug>/). Adding a module (Planning, Maintenance,
 // Production, ...) is ONE entry here: the route, sitemap, menu, footer and /modules card links all read this list.
 // Source: docs/APP-MAP-MODULES-JEWELRY.md (live Jewelry edition). Rules: no customer, supplier or karigar names, no sample
-// figures presented as results, no counts of modules, no AI, IRD-certified or price claims.
+// figures presented as results, no counts of modules, no AI or price claims (IRD certified is an owner-approved claim).
 import type { IconName } from "./modules";
 
 export type ModuleGroup = "Core modules" | "Jewellery pack";
@@ -363,7 +363,7 @@ export const modulePages: ModulePage[] = [
   {
     slug: "tax-ird", name: "Tax & IRD", group: "Core modules", icon: "FileText",
     short: "VAT, Annex 9 and 13, TDS, CBMS",
-    tagline: "VAT, Annex 9 and 13, TDS, income tax and the IRD connection.",
+    tagline: "VAT, Annex 9 and 13, TDS, income tax and IRD certified billing.",
     description: "Annex 9 VAT return, VAT reconciliation, Annex 13 books, TDS, income tax computation and CBMS-ready invoice data, in TiVora ERP.",
     forWho: ["Accountant", "Tax consultant"],
     highlights: [

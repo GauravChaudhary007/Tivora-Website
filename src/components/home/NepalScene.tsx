@@ -67,7 +67,7 @@ export function NepalScene() {
             <Chip>VAT reports</Chip>
           </Tile>
           <Tile icon="Scale" title="TDS and income tax" text="Deducted and reported where it applies." />
-          <Tile icon="LockKeyhole" title="Connected to IRD" text="Issued bills are locked forever." />
+          <Tile icon="LockKeyhole" title="IRD certified" text="Connected to IRD; issued bills are locked forever." />
           <Tile icon="CalendarClock" title="Bikram Sambat and AD" text="And the Nepali fiscal year.">
             <Chip>BS 2083</Chip>
             <Chip>AD 2026</Chip>

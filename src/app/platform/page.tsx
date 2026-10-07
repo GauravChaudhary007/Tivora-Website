@@ -29,7 +29,7 @@ const reasons = [
   },
   {
     title: "Nepal built in",
-    body: "Bikram Sambat dates and fiscal years, 13% VAT, Annex 9 and Annex 13, TDS, and a connection to IRD with issued bills locked are part of the product, not an add-on.",
+    body: "Bikram Sambat dates and fiscal years, 13% VAT, Annex 9 and Annex 13, TDS, and IRD certification with issued bills locked are part of the product, not an add-on.",
   },
 ];
 
@@ -38,7 +38,7 @@ const nepalFacts = [
   "13% VAT worked out on each line and gathered into the VAT books and the monthly VAT return.",
   "Annex 9 and Annex 13.",
   "TDS where it applies, on labour and services.",
-  "Connected to IRD; issued bills locked forever.",
+  "IRD certified; issued bills locked forever.",
 ];
 
 export default function Page() {
@@ -175,7 +175,7 @@ export default function Page() {
             <p className="mt-5 text-lead text-muted">
               Every date in TiVora ERP can be read in Bikram Sambat, and every document is numbered by fiscal year. VAT is
               worked out on each line and gathered into the VAT books, the monthly VAT return, and Annex 9 and Annex 13.
-              TDS is deducted where it applies, and TiVora connects to IRD and locks every issued bill.
+              TDS is deducted where it applies, and TiVora is IRD certified and locks every issued bill.
             </p>
           </div>
           <div className="lg:col-span-6" data-reveal>
