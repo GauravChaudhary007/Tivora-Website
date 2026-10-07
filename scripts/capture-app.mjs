@@ -8,6 +8,8 @@ const BASE = "https://dev.tivoraerp.com";
 const OUT = "assests/app-captures";
 // Skipped on purpose: pages listing real-looking people (users, parties) or personal notifications.
 const ROUTES = [
+  "/dashboards/executive", "/dashboards/sales", "/dashboards/accounts",
+  "/home/karigar", "/home/factory", "/home/rfid", "/home/goldloans", "/factory", "/rfid", "/board-rate", "/pos/new/jewelry",
   "/home", "/dashboards", "/desk", "/desk/performance", "/start",
   "/home/sales", "/home/purchase", "/home/inventory", "/home/process-mfg", "/home/transport",
   "/home/services", "/home/accounts", "/home/fixedassets", "/home/treasury", "/home/tax", "/home/admin",
@@ -18,7 +20,7 @@ const ROUTES = [
 
 mkdirSync(OUT, { recursive: true });
 const browser = await chromium.launch({ channel: "chrome", headless: false });
-const ctx = await browser.newContext({ viewport: { width: 1920, height: 1080 }, deviceScaleFactor: 2 });
+const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2 });
 const page = await ctx.newPage();
 await page.goto(BASE + "/login");
 console.log("Sign in in the browser window. Waiting up to 5 minutes...");

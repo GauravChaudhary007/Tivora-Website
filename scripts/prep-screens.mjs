@@ -93,7 +93,7 @@ for (const s of SCREENS) {
   const cut = s.cut ? await sharp(done).extract(s.cut).toBuffer() : done;
   const { width: w } = await sharp(cut).metadata();
   const sizes = s.native ? [["1x", w]] : [...new Set([960, 1600].map((n) => Math.min(n, w)))].map((n) => [n, n]);
-  for (const [label, n] of sizes) await sharp(cut).resize({ width: n }).webp({ quality: 82 }).toFile(`${OUT}${s.slug}-${label}.webp`);
+  for (const [label, n] of sizes) await sharp(cut).resize({ width: n, kernel: "lanczos3" }).sharpen({ sigma: 0.5 }).webp({ quality: 93, effort: 6, smartSubsample: false }).toFile(`${OUT}${s.slug}-${label}.webp`);
   if (!s.cut || s.slug === "work-desk") regions.forEach((r, i) => tiles.push({ label: `${s.slug} #${i}`, before: sharp(raw).extract(pad(r, 30, width)), after: sharp(done).extract(pad(r, 30, width)) }));
   console.log(s.slug, sizes.map((x) => x[0]).join(","), `${w}x${(await sharp(cut).metadata()).height}`, `redactions:${regions.length}`);
 }
