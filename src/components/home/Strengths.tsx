@@ -13,9 +13,10 @@ const pillars = [
   { t: "Intelligent", d: "It knows every open item in your business and acts like your manager: what to do, why it matters and what comes next." },
   { t: "Integrated", d: "Every module on one database. Every entry updates stock, ledgers, dashboards and KPIs the moment it is saved." },
   { t: "Focused", d: "Each person sees only what matters to their role, so attention goes to the work that moves your targets." },
+  { t: "IRD certified", d: "Connected to IRD, with every issued bill locked, so your billing stands up to the tax office." },
 ];
 
-/** Home: the company behind TiVora ERP, as one stat strip and three pillars. */
+/** Home: the company behind TiVora ERP, as one stat strip and four pillars. */
 export function Strengths() {
   return (
     <Section tone="night" size="md" id="tour-strengths">
@@ -32,7 +33,7 @@ export function Strengths() {
             </div>
           ))}
         </dl>
-        <ul data-stagger="" className="mt-stack grid gap-stack md:grid-cols-3">
+        <ul data-stagger="" className="mt-stack grid gap-stack md:grid-cols-2 lg:grid-cols-4">
           {pillars.map((p) => (
             <li key={p.t}>
               <h3 className="text-h3">{p.t}</h3>

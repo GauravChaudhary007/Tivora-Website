@@ -15,7 +15,6 @@ export const site = {
     { label: "01-5389642", tel: "+97715389642" },
     { label: "01-5389643", tel: "+97715389643" },
     { label: "9802031373", tel: "+9779802031373" },
-    { label: "9800133468", tel: "+9779800133468" },
   ],
   whatsapp: { label: "+977 9709117067", href: "https://wa.me/9779709117067" },
   /** WhatsApp Channel URL; the owner fills it in. Empty hides the link on the thank-you panel. */
