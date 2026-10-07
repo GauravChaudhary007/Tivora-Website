@@ -19,7 +19,7 @@ export function PageHero({
       <div className="container-x relative pt-header">
         {eyebrow && <p className="font-mono text-eyebrow font-medium uppercase text-gold">{eyebrow}</p>}
         <h1 className="mt-4 max-w-4xl">{title}</h1>
-        {lead && <p className="mt-6 max-w-prose text-lead text-muted-dark">{lead}</p>}
+        {lead && <p className="mt-4 max-w-prose text-lead text-muted-dark">{lead}</p>}
         {actions && <div className="mt-stack flex flex-col gap-3 sm:flex-row">{actions}</div>}
       </div>
     </Section>

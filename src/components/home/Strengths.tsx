@@ -40,7 +40,7 @@ export function Strengths() {
             </li>
           ))}
         </ul>
-        <p className="mt-6 text-small text-muted-dark">Figures are HiTech Solutions and Services&rsquo; company figures.</p>
+        <p className="mt-4 text-small text-muted-dark">Figures are HiTech Solutions and Services&rsquo; company figures.</p>
       </div>
     </Section>
   );

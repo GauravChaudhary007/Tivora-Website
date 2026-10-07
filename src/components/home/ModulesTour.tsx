@@ -77,7 +77,7 @@ export function ModulesTour({ children }: { children: ReactNode }) {
 
   return (
     <section id="tour-process" ref={root} data-tone="night" className="bg-night text-ground scheme-dark">
-      <div className="flex items-center py-section-sm in-data-live:min-h-[80svh]">
+      <div className="flex items-center py-section-sm in-data-live:min-h-[70svh]">
         <div className="container-x grid items-center gap-stack lg:grid-cols-12">
           <div className="lg:col-span-5">
             <p className="font-mono text-eyebrow font-medium text-gold uppercase">One process. Every module.</p>

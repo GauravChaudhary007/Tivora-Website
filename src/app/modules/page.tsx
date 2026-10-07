@@ -34,7 +34,7 @@ const filmFor: Partial<Record<string, { id: FilmId; heading: string }>> = {
 
 function Bullets({ items }: { items: string[] }) {
   return (
-    <ul className="mt-5 space-y-2.5">
+    <ul className="mt-4 space-y-2.5">
       {items.map((b) => (
         <li key={b} className="flex gap-3">
           <span className="mt-2.5 size-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />
@@ -51,22 +51,28 @@ function ModuleBlock({ m }: { m: Module }) {
   const f = filmFor[m.slug];
   const film = f && (process.env.NODE_ENV !== "production" || filmReady(f.id)) ? f : null;
   return (
-    <article id={m.slug} className="scroll-mt-24 border-t border-rule pt-10 first:border-t-0 first:pt-0" data-reveal>
-      <div className="flex items-center gap-4">
-        <ModuleIcon name={m.icon} />
-        <h3 className="text-h3">{m.name}</h3>
+    <article id={m.slug} className="scroll-mt-24 grid gap-4 border-t border-rule pt-6 first:border-t-0 first:pt-0 xl:grid-cols-2 xl:gap-8" data-reveal>
+      <div>
+        <div className="flex items-center gap-4">
+          <ModuleIcon name={m.icon} />
+          <h3 className="text-h3">{m.name}</h3>
+        </div>
+        <p className="mt-3 max-w-prose text-lead text-muted">{m.appLine}</p>
+        {m.more && <p className="mt-3 max-w-prose text-muted">{m.more}</p>}
+        {m.bullets.length > 0 && <Bullets items={m.bullets} />}
+        {m.slug === "trade-finance" && <p className="mt-4 text-small text-muted">{tradeFinanceExtra}</p>}
       </div>
-      <p className="mt-4 max-w-prose text-lead text-muted">{m.appLine}</p>
-      {m.more && <p className="mt-3 max-w-prose text-muted">{m.more}</p>}
-      {m.bullets.length > 0 && <Bullets items={m.bullets} />}
-      {film && (
-        <div className="mt-8 max-w-2xl">
-          <h3 className="text-h3">{film.heading}</h3>
-          <VideoBlock id={film.id} className="mt-4" />
+      {(film || shot) && (
+        <div className="space-y-4">
+          {film && (
+            <div>
+              <h3 className="text-h3">{film.heading}</h3>
+              <VideoBlock id={film.id} className="mt-3" />
+            </div>
+          )}
+          {shot && <Screen slug={shot} sizes="(min-width: 1280px) 520px, 100vw" />}
         </div>
       )}
-      {m.slug === "trade-finance" && <p className="mt-4 text-small text-muted">{tradeFinanceExtra}</p>}
-      {shot && <Screen slug={shot} sizes="(min-width: 1024px) 640px, 100vw" className="mt-8 max-w-2xl" />}
     </article>
   );
 }
@@ -81,7 +87,7 @@ export default function Page() {
       />
 
       <Section tone="ground">
-        <div className="container-x grid gap-stack-lg lg:grid-cols-12 lg:gap-8">
+        <div className="container-x grid gap-stack-lg lg:grid-cols-12 lg:gap-6">
           <nav aria-label="Modules" className="lg:col-span-3">
             <div className="lg:sticky lg:top-24">
               <p className="font-mono text-eyebrow font-medium uppercase text-accent">On this page</p>
@@ -102,7 +108,7 @@ export default function Page() {
             </div>
           </nav>
 
-          <div className="space-y-12 lg:col-span-9">
+          <div className="space-y-8 lg:col-span-9">
             {core.map((m) => (
               <ModuleBlock key={m.slug} m={m} />
             ))}
@@ -113,7 +119,7 @@ export default function Page() {
       <Section tone="paper">
         <div className="container-x">
           <h2 data-reveal>Launching soon.</h2>
-          <ul className="mt-stack-lg grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8" data-stagger>
+          <ul className="mt-stack-lg grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6" data-stagger>
             {launchingSoon.map((m) => (
               <li key={m.name} className="rounded-xl border border-rule bg-ground p-6">
                 <ModuleIcon name={m.icon} />
@@ -153,7 +159,7 @@ export default function Page() {
               loans against jewellery.
             </p>
           </div>
-          <div className="mt-stack-lg grid gap-6 sm:grid-cols-2 lg:gap-8">
+          <div className="mt-stack-lg grid gap-6 sm:grid-cols-2 lg:gap-6">
             {jewelry.map((m) => (
               <article key={m.slug} className="rounded-xl border border-rule bg-ground p-6" data-reveal>
                 <div className="flex items-center gap-4">

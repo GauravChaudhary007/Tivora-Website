@@ -20,7 +20,7 @@ export function ClosingScene() {
         </div>
       </Section>
       <Section tone="ground" size="lg" id="demo">
-        <div className="container-x grid gap-stack lg:grid-cols-12 lg:gap-8">
+        <div className="container-x grid gap-stack lg:grid-cols-12 lg:gap-6">
           <div className="lg:col-span-7">
             <h2>See TiVora run your business, before you decide.</h2>
             <p className="mt-4 mb-stack max-w-prose text-lead text-muted">

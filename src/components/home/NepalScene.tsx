@@ -30,7 +30,7 @@ export function NepalScene() {
         const tl = gsap
           .timeline({
             defaults: { ease: "none" },
-            scrollTrigger: { trigger: q("[data-pin]")[0], start: "top top", end: "+=140%", pin: true, anticipatePin: 1, scrub: 1 },
+            scrollTrigger: { trigger: q("[data-pin]")[0], start: "top top", end: "+=75%", pin: true, anticipatePin: 1, scrub: 1 },
           })
           .to(fill, { clipPath: SHOW, duration: 0.5 }, 0)
           .to(q("[data-mega]"), { yPercent: -40, opacity: 0, duration: 0.15 }, 0.5)

@@ -41,14 +41,14 @@ export default function Page() {
       />
 
       <Section tone="ground">
-        <div className="container-x grid items-start gap-stack-lg lg:grid-cols-12 lg:gap-8">
+        <div className="container-x grid items-start gap-stack-lg lg:grid-cols-12 lg:gap-6">
           <div className="lg:col-span-5" data-reveal>
             <h2>What needs you now.</h2>
-            <p className="mt-5 text-lead text-muted">
+            <p className="mt-4 text-lead text-muted">
               A customer over the credit limit, a manufacturing order past its date, a supplier payment coming up. Each
               item sits under the module it belongs to, with the button that deals with it.
             </p>
-            <ol className="mt-8 space-y-5">
+            <ol className="mt-4 space-y-5">
               {critical.map((c, i) => (
                 <li key={c.label} className="flex gap-4">
                   <span className="flex size-8 shrink-0 items-center justify-center rounded-full border-2 border-gold bg-paper font-mono text-small font-medium">
@@ -72,15 +72,15 @@ export default function Page() {
       </Section>
 
       <Section tone="paper">
-        <div className="container-x grid gap-stack-lg lg:grid-cols-12 lg:gap-8">
+        <div className="container-x grid gap-stack-lg lg:grid-cols-12 lg:gap-6">
           <div className="lg:col-span-5" data-reveal>
             <h2>The system reminds you what to do and stops what you should not do.</h2>
-            <Bullets items={deskReminders} className="mt-6" />
-            <Bullets items={deskStops} className="mt-6" />
+            <Bullets items={deskReminders} className="mt-5" />
+            <Bullets items={deskStops} className="mt-5" />
           </div>
           <ol className="space-y-4 lg:col-span-7" data-stagger>
             {deskParts.map((d) => (
-              <li key={d.label} className="rounded-xl border border-rule bg-paper p-5 shadow-card">
+              <li key={d.label} className="rounded-xl border border-rule bg-paper p-4 sm:p-5 shadow-card">
                 <h3>{d.label}</h3>
                 <p className="mt-2 text-muted">{d.body}</p>
               </li>
@@ -90,10 +90,10 @@ export default function Page() {
       </Section>
 
       <Section tone="ground">
-        <div className="container-x grid items-start gap-stack-lg lg:grid-cols-12 lg:gap-8">
+        <div className="container-x grid items-start gap-stack-lg lg:grid-cols-12 lg:gap-6">
           <div className="lg:order-2 lg:col-span-5" data-reveal>
             <h2>A dashboard for every module.</h2>
-            <p className="mt-5 text-lead text-muted">
+            <p className="mt-4 text-lead text-muted">
               Each dashboard opens on its trend, with your work, what is critical and what is outstanding a tab away. The
               Dashboards page lists the Executive dashboard first, then Sales, Customer Services, Purchase, Store,
               Production, Finance, Trade and Tax.
@@ -106,11 +106,11 @@ export default function Page() {
       </Section>
 
       <Section tone="paper" id="meetings">
-        <div className="container-x grid items-start gap-stack-lg lg:grid-cols-12 lg:gap-8">
+        <div className="container-x grid items-start gap-stack-lg lg:grid-cols-12 lg:gap-6">
           <div className="lg:col-span-5" data-reveal>
             <Eyebrow>Executive dashboard</Eyebrow>
             <h2 className="mt-3">Run meetings on data, not on assumption.</h2>
-            <p className="mt-5 text-lead text-muted">
+            <p className="mt-4 text-lead text-muted">
               The Executive Dashboard gives owners and department heads a 360° live view of the whole company. Every number
               drills down to the voucher behind it, so a review meeting moves straight from &ldquo;what happened&rdquo; to
               &ldquo;what we do next&rdquo;.
@@ -131,7 +131,7 @@ export default function Page() {
         <div className="container-x">
           <div className="max-w-3xl" data-reveal>
             <h2>The right KPI for every team member and every department.</h2>
-            <p className="mt-5 text-lead text-muted">
+            <p className="mt-4 text-lead text-muted">
               Set the target once. TiVora tracks it live from real transactions and from every task on each person&apos;s Work
               Desk, so every score is earned in the system, not reported in a meeting.
             </p>

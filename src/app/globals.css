@@ -49,18 +49,18 @@
   --text-display: clamp(2.5rem, 1.3rem + 5vw, 5.75rem);
   --text-display--line-height: 1;
   --text-display--letter-spacing: -0.025em;
-  --text-h1: clamp(2.25rem, 1.6rem + 2.8vw, 4rem);
+  --text-h1: clamp(2.25rem, 1.6rem + 2.4vw, 3.5rem);
   --text-h1--line-height: 1.05;
   --text-h1--letter-spacing: -0.02em;
-  --text-h2: clamp(1.75rem, 1.3rem + 2vw, 3rem);
+  --text-h2: clamp(1.75rem, 1.3rem + 1.5vw, 2.5rem);
   --text-h2--line-height: 1.1;
   --text-h2--letter-spacing: -0.015em;
   --text-h3: clamp(1.1875rem, 1.1rem + 0.45vw, 1.5rem);
   --text-h3--line-height: 1.25;
-  --text-lead: clamp(1.0625rem, 1rem + 0.35vw, 1.25rem);
+  --text-lead: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
   --text-lead--line-height: 1.6;
   --text-body: 1rem;
-  --text-body--line-height: 1.65;
+  --text-body--line-height: 1.55;
   --text-small: 0.875rem;
   --text-small--line-height: 1.5;
   --text-eyebrow: 0.75rem;
@@ -68,11 +68,11 @@
   --text-eyebrow--letter-spacing: 0.14em;
 
   /* Space: section rhythm, gutter (16px at 360, 32px at >=1200), fixed header */
-  --spacing-section-sm: clamp(3rem, 2.4rem + 2.5vw, 4rem);
-  --spacing-section: clamp(4rem, 3rem + 4vw, 6rem);
-  --spacing-section-lg: clamp(5rem, 3.5rem + 6vw, 8rem);
-  --spacing-stack: clamp(2rem, 1.6rem + 1.5vw, 2.5rem);
-  --spacing-stack-lg: clamp(2.5rem, 2rem + 2vw, 3.5rem);
+  --spacing-section-sm: clamp(1.5rem, 1.2rem + 1.5vw, 2.25rem);
+  --spacing-section: clamp(2.25rem, 1.8rem + 2vw, 3.5rem);
+  --spacing-section-lg: clamp(2.75rem, 2.3rem + 2.4vw, 4.5rem);
+  --spacing-stack: clamp(1.25rem, 1.05rem + 0.9vw, 1.75rem);
+  --spacing-stack-lg: clamp(1.5rem, 1.2rem + 1.3vw, 2.25rem);
   --spacing-gutter: clamp(1rem, 0.5rem + 2vw, 2rem);
   --spacing-header: 4rem;
 

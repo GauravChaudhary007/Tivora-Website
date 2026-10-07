@@ -30,7 +30,7 @@ export function DashboardZoom({ pinned = true }: { pinned?: boolean }) {
         const tl = gsap.timeline({
           defaults: { ease: "power2.inOut" },
           scrollTrigger: pinned
-            ? { trigger: q("[data-pin]")[0], start: "top top", end: "+=160%", pin: true, anticipatePin: 1, scrub: 1 }
+            ? { trigger: q("[data-pin]")[0], start: "top top", end: "+=90%", pin: true, anticipatePin: 1, scrub: 1 }
             : { trigger: q("[data-pin]")[0], start: "top 60%", end: "bottom 40%", scrub: 1 },
         });
         STOPS.forEach((st, i) => {

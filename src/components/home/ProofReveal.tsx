@@ -8,7 +8,7 @@ export function ProofReveal() {
       <div className="container-x grid items-center gap-stack-lg lg:grid-cols-12">
         <div data-reveal="" className="lg:col-span-5">
           <h2>One Home for every module.</h2>
-          <p className="mt-5 max-w-prose text-lead text-muted">
+          <p className="mt-4 max-w-prose text-lead text-muted">
             Every module on one menu. Ctrl K finds any entry. Switch companies from the top bar, and read every date in Bikram Sambat and AD.
           </p>
         </div>

@@ -34,7 +34,7 @@ export default function Page() {
       />
 
       <Section tone="ground">
-        <div className="container-x grid gap-stack-lg lg:grid-cols-12 lg:gap-8">
+        <div className="container-x grid gap-stack-lg lg:grid-cols-12 lg:gap-6">
           <div className="space-y-5 text-lead text-muted lg:col-span-7" data-reveal>
             <p>
               TiVora ERP is HiTech&apos;s new platform, bringing HiTech&apos;s experience of Nepali shops, accountants and chartered
@@ -60,15 +60,15 @@ export default function Page() {
       </Section>
 
       <Section tone="paper">
-        <div className="container-x grid gap-stack-lg lg:grid-cols-12 lg:gap-8">
+        <div className="container-x grid gap-stack-lg lg:grid-cols-12 lg:gap-6">
           <div className="lg:col-span-5" data-reveal>
             <h2>Visit or call us.</h2>
-            <div className="mt-6">
+            <div className="mt-5">
               <ButtonLink href={site.website} variant="ghost" className="sm:w-auto">{site.websiteLabel}</ButtonLink>
               <ButtonLink href={site.productUrl} variant="ghost" className="mt-3 sm:ml-3 sm:mt-0 sm:w-auto">{site.productSite}</ButtonLink>
             </div>
           </div>
-          <address className="space-y-3 not-italic lg:col-span-7" data-reveal>
+          <address className="space-y-2 not-italic lg:col-span-7" data-reveal>
             <p>{site.company}</p>
             <p>{addressLine}</p>
             <ul className="space-y-1">

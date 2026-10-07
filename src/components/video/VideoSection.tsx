@@ -19,14 +19,14 @@ export function VideoSection({
   if (process.env.NODE_ENV === "production" && !filmReady(id)) return null;
   const night = tone === "night";
   return (
-    <Section tone={tone} size="lg">
-      <div className="container-x">
-        <div data-reveal="" className="max-w-prose">
+    <Section tone={tone} size="md">
+      <div className="container-x grid items-center gap-stack lg:grid-cols-12 lg:gap-8">
+        <div data-reveal="" className="max-w-prose lg:col-span-4">
           {eyebrow && <p className="font-mono text-eyebrow font-medium uppercase text-gold">{eyebrow}</p>}
           <h2 className={eyebrow ? "mt-3" : ""}>{title}</h2>
-          <p className={`mt-5 text-lead ${night ? "text-muted-dark" : "text-muted"}`}>{body}</p>
+          <p className={`mt-4 text-lead ${night ? "text-muted-dark" : "text-muted"}`}>{body}</p>
         </div>
-        <VideoBlock id={id} className="mx-auto mt-stack-lg max-w-5xl" />
+        <VideoBlock id={id} className="lg:col-span-8" />
       </div>
     </Section>
   );

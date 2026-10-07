@@ -6,7 +6,7 @@ export function Eyebrow({ children }: { children: ReactNode }) {
 
 export function Bullets({ items, className = "" }: { items: readonly string[]; className?: string }) {
   return (
-    <ul className={`space-y-3 ${className}`}>
+    <ul className={`space-y-2 ${className}`}>
       {items.map((m) => (
         <li key={m} className="flex gap-3">
           <span className="mt-2.5 size-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />
@@ -34,7 +34,7 @@ export function DataTable({
         <thead>
           <tr className="border-b border-rule bg-tint">
             {head.map((h) => (
-              <th key={h} scope="col" className="px-4 py-3 font-mono text-eyebrow font-medium uppercase text-muted">
+              <th key={h} scope="col" className="px-4 py-2.5 font-mono text-eyebrow font-medium uppercase text-muted">
                 {h}
               </th>
             ))}
@@ -45,11 +45,11 @@ export function DataTable({
             <tr key={r[0]} className="border-b border-rule align-top last:border-0">
               {r.map((c, i) =>
                 i === 0 ? (
-                  <th key={i} scope="row" className="px-4 py-3 font-bold">
+                  <th key={i} scope="row" className="px-4 py-2.5 font-bold">
                     {c}
                   </th>
                 ) : (
-                  <td key={i} className="px-4 py-3 text-muted">
+                  <td key={i} className="px-4 py-2.5 text-muted">
                     {c}
                   </td>
                 ),
@@ -71,9 +71,9 @@ export function StepList({
   doesLabel?: string;
 }) {
   return (
-    <ol className="space-y-4" data-stagger>
+    <ol className="space-y-3" data-stagger>
       {steps.map((s, i) => (
-        <li key={s.title} className="grid gap-3 rounded-xl border border-rule bg-paper p-5 shadow-card sm:grid-cols-12 sm:gap-6">
+        <li key={s.title} className="grid gap-3 rounded-xl border border-rule bg-paper p-4 shadow-card sm:grid-cols-12 sm:gap-5">
           <div className="flex gap-4 sm:col-span-5">
             <span className="flex size-8 shrink-0 items-center justify-center rounded-full border-2 border-gold bg-paper font-mono text-small font-medium">
               {i + 1}
@@ -98,7 +98,7 @@ export function StepList({
 /** A left-to-right chain written as type; wraps on small screens. */
 export function Chain({ label, steps, note }: { label: string; steps: readonly string[]; note: string }) {
   return (
-    <div className="rounded-xl bg-tint p-6">
+    <div className="rounded-xl bg-tint p-4 sm:p-5">
       <p className="font-mono text-eyebrow font-medium uppercase text-muted">{label}</p>
       <ol className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-2 font-bold">
         {steps.map((s, i) => (
@@ -119,9 +119,9 @@ export function Chain({ label, steps, note }: { label: string; steps: readonly s
 
 export function Pillars({ items }: { items: readonly { title: string; body: string }[] }) {
   return (
-    <ul className="grid gap-6 lg:grid-cols-3 lg:gap-8" data-stagger>
+    <ul className="grid gap-4 lg:grid-cols-3 lg:gap-6" data-stagger>
       {items.map((p) => (
-        <li key={p.title} className="rounded-xl border border-rule bg-paper p-6 shadow-card">
+        <li key={p.title} className="rounded-xl border border-rule bg-paper p-4 sm:p-5 shadow-card">
           <h3>{p.title}</h3>
           <p className="mt-3 text-muted">{p.body}</p>
         </li>

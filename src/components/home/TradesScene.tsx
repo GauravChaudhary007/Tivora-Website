@@ -19,7 +19,7 @@ export function TradesScene() {
       <div className="container-x">
         <div data-reveal="" className="max-w-prose">
           <h2>Customised for your industry. Configured for your company.</h2>
-          <p className="mt-5 text-lead text-muted">
+          <p className="mt-4 text-lead text-muted">
             We don&rsquo;t ask you to fit a generic ERP. We start from a complete platform, add the solution made for your industry, then customise it to your
             products, your approvals and your reports.
           </p>
@@ -32,7 +32,7 @@ export function TradesScene() {
             </li>
           ))}
         </ul>
-        <ButtonLink href="/industries/" variant="ghost" className="mt-6 sm:w-auto">
+        <ButtonLink href="/industries/" variant="ghost" className="mt-4 sm:w-auto">
           See the industries
         </ButtonLink>
       </div>
