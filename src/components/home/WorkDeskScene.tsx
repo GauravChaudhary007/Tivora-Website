@@ -30,15 +30,15 @@ export function WorkDeskScene() {
   });
 
   return (
-    <section id="tour-workdesk" ref={root} data-tone="ground" className="overflow-hidden bg-ground py-section text-ink">
+    <section id="tour-workdesk" ref={root} data-tone="ground" className="overflow-hidden bg-ground py-section-lg text-ink">
       <div className="container-x grid items-center gap-stack-lg lg:grid-cols-12">
         <div className="lg:col-span-4">
           <h2>Mornings start with what needs you.</h2>
-          <p className="mt-4 text-lead text-muted">
+          <p className="mt-5 text-lead text-muted">
             The Work Desk lists what is late, critical or due, across every module: a customer over the credit limit, a manufacturing order past its date, a
             supplier payment coming up. The action is one click away.
           </p>
-          <ol className="mt-stack hidden space-y-2 lg:block">
+          <ol className="mt-stack hidden space-y-3 lg:block">
             {MARKS.map((m, i) => (
               <li key={m.label} className="flex items-center gap-3 font-bold">
                 <span className="inline-flex size-7 shrink-0 items-center justify-center rounded-full border-2 border-gold bg-night font-mono text-small text-gold">

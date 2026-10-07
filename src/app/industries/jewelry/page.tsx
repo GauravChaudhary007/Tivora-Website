@@ -55,9 +55,9 @@ export default function Page() {
 
       <Section tone="ground">
         <div className="container-x">
-          <ol className=" grid gap-4 lg:grid-cols-3 lg:gap-6">
+          <ol className=" grid gap-6 lg:grid-cols-3 lg:gap-8">
             {stages.map((s, i) => (
-              <li key={s.title} className="rounded-xl border border-rule bg-paper p-4 sm:p-5 shadow-card" data-reveal>
+              <li key={s.title} className="rounded-xl border border-rule bg-paper p-6 shadow-card" data-reveal>
                 <p className="font-mono text-eyebrow font-medium uppercase text-accent">0{i + 1}</p>
                 <h2 className="mt-3 text-h3 font-sans font-bold">{s.title}</h2>
                 <p className="mt-3 text-muted">{s.body}</p>
@@ -70,7 +70,7 @@ export default function Page() {
       <Section tone="paper">
         <div className="container-x">
           <h2 className="max-w-3xl" data-reveal>Four modules for the trade.</h2>
-          <div className="mt-stack-lg grid gap-6 sm:grid-cols-2 lg:gap-6">
+          <div className="mt-stack-lg grid gap-6 sm:grid-cols-2 lg:gap-8">
             {pack.map((m) => (
               <article key={m.slug} className="rounded-xl border border-rule bg-ground p-6" data-reveal>
                 <div className="flex items-center gap-4">
@@ -85,7 +85,7 @@ export default function Page() {
       </Section>
 
       <Section tone="ground">
-        <div className="container-x grid items-start gap-stack-lg lg:grid-cols-12 lg:gap-6">
+        <div className="container-x grid items-start gap-stack-lg lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-8" data-reveal>
             <Screen slug="home-jewelry" sizes="(min-width: 1024px) 800px, 100vw" />
           </div>
@@ -101,12 +101,12 @@ export default function Page() {
           <p className="mt-4 max-w-prose text-muted" data-reveal>
             Tell us about your business and we will suggest one.
           </p>
-          <ul className="mt-stack-lg grid gap-6 md:grid-cols-3 lg:gap-6">
+          <ul className="mt-stack-lg grid gap-6 md:grid-cols-3 lg:gap-8">
             {plans.map((p) => (
               <li key={p.name} className="flex flex-col rounded-xl border border-rule bg-ground p-6" data-reveal>
                 <h3>{p.name}</h3>
                 <p className="mt-3 flex-1 text-muted">{p.who}</p>
-                <div className="mt-5">
+                <div className="mt-6">
                   <ButtonLink href="/contact/?trade=jewelry" variant="secondary" className="w-full">
                     Ask for a quote
                   </ButtonLink>

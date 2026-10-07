@@ -20,13 +20,13 @@ export default function Page() {
         lead="A live demo customised to your industry, with your products, your process and your reports. We'll show your Work Desk, your dashboard and your approvals working on the call."
       />
       <Section tone="ground">
-        <div className="container-x grid gap-stack lg:grid-cols-12 lg:gap-6">
+        <div className="container-x grid gap-stack lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-7">
             <DemoForm />
           </div>
           <aside className="lg:col-span-5" aria-label="Contact details">
             <p className="font-bold">Nobody guesses. Nobody forgets. Everything on time.</p>
-            <h2 className="mt-4 text-h3 font-sans font-bold">Developed by HiTech Solutions and Services Pvt. Ltd.</h2>
+            <h2 className="mt-6 text-h3 font-sans font-bold">Developed by HiTech Solutions and Services Pvt. Ltd.</h2>
             <address className="mt-4 not-italic text-muted">{addressLine}</address>
             <ul className="mt-4 space-y-1">
               {site.phones.map((p) => (

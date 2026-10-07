@@ -16,7 +16,7 @@ export const metadata: Metadata = pageMeta({
 
 function Bullets({ items }: { items: string[] }) {
   return (
-    <ul className="mt-4 space-y-2.5">
+    <ul className="mt-5 space-y-2.5">
       {items.map((b) => (
         <li key={b} className="flex gap-3">
           <span className="mt-2.5 size-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />
@@ -68,14 +68,14 @@ export default function Page() {
       </Section>
 
       <Section tone="paper">
-        <div className="container-x grid items-center gap-stack-lg lg:grid-cols-12 lg:gap-6">
+        <div className="container-x grid items-center gap-stack-lg lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-5" data-reveal>
             <h2>Jewellery</h2>
-            <p className="mt-4 text-lead text-muted">
+            <p className="mt-5 text-lead text-muted">
               For jewellery showrooms and workshops. From the showroom counter to the karigar&apos;s bench, it follows your metal.
             </p>
             <Bullets items={["Karigar / Workshop", "RFID", "Gold Loans", "Board rates"]} />
-            <div className="mt-5">
+            <div className="mt-8">
               <ButtonLink href="/industries/jewelry/">See Jewellery</ButtonLink>
             </div>
           </div>
@@ -88,9 +88,9 @@ export default function Page() {
       <Section tone="ground">
         <div className="container-x">
           <h2 data-reveal>Implementation, step by step.</h2>
-          <ol className="mt-stack-lg grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6" data-stagger>
+          <ol className="mt-stack-lg grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8" data-stagger>
             {implementationSteps.map((s, i) => (
-              <li key={s.name} className="rounded-xl border border-rule bg-paper p-4 sm:p-5 shadow-card">
+              <li key={s.name} className="rounded-xl border border-rule bg-paper p-6 shadow-card">
                 <p className="font-mono text-eyebrow font-medium uppercase text-accent">0{i + 1}</p>
                 <h3 className="mt-3">{s.name}</h3>
                 <p className="mt-2 text-muted">{s.line}</p>

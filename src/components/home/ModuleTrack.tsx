@@ -18,7 +18,7 @@ export function ModuleTrack({ children }: { children: ReactNode }) {
         gsap.to(track, {
           x: () => -dist(),
           ease: "none",
-          scrollTrigger: { trigger: q("[data-pin]")[0], start: "top top", end: () => `+=${Math.round(dist() * 0.55)}`, pin: true, anticipatePin: 1, scrub: 1, invalidateOnRefresh: true },
+          scrollTrigger: { trigger: q("[data-pin]")[0], start: "top top", end: () => `+=${dist()}`, pin: true, anticipatePin: 1, scrub: 1, invalidateOnRefresh: true },
         });
       });
     return () => mm.revert();

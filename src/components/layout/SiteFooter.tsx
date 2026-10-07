@@ -10,7 +10,7 @@ export function SiteFooter() {
       <div className="container-x grid gap-stack-lg lg:grid-cols-[1.4fr_1fr_1fr_1.4fr]">
         <div>
           <Logo tone="dark" className="h-10 w-auto" />
-          <p className="mt-4 max-w-xs text-muted-dark">{site.tagline}</p>
+          <p className="mt-5 max-w-xs text-muted-dark">{site.tagline}</p>
         </div>
 
         <nav aria-label="Product">

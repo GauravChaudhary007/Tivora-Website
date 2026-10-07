@@ -116,7 +116,7 @@ export function SiteHeader() {
 
       <div id="mobile-menu" ref={panel} hidden={!open} data-tone="night" className="fixed inset-0 z-40 overflow-y-auto bg-night text-ground scheme-dark lg:hidden">
         <nav aria-label="Mobile" className="container-x flex min-h-full flex-col gap-2 pt-header pb-8">
-          <ul className="mt-4 flex flex-col">
+          <ul className="mt-6 flex flex-col">
             {nav.map((l) => (
               <li key={l.href}>
                 <Link
