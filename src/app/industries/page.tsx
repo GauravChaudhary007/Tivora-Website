@@ -70,13 +70,13 @@ export default function Page() {
       <Section tone="paper">
         <div className="container-x grid items-center gap-stack-lg lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-5" data-reveal>
-            <h2>Jewellery</h2>
+            <h2>Alanza, for jewellery</h2>
             <p className="mt-5 text-lead text-muted">
-              For jewellery showrooms and workshops. From the showroom counter to the karigar&apos;s bench, it follows your metal.
+              Alanza is the jewellery product from TiVora, for showrooms and workshops. From the showroom counter to the karigar&apos;s bench, it follows your metal.
             </p>
             <Bullets items={["Karigar / Workshop", "RFID", "Gold Loans", "Board rates"]} />
             <div className="mt-8">
-              <ButtonLink href="/industries/jewelry/">See Jewellery</ButtonLink>
+              <ButtonLink href="/alanza/">See Alanza</ButtonLink>
             </div>
           </div>
           <div className="lg:col-span-7" data-reveal>

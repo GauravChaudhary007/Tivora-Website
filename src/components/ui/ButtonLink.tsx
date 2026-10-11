@@ -27,7 +27,7 @@ export function ButtonLink({
 }) {
   const cls = `${BASE} ${VARIANT[variant]} ${className}`;
   return /^(https?:|mailto:|tel:)/.test(href) ? (
-    <a href={href} className={cls} rel="noopener" onClick={onClick}>
+    <a href={href} className={cls} rel="noopener" target={href.startsWith("http") ? "_blank" : undefined} onClick={onClick}>
       {children}
     </a>
   ) : (

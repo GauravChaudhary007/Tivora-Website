@@ -105,6 +105,7 @@ export function DemoForm({ trade }: { trade?: string } = {}) {
       const data = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(typeof data.error === "string" ? data.error : "");
       setJoinChannel(body.whatsappConsent);
+      try { localStorage.setItem("tivora-lead-sent", "1"); } catch {}
       setStatus("sent");
     } catch (err) {
       setError(err instanceof Error && err.message ? err.message : "We couldn't send your request right now.");

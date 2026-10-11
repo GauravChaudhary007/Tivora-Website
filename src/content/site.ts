@@ -35,6 +35,7 @@ export const addressLine = `${site.address.street}, ${site.address.city}, ${site
 export const nav = [
   { label: "Platform", href: "/platform/" },
   { label: "Modules", href: "/modules/" },
+  { label: "Alanza", href: "/alanza/" },
   { label: "Work Desk", href: "/work-desk/" },
   { label: "Industries", href: "/industries/" },
   { label: "About", href: "/about/" },
@@ -49,6 +50,7 @@ export const footerColumns = {
   product: [
     { label: "Platform", href: "/platform/" },
     { label: "Modules", href: "/modules/" },
+    { label: "Alanza", href: "/alanza/" },
     { label: "Work Desk", href: "/work-desk/" },
     { label: "Industries", href: "/industries/" },
   ],
@@ -70,4 +72,4 @@ export const DEMO_CAPTION = {
 } as const;
 
 /** All routes, for the sitemap (WP3) and nav checks. */
-export const routes = ["/", "/platform/", "/modules/", "/work-desk/", "/industries/", "/industries/jewelry/", "/about/", "/contact/"] as const;
+export const routes = ["/", "/platform/", "/modules/", "/work-desk/", "/industries/", "/alanza/", "/about/", "/contact/"] as const;

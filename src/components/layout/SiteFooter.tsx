@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Logo } from "@/components/brand/Logo";
-import { modulePages } from "@/content/module-pages";
+import { modulePages, moduleHref } from "@/content/module-pages";
 import { addressLine, appUrl, footerColumns, footerNote, site } from "@/content/site";
 
 const linkCls = "inline-flex min-h-11 items-center text-ground hover:text-gold-soft";
@@ -44,7 +44,7 @@ export function SiteFooter() {
               </li>
             ))}
             <li>
-              <a href={appUrl} rel="noopener" className={linkCls}>
+              <a href={appUrl} target="_blank" rel="noopener" className={linkCls}>
                 Login
               </a>
             </li>
@@ -80,9 +80,21 @@ export function SiteFooter() {
       <nav aria-label="Modules" className="container-x mt-stack-lg border-t border-rule-dark pt-6">
         <h2 className="font-mono text-eyebrow font-medium uppercase text-gold">Modules</h2>
         <ul className="mt-3 grid gap-x-6 sm:grid-cols-2 lg:grid-cols-4">
-          {modulePages.map((m) => (
+          {modulePages.filter((m) => m.group === "Core modules").map((m) => (
             <li key={m.slug}>
-              <Link href={`/modules/${m.slug}/`} prefetch={false} className={linkCls}>
+              <Link href={moduleHref(m)} prefetch={false} className={linkCls}>
+                {m.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+      <nav aria-label="Alanza modules" className="container-x mt-6">
+        <h2 className="font-mono text-eyebrow font-medium uppercase text-gold">Alanza, from TiVora</h2>
+        <ul className="mt-3 grid gap-x-6 sm:grid-cols-2 lg:grid-cols-4">
+          {modulePages.filter((m) => m.group === "Alanza").map((m) => (
+            <li key={m.slug}>
+              <Link href={moduleHref(m)} prefetch={false} className={linkCls}>
                 {m.name}
               </Link>
             </li>

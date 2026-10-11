@@ -29,6 +29,27 @@ export function DemoDialog() {
     return () => document.removeEventListener("click", onClick, true);
   }, []);
 
+  // Auto-open: 10 s after arrival, then 15 s after each close for 3 more times, then every 60 s without end.
+  // The wait restarts on every close, so the form never reopens under someone who is typing or reading.
+  const shown = useRef(0);
+  useEffect(() => {
+    // Someone who has sent the form is never nagged again (the form sets this flag on success).
+    try { if (localStorage.getItem("tivora-lead-sent")) return; } catch {}
+    if (trade !== null) return;
+    let t: ReturnType<typeof setTimeout>;
+    const arm = () => {
+      t = setTimeout(() => {
+        try { if (localStorage.getItem("tivora-lead-sent")) return; } catch {}
+        if (document.hidden || location.pathname === "/contact/") return arm();
+        shown.current++;
+        opener.current = null;
+        setTrade("");
+      }, shown.current === 0 ? 10_000 : shown.current <= 3 ? 15_000 : 60_000);
+    };
+    arm();
+    return () => clearTimeout(t);
+  }, [trade]);
+
   useEffect(() => {
     if (trade !== null && !dialog.current?.open) dialog.current?.showModal();
   }, [trade]);

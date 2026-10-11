@@ -4,7 +4,7 @@
 // figures presented as results, no counts of modules, no AI or price claims (IRD certified is an owner-approved claim).
 import type { IconName } from "./modules";
 
-export type ModuleGroup = "Core modules" | "Jewellery pack";
+export type ModuleGroup = "Core modules" | "Alanza";
 export type Highlight = { icon: IconName; title: string; what: string; why: string };
 export type ModulePage = {
   slug: string;
@@ -29,7 +29,8 @@ export type ModulePage = {
   indexSlug?: string;
 };
 
-export const GROUPS: ModuleGroup[] = ["Core modules", "Jewellery pack"];
+/** Groups shown in the TiVora Modules menus. Alanza modules are exclusive to Alanza and have their own pages under /alanza/. */
+export const GROUPS: ModuleGroup[] = ["Core modules"];
 
 export const modulePages: ModulePage[] = [
   {
@@ -120,7 +121,7 @@ export const modulePages: ModulePage[] = [
     indexSlug: "inventory",
   },
   {
-    slug: "karigar", name: "Karigar / Workshop", group: "Jewellery pack", icon: "Hammer",
+    slug: "karigar", name: "Karigar / Workshop", group: "Alanza", icon: "Hammer",
     short: "Metal out, pieces back, labour",
     tagline: "Work orders, metal out to the bench, pieces back, wastage and labour.",
     description: "Metal issued to workshops in fine weight, wastage against allowance, production receipts, labour settlement with TDS and a full reconciliation, in TiVora ERP.",
@@ -149,7 +150,7 @@ export const modulePages: ModulePage[] = [
     indexSlug: "karigar",
   },
   {
-    slug: "factory", name: "Jewelry Factory", group: "Jewellery pack", icon: "FlaskConical",
+    slug: "factory", name: "Jewelry Factory", group: "Alanza", icon: "FlaskConical",
     short: "Job bags, casting, diamond packets",
     tagline: "Job bags weighed at every stage, casting flasks, diamond packets, QC and the loss audits.",
     description: "Job bags weighed at every gate, daily ghat register, casting yield per flask, diamond packets with setters and breakage audit, in TiVora ERP.",
@@ -177,7 +178,7 @@ export const modulePages: ModulePage[] = [
     indexSlug: "manufacturing",
   },
   {
-    slug: "rfid", name: "RFID", group: "Jewellery pack", icon: "ScanLine",
+    slug: "rfid", name: "RFID", group: "Alanza", icon: "ScanLine",
     short: "Tag counts and exit-gate alerts",
     tagline: "RFID tags on every piece, readers, counts in minutes and the exit-gate alert.",
     description: "RFID tagging, stock counts in minutes and exit-gate alerts for tagged pieces that leave unbilled, in TiVora ERP.",
@@ -202,7 +203,7 @@ export const modulePages: ModulePage[] = [
     indexSlug: "rfid",
   },
   {
-    slug: "gold-loans", name: "Gold Loans", group: "Jewellery pack", icon: "LockKeyhole",
+    slug: "gold-loans", name: "Gold Loans", group: "Alanza", icon: "LockKeyhole",
     short: "LTV, interest, custody, auctions",
     tagline: "Loans against pledged jewellery: valuation, interest, renewals, custody, notices and auctions.",
     description: "Loans against pledged jewellery with LTV watch, monthly interest accrual, custody register, vault count and auctions, in TiVora ERP.",
@@ -391,9 +392,11 @@ export const modulePages: ModulePage[] = [
   },
 ];
 
+/** Alanza modules live under /alanza/modules/, TiVora core modules under /modules/. */
+export const moduleHref = (m: Pick<ModulePage, "slug" | "group">) => (m.group === "Alanza" ? `/alanza/modules/${m.slug}/` : `/modules/${m.slug}/`);
 export const modulePageBySlug = (slug: string) => modulePages.find((m) => m.slug === slug);
 /** The /modules card for an entry in modules.ts links to its page when one exists. */
 export const pageHrefForIndexSlug = (indexSlug: string) => {
   const m = modulePages.find((p) => (p.indexSlug ?? p.slug) === indexSlug);
-  return m ? `/modules/${m.slug}/` : null;
+  return m ? moduleHref(m) : null;
 };

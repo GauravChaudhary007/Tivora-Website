@@ -118,7 +118,7 @@ export function ModulesMenu({ active }: { active: boolean }) {
         }}
         className="invisible absolute top-full left-1/2 w-[min(54rem,calc(100vw-2rem))] -translate-x-1/2 translate-y-1 rounded-b-xl border border-rule bg-paper p-5 text-ink opacity-0 shadow-frame transition-[opacity,transform,visibility] duration-(--duration-base) ease-(--ease-out-expo) data-[open=true]:visible data-[open=true]:translate-y-0 data-[open=true]:opacity-100"
       >
-        <div className="grid gap-x-6 gap-y-4 lg:grid-cols-[2fr_1fr]">
+        <div className="grid gap-x-6 gap-y-4 lg:grid-cols-1">
           {GROUPS.map((g) => (
             <section key={g} aria-label={g}>
               <h2 className="px-3 font-mono text-eyebrow font-medium uppercase text-accent">{g}</h2>

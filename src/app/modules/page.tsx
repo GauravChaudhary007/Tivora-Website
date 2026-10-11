@@ -21,7 +21,6 @@ export const metadata: Metadata = pageMeta({
 });
 
 const core = modules.filter((m) => m.pack === "core");
-const jewelry = modules.filter((m) => m.pack === "jewelry");
 
 const screenFor: Partial<Record<string, ScreenSlug>> = {
   sales: "sales-dashboard",
@@ -108,11 +107,6 @@ export default function Page() {
                     </a>
                   </li>
                 ))}
-                <li className="lg:mt-3">
-                  <a href="#jewelry-pack" className="inline-flex min-h-11 items-center font-bold text-accent hover:text-bronze">
-                    Jewellery solution
-                  </a>
-                </li>
               </ul>
             </div>
           </nav>
@@ -159,30 +153,15 @@ export default function Page() {
         </div>
       </Section>
 
-      <Section tone="paper" id="jewelry-pack">
-        <div className="container-x">
-          <div className="max-w-3xl" data-reveal>
-            <h2>The Jewellery solution.</h2>
-            <p className="mt-4 text-lead text-muted">
-              The Jewellery industry solution adds four more modules to the platform, for the workshop, the factory floor, tagged stock and
-              loans against jewellery.
-            </p>
-          </div>
-          <div className="mt-stack-lg grid gap-6 sm:grid-cols-2 lg:gap-8">
-            {jewelry.map((m) => (
-              <article key={m.slug} className="rounded-xl border border-rule bg-ground p-6" data-reveal>
-                <div className="flex items-center gap-4">
-                  <ModuleIcon name={m.icon} />
-                  <h3>{m.name}</h3>
-                </div>
-                <p className="mt-4 text-muted">{m.appLine}</p>
-                <Bullets items={m.bullets} />
-                <PageLink slug={m.slug} name={m.name} />
-              </article>
-            ))}
-          </div>
-          <div className="mt-stack" data-reveal>
-            <ButtonLink href="/industries/jewelry/" variant="secondary">See the Jewellery solution</ButtonLink>
+      <Section tone="paper" id="alanza">
+        <div className="container-x max-w-3xl" data-reveal>
+          <h2>Looking for jewellery?</h2>
+          <p className="mt-4 text-lead text-muted">
+            Alanza is a product of TiVora, built for jewellery. Its own modules, Karigar / Workshop, Manufacturing, RFID and Gold Loans, are
+            exclusive to Alanza and are not part of this list.
+          </p>
+          <div className="mt-stack">
+            <ButtonLink href="/alanza/" variant="secondary">See Alanza</ButtonLink>
           </div>
         </div>
       </Section>

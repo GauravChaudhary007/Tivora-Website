@@ -98,7 +98,8 @@ export function GatewayFlow({ className = "", focusX = 0.64 }: { className?: str
     };
 
     const loop = () => {
-      if (visible) draw();
+      // Nothing behind a fullscreen video can be seen, so do not spend frames on it (the dotted curves are costly to stroke).
+      if (visible && !document.fullscreenElement && !document.hidden) draw();
       raf = requestAnimationFrame(loop);
     };
     const onDown = (e: PointerEvent) => {

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { pageMeta } from "@/lib/seo";
-import { modules } from "@/content/modules";
+import { modulePages, moduleHref } from "@/content/module-pages";
 import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
 import { CtaBand } from "@/components/layout/CtaBand";
@@ -9,10 +10,10 @@ import { ModuleIcon } from "@/components/ui/ModuleIcon";
 import { Screen } from "@/components/ui/Screen";
 
 export const metadata: Metadata = pageMeta({
-  title: "Jewellery",
+  title: "Alanza",
   description:
-    "Your gold is accounted for, every gram of it. The Jewellery solution follows your metal from the showroom counter to the karigar's bench: metal and stone tracking, purity, making charges, old gold and karigar management.",
-  path: "/industries/jewelry/",
+    "Alanza, from TiVora: the jewellery product built on the TiVora ERP platform. Your gold is accounted for, every gram of it, from the showroom counter to the karigar's bench.",
+  path: "/alanza/",
 });
 
 const stages = [
@@ -30,7 +31,7 @@ const stages = [
   },
 ];
 
-const pack = modules.filter((m) => m.pack === "jewelry");
+const pack = modulePages.filter((m) => m.group === "Alanza");
 
 const plans = [
   { name: "Standard", who: "One showroom." },
@@ -42,20 +43,20 @@ export default function Page() {
   return (
     <>
       <PageHero
-        eyebrow="Jewellery"
+        eyebrow="Alanza · from TiVora"
         title="Your gold is accounted for, every gram of it."
-        lead="From the showroom counter to the karigar's bench, TiVora follows your metal. Metal and stone tracking, purity, making charges, old gold and karigar management are built in. Bill a necklace with its weight, making charge and stones; take old gold in exchange on the same bill; issue metal to a karigar and see exactly how much fine metal comes back, with the wastage (ghat) explained."
+        lead="Alanza is the jewellery product from TiVora, and TiVora is from HiTech. From the showroom counter to the karigar's bench, it follows your metal. Metal and stone tracking, purity, making charges, old gold and karigar management are built in. Bill a necklace with its weight, making charge and stones; take old gold in exchange on the same bill; issue metal to a karigar and see exactly how much fine metal comes back, with the wastage (ghat) explained."
         actions={
           <>
             <ButtonLink href="/contact/?trade=jewelry">See it on your own numbers</ButtonLink>
-            <ButtonLink href="/modules/#jewelry-pack" variant="secondary">See the Jewellery modules</ButtonLink>
+            <ButtonLink href="#alanza-modules" variant="secondary">See the Alanza modules</ButtonLink>
           </>
         }
       />
 
       <Section tone="ground">
         <div className="container-x">
-          <ol className=" grid gap-6 lg:grid-cols-3 lg:gap-8">
+          <ol className="grid gap-6 lg:grid-cols-3 lg:gap-8">
             {stages.map((s, i) => (
               <li key={s.title} className="rounded-xl border border-rule bg-paper p-6 shadow-card" data-reveal>
                 <p className="font-mono text-eyebrow font-medium uppercase text-accent">0{i + 1}</p>
@@ -67,9 +68,19 @@ export default function Page() {
         </div>
       </Section>
 
-      <Section tone="paper">
+      <Section tone="paper" id="alanza-modules">
         <div className="container-x">
-          <h2 className="max-w-3xl" data-reveal>Four modules for the trade.</h2>
+          <div className="max-w-3xl" data-reveal>
+            <h2>Four modules only Alanza has.</h2>
+            <p className="mt-4 text-lead text-muted">
+              These belong to Alanza and are not part of the TiVora module list. Everything else Alanza uses, the ledger, stock engine,
+              sales, purchase and Tax &amp; IRD, comes from the{" "}
+              <Link href="/modules/" className="font-bold text-accent underline underline-offset-4 hover:text-bronze">
+                TiVora platform
+              </Link>
+              .
+            </p>
+          </div>
           <div className="mt-stack-lg grid gap-6 sm:grid-cols-2 lg:gap-8">
             {pack.map((m) => (
               <article key={m.slug} className="rounded-xl border border-rule bg-ground p-6" data-reveal>
@@ -77,7 +88,12 @@ export default function Page() {
                   <ModuleIcon name={m.icon} />
                   <h3>{m.name}</h3>
                 </div>
-                <p className="mt-4 text-muted">{m.appLine}</p>
+                <p className="mt-4 text-muted">{m.tagline}</p>
+                <p className="mt-4">
+                  <Link href={moduleHref(m)} className="inline-flex min-h-11 items-center font-bold text-accent underline underline-offset-4 hover:text-bronze">
+                    Explore {m.name}
+                  </Link>
+                </p>
               </article>
             ))}
           </div>

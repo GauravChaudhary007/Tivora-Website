@@ -5,6 +5,7 @@ import { SkipLink } from "@/components/layout/SkipLink";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { DemoDialog } from "@/components/forms/DemoDialog";
+import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { RevealRoot } from "@/components/motion/RevealRoot";
 import { ScrollRefresh } from "@/components/motion/ScrollRefresh";
 import { addressLine, site } from "@/content/site";
@@ -56,6 +57,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </main>
         <SiteFooter />
         <DemoDialog />
+        <WhatsAppButton />
         <RevealRoot />
         <ScrollRefresh />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd).replace(/</g, "\\u003c") }} />
