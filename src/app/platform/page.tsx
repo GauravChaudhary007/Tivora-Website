@@ -4,6 +4,8 @@ import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
 import { CtaBand } from "@/components/layout/CtaBand";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { ProductionMoment } from "@/components/moments/MakeMoments";
+import { LandedCostMoment } from "@/components/moments/LandedCostMoment";
 import { VideoSection } from "@/components/video/VideoSection";
 import { Bullets, Chain, DataTable, Eyebrow, Pillars, StepList } from "@/components/pages/blocks";
 import {
@@ -149,6 +151,7 @@ export default function Page() {
             </p>
           </div>
           <div className="mt-stack-lg"><StepList steps={costSteps} /></div>
+          <div className="mt-stack-lg" data-reveal><div className="max-w-4xl"><ProductionMoment /></div></div>
         </div>
       </Section>
 
@@ -206,6 +209,7 @@ export default function Page() {
               LC, trust receipt loans, bank limits and landed cost.
             </p>
           </div>
+          <div className="mt-stack-lg" data-reveal><div className="max-w-4xl"><LandedCostMoment /></div></div>
           <div className="mt-stack-lg grid gap-8 md:grid-cols-2" data-reveal>
             <div><h3>Tax and compliance</h3><Bullets items={taxFacts} className="mt-4" /></div>
             <div><h3>Trade and finance</h3><Bullets items={tradeFacts} className="mt-4" /></div>

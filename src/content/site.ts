@@ -10,12 +10,8 @@ export const site = {
   website: "https://www.hitechnepal.com.np",
   websiteLabel: "hitechnepal.com.np",
   address: { street: "4th Floor, Divine Complex, Kalimati", city: "Kathmandu", country: "Nepal" },
-  phones: [
-    { label: "01-5389641", tel: "+97715389641" },
-    { label: "01-5389642", tel: "+97715389642" },
-    { label: "01-5389643", tel: "+97715389643" },
-    { label: "9802031373", tel: "+9779802031373" },
-  ],
+  phones: [{ label: "01-5971935", tel: "+97715971935" }],
+
   whatsapp: { label: "+977 9709117067", href: "https://wa.me/9779709117067" },
   /** WhatsApp Channel URL; the owner fills it in. Empty hides the link on the thank-you panel. */
   whatsappChannel: "" as string,
@@ -35,7 +31,6 @@ export const addressLine = `${site.address.street}, ${site.address.city}, ${site
 export const nav = [
   { label: "Platform", href: "/platform/" },
   { label: "Modules", href: "/modules/" },
-  { label: "Alanza", href: "/alanza/" },
   { label: "Work Desk", href: "/work-desk/" },
   { label: "Industries", href: "/industries/" },
   { label: "About", href: "/about/" },
@@ -50,8 +45,7 @@ export const footerColumns = {
   product: [
     { label: "Platform", href: "/platform/" },
     { label: "Modules", href: "/modules/" },
-    { label: "Alanza", href: "/alanza/" },
-    { label: "Work Desk", href: "/work-desk/" },
+      { label: "Work Desk", href: "/work-desk/" },
     { label: "Industries", href: "/industries/" },
   ],
   company: [
@@ -64,12 +58,5 @@ export const footerColumns = {
 export const footerNote =
   "TiVora ERP is a product of HiTech Solutions and Services Pvt. Ltd., Kathmandu.";
 
-/** Screenshot captions: deliberately empty (owner decision), so no caption renders under any screen. */
-export const DEMO_CAPTION = {
-  paint: "",
-  jewelry: "",
-  core: "",
-} as const;
-
 /** All routes, for the sitemap (WP3) and nav checks. */
-export const routes = ["/", "/platform/", "/modules/", "/work-desk/", "/industries/", "/alanza/", "/about/", "/contact/"] as const;
+export const routes = ["/", "/platform/", "/modules/", "/work-desk/", "/industries/", "/about/", "/contact/"] as const;

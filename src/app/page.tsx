@@ -1,18 +1,14 @@
 import { ClosingScene } from "@/components/home/ClosingScene";
-import { DashboardZoom } from "@/components/home/DashboardZoom";
-import { Flows } from "@/components/home/Flows";
 import { HomeHero } from "@/components/home/HomeHero";
-import { IsoWorld } from "@/components/home/IsoWorld";
-import { ModuleCards } from "@/components/home/ModuleCards";
-import { ModuleTrack } from "@/components/home/ModuleTrack";
-import { ModulesTour } from "@/components/home/ModulesTour";
+import { DashboardFeature, KpiFeature, PlanningFeature, ProductionFeature, WorkDeskFeature } from "@/components/home/Features";
+import { ModuleGrid } from "@/components/home/ModuleGrid";
 import { NepalScene } from "@/components/home/NepalScene";
-import { ProofReveal } from "@/components/home/ProofReveal";
+import { ApprovalFlow, EntryChain } from "@/components/home/ProcessDiagrams";
+import { ProcessFlow } from "@/components/home/ProcessFlow";
 import { Strengths } from "@/components/home/Strengths";
 import { TourRail } from "@/components/home/TourRail";
 import { TradesScene } from "@/components/home/TradesScene";
 import { VideoBlock } from "@/components/video/VideoBlock";
-import { WorkDeskScene } from "@/components/home/WorkDeskScene";
 
 export default function Page() {
   return (
@@ -20,16 +16,16 @@ export default function Page() {
       <TourRail />
       <HomeHero film={<VideoBlock id="master" />} />
       <Strengths />
-      <ModulesTour>
-        <IsoWorld props underlay={<Flows />} />
-      </ModulesTour>
-      <ProofReveal />
-      <WorkDeskScene />
-      <DashboardZoom />
+      <ProcessFlow />
+      <WorkDeskFeature />
+      <DashboardFeature />
+      <KpiFeature />
+      <EntryChain />
+      <ApprovalFlow />
+      <PlanningFeature />
+      <ProductionFeature />
       <NepalScene />
-      <ModuleTrack>
-        <ModuleCards />
-      </ModuleTrack>
+      <ModuleGrid />
       <TradesScene />
       <ClosingScene />
     </div>

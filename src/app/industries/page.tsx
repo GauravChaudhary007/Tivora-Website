@@ -4,8 +4,6 @@ import { trades, implementationSteps, flexible, easyToAdopt } from "@/content/tr
 import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
 import { CtaBand } from "@/components/layout/CtaBand";
-import { ButtonLink } from "@/components/ui/ButtonLink";
-import { Screen } from "@/components/ui/Screen";
 
 export const metadata: Metadata = pageMeta({
   title: "Industries",
@@ -63,24 +61,6 @@ export default function Page() {
                 ))}
               </tbody>
             </table>
-          </div>
-        </div>
-      </Section>
-
-      <Section tone="paper">
-        <div className="container-x grid items-center gap-stack-lg lg:grid-cols-12 lg:gap-8">
-          <div className="lg:col-span-5" data-reveal>
-            <h2>Alanza, for jewellery</h2>
-            <p className="mt-5 text-lead text-muted">
-              Alanza is the jewellery product from TiVora, for showrooms and workshops. From the showroom counter to the karigar&apos;s bench, it follows your metal.
-            </p>
-            <Bullets items={["Karigar / Workshop", "RFID", "Gold Loans", "Board rates"]} />
-            <div className="mt-8">
-              <ButtonLink href="/alanza/">See Alanza</ButtonLink>
-            </div>
-          </div>
-          <div className="lg:col-span-7" data-reveal>
-            <Screen slug="home-jewelry" sizes="(min-width: 1024px) 720px, 100vw" />
           </div>
         </div>
       </Section>

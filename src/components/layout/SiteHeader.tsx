@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { Logo } from "@/components/brand/Logo";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { CTA, appUrl, nav } from "@/content/site";
-import { GROUPS, modulePages } from "@/content/module-pages";
+import { GROUPS, modulePages, moduleHref } from "@/content/module-pages";
 import { ModulesMenu } from "./ModulesMenu";
 import { ModuleIcon } from "@/components/ui/ModuleIcon";
 
@@ -159,7 +159,7 @@ export function SiteHeader() {
                             .filter((m) => m.group === g)
                             .map((m) => (
                               <li key={m.slug}>
-                                <Link href={`/modules/${m.slug}/`} onClick={close} className="flex min-h-11 items-center gap-3 py-1.5">
+                                <Link href={moduleHref(m)} onClick={close} className="flex min-h-11 items-center gap-3 py-1.5">
                                   <ModuleIcon name={m.icon} className="size-9!" />
                                   <span>
                                     <span className="block font-bold leading-tight">{m.name}</span>

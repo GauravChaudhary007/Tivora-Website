@@ -108,26 +108,6 @@ export const modules: Module[] = [
     more: "Every setting in one place: company, users, documents, workflow, accounting and tax, each module, and your data and licence.",
     bullets: [],
   },
-  {
-    slug: "karigar", name: "Karigar / Workshop", icon: "Hammer", pack: "jewelry",
-    appLine: "Work orders, metal out to the bench, pieces back, wastage and labour.",
-    bullets: ["Work order, metal issue and production receipt", "Scrap and dust recovery", "Labour settlement net of TDS", "Fine-metal balance per karigar and wastage variance"],
-  },
-  {
-    slug: "manufacturing", name: "Manufacturing", icon: "FlaskConical", pack: "jewelry",
-    appLine: "Job bags weighed at every stage, casting flasks, diamond packets, QC and the loss audits.",
-    bullets: ["Job bags and casting", "A full factory floor"],
-  },
-  {
-    slug: "rfid", name: "RFID", icon: "ScanLine", pack: "jewelry",
-    appLine: "RFID tags on every piece, readers, counts in minutes and the exit-gate alert.",
-    bullets: ["RFID tagging", "Stock counts", "Exit-gate alerts"],
-  },
-  {
-    slug: "gold-loans", name: "Gold Loans", icon: "LockKeyhole", pack: "jewelry",
-    appLine: "Loans against pledged jewellery: valuation, interest, renewals, custody, notices and auctions.",
-    bullets: ["Valuation and interest", "Renewals and custody", "Notices and auctions"],
-  },
 ];
 
 /** Brochure p11: modules launching soon on the same platform. */

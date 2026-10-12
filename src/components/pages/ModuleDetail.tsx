@@ -4,8 +4,8 @@ import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
 import { CtaBand } from "@/components/layout/CtaBand";
 import { ModuleIcon } from "@/components/ui/ModuleIcon";
-import { Screen } from "@/components/ui/Screen";
-import type { ScreenSlug } from "@/content/screens";
+import { ModuleMoment } from "@/components/moments/ModuleMoment";
+import { MODULE_MOMENTS } from "@/content/module-moments";
 import { Bullets, StepList } from "@/components/pages/blocks";
 
 /** Shared body of /modules/<slug>/ and /alanza/modules/<slug>/. */
@@ -15,7 +15,7 @@ export function ModuleDetail({ m }: { m: ModulePage }) {
 
   return (
     <>
-      <PageHero eyebrow={m.group === "Alanza" ? "Alanza · from TiVora" : m.group} title={m.name} lead={m.tagline} />
+      <PageHero eyebrow={m.group} title={m.name} lead={m.tagline} />
 
       <Section tone="ground">
         <div className="container-x">
@@ -81,7 +81,6 @@ export function ModuleDetail({ m }: { m: ModulePage }) {
 
         <Section tone="paper">
           <div className="container-x space-y-stack-lg">
-            <Screen slug={`module-${m.slug}` as ScreenSlug} sizes="(min-width: 1024px) 960px, 100vw" className="mx-auto max-w-4xl" />
             {related.length > 0 && (
               <div data-reveal>
                 <h2 className="text-h3">Works with.</h2>
@@ -102,6 +101,20 @@ export function ModuleDetail({ m }: { m: ModulePage }) {
             )}
           </div>
         </Section>
+
+      {MODULE_MOMENTS[m.slug] && (
+        <Section tone="ground" id="at-work">
+          <div className="container-x grid items-center gap-stack-lg lg:grid-cols-12 lg:gap-10">
+            <div data-reveal="" className="lg:col-span-4">
+              <h2>{m.name}, at work.</h2>
+              <p className="mt-4 text-lead text-muted">The register, its key figures, and one entry acted on: the rest follows on its own.</p>
+            </div>
+            <div className="min-w-0 lg:col-span-8">
+              <ModuleMoment name={m.name} data={MODULE_MOMENTS[m.slug]} />
+            </div>
+          </div>
+        </Section>
+      )}
 
       <CtaBand />
     </>

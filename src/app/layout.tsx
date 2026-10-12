@@ -17,11 +17,11 @@ const plexMono = IBM_Plex_Mono({ variable: "--font-plex-mono", subsets: ["latin"
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: { default: "TiVora ERP · The ERP that works like your best manager", template: "%s · TiVora ERP" },
+  title: { default: "TiVora ERP · The ERP that tells you what's next", template: "%s · TiVora ERP" },
   description:
     "TiVora ERP from HiTech, Kathmandu, knows everything happening in your business, tells every person what to do next and why, and is customised for your industry and your way of working.",
   openGraph: {
-    title: "TiVora ERP · The ERP that works like your best manager",
+    title: "TiVora ERP · The ERP that tells you what's next",
     description: "One entry, every module: a Work Desk for every person, live dashboards, approvals and Nepal's tax and trade built in.",
     type: "website",
     siteName: "TiVora ERP",

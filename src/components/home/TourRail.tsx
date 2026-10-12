@@ -4,10 +4,14 @@ import { useEffect, useRef, useState } from "react";
 
 export const CHAPTERS = [
   { id: "tour-strengths", label: "Strengths" },
-  { id: "tour-process", label: "Modules tour" },
-  { id: "tour-screen", label: "Home screen" },
+  { id: "tour-process", label: "One process" },
   { id: "tour-workdesk", label: "Work Desk" },
-  { id: "tour-dashboards", label: "Dashboards" },
+  { id: "tour-dashboards", label: "Dashboard" },
+  { id: "tour-kpi", label: "KPIs" },
+  { id: "tour-entry", label: "One entry" },
+  { id: "tour-control", label: "Approvals" },
+  { id: "tour-planning", label: "Planning" },
+  { id: "tour-production", label: "Costing" },
   { id: "tour-nepal", label: "Made for Nepal" },
   { id: "tour-modules", label: "All modules" },
   { id: "tour-editions", label: "Industries" },

@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { pageMeta } from "@/lib/seo";
 import { modules, launchingSoon, engines, tradeFinanceExtra, type Module } from "@/content/modules";
-import type { ScreenSlug } from "@/content/screens";
 import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
 import { CtaBand } from "@/components/layout/CtaBand";
-import { Screen } from "@/components/ui/Screen";
 import { ModuleIcon } from "@/components/ui/ModuleIcon";
-import { ButtonLink } from "@/components/ui/ButtonLink";
 import { VideoBlock } from "@/components/video/VideoBlock";
 import { pageHrefForIndexSlug } from "@/content/module-pages";
+import { ModuleMoment } from "@/components/moments/ModuleMoment";
+import { PlanningMoment, ProductionMoment } from "@/components/moments/MakeMoments";
+import { MODULE_MOMENTS } from "@/content/module-moments";
 import { filmReady, type FilmId } from "@/content/videos";
 
 export const metadata: Metadata = pageMeta({
@@ -22,11 +22,9 @@ export const metadata: Metadata = pageMeta({
 
 const core = modules.filter((m) => m.pack === "core");
 
-const screenFor: Partial<Record<string, ScreenSlug>> = {
-  sales: "sales-dashboard",
-  finance: "finance-dashboard",
-  reports: "dashboards",
-};
+// Product moments under a module's block: the module's own moment where one exists, or the brochure's planning and production screens.
+const visualFor = (m: Module) =>
+  m.slug === "material-planning" ? <PlanningMoment /> : m.slug === "production" ? <ProductionMoment /> : MODULE_MOMENTS[m.slug] ? <ModuleMoment name={m.name} data={MODULE_MOMENTS[m.slug]} /> : null;
 
 const filmFor: Partial<Record<string, { id: FilmId; heading: string }>> = {
   sales: { id: "sales", heading: "From quotation to receipt, in a minute." },
@@ -59,8 +57,8 @@ function PageLink({ slug, name }: { slug: string; name: string }) {
 }
 
 function ModuleBlock({ m }: { m: Module }) {
-  const shot = screenFor[m.slug];
   // Heading and film both vanish in production while the film's files are missing.
+  const visual = ["sales", "finance", "reports", "material-planning", "production"].includes(m.slug) ? visualFor(m) : null;
   const f = filmFor[m.slug];
   const film = f && (process.env.NODE_ENV !== "production" || filmReady(f.id)) ? f : null;
   return (
@@ -80,7 +78,7 @@ function ModuleBlock({ m }: { m: Module }) {
         </div>
       )}
       {m.slug === "trade-finance" && <p className="mt-4 text-small text-muted">{tradeFinanceExtra}</p>}
-      {shot && <Screen slug={shot} sizes="(min-width: 1024px) 640px, 100vw" className="mt-8 max-w-2xl" />}
+      {visual && <div className="mt-8 max-w-2xl">{visual}</div>}
     </article>
   );
 }
@@ -119,7 +117,7 @@ export default function Page() {
         </div>
       </Section>
 
-      <Section tone="paper">
+      <Section tone="ground">
         <div className="container-x">
           <h2 data-reveal>Launching soon.</h2>
           <ul className="mt-stack-lg grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8" data-stagger>
@@ -135,7 +133,7 @@ export default function Page() {
         </div>
       </Section>
 
-      <Section tone="ground">
+      <Section tone="paper">
         <div className="container-x">
           <h2 data-reveal>Engines that run underneath every module.</h2>
           <dl className="mt-stack-lg grid gap-x-8 gap-y-6 sm:grid-cols-2" data-stagger>
@@ -150,19 +148,6 @@ export default function Page() {
             <strong>Intelligent by design.</strong> TiVora knows every open item across all modules and acts like your manager: it
             reminds you what to do, warns you what not to do, and shows the next step, so every job finishes on time.
           </p>
-        </div>
-      </Section>
-
-      <Section tone="paper" id="alanza">
-        <div className="container-x max-w-3xl" data-reveal>
-          <h2>Looking for jewellery?</h2>
-          <p className="mt-4 text-lead text-muted">
-            Alanza is a product of TiVora, built for jewellery. Its own modules, Karigar / Workshop, Manufacturing, RFID and Gold Loans, are
-            exclusive to Alanza and are not part of this list.
-          </p>
-          <div className="mt-stack">
-            <ButtonLink href="/alanza/" variant="secondary">See Alanza</ButtonLink>
-          </div>
         </div>
       </Section>
 

@@ -2,7 +2,7 @@
 export type Trade = { slug: string; name: string; status: "available" | "coming"; line: string; href?: string };
 
 export const trades: Trade[] = [
-  { slug: "jewelry", name: "Jewellery", status: "available", line: "Metal and stone tracking, purity, making charges, old gold, karigar management", href: "/alanza/" },
+  { slug: "jewelry", name: "Jewellery", status: "available", line: "Metal and stone tracking, purity, making charges, old gold, karigar management" },
   { slug: "paint", name: "Paint & Coatings", status: "available", line: "Shades and tinting, dealer schemes, volume pricing, batch control" },
   { slug: "fmcg", name: "FMCG", status: "available", line: "Distributor and retailer chain, schemes and promotions, route and beat" },
   { slug: "pharma", name: "Pharmacy", status: "available", line: "Batch and expiry, first expiry first out, near-expiry returns" },

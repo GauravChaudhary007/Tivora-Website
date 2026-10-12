@@ -4,7 +4,7 @@
 // figures presented as results, no counts of modules, no AI or price claims (IRD certified is an owner-approved claim).
 import type { IconName } from "./modules";
 
-export type ModuleGroup = "Core modules" | "Alanza";
+export type ModuleGroup = "Core modules";
 export type Highlight = { icon: IconName; title: string; what: string; why: string };
 export type ModulePage = {
   slug: string;
@@ -29,7 +29,6 @@ export type ModulePage = {
   indexSlug?: string;
 };
 
-/** Groups shown in the TiVora Modules menus. Alanza modules are exclusive to Alanza and have their own pages under /alanza/. */
 export const GROUPS: ModuleGroup[] = ["Core modules"];
 
 export const modulePages: ModulePage[] = [
@@ -59,7 +58,7 @@ export const modulePages: ModulePage[] = [
     ],
     reports: ["Sales Register (product-wise)", "Below-floor Sales", "Salesperson Performance", "Outstanding and Ageing", "Customer Order Register", "Goods on Approval Register"],
     alerts: ["A customer far over the credit limit (critical)", "Board rate not set today", "Customer orders past the promised date", "Goods on approval past the due-back date"],
-    connectsTo: ["inventory", "karigar", "finance", "tax-ird", "rfid", "customer-services"],
+    connectsTo: ["inventory", "finance", "tax-ird", "customer-services"],
     indexSlug: "sales",
   },
   {
@@ -88,7 +87,7 @@ export const modulePages: ModulePage[] = [
     ],
     reports: ["Purchase Register", "Old Gold Purchase Register", "Goods Received Not Billed", "Landed Cost Sheet", "Payables Ageing", "Purchase Order Outstanding"],
     alerts: ["Supplier payments due and overdue", "Open purchase items running late"],
-    connectsTo: ["inventory", "finance", "tax-ird", "trade-finance", "karigar"],
+    connectsTo: ["inventory", "finance", "tax-ird", "trade-finance"],
     indexSlug: "purchase",
   },
   {
@@ -117,118 +116,8 @@ export const modulePages: ModulePage[] = [
     ],
     reports: ["Serial / Tag Register", "Godown-wise Stock", "Stock Valuation and NRV", "Metal Open Position", "Hallmarking Register", "Melting and Refining Register"],
     alerts: ["Board rate not set (critical)", "Hallmarking batch past its due-back date", "Draft stock audits with serials missing"],
-    connectsTo: ["purchase", "sales", "karigar", "rfid", "factory", "finance"],
+    connectsTo: ["purchase", "sales", "finance"],
     indexSlug: "inventory",
-  },
-  {
-    slug: "karigar", name: "Karigar / Workshop", group: "Alanza", icon: "Hammer",
-    short: "Metal out, pieces back, labour",
-    tagline: "Work orders, metal out to the bench, pieces back, wastage and labour.",
-    description: "Metal issued to workshops in fine weight, wastage against allowance, production receipts, labour settlement with TDS and a full reconciliation, in TiVora ERP.",
-    forWho: ["Workshop manager"],
-    highlights: [
-      { icon: "Scale", title: "One reconciliation of metal, material and labour", what: "Metal is settled in fine weight, material by what physically comes back, labour as money, and the three never mix. Each karigar shows open jobs, metal balance, material out, pieces made and labour due.", why: "One screen shows what every karigar holds and owes." },
-      { icon: "ShieldCheck", title: "Wastage (Ghat) variance flagged per job", what: "Each receipt reckons its own wastage against the fine gold drawn, with allowed and actual grams and an over-allowance flag.", why: "Loss beyond allowance is caught job by job." },
-      { icon: "Gem", title: "Finished pieces received with consumption", what: "A production receipt brings pieces into stock, takes material out of work in progress and records the making charge.", why: "Stock, work in progress and labour all update from one entry." },
-      { icon: "Calculator", title: "Labour paid with TDS in one step", what: "A settlement holds the labour, the TDS withheld at the rate with or without PAN, the book it is paid from, and creates the payment voucher.", why: "Labour payment, tax and voucher are never separate jobs." },
-      { icon: "MapPin", title: "Work in progress by location", what: "Metal and stones now with karigars, by location, product and purity, on-hand and fine weight. The in-house factory is treated as a karigar.", why: "Know exactly where the metal is." },
-      { icon: "Repeat", title: "Scrap, dust and returns recovered", what: "Scrap and dust recovery and workshop returns post back into the fine metal ledger.", why: "Small recoveries are counted, not forgotten." },
-      { icon: "Gauge", title: "Issued, received and lost against allowance", what: "The dashboard shows fine gold issued against received by day and month, loss by karigar with the allowance marked, and labour owed.", why: "Spot who is over allowance before settlement." },
-    ],
-    workflow: [
-      { title: "Work order", detail: "From a customer order or for stock." },
-      { title: "Issue metal and stones", detail: "From the main store to work in progress." },
-      { title: "Bench work", detail: "The karigar makes the pieces." },
-      { title: "Production receipt", detail: "Finished pieces and scrap come back." },
-      { title: "Check the ghat variance", detail: "Actual loss against the allowance." },
-      { title: "Settle labour with TDS", detail: "Payment voucher is created automatically." },
-      { title: "Reconcile", detail: "Metal, material and money per karigar." },
-    ],
-    reports: ["Karigar Fine Metal Ledger", "Karigar Metal Balance", "Wastage (Ghat) Variance Register", "Work Order Outstanding", "Labour Settlement Register", "Issue / Receipt Register"],
-    alerts: ["Karigar metal not back (needs attention)", "Jobs past their due date", "Loss over the allowance"],
-    connectsTo: ["sales", "inventory", "factory", "finance", "tax-ird", "purchase"],
-    indexSlug: "karigar",
-  },
-  {
-    slug: "factory", name: "Jewelry Factory", group: "Alanza", icon: "FlaskConical",
-    short: "Job bags, casting, diamond packets",
-    tagline: "Job bags weighed at every stage, casting flasks, diamond packets, QC and the loss audits.",
-    description: "Job bags weighed at every gate, daily ghat register, casting yield per flask, diamond packets with setters and breakage audit, in TiVora ERP.",
-    forWho: ["Factory manager"],
-    highlights: [
-      { icon: "Scale", title: "A daily ghat register by department", what: "Per department and per day: opening, received, handed on, scrap, dust, loss, allowed and closing. It reads from the weighed gates, so a rework never rewrites an earlier day.", why: "Loss is pinned to a department and a day." },
-      { icon: "Gauge", title: "Casting yield and loss per flask", what: "Flask by flask: alloy, tree wax, metal required and poured, castings, buttons, loss and yield.", why: "Casting yield is measured per flask and per alloy." },
-      { icon: "Gem", title: "Diamond packets with setters", what: "A setter returns stones as set, broken, rejected or loose, and the packet cannot close a stone short. Tiles show packets out, carats out and the oldest packet.", why: "Diamonds are accountable to the carat." },
-      { icon: "ShieldCheck", title: "Setting and breakage audit", what: "Per packet, by setter and by sieve size: issued, set, broken and unaccounted, with within-norm or over-norm.", why: "See who breaks more than the norm and which sizes break." },
-      { icon: "BadgeCheck", title: "Quality checks at each stage", what: "The dashboard shows stages completed, passed first time, rework and rejected, alongside loss against norms by department.", why: "Quality problems show up where they start." },
-      { icon: "Coins", title: "Job bag cost and work in progress value", what: "A job bag cost register, valuation of work in progress on the floor and stage throughput and lateness.", why: "Know what is on the floor and what it is worth." },
-    ],
-    workflow: [
-      { title: "Job bag from a design and route", detail: "Each bag follows its route." },
-      { title: "Issue metal", detail: "Weighed out at the gate." },
-      { title: "Wax tree and casting", detail: "Poured in a flask." },
-      { title: "Filing, bagging and setting", detail: "Diamond packets go to setters." },
-      { title: "Polish and plating", detail: "Weighed on every handover." },
-      { title: "QC and tag", detail: "Rework or reject is recorded." },
-      { title: "Receive into stock", detail: "The piece becomes tagged stock." },
-    ],
-    reports: ["Daily Ghat Register", "Casting Yield and Loss", "Diamond Setting and Breakage Audit", "Job Bag Cost Register", "Stage Throughput and Lateness"],
-    alerts: ["Rush job bags late in a stage (critical)", "Packets waiting to be received from setting"],
-    connectsTo: ["karigar", "inventory", "sales", "finance"],
-    indexSlug: "manufacturing",
-  },
-  {
-    slug: "rfid", name: "RFID", group: "Alanza", icon: "ScanLine",
-    short: "Tag counts and exit-gate alerts",
-    tagline: "RFID tags on every piece, readers, counts in minutes and the exit-gate alert.",
-    description: "RFID tagging, stock counts in minutes and exit-gate alerts for tagged pieces that leave unbilled, in TiVora ERP.",
-    forWho: ["Stock controller"],
-    highlights: [
-      { icon: "Bell", title: "Exit-gate alerts", what: "A tagged piece read at the exit while the books say it is still in the shop: not billed, not on approval, not at the assay office or a karigar. One walk-out is one alert, and each is cleared with what was found.", why: "An unbilled piece cannot leave quietly." },
-      { icon: "Tag", title: "Tag coverage you can see", what: "A tile shows the share of owned pieces carrying a tag and how many are without.", why: "You know how much stock the readers can protect." },
-      { icon: "Search", title: "Counts closed in minutes", what: "A tray or showcase is counted and closes as found, missing or not expected. A missing piece stays open: find it or write it off.", why: "Counting stops being a day of work." },
-      { icon: "Eye", title: "Silent readers are visible", what: "Readers and printers show whether each reader sent a read in the last 24 hours, with a full read log.", why: "A dead reader is noticed before it matters." },
-      { icon: "Gauge", title: "Dashboard of tag activity", what: "Tags written by day, what the counts found, and exit-gate alerts by day.", why: "Trends in tagging and losses at a glance." },
-    ],
-    workflow: [
-      { title: "Tag pieces and print labels", detail: "Each piece gets its own tag." },
-      { title: "Place readers", detail: "At the counter and at the exit." },
-      { title: "Count a tray or showcase", detail: "Done in minutes." },
-      { title: "Review the result", detail: "Found, missing, not expected." },
-      { title: "Resolve exit-gate alerts", detail: "Clear each with what was found." },
-    ],
-    reports: ["RFID Read Log", "Counts register", "Exit Gate Alerts", "Tag coverage", "Readers and printers"],
-    alerts: ["Exit-gate read of an unsold piece (critical)", "Readers that have gone silent", "Pieces missing from a count"],
-    connectsTo: ["inventory", "sales", "karigar"],
-    indexSlug: "rfid",
-  },
-  {
-    slug: "gold-loans", name: "Gold Loans", group: "Alanza", icon: "LockKeyhole",
-    short: "LTV, interest, custody, auctions",
-    tagline: "Loans against pledged jewellery: valuation, interest, renewals, custody, notices and auctions.",
-    description: "Loans against pledged jewellery with LTV watch, monthly interest accrual, custody register, vault count and auctions, in TiVora ERP.",
-    forWho: ["Loan officer", "Owner"],
-    highlights: [
-      { icon: "Gauge", title: "LTV watch on every open loan", what: "For each loan: what is owed today against what the pledge is worth today, the loan-to-value ratio, the scheme's limit, and the payment needed to restore it.", why: "A gold price move reprices every pledge, and you see the weak ones first." },
-      { icon: "Calculator", title: "Month-end interest in one run", what: "Interest earned and not yet paid is brought into the books at each month end. Each run lists its voucher and loans, and can be cancelled.", why: "Monthly income recognition without a spreadsheet." },
-      { icon: "LockKeyhole", title: "Custody by safe and packet", what: "Each article is recorded by safe and packet with gross, net, tested purity, fine weight and the date it came into custody.", why: "You can say where every pledge is." },
-      { icon: "ClipboardCheck", title: "Vault count", what: "Open the safe, find each packet and tick it. A missing packet stays on the count for someone to chase, and nothing is corrected by the count.", why: "Gaps are chased, not smoothed over." },
-      { icon: "Banknote", title: "Large cash transactions flagged", what: "Cash at or above a threshold is listed with the borrower identity and voucher.", why: "Threshold reporting is ready when you need it." },
-      { icon: "Clock", title: "Notices, auctions and surplus", what: "Overdue loans move to notices and auction, and any surplus is payable to the borrower. The loan book, overdue, collections and auction registers keep the trail.", why: "Every step from default to auction is recorded." },
-    ],
-    workflow: [
-      { title: "Value and pledge", detail: "The article goes into a safe packet." },
-      { title: "Issue the loan under a scheme", detail: "Rate and LTV come from the scheme." },
-      { title: "Accrue interest monthly", detail: "One run at each month end." },
-      { title: "Collect or renew", detail: "Payments and renewals post to the loan." },
-      { title: "Send notices when overdue", detail: "The notice trail is kept." },
-      { title: "Auction if needed", detail: "Surplus is payable to the borrower." },
-      { title: "Count the vault", detail: "Tick each packet." },
-    ],
-    reports: ["Loan Book", "Overdue", "LTV Watch", "Interest and Fee Income", "Custody Register", "Auction Register"],
-    alerts: ["Unpaid auction surplus (critical)", "A loan notice that has run out", "A loan waiting to be opened"],
-    connectsTo: ["finance", "inventory", "tax-ird"],
-    indexSlug: "gold-loans",
   },
   {
     slug: "customer-services", name: "Customer Services", group: "Core modules", icon: "HeartHandshake",
@@ -387,13 +276,13 @@ export const modulePages: ModulePage[] = [
     ],
     reports: ["Annex 9", "Annex 13", "VAT Reconciliation", "CBMS Totals", "TDS by Party", "Income Tax Computation"],
     alerts: ["Taxable sales with no VAT (flagged by the Exceptions report)", "Open tax items awaiting review"],
-    connectsTo: ["sales", "purchase", "karigar", "finance", "trade-finance"],
+    connectsTo: ["sales", "purchase", "finance", "trade-finance"],
     indexSlug: "tax",
   },
 ];
 
-/** Alanza modules live under /alanza/modules/, TiVora core modules under /modules/. */
-export const moduleHref = (m: Pick<ModulePage, "slug" | "group">) => (m.group === "Alanza" ? `/alanza/modules/${m.slug}/` : `/modules/${m.slug}/`);
+/** Every module page lives at /modules/<slug>/. */
+export const moduleHref = (m: Pick<ModulePage, "slug">) => `/modules/${m.slug}/`;
 export const modulePageBySlug = (slug: string) => modulePages.find((m) => m.slug === slug);
 /** The /modules card for an entry in modules.ts links to its page when one exists. */
 export const pageHrefForIndexSlug = (indexSlug: string) => {

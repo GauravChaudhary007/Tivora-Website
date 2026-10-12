@@ -13,8 +13,8 @@ export function HomeHero({ film }: { film: ReactNode }) {
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-night/70 via-night/25 to-transparent" aria-hidden="true" />
         <div className="container-x relative grid items-center gap-stack-lg py-stack lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <p className="font-mono text-eyebrow font-medium text-gold uppercase">The ERP that tells you what&rsquo;s next</p>
-            <h1 className="mt-5 text-h1">The ERP that works like your best manager.</h1>
+            <p className="font-mono text-eyebrow font-medium text-gold uppercase">TiVora ERP</p>
+            <h1 className="mt-5 text-h1">The ERP that tells you what&rsquo;s next.</h1>
             <p className="mt-6 max-w-prose text-lead text-muted-dark">
               TiVora knows everything happening in your business, tells every person what to do next and why, and is customised for your industry and your way
               of working.

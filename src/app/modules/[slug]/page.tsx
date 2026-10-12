@@ -6,7 +6,7 @@ import { ModuleDetail } from "@/components/pages/ModuleDetail";
 
 export const dynamicParams = false;
 
-const list = modulePages.filter((m) => m.group === "Core modules");
+const list = modulePages;
 
 export function generateStaticParams() {
   return list.map((m) => ({ slug: m.slug }));

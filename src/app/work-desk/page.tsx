@@ -3,10 +3,9 @@ import { pageMeta } from "@/lib/seo";
 import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
 import { CtaBand } from "@/components/layout/CtaBand";
-import { Screen } from "@/components/ui/Screen";
+import { WorkDeskMoment } from "@/components/moments/WorkDeskMoment";
+import { DeptHealthMoment, ExecutiveMoment } from "@/components/moments/DashboardMoments";
 import { VideoSection } from "@/components/video/VideoSection";
-import { DashboardZoom } from "@/components/home/DashboardZoom";
-import { WorkDeskStills } from "@/components/home/WorkDeskStills";
 import { Bullets, DataTable, Eyebrow, StepList } from "@/components/pages/blocks";
 import { deskParts, deskReminders, deskStops, kpiLibrary, meetingSteps } from "@/content/platform";
 
@@ -17,11 +16,11 @@ export const metadata: Metadata = pageMeta({
   path: "/work-desk/",
 });
 
-// Three CRITICAL cards on the Work Desk screen, read left to right.
+// Examples of what sits under "Needs you now" (CEO brochure p3).
 const critical = [
+  { label: "Credit approval", body: "A customer's order goes for approval with the Decide button one click away." },
   { label: "Over the credit limit", body: "A customer's open bills pass the limit set for them, with Review one click away." },
-  { label: "Gold loan past its term", body: "A gold loan has run past its term, so the pledge can be followed up before interest piles up." },
-  { label: "RFID exit-gate read", body: "A tagged piece was read at the exit gate, so missing stock is flagged the moment it leaves." },
+  { label: "Order past its due date", body: "A manufacturing order is days late, with Receive one click away." },
 ];
 
 export default function Page() {
@@ -63,10 +62,7 @@ export default function Page() {
             </ol>
           </div>
           <div className="min-w-0 lg:col-span-7" data-reveal>
-            <div className="hidden lg:block">
-              <Screen slug="work-desk" sizes="(min-width: 1024px) 720px, 100vw" />
-            </div>
-            <WorkDeskStills />
+            <WorkDeskMoment />
           </div>
         </div>
       </Section>
@@ -100,7 +96,7 @@ export default function Page() {
             </p>
           </div>
           <div className="lg:order-1 lg:col-span-7" data-reveal>
-            <Screen slug="dashboards" sizes="(min-width: 1024px) 720px, 100vw" />
+            <DeptHealthMoment />
           </div>
         </div>
       </Section>
@@ -143,7 +139,11 @@ export default function Page() {
         </div>
       </Section>
 
-      <DashboardZoom pinned={false} />
+      <Section tone="paper">
+        <div className="container-x" data-reveal>
+          <div className="mx-auto max-w-4xl"><ExecutiveMoment /></div>
+        </div>
+      </Section>
 
       <CtaBand />
     </>

@@ -24,6 +24,8 @@
   --color-muted: #6b6457; /* secondary text on light */
   --color-ok: #2f6b3a; /* "Available now" pill text */
   --color-ok-tint: #e5efe2;
+  --color-no: #a33a2b; /* critical / overdue (brief stylesheet "no") */
+  --color-no-tint: #f6e4df;
 
   /* DOCUMENTED, brief stylesheet dark theme */
   --color-gold-soft: #d3a65b; /* gold text/links on dark when gold feels heavy */
@@ -414,5 +416,248 @@
       animation-timeline: view();
       animation-range: entry 0% entry 55%;
     }
+  }
+}
+
+/* Process flow (home): seven stages light in turn with their captions, 3 s each, looping. CSS only. --i is the step index (the database bar is the last step). */
+.pf {
+  --step: 3s;
+  --cycle: 24s; /* 8 steps: seven stages and the database */
+}
+.pf-stages {
+  position: relative;
+}
+.pf-stages::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  inset: 3.25rem 4% auto 4%;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, var(--color-gold) 0 6px, transparent 6px 14px);
+  opacity: 0.55;
+  display: none;
+}
+@media (min-width: 1280px) {
+  .pf-stages::before {
+    display: block;
+  }
+}
+.pf-node {
+  z-index: 1;
+}
+.pf-caps {
+  display: grid;
+}
+.pf-cap {
+  grid-area: 1 / 1;
+}
+@keyframes pf-march {
+  to {
+    background-position: 14px 0;
+  }
+}
+@keyframes pf-node {
+  0%,
+  11% {
+    border-color: var(--color-gold);
+    background-color: var(--color-night-3);
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px -18px rgb(192 138 46 / 0.5);
+  }
+  13%,
+  100% {
+    border-color: var(--color-rule-dark);
+    background-color: var(--color-night-2);
+    transform: none;
+    box-shadow: none;
+  }
+}
+@keyframes pf-cap {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  2%,
+  11% {
+    opacity: 1;
+    transform: none;
+  }
+  12.5%,
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+@keyframes pf-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes pf-bar {
+  0%,
+  100% {
+    transform: scaleY(0.55);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+@keyframes pf-drop {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(14px);
+  }
+}
+@keyframes pf-road {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+@keyframes pf-tilt {
+  0%,
+  100% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(4deg);
+  }
+}
+@keyframes pf-needle {
+  0%,
+  100% {
+    transform: rotate(-50deg);
+  }
+  50% {
+    transform: rotate(30deg);
+  }
+}
+@keyframes pf-tickdraw {
+  from {
+    stroke-dashoffset: 24;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .pf-stages::before {
+    animation: pf-march 0.8s linear infinite;
+  }
+  .pf-node {
+    animation: pf-node var(--cycle) linear infinite;
+    animation-delay: calc(var(--i) * var(--step));
+  }
+  .pf-cap {
+    opacity: 0;
+    animation: pf-cap var(--cycle) linear infinite;
+    animation-delay: calc(var(--i) * var(--step));
+  }
+  .pf-caps {
+    min-height: 8.5rem;
+    align-items: center;
+  }
+  .pf-spin {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: pf-spin 8s linear infinite;
+  }
+  .pf-bar {
+    transform-box: fill-box;
+    transform-origin: bottom;
+    animation: pf-bar 2.4s ease-in-out infinite;
+    animation-delay: var(--d, 0s);
+  }
+  .pf-drop {
+    animation: pf-drop 2.2s ease-in-out infinite;
+  }
+  .pf-road {
+    animation: pf-road 0.9s linear infinite;
+  }
+  .pf-tilt {
+    transform-box: view-box;
+    transform-origin: 32px 18px;
+    animation: pf-tilt 3.2s ease-in-out infinite;
+  }
+  .pf-needle {
+    transform-box: view-box;
+    transform-origin: 32px 44px;
+    animation: pf-needle 3s ease-in-out infinite;
+  }
+  .pf-tick {
+    stroke-dasharray: 24;
+    animation: pf-tickdraw 2.4s ease-in-out infinite;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pf-caps {
+    display: block;
+  }
+  .pf-cap + .pf-cap {
+    margin-top: 1rem;
+  }
+}
+
+/* One-entry chain: a document dot travels the dotted line through the six steps; approval arrows pulse. Both stop for reduced motion. */
+.ec {
+  position: relative;
+}
+.ec::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  inset: 2.5rem 4% auto 4%;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, var(--color-gold) 0 6px, transparent 6px 14px);
+  opacity: 0.55;
+  display: none;
+}
+@media (min-width: 1280px) {
+  .ec::before {
+    display: block;
+  }
+}
+@keyframes ec-run {
+  from {
+    left: 4%;
+  }
+  to {
+    left: 96%;
+  }
+}
+@keyframes ap-pulse {
+  50% {
+    transform: translateX(6px);
+    opacity: 0.5;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .ec::after {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    top: 2.5rem;
+    left: 4%;
+    width: 12px;
+    height: 12px;
+    margin: -5px 0 0 -6px;
+    border-radius: 3px;
+    background: var(--color-gold-light);
+    box-shadow: 0 0 18px 4px rgb(192 138 46 / 0.6);
+    animation: ec-run 5s ease-in-out infinite alternate;
+    display: none;
+  }
+  @media (min-width: 1280px) {
+    .ec::after {
+      display: block;
+    }
+  }
+  .ap-arrow {
+    display: inline-block;
+    animation: ap-pulse 1.6s ease-in-out infinite;
   }
 }

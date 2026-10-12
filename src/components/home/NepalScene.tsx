@@ -1,12 +1,5 @@
-"use client";
-
-import { useRef } from "react";
 import { ModuleIcon } from "@/components/ui/ModuleIcon";
 import type { IconName } from "@/content/modules";
-import { MOTION_QUERIES, useScene } from "@/lib/scene";
-
-const HIDE = "inset(0% 100% 0% 0%)";
-const SHOW = "inset(0% 0% 0% 0%)";
 
 const Chip = ({ children }: { children: string }) => (
   <span className="rounded-full border border-rule-dark bg-night-3/60 px-2.5 py-0.5 text-small whitespace-nowrap text-ground">{children}</span>
@@ -30,28 +23,14 @@ function Tile({ icon, title, text, span = "", children }: { icon: IconName; titl
   );
 }
 
-/** Scene 5: Ready for Nepal. The giant 2083 fills gold once on enter, beside a compact bento of icon tiles (brochure p10 facts) that fits one screen. No pin. */
+/** Ready for Nepal: the giant 2083 beside a compact bento of icon tiles (brochure p10 facts) that fits one screen. Static: no scroll animation. */
 export function NepalScene() {
-  const root = useRef<HTMLElement>(null);
-  useScene(root, ({ gsap, ScrollTrigger }) => {
-    const mm = gsap.matchMedia();
-    const fill = gsap.utils.selector(root)("[data-fill]");
-    mm.add(`${MOTION_QUERIES.desktop}, ${MOTION_QUERIES.mobile}`, () => {
-      gsap.set(fill, { clipPath: HIDE });
-      ScrollTrigger.create({ trigger: fill[0], start: "top 85%", once: true, onEnter: () => gsap.to(fill, { clipPath: SHOW, duration: 1.4, ease: "expo.out" }) });
-    });
-    return () => mm.revert();
-  });
-
   return (
-    <section id="tour-nepal" ref={root} data-tone="night" className="overflow-hidden bg-night py-section-sm text-ground scheme-dark lg:py-section">
+    <section id="tour-nepal" data-tone="night" className="overflow-hidden bg-night py-section-sm text-ground scheme-dark lg:py-section">
       <div className="container-x">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:gap-12">
           <div className="relative shrink-0 font-display text-7xl leading-none font-semibold lg:text-8xl">
-            <span aria-hidden="true" className="block text-night-3">
-              2083
-            </span>
-            <span data-fill="" aria-hidden="true" className="absolute inset-0 text-gold">
+            <span aria-hidden="true" className="block text-gold">
               2083
             </span>
           </div>

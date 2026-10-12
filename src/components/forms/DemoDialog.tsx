@@ -40,7 +40,9 @@ export function DemoDialog() {
     const arm = () => {
       t = setTimeout(() => {
         try { if (localStorage.getItem("tivora-lead-sent")) return; } catch {}
-        if (document.hidden || location.pathname === "/contact/") return arm();
+        // Never cover a film that is playing: wait out the same interval and look again.
+        const playing = Array.from(document.querySelectorAll("video")).some((v) => !v.paused && !v.ended);
+        if (document.hidden || playing || location.pathname === "/contact/") return arm();
         shown.current++;
         opener.current = null;
         setTrade("");

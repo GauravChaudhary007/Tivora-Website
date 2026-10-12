@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { pageMeta } from "@/lib/seo";
-import { site, addressLine } from "@/content/site";
+import { site } from "@/content/site";
 import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
 import { CtaBand } from "@/components/layout/CtaBand";
-import { ButtonLink } from "@/components/ui/ButtonLink";
 
 export const metadata: Metadata = pageMeta({
   title: "About HiTech",
@@ -61,15 +60,10 @@ export default function Page() {
       <Section tone="paper">
         <div className="container-x grid gap-stack-lg lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-5" data-reveal>
-            <h2>Visit or call us.</h2>
-            <div className="mt-6">
-              <ButtonLink href={site.website} variant="ghost" className="sm:w-auto">{site.websiteLabel}</ButtonLink>
-              <ButtonLink href={site.productUrl} variant="ghost" className="mt-3 sm:ml-3 sm:mt-0 sm:w-auto">{site.productSite}</ButtonLink>
-            </div>
+            <h2>Call us.</h2>
           </div>
           <address className="space-y-3 not-italic lg:col-span-7" data-reveal>
             <p>{site.company}</p>
-            <p>{addressLine}</p>
             <ul className="space-y-1">
               {site.phones.map((p) => (
                 <li key={p.tel}>

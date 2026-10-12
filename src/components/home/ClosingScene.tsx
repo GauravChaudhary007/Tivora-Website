@@ -1,7 +1,7 @@
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Section } from "@/components/layout/Section";
 import { DemoForm } from "@/components/forms/DemoForm";
-import { addressLine, site } from "@/content/site";
+import { site } from "@/content/site";
 
 const link = "inline-flex min-h-11 items-center text-accent underline underline-offset-4 hover:text-bronze";
 
@@ -30,7 +30,6 @@ export function ClosingScene() {
           </div>
           <aside data-stagger="" className="lg:col-span-5" aria-label="Contact details">
             <h3>HiTech Solutions and Services</h3>
-            <address className="mt-4 text-muted not-italic">{addressLine}</address>
             <ul className="mt-4">
               {site.phones.map((p) => (
                 <li key={p.tel}>

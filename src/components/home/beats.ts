@@ -1,4 +1,6 @@
-import type { Mod } from "./world";
+type Mod =
+  | "planning" | "sales" | "purchase" | "inventory" | "production" | "maintenance" | "transport" | "customer"
+  | "finance" | "assets" | "trade" | "tax" | "reports" | "control";
 
 // The seven stages of the modules tour, in the order a business runs. `line` is grounded in the CEO brochure (p6, p7, p8, p11); `names` are the
 // modules' full names as the brochure gives them. Work Desk and Dashboards are the layer under every stage, not a stop.

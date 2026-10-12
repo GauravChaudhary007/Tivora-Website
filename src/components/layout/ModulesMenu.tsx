@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { GROUPS, modulePages } from "@/content/module-pages";
+import { GROUPS, modulePages, moduleHref } from "@/content/module-pages";
 import { ModuleIcon } from "@/components/ui/ModuleIcon";
 
 /**
@@ -128,7 +128,7 @@ export function ModulesMenu({ active }: { active: boolean }) {
                   .map((m) => (
                     <li key={m.slug}>
                       <Link
-                        href={`/modules/${m.slug}/`}
+                        href={moduleHref(m)}
                         data-menu-item
                         onClick={close}
                         className="flex min-h-11 items-center gap-3 rounded-lg px-3 py-2 hover:bg-tint focus-visible:bg-tint"
