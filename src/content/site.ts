@@ -37,7 +37,7 @@ export const nav = [
 ] as const;
 
 /** Sign-in for existing customers (opens the TiVora ERP app). */
-export const appUrl = "https://dev.tivoraerp.com";
+export const appUrl = "https://uat.tivoraerp.com";
 
 export const CTA = { label: "Request a demo", href: "/contact/" } as const;
 

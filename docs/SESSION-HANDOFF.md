@@ -33,7 +33,7 @@ Commands for the owner to run (in Git Bash or Command Prompt, inside the project
 ### Done and committed
 
 - **Home page order:** hero (with the film and the GatewayFlow canvas background), Strengths (HiTech figures plus four pillars including **IRD certified**), the 16-module process tour, "One Home" proof, Work Desk scene, dashboards, the "Ready for Nepal" bento, trades and closing form.
-- **Header and contact:** Login button to https://dev.tivoraerp.com, WhatsApp +977 9709117067, a Modules mega-menu dropdown (Core modules and Jewellery pack).
+- **Header and contact:** Login button to https://uat.tivoraerp.com, WhatsApp +977 9709117067, a Modules mega-menu dropdown (Core modules and Jewellery pack).
 - **Module pages:** 13 pages at `/modules/<slug>/` (sales, purchase, inventory, karigar, factory, rfid, gold-loans, customer-services, transport, finance, fixed-assets, trade-finance, tax-ird). Data lives in `src/content/module-pages.ts`; adding a module is one entry. Each page shows its own `module-<slug>` screenshot.
 - **Screenshots:** rebuilt from new 2x captures of the Jewelry company (no blur or cover). Registry is `src/content/screens.ts`, built by `scripts/prep-screens.mjs` into `public/screens/`. Capture with `node scripts/capture-app.mjs` (the owner signs in manually).
 - **Demo popup:** every "Request a demo" link opens the inquiry form in a native dialog (`src/components/forms/DemoDialog.tsx`); the link still navigates without JavaScript, on `/contact/`, or with modifier keys.
